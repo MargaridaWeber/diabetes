@@ -53,31 +53,9 @@
             <Button android:id="@+id/email_sign_in_button" style="?android:textAppearanceSmall"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal" />
 
         </LinearLayout>
     </ScrollView>
-
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_gravity="center_horizontal" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton2"
-        android:layout_gravity="center_horizontal" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New RadioButton"
-        android:id="@+id/radioButton" />
-
 </LinearLayout>
