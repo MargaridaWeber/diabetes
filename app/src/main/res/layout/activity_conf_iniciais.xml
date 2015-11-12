@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Tipo de diabetes "
-        android:id="@+id/textView"
+        android:id="@+id/tvTipoDiabetes"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -22,37 +22,21 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Switch"
         android:id="@+id/switch1"
-        android:layout_marginTop="49dp"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo 2"
-        android:id="@+id/radioButton"
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/switch1"
-        android:layout_alignEnd="@+id/switch1" />
-
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo 1"
-        android:id="@+id/radioButton2"
-        android:layout_above="@+id/radioButton"
-        android:layout_alignLeft="@+id/radioButton"
-        android:layout_alignStart="@+id/radioButton" />
+        android:layout_marginTop="56dp"
+        android:checked="false"
+        android:layout_below="@+id/tvTipoDiabetes"
+        android:layout_alignLeft="@+id/tvGliDesejada"
+        android:layout_alignStart="@+id/tvGliDesejada"
+        android:textOff="Não"
+        android:textOn="Sim" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Toma Insulina"
-        android:id="@+id/textView2"
+        android:id="@+id/tvInsulina"
         android:layout_alignTop="@+id/switch1"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -62,40 +46,40 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Limites de Glicemia"
-        android:id="@+id/textView3"
-        android:layout_below="@+id/switch1"
+        android:id="@+id/tvLimites"
+        android:layout_marginTop="48dp"
+        android:layout_below="@+id/switch2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="134dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Hipoglicemia"
-        android:id="@+id/txtHipo"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/tvHipo"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/tvLimites"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Hiperglicemia"
-        android:id="@+id/txtHiper"
-        android:layout_alignTop="@+id/txtHipo"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:id="@+id/tvHiper"
+        android:layout_alignTop="@+id/tvHipo"
+        android:layout_toRightOf="@+id/tvInsulina"
+        android:layout_toEndOf="@+id/tvInsulina" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Glicemia desejada"
-        android:id="@+id/txtGliDesejada"
-        android:layout_alignTop="@+id/txtHiper"
+        android:id="@+id/tvGliDesejada"
+        android:layout_alignTop="@+id/tvHiper"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -105,9 +89,9 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText"
-        android:layout_below="@+id/txtHipo"
-        android:layout_toLeftOf="@+id/textView8"
-        android:layout_toStartOf="@+id/textView8" />
+        android:layout_below="@+id/tvHipo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -116,11 +100,11 @@
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_alignTop="@+id/editText"
-        android:layout_alignRight="@+id/txtHiper"
-        android:layout_alignEnd="@+id/txtHiper"
+        android:layout_alignRight="@+id/tvHiper"
+        android:layout_alignEnd="@+id/tvHiper"
         android:layout_alignBottom="@+id/editText"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_toRightOf="@+id/tvInsulina"
+        android:layout_toEndOf="@+id/tvInsulina" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -130,15 +114,17 @@
         android:id="@+id/editText3"
         android:layout_alignTop="@+id/editText2"
         android:layout_alignLeft="@+id/switch1"
-        android:layout_alignStart="@+id/switch1" />
+        android:layout_alignStart="@+id/switch1"
+        android:layout_toLeftOf="@+id/textView10"
+        android:layout_toStartOf="@+id/textView10" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Exercicio Fisico"
-        android:id="@+id/textView7"
-        android:layout_centerVertical="true"
+        android:id="@+id/tvExercicio"
+        android:layout_above="@+id/switch2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -149,7 +135,8 @@
         android:text="mg/dL"
         android:id="@+id/textView8"
         android:layout_toStartOf="@+id/editText2"
-        android:layout_alignBottom="@+id/editText" />
+        android:layout_alignBottom="@+id/editText"
+        android:layout_toLeftOf="@+id/editText2" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -174,10 +161,38 @@
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Switch"
         android:id="@+id/switch2"
         android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/switch1"
+        android:layout_alignStart="@+id/switch1"
+        android:textOff="Não"
+        android:textOn="Sim" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignRight="@+id/tvGliDesejada"
+        android:layout_alignEnd="@+id/tvGliDesejada"
+        android:layout_above="@+id/tvInsulina"></RadioGroup>
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo 1"
+        android:id="@+id/rbTipo1"
+        android:checked="false"
+        android:layout_above="@+id/rbTipo2"
         android:layout_alignRight="@+id/switch1"
         android:layout_alignEnd="@+id/switch1" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo 2"
+        android:id="@+id/rbTipo2"
+        android:layout_alignTop="@+id/tvTipoDiabetes"
+        android:layout_alignLeft="@+id/rbTipo1"
+        android:layout_alignStart="@+id/rbTipo1"
+        android:checked="false" />
 
 </RelativeLayout>
