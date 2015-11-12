@@ -68,4 +68,14 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/login_form"
         android:layout_alignEnd="@+id/login_form" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Registar"
+        android:id="@+id/tvRegistar"
+        android:layout_alignTop="@+id/btnentrar"
+        android:layout_alignLeft="@+id/login_progress"
+        android:layout_alignStart="@+id/login_progress" />
 </RelativeLayout>

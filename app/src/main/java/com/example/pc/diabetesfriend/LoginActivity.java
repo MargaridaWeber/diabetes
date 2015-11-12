@@ -69,7 +69,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         Button btnentrar = (Button) findViewById(R.id.btnentrar);
+        TextView tvRegistar = (TextView) this.findViewById(R.id.tvRegistar);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -94,6 +96,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             }
         });
+
+        tvRegistar.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.activity_registo);
+            }
+        });
+
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
