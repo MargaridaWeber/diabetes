@@ -51,6 +51,16 @@
                 android:imeOptions="actionUnspecified" android:inputType="textPassword"
                 android:maxLines="1" android:singleLine="true" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Registar"
+                android:id="@+id/tvRegistar"
+                android:layout_alignTop="@+id/btnentrar"
+                android:layout_alignLeft="@+id/login_progress"
+                android:layout_alignStart="@+id/login_progress" />
+
             <Button android:id="@+id/email_sign_in_button" style="?android:textAppearanceSmall"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" android:text="@string/action_sign_in"
@@ -69,13 +79,4 @@
         android:layout_alignRight="@+id/login_form"
         android:layout_alignEnd="@+id/login_form" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Registar"
-        android:id="@+id/tvRegistar"
-        android:layout_alignTop="@+id/btnentrar"
-        android:layout_alignLeft="@+id/login_progress"
-        android:layout_alignStart="@+id/login_progress" />
 </RelativeLayout>

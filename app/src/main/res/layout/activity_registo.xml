@@ -15,9 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/etNome"
         android:hint="Nome" />
 
     <EditText
@@ -25,41 +24,50 @@
         android:layout_height="wrap_content"
         android:inputType="date"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/etDataNasc"
         android:layout_gravity="center_horizontal"
         android:hint="Data de Nascimento" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="43dp">
+        android:layout_height="43dp"
+        android:layout_weight="0.23"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="2dp"
+        android:weightSum="1">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Género"
-            android:id="@+id/tvLimites"
+            android:id="@+id/textView3"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Masculino"
-            android:id="@+id/rbTipo1"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+        <RadioGroup
+            android:layout_width="178dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp">
 
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Feminino"
-            android:id="@+id/radioButton2"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/rbTipo1"
-            android:layout_toEndOf="@+id/rbTipo1" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Masculino"
+                android:id="@+id/rdMasculino"
+                android:checked="true" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Feminino"
+                android:id="@+id/rbFeminino"
+                android:checked="false" />
+        </RadioGroup>
+
     </LinearLayout>
 
     <LinearLayout
@@ -73,8 +81,8 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText3"
-            android:text="Peso" />
+            android:id="@+id/etPeso"
+            android:hint="Peso" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -88,9 +96,10 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText4"
-            android:text="Altura"
-            android:layout_weight="0.05" />
+            android:id="@+id/etAltura"
+            android:layout_weight="0.05"
+            android:layout_marginLeft="20dp"
+            android:hint="Altura" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -105,36 +114,36 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText5"
-        android:text="E-mail" />
+        android:id="@+id/etEmail"
+        android:hint="E-mail" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/editText6"
-        android:text="Password" />
+        android:id="@+id/etPassword"
+        android:hint="Password" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.05">
+        android:layout_weight="0.05"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="2dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Antecedentes"
-            android:id="@+id/textView6" />
 
         <Switch
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
-            android:id="@+id/switch1" />
+            android:text="Antecedentes"
+            android:id="@+id/switch1"
+            android:textAllCaps="false"
+            android:textOff="Não"
+            android:textOn="Sim" />
     </LinearLayout>
 
     <Button
@@ -143,5 +152,13 @@
         android:text="Registar"
         android:id="@+id/btnRegistar"
         android:layout_gravity="right" />
+
+    <Spinner
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:prompt="@string/spinner_title"
+        android:spinnerMode="dialog"
+        android:layout_weight="0.33" />
 
 </LinearLayout>
