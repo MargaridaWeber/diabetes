@@ -1,55 +1,57 @@
 package com.example.pc.diabetesfriend;
 
+import android.app.ActionBar;
 import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.Button;
+import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-import android.widget.AdapterView.OnItemSelectedListener;
+public class Registo extends Activity implements AdapterView.OnItemSelectedListener{
 
-public class Registo extends Activity implements OnItemSelectedListener {
+    private Button button;
+    private TextView resultText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        /*ActionBar actionBar = getActionBar();
+        actionBar.show();*/
 
+        //Receber valores dos objectos
+        Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        //Spinner
+        ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_list_item_single_choice);
+        spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        List<String> categorias = new ArrayList<String>();
-        categorias.add("Masculino");
-        categorias.add("Feminino");
 
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categorias);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spinner.setAdapter(dataAdapter);
-
+        btnRegistar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String text = spinner.getSelectedItem().toString();
+                Toast.makeText(getApplicationContext(), "Toast"+text, Toast.LENGTH_LONG).show();
+            }
+        });
     }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
 
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        Toast.makeText(parent.getContext(), "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
     }
 
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
 
     }
 

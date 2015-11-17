@@ -31,8 +31,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="43dp"
-        android:layout_weight="0.23"
+        android:layout_height="27dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="2dp"
@@ -48,25 +47,14 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <RadioGroup
-            android:layout_width="178dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Masculino"
-                android:id="@+id/rdMasculino"
-                android:checked="true" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Feminino"
-                android:id="@+id/rbFeminino"
-                android:checked="false" />
-        </RadioGroup>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:spinnerMode="dialog"
+            android:prompt="@string/spinner_title"
+            android:entries="@array/genero"
+            android:paddingLeft="20dp" />
 
     </LinearLayout>
 
@@ -152,13 +140,5 @@
         android:text="Registar"
         android:id="@+id/btnRegistar"
         android:layout_gravity="right" />
-
-    <Spinner
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:prompt="@string/spinner_title"
-        android:spinnerMode="dialog"
-        android:layout_weight="0.33" />
 
 </LinearLayout>
