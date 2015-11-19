@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
             android:spinnerMode="dialog"
-            android:prompt="@string/spinner_title"
+            android:prompt="@string/spinner_genero"
             android:entries="@array/genero"
             android:paddingLeft="20dp" />
 

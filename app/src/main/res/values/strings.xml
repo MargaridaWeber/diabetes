@@ -28,11 +28,17 @@
 
 
     <!--Spinner Genero-->
-    <string name="spinner_title">Género</string>
-
+    <string name="spinner_genero">Género</string>
     <string-array name="genero">
         <item>Masculino</item>
         <item>Feminino</item>
+    </string-array>
+
+    <!--Spinner Tipo Diabetes-->
+    <string name="spinner_tipo">Género</string>
+    <string-array name="tipo">
+        <item>Tipo I</item>
+        <item>Tipo II</item>
     </string-array>
 
 </resources>

@@ -2,7 +2,11 @@ package com.example.pc.diabetesfriend;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,10 +42,15 @@ public class Registo extends Activity implements AdapterView.OnItemSelectedListe
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String text = spinner.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), "Toast"+text, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Toast" + text, Toast.LENGTH_LONG).show();
+
             }
         });
+
+
     }
+
+
 
 
     @Override
@@ -55,4 +64,6 @@ public class Registo extends Activity implements AdapterView.OnItemSelectedListe
 
     }
 
+
 }
+

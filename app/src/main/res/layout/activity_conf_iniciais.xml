@@ -1,198 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.ConfIniciaisActivity">
+
+    tools:context="com.example.pc.diabetesfriend.ConfIniciaisActivity"
+    android:orientation="vertical"
+    android:weightSum="1">
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Tipo de diabetes "
-        android:id="@+id/tvTipoDiabetes"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
-
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/switch1"
-        android:layout_marginTop="56dp"
-        android:checked="false"
-        android:layout_below="@+id/tvTipoDiabetes"
-        android:layout_alignLeft="@+id/tvGliDesejada"
-        android:layout_alignStart="@+id/tvGliDesejada"
-        android:textOff="Não"
-        android:textOn="Sim" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Toma Insulina"
-        android:id="@+id/tvInsulina"
-        android:layout_alignTop="@+id/switch1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Limites de Glicemia"
-        android:id="@+id/tvLimites"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/switch2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Hipoglicemia"
-        android:id="@+id/tvHipo"
-        android:layout_marginTop="42dp"
-        android:layout_below="@+id/tvLimites"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Hiperglicemia"
-        android:id="@+id/tvHiper"
-        android:layout_alignTop="@+id/tvHipo"
-        android:layout_toRightOf="@+id/tvInsulina"
-        android:layout_toEndOf="@+id/tvInsulina" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Glicemia desejada"
-        android:id="@+id/tvGliDesejada"
-        android:layout_alignTop="@+id/tvHiper"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_below="@+id/tvHipo"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_alignTop="@+id/editText"
-        android:layout_alignRight="@+id/tvHiper"
-        android:layout_alignEnd="@+id/tvHiper"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toRightOf="@+id/tvInsulina"
-        android:layout_toEndOf="@+id/tvInsulina" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/editText3"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignLeft="@+id/switch1"
-        android:layout_alignStart="@+id/switch1"
-        android:layout_toLeftOf="@+id/textView10"
-        android:layout_toStartOf="@+id/textView10" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Exercicio Fisico"
-        android:id="@+id/tvExercicio"
-        android:layout_above="@+id/switch2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="mg/dL"
-        android:id="@+id/textView8"
-        android:layout_toStartOf="@+id/editText2"
-        android:layout_alignBottom="@+id/editText"
-        android:layout_toLeftOf="@+id/editText2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="mg/dL"
-        android:id="@+id/textView9"
-        android:layout_alignBottom="@+id/editText2"
-        android:layout_toLeftOf="@+id/editText3"
-        android:layout_toStartOf="@+id/editText3" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="mg/dL"
-        android:id="@+id/textView10"
-        android:layout_alignBottom="@+id/editText3"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/switch2"
-        android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/switch1"
-        android:layout_alignStart="@+id/switch1"
-        android:textOff="Não"
-        android:textOn="Sim" />
-
-    <RadioGroup
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignRight="@+id/tvGliDesejada"
-        android:layout_alignEnd="@+id/tvGliDesejada"
-        android:layout_above="@+id/tvInsulina"></RadioGroup>
+        android:layout_height="wrap_content"
+        android:layout_weight="0.08">
 
-    <RadioButton
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Tipo de Diabetes"
+            android:id="@+id/tvTipo" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:spinnerMode="dialog"
+            android:prompt="@string/spinner_tipo"
+            android:entries="@array/tipo"
+            android:paddingLeft="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_weight="0.18">
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toma insulina"
+            android:id="@+id/switch2"
+            android:checked="false"
+            android:textOff="Não"
+            android:textOn="Sim" />
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exercício Físico"
+            android:id="@+id/switch3"
+            android:checked="false"
+            android:layout_marginTop="20dp"
+            android:textOff="Não"
+            android:textOn="Sim" />
+
+    </LinearLayout>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tipo 1"
-        android:id="@+id/rbTipo1"
-        android:checked="false"
-        android:layout_above="@+id/rbTipo2"
-        android:layout_alignRight="@+id/switch1"
-        android:layout_alignEnd="@+id/switch1" />
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_weight="0.08" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tipo 2"
-        android:id="@+id/rbTipo2"
-        android:layout_alignTop="@+id/tvTipoDiabetes"
-        android:layout_alignLeft="@+id/rbTipo1"
-        android:layout_alignStart="@+id/rbTipo1"
-        android:checked="false" />
-
-</RelativeLayout>
+</LinearLayout>

@@ -1,7 +1,16 @@
 package com.example.pc.diabetesfriend;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 public class ConfIniciaisActivity extends AppCompatActivity {
 
@@ -9,5 +18,16 @@ public class ConfIniciaisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conf_iniciais);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner2);
+
+        //Spinner
+        ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_spinner_item);
+        spinner.setAdapter(adapter);
+
+
     }
+
+
+
 }
