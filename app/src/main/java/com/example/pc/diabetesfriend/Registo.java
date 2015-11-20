@@ -26,8 +26,7 @@ public class Registo extends Activity implements AdapterView.OnItemSelectedListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo);
 
-        /*ActionBar actionBar = getActionBar();
-        actionBar.show();*/
+        //getActionBar().show();
 
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
@@ -43,7 +42,6 @@ public class Registo extends Activity implements AdapterView.OnItemSelectedListe
             public void onClick(View v) {
                 String text = spinner.getSelectedItem().toString();
                 Toast.makeText(getApplicationContext(), "Toast" + text, Toast.LENGTH_LONG).show();
-
             }
         });
 

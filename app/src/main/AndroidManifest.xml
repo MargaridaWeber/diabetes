@@ -41,6 +41,7 @@
             android:name=".Registo"
             android:label="@string/title_activity_registo">
         </activity>
+
     </application>
 
 </manifest>
