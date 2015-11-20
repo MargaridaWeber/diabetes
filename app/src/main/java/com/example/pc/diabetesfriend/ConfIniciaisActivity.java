@@ -25,8 +25,6 @@ import java.util.Map;
 
 public class ConfIniciaisActivity extends ListActivity {
 
-
-
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +58,22 @@ public class ConfIniciaisActivity extends ListActivity {
 
         };
         setListAdapter(adaptador);
+
     }
 
 
+    //Quando selecionamos no item
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
 
+        Object o = this.getListAdapter().getItem(position);
+        String lst = o.toString();
+
+        openDialog();
+        //Apresentar o item clicado
+        Toast.makeText(this, "Você clicou no : " + lst, Toast.LENGTH_LONG).show();
+    }
 
 
     private void openDialog() {
@@ -83,7 +93,7 @@ public class ConfIniciaisActivity extends ListActivity {
             }
         });
 
-        dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
