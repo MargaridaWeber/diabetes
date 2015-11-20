@@ -27,8 +27,6 @@ public class ConfIniciaisActivity extends ListActivity {
 
 
 
-
-    public ListView listaConf;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,18 +35,31 @@ public class ConfIniciaisActivity extends ListActivity {
 
         //getActionBar().show();
 
-        final List<String[] > list;
+        final List<String[]> listaConf = new LinkedList<String[]>();
 
-        listaConf = (ListView) findViewById(R.id.lvConf);
-        list=new LinkedList<String []>();
-
-        list.add( new String[] {"Tipo de Diabetes" ,"tipo"} );
-        list.add(new String[]{"Tipo de Diabetes", "tipo"});
+        listaConf.add(new String[]{"Tipo de Diabetes", "tipo"});
+        listaConf.add(new String[]{"Toma Insulina", "sim"});
+        listaConf.add(new String[]{"Faz exercicio", "sim"});
 
 
-        ArrayAdapter<String []> adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, list) ;
+
+        ArrayAdapter<String[]> adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                String[]entrey =listaConf.get(position);
+
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                text1.setText(entrey[0]);
+                text2.setText(entrey[1]);
+                return view;
+            }
+
+        };
         setListAdapter(adaptador);
-
     }
 
 
