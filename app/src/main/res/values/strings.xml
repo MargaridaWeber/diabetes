@@ -35,10 +35,11 @@
     </string-array>
 
     <!--Spinner Tipo Diabetes-->
-    <string name="spinner_tipo">Género</string>
+    <string name="spinner_tipo">Tipos Diabetes</string>
     <string-array name="tipo">
+         <item>Tipo II</item>
         <item>Tipo I</item>
-        <item>Tipo II</item>
     </string-array>
+    <string name="title_activity_configuracao">Configurações</string>
 
 </resources>

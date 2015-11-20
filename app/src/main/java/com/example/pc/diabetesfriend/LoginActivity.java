@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -105,7 +106,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         btnentrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                setContentView(R.layout.activity_conf_iniciais);
+                Intent conf = new Intent(getApplicationContext(),ConfIniciaisActivity.class);
+                startActivity(conf);
             }
         });
 
@@ -113,8 +115,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_registo);
-                //openDialog();
+                Intent registo = new Intent(getApplicationContext(),Registo.class);
+                startActivity(registo);
+
             }
         });
 
@@ -377,34 +380,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = null;
             showProgress(false);
         }
-
-    }
-
-    private void openDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Limites de Glicemia");
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View v = inflater.inflate(R.layout.view, null);
-
-        dialog.setView(v);
-
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        dialog.show();
 
     }
 
