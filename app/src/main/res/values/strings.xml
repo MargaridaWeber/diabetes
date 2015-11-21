@@ -26,7 +26,7 @@
     <!- -->
     <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 
-
+    <string name="title_activity_configuracao">Configurações</string>
     <!--Spinner Genero-->
     <string name="spinner_genero">Género</string>
     <string-array name="genero">
@@ -34,12 +34,23 @@
         <item>Feminino</item>
     </string-array>
 
-    <!--Spinner Tipo Diabetes-->
-    <string name="spinner_tipo">Tipos Diabetes</string>
+    <!--Tipo Diabetes-->
+    <string name="tipos_titulo">Tipos Diabetes</string>
     <string-array name="tipo">
-         <item>Tipo II</item>
         <item>Tipo I</item>
+        <item>Tipo II</item>
     </string-array>
-    <string name="title_activity_configuracao">Configurações</string>
+
+    <!--Exercicio-->
+    <string name="exercicio_titulo">Faz exercicio frequentemente?</string>
+    <string-array name="confirmacao">
+        <item>Sim</item>
+        <item>Não</item>
+    </string-array>
+
+    <string name="insulina_titulo">Toma insulina?</string>
+
+
+
 
 </resources>

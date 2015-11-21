@@ -7,8 +7,10 @@ import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -22,9 +24,12 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+
 
 public class ConfIniciaisActivity extends ListActivity {
-
+    private List<String[]> listaConf;
+    ArrayAdapter<String[]> adaptador;
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +38,16 @@ public class ConfIniciaisActivity extends ListActivity {
 
         //getActionBar().show();
 
-        final List<String[]> listaConf = new LinkedList<String[]>();
+        listaConf = new LinkedList<String[]>();
 
         listaConf.add(new String[]{"Tipo de Diabetes", "tipo"});
         listaConf.add(new String[]{"Toma Insulina", "sim"});
         listaConf.add(new String[]{"Faz exercicio", "sim"});
+        listaConf.add(new String[]{"Limites Glicemia", "Hipoglicemia","Glicemia desejada","Hipoglicemia" });
 
 
 
-        ArrayAdapter<String[]> adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
+         adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -67,13 +73,64 @@ public class ConfIniciaisActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
-        Object o = this.getListAdapter().getItem(position);
-        String lst = o.toString();
+        Object o = listaConf.get(position).toString();
 
-        openDialog();
-        //Apresentar o item clicado
-        Toast.makeText(this, "Você clicou no : " + lst, Toast.LENGTH_LONG).show();
+        //String  itemValue = (String) listView.getItemAtPosition(position);
+
+        int itemPosition = position;
+
+        if(itemPosition==0)
+            criarTipos();
+        else if(itemPosition==1)
+            insulina();
+        else if(itemPosition==2)
+            exercicio();
+        else if(itemPosition==3)
+            openDialog();
+
     }
+
+
+    private void criarTipos(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog . setTitle(R.string.tipos_titulo);
+                dialog.setSingleChoiceItems(R.array.tipo,-1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        AlertDialog tipos = dialog.create();
+        tipos.show();
+
+    }
+
+
+    private void exercicio(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog . setTitle ( R . string.exercicio_titulo)
+                . setSingleChoiceItems (R.array.confirmacao,-1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        AlertDialog tipos = dialog.create();
+        tipos.show();
+
+    }
+
+
+    private void insulina(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog . setTitle ( R . string.insulina_titulo)
+                . setSingleChoiceItems (R.array.confirmacao,-1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        AlertDialog tipos = dialog.create();
+        tipos.show();
+
+    }
+
 
 
     private void openDialog() {
