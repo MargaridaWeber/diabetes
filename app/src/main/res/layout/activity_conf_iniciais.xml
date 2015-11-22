@@ -11,8 +11,29 @@
 
 
     <ListView
-        android:layout_width="340dp"
-        android:layout_height="match_parent"
+        android:layout_width="325dp"
+        android:layout_height="301dp"
         android:id="@id/android:list"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="HipoGlicemia: "
+        android:id="@+id/hipo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Glicemia desejada: "
+        android:id="@+id/gliDes" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="HiperGlicemia: "
+        android:id="@+id/hiper" />
 
 </LinearLayout>
