@@ -14,6 +14,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.icon);
 
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>"));
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.show();
 
