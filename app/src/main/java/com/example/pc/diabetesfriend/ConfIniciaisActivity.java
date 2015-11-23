@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +36,6 @@ public class ConfIniciaisActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conf_iniciais);
 
-        //getActionBar().show();
 
         listaConf = new LinkedList<String[]>();
 
@@ -104,6 +106,7 @@ public class ConfIniciaisActivity extends ListActivity {
     }
 
 
+
     private void exercicio(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog . setTitle ( R . string.exercicio_titulo)
@@ -111,7 +114,6 @@ public class ConfIniciaisActivity extends ListActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
                         Toast.makeText(ConfIniciaisActivity.this, ""+ selectedPosition, Toast.LENGTH_SHORT).show();
-
                     }
                 });
         AlertDialog tipos = dialog.create();
@@ -123,7 +125,7 @@ public class ConfIniciaisActivity extends ListActivity {
     private void insulina(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog . setTitle ( R . string.insulina_titulo)
-                . setSingleChoiceItems (R.array.confirmacao,-1, new DialogInterface.OnClickListener() {
+                . setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
                     }
@@ -156,6 +158,10 @@ public class ConfIniciaisActivity extends ListActivity {
                 TextView mostrahipo = (TextView) findViewById(R.id.hipo);
                 TextView mostraGlidesejada = (TextView) findViewById(R.id.gliDes);
                 TextView mostrahiper = (TextView) findViewById(R.id.hiper);
+
+
+
+
 
                 //passar valores para a TextView
                 String vHipo = hipo.getText().toString();

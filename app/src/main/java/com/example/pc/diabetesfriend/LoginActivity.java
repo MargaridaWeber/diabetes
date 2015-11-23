@@ -3,9 +3,6 @@ package com.example.pc.diabetesfriend;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -27,16 +24,13 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -78,9 +72,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
 
+
         //actionBar.hide();
 
-        //getActionBar().hide();
+        actionBar.hide();
 
 
         Button btnentrar = (Button) findViewById(R.id.btnentrar);
@@ -129,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
     }
+
 
 
     private void populateAutoComplete() {

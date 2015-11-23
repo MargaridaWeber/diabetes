@@ -13,72 +13,97 @@
         android:layout_marginBottom="8dp" android:visibility="gone" />
 
 
+    <LinearLayout android:id="@+id/email_login_form" android:layout_width="fill_parent"
+        android:layout_height="fill_parent" android:orientation="vertical"
+        android:weightSum="1">
+
+        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.design.widget.TextInputLayout>
+
+        <ImageView
+            android:layout_width="189dp"
+            android:layout_height="142dp"
+            android:id="@+id/imageView"
+            android:src="@mipmap/icon"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.22" />
+
+        <TextView
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="DIABETES FRIEND"
+            android:textStyle="bold"
+            android:id="@+id/textView7"
+            android:textColor="#0060a2"
+            android:enabled="true"
+            android:gravity="center"
+            android:lineSpacingExtra="9dp"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Bem vindo(a) à nova aplicação de apoio a diabéticos!"
+            android:id="@+id/textView8"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:textColor="#ff6e00" />
+
+
+        <AutoCompleteTextView android:id="@+id/email" android:layout_width="348dp"
+            android:layout_height="wrap_content" android:hint="@string/prompt_email"
+            android:inputType="textEmailAddress" android:maxLines="1"
+            android:singleLine="true"
+            android:autoText="false" />
+
+        <EditText android:id="@+id/password" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="@string/prompt_password"
+            android:imeActionId="@+id/login"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionUnspecified" android:inputType="textPassword"
+            android:maxLines="1" android:singleLine="true" />
+
+        <Button android:id="@+id/btnLogin" style="?android:textAppearanceSmall"
+            android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" android:text="@string/action_sign_in"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Registar"
+            android:id="@+id/tvRegistar"
+            android:layout_alignTop="@+id/btnentrar"
+            android:layout_alignLeft="@+id/login_progress"
+            android:layout_alignStart="@+id/login_progress" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/btnentrar"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/login_form"
+            android:layout_alignEnd="@+id/login_form" />
+
+
+
+    </LinearLayout>
+
     <ScrollView android:id="@+id/login_form" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout android:id="@+id/email_login_form" android:layout_width="382dp"
-            android:layout_height="wrap_content" android:orientation="vertical"
-            android:layout_weight="1.05"
-            android:weightSum="1">
-
-            <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-            </android.support.design.widget.TextInputLayout>
-
-            <ImageView
-                android:layout_width="350dp"
-                android:layout_height="300dp"
-                android:id="@+id/imageView"
-                android:src="@mipmap/logo"
-                android:layout_weight="2.03" />
-
-            <AutoCompleteTextView android:id="@+id/email" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:hint="@string/prompt_email"
-                android:inputType="textEmailAddress" android:maxLines="1"
-                android:singleLine="true"
-                android:autoText="false" />
-
-            <EditText android:id="@+id/password" android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:hint="@string/prompt_password"
-                android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionUnspecified" android:inputType="textPassword"
-                android:maxLines="1" android:singleLine="true" />
-
-            <Button android:id="@+id/btnLogin" style="?android:textAppearanceSmall"
-                android:layout_width="fill_parent" android:layout_height="wrap_content"
-                android:layout_marginTop="16dp" android:text="@string/action_sign_in"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Registar"
-                android:id="@+id/tvRegistar"
-                android:layout_alignTop="@+id/btnentrar"
-                android:layout_alignLeft="@+id/login_progress"
-                android:layout_alignStart="@+id/login_progress" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/btnentrar"
-                android:layout_alignParentBottom="true"
-                android:layout_alignRight="@+id/login_form"
-                android:layout_alignEnd="@+id/login_form" />
-
-
-
-        </LinearLayout>
     </ScrollView>
 
 

@@ -11,29 +11,81 @@
 
 
     <ListView
-        android:layout_width="325dp"
-        android:layout_height="301dp"
+        android:layout_width="match_parent"
+        android:layout_height="238dp"
         android:id="@id/android:list"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HipoGlicemia: "
-        android:id="@+id/hipo" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Glicemia desejada: "
-        android:id="@+id/gliDes" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="HipoGlicemia "
+            android:lineSpacingExtra="9dp"
+            android:id="@+id/hipo"
+            android:layout_marginLeft="9dp"/>
 
-    <TextView
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=" mg/dL"
+            android:id="@+id/textView5" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Glicemia desejada "
+            android:lineSpacingExtra="9dp"
+            android:id="@+id/gliDes"
+            android:layout_marginLeft="9dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=" mg/dL"
+            android:id="@+id/textView4" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="HiperGlicemia "
+            android:lineSpacingExtra="9dp"
+            android:layout_marginLeft="9dp"
+            android:id="@+id/hiper" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/tvmgdl"
+            android:text=" mg/dL" />
+    </LinearLayout>
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="HiperGlicemia: "
-        android:id="@+id/hiper" />
+        android:text="Seguinte"
+        android:id="@+id/btnSeguinte"
+        android:layout_gravity="right" />
 
 </LinearLayout>
