@@ -16,7 +16,6 @@
         android:icon="@mipmap/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".LoginActivity"
             android:icon="@mipmap/icon"
@@ -31,11 +30,12 @@
 
         <activity
             android:name=".Registo"
-            android:label="@string/title_activity_registo"></activity>
+            android:label="@string/title_activity_registo" />
         <activity
             android:name=".ConfIniciaisActivity"
-            android:label="@string/title_activity_configuracao"></activity>
-
+            android:label="@string/title_activity_configuracao" />
+        <activity android:name=".PrincipalActivity"
+            android:label="@string/title_pricipal"></activity>
     </application>
 
 </manifest>

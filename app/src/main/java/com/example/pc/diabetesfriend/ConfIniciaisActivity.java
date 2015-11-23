@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -63,6 +65,16 @@ public class ConfIniciaisActivity extends ListActivity {
 
         };
         setListAdapter(adaptador);
+
+
+        Button btnseguinte = (Button) findViewById(R.id.btnSeguinte);
+        btnseguinte.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent principal = new Intent(getApplicationContext(), PrincipalActivity.class);
+                startActivity(principal);
+            }
+        });
+
 
     }
 
