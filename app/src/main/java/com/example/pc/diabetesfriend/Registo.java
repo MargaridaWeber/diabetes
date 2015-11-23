@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -43,13 +44,15 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.mipmap.icon);
 
+        //mete a cor do titulo da actionbar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>"));
+
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.show();
 
 
         //mete o icon do lado direito
-        getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+       // getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
 
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
@@ -70,7 +73,9 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
 
 
     }
-
+    @Override public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_main, menu); return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

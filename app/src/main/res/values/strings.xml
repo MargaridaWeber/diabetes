@@ -49,6 +49,6 @@
     </string-array>
 
     <string name="insulina_titulo">Toma insulina?</string>
-
+<string name="menu_item"/>
 
 </resources>

@@ -12,8 +12,8 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Glicemia"
+        android:id="@+id/btnglicemia"
         android:layout_marginTop="91dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -26,18 +26,18 @@
         android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button2"
-        android:layout_alignBottom="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_alignBottom="@+id/btnglicemia"
+        android:layout_toRightOf="@+id/btnglicemia"
+        android:layout_toEndOf="@+id/btnglicemia" />
 
     <Button
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:text="New Button"
         android:id="@+id/button3"
-        android:layout_below="@+id/button"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_below="@+id/btnglicemia"
+        android:layout_alignLeft="@+id/btnglicemia"
+        android:layout_alignStart="@+id/btnglicemia" />
 
     <Button
         android:layout_width="100dp"
