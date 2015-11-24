@@ -34,8 +34,11 @@
         <activity
             android:name=".ConfIniciaisActivity"
             android:label="@string/title_activity_configuracao" />
-        <activity android:name=".PrincipalActivity"
-            ></activity>
+        <activity android:name=".PrincipalActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

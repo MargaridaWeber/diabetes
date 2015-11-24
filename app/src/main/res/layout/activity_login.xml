@@ -86,17 +86,15 @@
             android:id="@+id/tvRegistar"
             android:layout_alignTop="@+id/btnentrar"
             android:layout_alignLeft="@+id/login_progress"
-            android:layout_alignStart="@+id/login_progress" />
+            android:layout_alignStart="@+id/login_progress"
+            android:layout_marginTop="50dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="New Button"
             android:id="@+id/btnentrar"
-            android:layout_alignParentBottom="true"
-            android:layout_alignRight="@+id/login_form"
-            android:layout_alignEnd="@+id/login_form" />
-
+            android:layout_gravity="center_horizontal" />
 
 
     </LinearLayout>

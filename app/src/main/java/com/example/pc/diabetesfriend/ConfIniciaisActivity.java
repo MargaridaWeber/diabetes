@@ -70,7 +70,7 @@ public class ConfIniciaisActivity extends ListActivity {
         Button btnseguinte = (Button) findViewById(R.id.btnSeguinte);
         btnseguinte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent principal = new Intent(getApplicationContext(), PrincipalActivity.class);
+                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(principal);
             }
         });
