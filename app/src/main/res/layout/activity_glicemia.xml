@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        android:orientation="vertical"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.example.pc.diabetesfriend.GlicemiaActivity"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.12">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Glicemia"
+            android:id="@+id/textView12" />
+
+        <EditText
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_alignBottom="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/tvglicemia" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="mg/dl"
+            android:id="@+id/textView11"
+            android:layout_alignTop="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/editText"
+            android:layout_toEndOf="@+id/editText" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="40dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Refeição"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/tvglicemia"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="122dp"
+            android:layout_height="41dp"
+            android:id="@+id/sprefeicao"
+            android:spinnerMode="dropdown"
+            android:layout_weight="0.41" />
+
+    </LinearLayout>
+
+
+    <!-- title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignParentBottom="true"
+        android:text="Informações adicionais"
+        android:textColor="#000000" />
+
+    <!--  divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="1dp"
+        android:layout_alignParentBottom="true"
+        android:background="#DADADC" ></View>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.12"
+        >
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Peso"
+            android:id="@+id/textView13" />
+
+        <EditText
+            android:layout_width="149dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText1"
+            android:layout_alignBottom="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/tvglicemia" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Kg"
+            android:id="@+id/textView14"
+            android:layout_alignTop="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/editText"
+            android:layout_toEndOf="@+id/editText" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.12">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Pressão Arterial"
+            android:id="@+id/textView15" />
+
+        <EditText
+            android:layout_width="109dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:layout_alignBottom="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/tvglicemia" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="mmHg"
+            android:id="@+id/textView16"
+            android:layout_alignTop="@+id/tvglicemia"
+            android:layout_toRightOf="@+id/editText"
+            android:layout_toEndOf="@+id/editText" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:text="Guardar"
+        android:id="@+id/btnguardar"
+        android:layout_gravity="right" />
+
+
+</LinearLayout>

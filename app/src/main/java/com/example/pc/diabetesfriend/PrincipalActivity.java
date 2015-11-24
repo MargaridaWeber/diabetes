@@ -1,6 +1,7 @@
 package com.example.pc.diabetesfriend;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -11,6 +12,7 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 public class PrincipalActivity extends AppCompatActivity {
 
@@ -27,6 +29,15 @@ public class PrincipalActivity extends AppCompatActivity {
 
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
+
+
+        Button btngli = (Button) findViewById(R.id.btnglicemia);
+        btngli.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent principal = new Intent(getApplicationContext(), GlicemiaActivity.class);
+                startActivity(principal);
+            }
+        });
 
 
     }
