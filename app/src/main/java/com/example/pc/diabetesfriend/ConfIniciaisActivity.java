@@ -41,12 +41,10 @@ public class ConfIniciaisActivity extends ListActivity {
 
         listaConf = new LinkedList<String[]>();
 
-        listaConf.add(new String[]{"Tipo de Diabetes", "tipo"});
-        listaConf.add(new String[]{"Toma Insulina", "sim"});
-        listaConf.add(new String[]{"Faz exercicio", "sim"});
+        listaConf.add(new String[]{"Tipo de Diabetes", "Tipo"});
+        listaConf.add(new String[]{"Toma Insulina", "Sim"});
+        listaConf.add(new String[]{"Faz exercício", "Sim"});
         listaConf.add(new String[]{"Limites Glicemia", "" });
-
-
 
          adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
 
