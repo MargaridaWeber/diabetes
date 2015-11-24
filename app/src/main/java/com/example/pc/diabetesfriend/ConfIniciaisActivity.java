@@ -41,7 +41,7 @@ public class ConfIniciaisActivity extends ListActivity {
 
         listaConf = new LinkedList<String[]>();
 
-        listaConf.add(new String[]{"Tipo de Diabetes", "Tipo"});
+        listaConf.add(new String[]{"Tipo de Diabetes", "Tipo II"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
         listaConf.add(new String[]{"Limites Glicemia", "" });
@@ -68,7 +68,7 @@ public class ConfIniciaisActivity extends ListActivity {
         Button btnseguinte = (Button) findViewById(R.id.btnSeguinte);
         btnseguinte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
+                Intent principal = new Intent(getApplicationContext(), PrincipalActivity.class);
                 startActivity(principal);
             }
         });
@@ -168,9 +168,6 @@ public class ConfIniciaisActivity extends ListActivity {
                 TextView mostrahipo = (TextView) findViewById(R.id.hipo);
                 TextView mostraGlidesejada = (TextView) findViewById(R.id.gliDes);
                 TextView mostrahiper = (TextView) findViewById(R.id.hiper);
-
-
-
 
 
                 //passar valores para a TextView
