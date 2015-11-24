@@ -72,9 +72,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
 
-
-        //actionBar.hide();
-
         actionBar.hide();
 
 

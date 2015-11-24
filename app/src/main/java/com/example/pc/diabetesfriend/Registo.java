@@ -59,7 +59,6 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String text = spinner.getSelectedItem().toString();
-                Toast.makeText(getApplicationContext(), "Toast" + text, Toast.LENGTH_LONG).show();
             }
         });
 
