@@ -1,10 +1,9 @@
 package com.example.pc.diabetesfriend;
 
-import android.annotation.TargetApi;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -22,14 +21,12 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_principal);
 
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
 
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
-
 
         Button btngli = (Button) findViewById(R.id.btnglicemia);
         btngli.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +35,6 @@ public class PrincipalActivity extends AppCompatActivity {
                 startActivity(principal);
             }
         });
-
 
     }
 
