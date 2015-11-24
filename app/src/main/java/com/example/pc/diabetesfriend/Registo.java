@@ -39,18 +39,12 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo);
 
+        //Action Bar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
-
-        //mete a cor do titulo da actionbar
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>"));
-
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.show();
-
-
-        //mete o icon do lado direito
-       // getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>")); //Cor do titulo
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
+        //actionBar.show(); //Mostra action bar
 
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);

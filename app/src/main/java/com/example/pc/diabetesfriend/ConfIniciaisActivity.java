@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,6 @@ public class ConfIniciaisActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conf_iniciais);
 
-
         listaConf = new LinkedList<String[]>();
 
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo"});
@@ -46,7 +46,7 @@ public class ConfIniciaisActivity extends ListActivity {
         listaConf.add(new String[]{"Faz exercício", "Sim"});
         listaConf.add(new String[]{"Limites Glicemia", "" });
 
-         adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
+        adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {

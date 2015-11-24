@@ -18,6 +18,25 @@
         android:weightSum="1"
         >
 
+        <!-- title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginBottom="4dp"
+            android:layout_alignParentBottom="true"
+            android:text="Dados pessoais"
+            android:textColor="#000000" />
+
+        <!--  divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#DADADC" ></View>
 
         <EditText
             android:layout_width="match_parent"
@@ -104,12 +123,44 @@
                 android:id="@+id/tvcm" />
         </LinearLayout>
 
+        <Switch
+            android:text="Antecedentes Cardaícos"
+            android:textAlignment="inherit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/switch1"
+            android:textAllCaps="false"
+            android:textOff="Não"
+            android:textOn="Sim"
+            android:textColor="#666666"/>
+
 
         <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="1">
+        android:weightSum="1"
+            android:layout_marginTop="30dp">
+
+            <!-- title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:textSize="16dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginBottom="4dp"
+                android:layout_alignParentBottom="true"
+                android:text="Conta"
+                android:textColor="#000000"/>
+
+            <!--  divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="#DADADC" ></View>
 
             <EditText
                     android:layout_width="match_parent"
@@ -127,16 +178,6 @@
             android:id="@+id/etPassword"
             android:hint="Password" />
         </LinearLayout>
-
-        <Switch
-            android:text="Antecedentes Cardaícos"
-            android:textAlignment="inherit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/switch1"
-            android:textAllCaps="false"
-            android:textOff="Não"
-            android:textOn="Sim" />
 
         <LinearLayout
             android:orientation="horizontal"
