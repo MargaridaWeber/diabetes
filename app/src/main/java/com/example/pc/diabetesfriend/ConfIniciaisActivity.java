@@ -134,12 +134,12 @@ public class ConfIniciaisActivity extends ListActivity {
 
     private void insulina(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog . setTitle ( R . string.insulina_titulo)
-                . setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
+        dialog . setTitle ( R . string.insulina_titulo);
+               dialog.setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int which) {
 
-                    }
-                });
+                   }
+               });
         AlertDialog tipos = dialog.create();
         tipos.show();
 
