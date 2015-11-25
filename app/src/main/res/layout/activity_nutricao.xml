@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -32,6 +32,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
+            <ScrollView
+                android:id="@+id/srcroll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
                 <LinearLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
@@ -39,17 +45,19 @@
                     android:orientation="vertical">
 
                     <!-- title -->
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Pequeno-Almoço"
-                        android:textColor="#000000"/>
+
+                        <TextView
+                            android:paddingTop="20dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textSize="16dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_alignParentBottom="true"
+                            android:text="Pequeno-Almoço"
+                            android:textColor="#000000"/>
+
 
                     <!--  divider -->
                     <View
@@ -95,7 +103,39 @@ Cereais integrais + café/chá sem açúcar ou com adoçante"
 Iogurte magro+ bolachas de agua e sal/integral/maria ou1/2 pão"
                         android:id="@+id/tvmanha" />
 
+
+                    <!-- title -->
+                    <TextView
+                        android:paddingTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Almoço"
+                        android:textColor="#000000"/>
+
+                    <!--  divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#DADADC" ></View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Prato de sopa
+Carne ou peixe (tamanho da palma da mão)
+Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa "
+                        android:id="@+id/tvalmocp" />
+
                 </LinearLayout>
+
+            </ScrollView>
 
                 <LinearLayout
                     android:id="@+id/tab2"
@@ -103,7 +143,9 @@ Iogurte magro+ bolachas de agua e sal/integral/maria ou1/2 pão"
                     android:layout_height="match_parent"
                     android:orientation="vertical"></LinearLayout>
 
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
-</RelativeLayout>
+
+</LinearLayout>

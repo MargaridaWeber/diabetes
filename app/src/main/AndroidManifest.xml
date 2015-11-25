@@ -38,8 +38,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
-        <activity android:name=".NutricaoActivity" />
-        <activity android:name=".Fragment"></activity>
+
+        <activity android:name=".NutricaoActivity"
+
+            />
+
     </application>
 
 </manifest>
