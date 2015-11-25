@@ -48,6 +48,15 @@ public class MainActivity extends AppCompatActivity
                 startActivity(principal);
             }
         });
+
+
+        Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
+        btnNutricao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent nutricao = new Intent(getApplicationContext(), NutricaoActivity.class);
+                startActivity(nutricao);
+            }
+        });
     }
 
 

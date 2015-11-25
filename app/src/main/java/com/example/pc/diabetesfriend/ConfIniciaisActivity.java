@@ -126,22 +126,24 @@ public class ConfIniciaisActivity extends ListActivity {
                         Toast.makeText(ConfIniciaisActivity.this, ""+ selectedPosition, Toast.LENGTH_SHORT).show();
                     }
                 });
-        AlertDialog tipos = dialog.create();
-        tipos.show();
+        AlertDialog exercicio = dialog.create();
+        exercicio.show();
 
     }
 
-
+AlertDialog insulina;
     private void insulina(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.ThemeDialogCustom);
         dialog . setTitle ( R . string.insulina_titulo);
                dialog.setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int which) {
+                       insulina.dismiss();
 
                    }
                });
-        AlertDialog tipos = dialog.create();
-        tipos.show();
+        insulina = dialog.create();
+        insulina.show();
+
 
     }
 
