@@ -33,12 +33,16 @@
         <activity
             android:name=".ConfIniciaisActivity"
             android:label="@string/title_activity_configuracao" />
-        <activity android:name=".PrincipalActivity" />
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".GlicemiaActivity"></activity>
+        <activity android:name=".GlicemiaActivity" />
+
+        <activity android:name=".NutricaoActivity"
+
+            />
+
     </application>
 
 </manifest>
