@@ -58,6 +58,9 @@
     <string-array name="refeicoes">
         <item>Pequeno-Almoço</item>
         <item>Almoço</item>
+        <item>Lanche</item>
+        <item>Jantar</item>
+        <item>Ceia</item>
     </string-array>
 
 

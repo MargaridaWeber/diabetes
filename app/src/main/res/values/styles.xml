@@ -27,4 +27,7 @@
         <item name="android:textSize">100dip</item>
     </style>
 
+    <style name="Theme.AppCompat.Light.NoActionBar" parent="@style/Theme.AppCompat.Light">
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

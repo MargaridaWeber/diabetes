@@ -70,7 +70,8 @@
             android:layout_height="41dp"
             android:id="@+id/sprefeicao"
             android:spinnerMode="dropdown"
-            android:layout_weight="0.41" />
+            android:layout_weight="0.41"
+            android:entries="@array/refeicoes"/>
 
     </LinearLayout>
 

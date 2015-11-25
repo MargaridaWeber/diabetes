@@ -14,8 +14,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
             android:icon="@mipmap/icon"
@@ -34,6 +33,12 @@
         <activity
             android:name=".ConfIniciaisActivity"
             android:label="@string/title_activity_configuracao" />
+        <activity android:name=".PrincipalActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".GlicemiaActivity"></activity>
     </application>
 
 </manifest>
