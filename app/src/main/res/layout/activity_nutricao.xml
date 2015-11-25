@@ -70,8 +70,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pão(30gr)+ leite meio gordo/magro ou
-Cereais integrais + café/chá sem açúcar ou com adoçante"
+                        android:text="Pão(30gr) + Leite meio gordo/magro \nCereais integrais + café/chá sem açúcar ou com adoçante"
                         android:id="@+id/tvpequenoalmoco" />
 
                     <!-- title -->
@@ -99,8 +98,7 @@ Cereais integrais + café/chá sem açúcar ou com adoçante"
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fruta media+ bolachas de agua e sal/integral/maria ou
-Iogurte magro+ bolachas de agua e sal/integral/maria ou1/2 pão"
+                        android:text="Fruta média + bolachas de àgua e sal/integrais/maria \nIogurte magro + bolachas de àgua e sal/integrais/maria \n1/2 pão"
                         android:id="@+id/tvmanha" />
 
 
@@ -128,10 +126,96 @@ Iogurte magro+ bolachas de agua e sal/integral/maria ou1/2 pão"
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Prato de sopa
-Carne ou peixe (tamanho da palma da mão)
-Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa "
-                        android:id="@+id/tvalmocp" />
+                        android:text="Prato de sopa \nCarne ou peixe (tamanho da palma da mão) \nBatata (tamanho de um ovo) ou colheres de sopa de arroz ou massa
+\nFruta média \n(Saladas cruas ou legumes cozidos à vontade; tempero pouco azeite; Evitar os fritos)"
+                        android:id="@+id/tvalmoco" />
+
+
+
+
+                    <!-- title -->
+                    <TextView
+                        android:paddingTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Lanche (2 vezes)"
+                        android:textColor="#000000"/>
+
+                    <!--  divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#DADADC" ></View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pão + leite meio gordo/magro (café/chá sem açucar)\nIogurte magro + bolachas de àgua e sal/integrais/maria/tostadas
+                        \nFruta média + bolachas de àgua e sal/integrais/maria/tostadas"
+                        android:id="@+id/tvlanche" />
+
+
+                    <!-- title -->
+                    <TextView
+                        android:paddingTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Jantar"
+                        android:textColor="#000000"/>
+
+                    <!--  divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#DADADC" ></View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Semelhante ao almoço mas em menor quantidade"
+                        android:id="@+id/tvjantar" />
+
+
+                    <!-- title -->
+                    <TextView
+                        android:paddingTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Ceia"
+                        android:textColor="#000000"/>
+
+                    <!--  divider -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#DADADC" ></View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pão + Leite meio gordo/magro (café/chá sem açucar)\nIogurte magro + bolachas de àgua e sal/integrais/maria/tostadas \nFruta média + bolachas de àgua e sal/integrais/maria/tostadas "
+                        android:id="@+id/ceia" />
 
                 </LinearLayout>
 
