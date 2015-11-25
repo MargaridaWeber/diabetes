@@ -19,16 +19,19 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer,R.string.navigation_drawer_open, R.string.navigation_drawer_close );
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
+
 
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
