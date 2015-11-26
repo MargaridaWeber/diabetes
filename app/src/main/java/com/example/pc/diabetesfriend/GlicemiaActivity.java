@@ -23,6 +23,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar níveis diários </font>"));
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 

@@ -37,8 +37,8 @@
     <!--Tipo Diabetes-->
     <string name="tipos_titulo">Tipos Diabetes</string>
     <string-array name="tipo">
-        <item>Tipo I</item>
-        <item>Tipo II</item>
+        <item>Tipo 1</item>
+        <item>Tipo 2</item>
     </string-array>
 
     <!--Exercicio-->

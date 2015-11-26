@@ -41,7 +41,7 @@ public class ConfIniciaisActivity extends ListActivity {
 
         listaConf = new LinkedList<String[]>();
 
-        listaConf.add(new String[]{"Tipo de Diabetes", "Tipo II"});
+        listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
         listaConf.add(new String[]{"Limites Glicemia", "" });
@@ -98,16 +98,24 @@ public class ConfIniciaisActivity extends ListActivity {
     }
 
 
+    //Tipos
     AlertDialog tipos;
-
     private void criarTipos(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog . setTitle(R.string.tipos_titulo);
                 dialog.setSingleChoiceItems(R.array.tipo, -1, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(ConfIniciaisActivity.this, "" + which, Toast.LENGTH_SHORT).show();
-                        //para ela sair logo
-                        tipos.dismiss();
+                        int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
+
+                        if(selectedPosition==0){
+                            listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 1"});
+                            setListAdapter(adaptador);
+                        }
+                        else{
+                            listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 2"});
+                            setListAdapter(adaptador);
+                        }
+                        tipos.dismiss(); //Para sair logo
                     }
                 });
          tipos = dialog.create();
@@ -115,36 +123,53 @@ public class ConfIniciaisActivity extends ListActivity {
 
     }
 
-
-
-    private void exercicio(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog . setTitle ( R . string.exercicio_titulo)
-                . setSingleChoiceItems (R.array.confirmacao,-1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
-                        Toast.makeText(ConfIniciaisActivity.this, ""+ selectedPosition, Toast.LENGTH_SHORT).show();
-                    }
-                });
-        AlertDialog exercicio = dialog.create();
-        exercicio.show();
-
-    }
-
-AlertDialog insulina;
+    //Insulina
+    AlertDialog insulina;
     private void insulina(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.ThemeDialogCustom);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
         dialog . setTitle ( R . string.insulina_titulo);
                dialog.setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int which) {
-                       insulina.dismiss();
+                       int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
 
+                       if(selectedPosition==0){
+                           listaConf.set(1, new String[]{"Toma Insulina", "Sim"});
+                           setListAdapter(adaptador);
+                       }
+                       else{
+                           listaConf.set(1, new String[]{"Toma Insulina", "Não"});
+                           setListAdapter(adaptador);
+                       }
+                       insulina.dismiss(); //Para sair logo
                    }
                });
         insulina = dialog.create();
         insulina.show();
 
 
+    }
+
+    //Execício
+    AlertDialog exercicio;
+    private void exercicio(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog . setTitle ( R . string.exercicio_titulo)
+                . setSingleChoiceItems(R.array.confirmacao, -1, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        int selectedPosition = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
+
+                        if (selectedPosition == 0) {
+                            listaConf.set(2, new String[]{"Faz exercício", "Sim"});
+                            setListAdapter(adaptador);
+                        } else {
+                            listaConf.set(2, new String[]{"Faz exercício", "Não"});
+                            setListAdapter(adaptador);
+                        }
+                        exercicio.dismiss(); //Para sair logo
+                    }
+            });
+        exercicio = dialog.create();
+        exercicio.show();
     }
 
     View v;
@@ -167,18 +192,8 @@ AlertDialog insulina;
                 EditText gli =(EditText) v.findViewById(R.id.editText4);
                 EditText hiper = (EditText) v.findViewById(R.id.etHiper);
 
-                TextView mostrahipo = (TextView) findViewById(R.id.hipo);
-                TextView mostraGlidesejada = (TextView) findViewById(R.id.gliDes);
-                TextView mostrahiper = (TextView) findViewById(R.id.hiper);
-
-
-                //passar valores para a TextView
-                String vHipo = hipo.getText().toString();
-                mostrahipo.append(vHipo);
-                String vGli = gli.getText().toString();
-                mostraGlidesejada.append(vGli);
-                String vHiper= hiper.getText().toString();
-                mostrahiper.append(vHiper);
+                listaConf.set(3, new String[]{"Limites Glicemia", "Hipoglicemia: "+hipo.getText().toString()+" mg/DL \nGlicemia Desejada: "+gli.getText().toString()+" mg/dL \nHiperglicemia: "+hiper.getText().toString()+" mg/dL"});
+                setListAdapter(adaptador);
             }
         });
 
