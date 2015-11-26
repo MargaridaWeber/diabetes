@@ -30,8 +30,8 @@
     <!--Spinner Genero-->
     <string name="spinner_genero">Género</string>
     <string-array name="genero">
-        <item>Masculino</item>
         <item>Feminino</item>
+        <item>Masculino</item>
     </string-array>
 
     <!--Tipo Diabetes-->
@@ -62,6 +62,5 @@
         <item>Jantar</item>
         <item>Ceia</item>
     </string-array>
-
 
 </resources>

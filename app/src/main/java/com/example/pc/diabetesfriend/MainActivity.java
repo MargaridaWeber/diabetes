@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,21 +23,19 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tolbar);
+        setSupportActionBar(toolbar);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer,R.string.navigation_drawer_open, R.string.navigation_drawer_close );
-
-
-
-
+                this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close );
 
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
-
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // Handle navigation dialoglimites item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-            Intent conf = new Intent(getApplicationContext(), ConfIniciaisActivity.class);
+            Intent conf = new Intent(getApplicationContext(), Configuracoes.class);
             startActivity(conf);
 
         } else if (id == R.id.nav_share) {
