@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer,R.string.navigation_drawer_open, R.string.navigation_drawer_close );
+
+
+
+
+
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -45,7 +50,7 @@ public class MainActivity extends AppCompatActivity
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
 
-        Button btngli = (Button) findViewById(R.id.btnglicemia);
+        Button btngli = (Button) findViewById(R.id.btnGlicemia);
         btngli.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent principal = new Intent(getApplicationContext(), GlicemiaActivity.class);
