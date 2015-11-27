@@ -197,9 +197,10 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
     private void openDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Limites de Glicemia");
-    //    LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-      //  v = inflater.inflate(R.layout.dialoglimites, null);
+       LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+       v = inflater.inflate(R.layout.dialoglimites, null);
 
         dialog.setView(v);
 
