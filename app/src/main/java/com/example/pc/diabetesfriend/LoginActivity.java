@@ -98,7 +98,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         btnentrar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent conf = new Intent(getApplicationContext(),ConfIniciaisActivity.class);
+                Intent conf = new Intent(getApplicationContext(),ConfiguracoesIniciais.class);
                 startActivity(conf);
             }
         });
