@@ -20,7 +20,8 @@ public class ConfDadosActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
-
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dados Pessoais </font>")); //Cor do titulo
     }
 
 
