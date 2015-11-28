@@ -26,7 +26,7 @@ public class Configuracoes extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracoes);
+        //setContentView(R.layout.activity_configuracoes);
 
         listaConf = new LinkedList<String[]>();
         listaConf.add(new String[]{"Dados Pessoais", "Nome,Data de Nascimento,Genero, Email,PassWord"});

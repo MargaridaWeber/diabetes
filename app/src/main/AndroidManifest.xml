@@ -38,8 +38,8 @@
             android:name=".Configuracoes"
             android:label="Configurações Dados pessoais" />
         <activity android:name=".ConfDados" />
-        <activity android:name=".ConfiguracoesIniciais"></activity>
-        <activity android:name=".ConfiguracoesGerais"></activity>
+        <activity android:name=".ConfiguracoesIniciais" />
+        <activity android:name=".ConfiguracoesGerais" />
     </application>
 
 </manifest>

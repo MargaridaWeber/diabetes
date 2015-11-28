@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.pc.diabetesfriend.ConfDadosActivity;
+//import com.example.pc.diabetesfriend.ConfDadosActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.LinkedList;

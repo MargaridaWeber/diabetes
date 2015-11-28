@@ -58,6 +58,14 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+        Button btnAlarmes = (Button) findViewById(R.id.btnAlarmes);
+        btnAlarmes.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent alarmes = new Intent(getApplicationContext(), AlarmesActivity.class);
+                startActivity(alarmes);
+            }
+        });
+
         Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
         btnNutricao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -65,6 +73,7 @@ public class MainActivity extends AppCompatActivity
                 startActivity(nutricao);
             }
         });
+
     }
 
 

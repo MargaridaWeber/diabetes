@@ -111,8 +111,8 @@ public class ConfDados extends ListActivity {
 
     private void dataPickerDialog(){
         final Calendar c = Calendar.getInstance();
-       int  mYear = c.get(Calendar.YEAR);
-       int  mMonth = c.get(Calendar.MONTH);
+        int  mYear = c.get(Calendar.YEAR);
+        int  mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog dpd = new DatePickerDialog(this,
