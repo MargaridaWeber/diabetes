@@ -49,6 +49,16 @@ public class MainActivity extends AppCompatActivity
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
 
+
+        Button btnAlame = (Button) findViewById(R.id.btnAlarmes);
+        btnAlame.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent principal = new Intent(getApplicationContext(), AlarmesActivity.class);
+                startActivity(principal);
+            }
+        });
+
+
         Button btngli = (Button) findViewById(R.id.btnGlicemia);
         btngli.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -100,7 +110,7 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_manage) {
 
-            Intent conf = new Intent(getApplicationContext(), Configuracoes.class);
+            Intent conf = new Intent(getApplicationContext(), ConfiguracoesGeraisActivity.class);
             startActivity(conf);
 
         } else if (id == R.id.nav_share) {

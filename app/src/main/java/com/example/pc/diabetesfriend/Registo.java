@@ -44,7 +44,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>")); //Cor do titulo
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
-        //actionBar.show(); //Mostra action bar
+
 
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);

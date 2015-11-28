@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package fragmentsClass;
 
 
 import android.app.ListFragment;
@@ -14,10 +14,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
+import com.example.pc.diabetesfriend.MainActivity;
+import com.example.pc.diabetesfriend.R;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -97,26 +96,6 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
     }
 
-    //Quando selecionamos no item
-
-   /* @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        Object o = listaConf.get(position).toString();
-
-        int itemPosition = position;
-
-        if(itemPosition==0)
-            criarTipos();
-        else if(itemPosition==1)
-            insulina();
-        else if(itemPosition==2)
-            exercicio();
-        else if(itemPosition==3)
-            openDialog();
-
-    }*/
 
 
     //Tipos

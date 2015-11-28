@@ -7,18 +7,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
+import android.view.MenuItem;
 
-public class ConfiguracoesIniciais extends AppCompatActivity {
+public class ConfDadosActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_configuracoes_iniciais);
+        setContentView(R.layout.activity_conf_dados);
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Configurações Iniciais </font>")); //Cor do titulo
+        actionBar.setDisplayHomeAsUpEnabled(true); //setinha
 
     }
 
@@ -29,5 +30,14 @@ public class ConfiguracoesIniciais extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-}
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true; default: return super.onOptionsItemSelected(item); }
+
+    }
+
+}

@@ -1,44 +1,52 @@
-package com.example.pc.diabetesfriend;
+package fragmentsClass;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.ListActivity;
+import android.support.v4.app.ListFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
-
+import com.example.pc.diabetesfriend.R;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ConfDados extends ListActivity {
+public class ConfDados extends ListFragment implements AdapterView.OnItemClickListener {
     View v;
     private List<String[]> listaConf;
     ArrayAdapter<String[]> adaptador;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_conf_dados);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_conf_dados, container, false);
+
 
         listaConf = new LinkedList<String[]>();
-
         listaConf.add(new String[]{"Nome", ""});
         listaConf.add(new String[]{"Data de Nascimento", ""});
         listaConf.add(new String[]{"Género", ""});
         listaConf.add(new String[]{"Email", ""});
         listaConf.add(new String[]{"Password", ""});
 
+        return view;
 
-        adaptador = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+
+        adaptador = new ArrayAdapter<String[]>(getActivity(), android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -56,15 +64,15 @@ public class ConfDados extends ListActivity {
         };
         setListAdapter(adaptador);
 
+
+        getListView().setOnItemClickListener(this);
+
     }
 
     //Quando selecionamos no item
+
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        Object o = listaConf.get(position).toString();
-
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         int itemPosition = position;
 
         if(itemPosition==0)
@@ -81,11 +89,10 @@ public class ConfDados extends ListActivity {
 
     }
 
-
     //genero
     AlertDialog genero;
     private void criarGenero(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog . setTitle("Genero");
         dialog.setSingleChoiceItems(R.array.genero, -1, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -115,7 +122,7 @@ public class ConfDados extends ListActivity {
        int  mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
-        DatePickerDialog dpd = new DatePickerDialog(this,
+        DatePickerDialog dpd = new DatePickerDialog(getActivity(),
                 new DatePickerDialog.OnDateSetListener() {
 
                     @Override
@@ -130,9 +137,9 @@ public class ConfDados extends ListActivity {
 
 
     private void openEditNome() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Nome");
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         v = inflater.inflate(R.layout.dialogedit, null);
 
@@ -159,9 +166,9 @@ public class ConfDados extends ListActivity {
 
     }
     private void openEditEmail() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Email");
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         v = inflater.inflate(R.layout.dialogedit, null);
 
@@ -189,9 +196,9 @@ public class ConfDados extends ListActivity {
     }
 
     private void openEditPass() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Password");
-        LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         v = inflater.inflate(R.layout.dialogedit, null);
 
