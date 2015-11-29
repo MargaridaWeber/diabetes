@@ -1,11 +1,9 @@
 package fragmentsClass;
 
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.app.ListFragment;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,19 +14,14 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
-import com.example.pc.diabetesfriend.AlarmesActivity;
-import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Calendar;
 
 public class AlarmesFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
@@ -39,18 +32,11 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_alarmes, container, false);
 
+        setHasOptionsMenu(true);
+
         listaAlarmes = new LinkedList<String[]>();
         listaAlarmes.add(new String[]{"08:00", "Glicemia"});
         listaAlarmes.add(new String[]{"09:00", "Insulina"});
-
-
-        Button btnAdd = (Button) view.findViewById(R.id.btnAdd);
-
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                openDialog();
-            }
-        });
 
         return view;
     }
@@ -87,24 +73,6 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
 
     }
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        // Do something that differs the Activity's menu here
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.adicionar:
-                Toast.makeText(getActivity(), "teste", Toast.LENGTH_SHORT).show();
-                return false;
-            default:
-                break;
-        }
-
-        return false;
-    }
 
     View v;
     private void openDialog() {
@@ -121,10 +89,10 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
             public void onClick(DialogInterface dialog, int which) {
 
                 //Spinner
-                Spinner spinnerTipo = (Spinner) v.findViewById(R.id.spinnerTipo);
+                final Spinner spinnerTipo = (Spinner) v.findViewById(R.id.spinnerTipo);
                 ArrayAdapter adapterTipo = ArrayAdapter.createFromResource(getActivity(), R.array.tipo_alarmes, android.R.layout.simple_list_item_single_choice);
                 spinnerTipo.setAdapter(adapterTipo);
-                //spinner.setOnItemSelectedListener(this);
+                //spinnerTipo.setOnItemSelectedListener(this);
 
                 Spinner spinnerDias = (Spinner) v.findViewById(R.id.spinnerDias);
                 ArrayAdapter adapterDias = ArrayAdapter.createFromResource(getActivity(), R.array.dias_da_semana, android.R.layout.simple_list_item_multiple_choice);
@@ -134,9 +102,9 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
                 int hora = tp.getCurrentHour();
                 int minuto = tp.getCurrentMinute();
 
-                String teste = spinnerTipo.getItemAtPosition(spinnerTipo.getSelectedItemPosition()).toString();
                 String text = spinnerTipo.getSelectedItem().toString();
 
+                Toast.makeText(getActivity(), "" + text, Toast.LENGTH_SHORT).show();
                 listaAlarmes.add(new String[]{String.valueOf(hora + ":" + minuto), text});
                 setListAdapter(adaptador);
             }
@@ -152,4 +120,21 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_alarmes, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.adicionar:
+                openDialog();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

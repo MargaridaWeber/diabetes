@@ -21,20 +21,21 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Glicemia"
             android:id="@+id/textView12" />
 
         <EditText
-            android:layout_width="155dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/editText"
             android:layout_alignBottom="@+id/tvglicemia"
-            android:layout_toRightOf="@+id/tvglicemia" />
+            android:layout_toRightOf="@+id/tvglicemia"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,7 +45,8 @@
             android:id="@+id/textView11"
             android:layout_alignTop="@+id/tvglicemia"
             android:layout_toRightOf="@+id/editText"
-            android:layout_toEndOf="@+id/editText" />
+            android:layout_toEndOf="@+id/editText"
+            android:gravity="right" />
 
     </LinearLayout>
 
@@ -56,7 +58,7 @@
         android:weightSum="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Refeição"
@@ -66,12 +68,11 @@
             android:layout_alignParentStart="true" />
 
         <Spinner
-            android:layout_width="122dp"
+            android:layout_width="193dp"
             android:layout_height="41dp"
             android:id="@+id/sprefeicao"
             android:spinnerMode="dropdown"
-            android:layout_weight="0.41"
-            android:entries="@array/refeicoes"/>
+            android:entries="@array/refeicoes" />
 
     </LinearLayout>
 
@@ -105,14 +106,14 @@
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Peso"
             android:id="@+id/textView13" />
 
         <EditText
-            android:layout_width="149dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -137,24 +138,26 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.12">
+        android:layout_weight="0.12"
+        android:weightSum="1">
 
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Pressão Arterial"
             android:id="@+id/textView15" />
 
         <EditText
-            android:layout_width="109dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/editText2"
             android:layout_alignBottom="@+id/tvglicemia"
-            android:layout_toRightOf="@+id/tvglicemia" />
+            android:layout_toRightOf="@+id/tvglicemia"
+            android:layout_weight="0.58" />
 
         <TextView
             android:layout_width="wrap_content"
