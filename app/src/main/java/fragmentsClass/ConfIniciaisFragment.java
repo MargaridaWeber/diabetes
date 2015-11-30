@@ -168,7 +168,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
     View v;
 
-    /*private void openDialog() {
+   /* private void openDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Limites de Glicemia");
 
