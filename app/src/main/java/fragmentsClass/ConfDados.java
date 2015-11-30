@@ -93,7 +93,7 @@ public class ConfDados extends ListFragment implements AdapterView.OnItemClickLi
     AlertDialog genero;
     private void criarGenero(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog . setTitle("Genero");
+        dialog . setTitle("Género");
         dialog.setSingleChoiceItems(R.array.genero, -1, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
