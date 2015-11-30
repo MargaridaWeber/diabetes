@@ -99,7 +99,6 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -111,20 +110,13 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation dialoglimites item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        if (id == R.id.nav_manage) {
 
             Intent conf = new Intent(getApplicationContext(), ConfiguracoesGeraisActivity.class);
             startActivity(conf);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        }
+        else if (id == R.id.nav_send) {
 
         }
 

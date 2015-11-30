@@ -225,7 +225,33 @@
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dicas Nutrucionais"
+                        android:drawableLeft="@drawable/ic_local_dining_black_18dp"
+                        android:id="@+id/button" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dicas de Exercicio Fisico"
+                        android:drawableLeft="@drawable/ic_directions_run_black_18dp"
+                        android:id="@+id/btnFisico" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dicas para ser mais activo"
+                        android:drawableLeft="@drawable/ic_mood_black_18dp"
+                        android:id="@+id/btnativo" />
+
+
+
+                </LinearLayout>
 
 
             </FrameLayout>

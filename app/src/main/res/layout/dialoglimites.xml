@@ -24,7 +24,7 @@
         android:layout_weight="0.31" />
 
         <EditText
-            android:layout_width="120dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -54,7 +54,7 @@
             android:id="@+id/textView7" />
 
         <EditText
-            android:layout_width="120dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"

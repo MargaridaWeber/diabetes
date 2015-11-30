@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import fragmentsClass.AlarmesFragment;
-
 /**
  * Created by Mónica Francisco on 30/11/2015.
  */

@@ -28,7 +28,7 @@
             android:id="@+id/textView12" />
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -113,7 +113,7 @@
             android:id="@+id/textView13" />
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
@@ -150,14 +150,14 @@
             android:id="@+id/textView15" />
 
         <EditText
-            android:layout_width="150dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
             android:id="@+id/editText2"
             android:layout_alignBottom="@+id/tvglicemia"
             android:layout_toRightOf="@+id/tvglicemia"
-            android:layout_weight="0.58" />
+            android:layout_weight="0.10" />
 
         <TextView
             android:layout_width="wrap_content"
