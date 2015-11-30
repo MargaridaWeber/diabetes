@@ -22,7 +22,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         //mudar cor do titulo da action bar
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar Níveis Diários </font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar Níveis Diários</font>"));
 
     }
 
