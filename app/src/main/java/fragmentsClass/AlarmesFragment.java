@@ -13,13 +13,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.pc.diabetesfriend.Item;
+import com.example.pc.diabetesfriend.MyAdapter;
 import com.example.pc.diabetesfriend.R;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,9 +38,11 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
 
         setHasOptionsMenu(true);
 
-        listaAlarmes = new LinkedList<String[]>();
+        /*listaAlarmes = new LinkedList<String[]>();
         listaAlarmes.add(new String[]{"08:00", "Glicemia"});
-        listaAlarmes.add(new String[]{"09:00", "Insulina"});
+        listaAlarmes.add(new String[]{"09:00", "Insulina"});*/
+
+
 
         return view;
     }
@@ -46,7 +52,7 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
         super.onActivityCreated(savedInstanceState);
         setHasOptionsMenu(true);
 
-        adaptador = new ArrayAdapter<String[]>(getActivity(), android.R.layout.simple_list_item_2,android.R.id.text1, listaAlarmes){
+        /*adaptador = new ArrayAdapter<String[]>(getActivity(), android.R.layout.simple_list_item_2,android.R.id.text1, listaAlarmes){
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -65,7 +71,7 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
 
         setListAdapter(adaptador);
 
-        getListView().setOnItemClickListener(this);
+        getListView().setOnItemClickListener(this);*/
     }
 
     @Override
@@ -74,67 +80,5 @@ public class AlarmesFragment extends ListFragment implements AdapterView.OnItemC
     }
 
 
-    View v;
-    private void openDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setTitle("Definir alarme");
 
-        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.dialog_alarme, null);
-        dialog.setView(v);
-
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                //Spinner
-                final Spinner spinnerTipo = (Spinner) v.findViewById(R.id.spinnerTipo);
-                ArrayAdapter adapterTipo = ArrayAdapter.createFromResource(getActivity(), R.array.tipo_alarmes, android.R.layout.simple_list_item_single_choice);
-                spinnerTipo.setAdapter(adapterTipo);
-                //spinnerTipo.setOnItemSelectedListener(this);
-
-                Spinner spinnerDias = (Spinner) v.findViewById(R.id.spinnerDias);
-                ArrayAdapter adapterDias = ArrayAdapter.createFromResource(getActivity(), R.array.dias_da_semana, android.R.layout.simple_list_item_multiple_choice);
-                spinnerDias.setAdapter(adapterDias);
-
-                TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker);
-                int hora = tp.getCurrentHour();
-                int minuto = tp.getCurrentMinute();
-
-                String text = spinnerTipo.getSelectedItem().toString();
-
-                Toast.makeText(getActivity(), "" + text, Toast.LENGTH_SHORT).show();
-                listaAlarmes.add(new String[]{String.valueOf(hora + ":" + minuto), text});
-                setListAdapter(adaptador);
-            }
-        });
-
-        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        dialog.show();
-
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_alarmes, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.adicionar:
-                openDialog();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
 }

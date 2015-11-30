@@ -26,8 +26,7 @@
         <!-- This meta-data tag is required to use Google Play Services. -->
 
         <activity
-            android:name=".Registo"
-            android:label="@string/title_activity_registo" />
+            android:name=".Registo" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -37,8 +36,7 @@
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
-        <activity android:name=".ConfLimitesActivity"/>
-
+        <activity android:name=".ConfLimitesActivity" />
     </application>
 
 </manifest>
