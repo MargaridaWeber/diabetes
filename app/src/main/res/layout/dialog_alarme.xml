@@ -24,7 +24,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerTipo"
-            android:spinnerMode="dropdown"
+            android:prompt="@string/tipo_titulo"
+            android:spinnerMode="dialog"
             android:entries="@array/tipo_alarmes"
             android:paddingLeft="20dp"
             android:gravity="right" />

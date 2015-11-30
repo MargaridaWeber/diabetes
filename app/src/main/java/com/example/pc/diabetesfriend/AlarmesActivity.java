@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -22,6 +23,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.logging.Handler;
 
 public class AlarmesActivity extends AppCompatActivity {
 
@@ -36,16 +38,12 @@ public class AlarmesActivity extends AppCompatActivity {
         //Action bar
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true); //setinha
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Alarmes </font>")); //Cor do titulo
 
-        // 1. pass context and data to the custom adapter
-         adapter= new MyAdapter(this, generateData());
-
-        // 2. Get ListView from activity_main.xml
+        adapter = new MyAdapter(this, generateData());
         listView = (ListView) findViewById(R.id.listview);
-
-        //2. setListAdapter
         listView.setAdapter(adapter);
     }
 
@@ -53,7 +51,6 @@ public class AlarmesActivity extends AppCompatActivity {
         items = new ArrayList<Item>();
         items.add(new Item("8:00", "S T Q Q","Glicemia"));
         items.add(new Item("9:00","Todos os dias","Insulina"));
-
         return items;
     }
 
@@ -85,13 +82,11 @@ public class AlarmesActivity extends AppCompatActivity {
                 TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker);
                 int hora = tp.getCurrentHour();
                 int minuto = tp.getCurrentMinute();
+
                 String horas = String.valueOf(hora)+":"+String.valueOf(minuto);
-
-
                 String spTipo = spinnerTipo.getSelectedItem().toString();
 
                 items.add(new Item(horas,"teste",spTipo));
-
                 listView.setAdapter(adapter);
             }
         });
@@ -113,6 +108,7 @@ public class AlarmesActivity extends AppCompatActivity {
         return true;
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -120,9 +116,10 @@ public class AlarmesActivity extends AppCompatActivity {
             case R.id.adicionar:
                 openDialog();
                 return true;
+            case android.R.id.home:
+                this.finish();
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
 }

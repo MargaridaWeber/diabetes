@@ -64,6 +64,7 @@
     </string-array>
 
     <!--Alarmes-->
+    <string name="tipo_titulo">Tipo de alarme</string>
     <string-array name="tipo_alarmes">
         <item>Glicemia</item>
         <item>Insulina</item>
