@@ -7,14 +7,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.AlarmesActivity">
+    tools:context="fragmentsClass.AlarmesFragment"
+    android:orientation="vertical">
 
-
-    <fragment
+    <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="fragmentsClass.AlarmesFragment"
-        android:id="@+id/fragment"
-        android:layout_gravity="right" />
+        android:layout_height="394dp"
+        android:id="@id/android:list" />
 
 </LinearLayout>

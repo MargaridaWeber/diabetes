@@ -29,15 +29,12 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_conf_iniciais, container, false);
 
-
         listaConf = new LinkedList<String[]>();
 
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
         listaConf.add(new String[]{"Limites Glicemia", ""});
-
-
 
         Button btnseguinte = (Button) view.findViewById(R.id.btnSeguinte);
 
@@ -49,7 +46,6 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         });
 
         return view;
-
     }
 
     @Override
@@ -73,11 +69,10 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             }
 
         };
+
         setListAdapter(adaptador);
 
-
         getListView().setOnItemClickListener(this);
-
     }
 
     @Override
@@ -90,8 +85,8 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             insulina();
         else if(itemPosition==2)
             exercicio();
-        else if(itemPosition==3)
-            openDialog();
+        //else if(itemPosition==3)
+            //openDialog();
 
 
     }
@@ -173,7 +168,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
     View v;
 
-    private void openDialog() {
+    /*private void openDialog() {
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
         dialog.setTitle("Limites de Glicemia");
 
@@ -206,7 +201,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
         dialog.show();
 
-    }
+    }*/
 
 
 }

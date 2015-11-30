@@ -63,4 +63,22 @@
         <item>Ceia</item>
     </string-array>
 
+    <!--Alarmes-->
+    <string-array name="tipo_alarmes">
+        <item>Glicemia</item>
+        <item>Insulina</item>
+    </string-array>
+
+    <string name="dias_titulo">Dias da semana</string>
+    <string-array name="dias_da_semana">
+        <item>Segunda-feira</item>
+        <item>Terça-feira</item>
+        <item>Quarta-feira</item>
+        <item>Quinta-feira</item>
+        <item>Sexta-feira</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
+
+
 </resources>
