@@ -19,7 +19,6 @@ public class ConfiguracoesIniciaisActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //mostra setinha de andar para tras
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da actionbar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Configurações Iniciais </font>")); //Cor do titulo
     }
