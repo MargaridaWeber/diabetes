@@ -82,14 +82,14 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
 
 
 
-View v;
+    View v;
 
     private void openEditHiper() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
         dialog.setTitle("HiperGlicemia");
         LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v = inflater.inflate(R.layout.dialogedit, null);
+        v = inflater.inflate(R.layout.dialoglimites, null);
 
         dialog.setView(v);
 
@@ -98,9 +98,10 @@ View v;
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                EditText edit = (EditText) v.findViewById(R.id.editText3);
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
-                listaConf.set(0, new String[]{"HiperGlicemia","HiperGlicemia: "+edit.getText().toString()+" mg/dL",});
+                listaConf.set(3, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição"+editRefeicao.getText().toString()+" mg/dl"});
                 setListAdapter(adaptador);
 
             }
@@ -119,11 +120,11 @@ View v;
     }
 
     private void openEditGliDesejada() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
         dialog.setTitle("Glicemia Desejada");
         LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v = inflater.inflate(R.layout.dialogedit, null);
+        v = inflater.inflate(R.layout.dialoglimites, null);
 
         dialog.setView(v);
 
@@ -132,8 +133,10 @@ View v;
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                EditText edit = (EditText) v.findViewById(R.id.editText3);
-                listaConf.set(1, new String[]{"Glicemia Desejada","Glicemia Desejada: "+edit.getText().toString()+" mg/dL",});
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+
+                listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
 
             }
@@ -150,11 +153,11 @@ View v;
 
     }
     private void openEditHipo() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
         dialog.setTitle("HipoGlicemia");
         LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v = inflater.inflate(R.layout.dialogedit, null);
+        v = inflater.inflate(R.layout.dialoglimites, null);
 
         dialog.setView(v);
 
@@ -163,8 +166,11 @@ View v;
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                EditText edit = (EditText) v.findViewById(R.id.editText3);
-                listaConf.set(2, new String[]{"HipoGlicemia","HipoGlicemia: "+edit.getText().toString()+" mg/dL",});
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+
+
+                listaConf.set(5, new String[]{"HipoGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
 
             }

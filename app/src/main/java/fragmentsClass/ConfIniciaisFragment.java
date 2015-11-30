@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import android.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,13 +34,16 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
-        listaConf.add(new String[]{"Limites Glicemia", ""});
+        listaConf.add(new String[]{"HiperGlicemia", ""});
+        listaConf.add(new String[]{"Glicemia desejada", ""});
+        listaConf.add(new String[]{"HipoGlicemia", ""});
+
 
         Button btnseguinte = (Button) view.findViewById(R.id.btnSeguinte);
 
         btnseguinte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent conf = new Intent(getActivity(),MainActivity.class);
+                Intent conf = new Intent(getActivity(), MainActivity.class);
                 startActivity(conf);
             }
         });
@@ -85,10 +88,12 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             insulina();
         else if(itemPosition==2)
             exercicio();
-        //else if(itemPosition==3)
-            //openDialog();
-
-
+        else if(itemPosition==3)
+            openEditHiper();
+        else if(itemPosition==4)
+            openEditGliDesejada();
+        else if(itemPosition==5)
+            openEditHipo();
     }
 
 
@@ -100,13 +105,12 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         dialog . setTitle(R.string.tipos_titulo);
         dialog.setSingleChoiceItems(R.array.tipo, -1, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                int selectedPosition = ((AlertDialog)dialog).getListView().getCheckedItemPosition();
+                int selectedPosition = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
 
-                if(selectedPosition==0){
+                if (selectedPosition == 0) {
                     listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 1"});
                     setListAdapter(adaptador);
-                }
-                else{
+                } else {
                     listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 2"});
                     setListAdapter(adaptador);
                 }
@@ -143,7 +147,6 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
     }
 
-    //Execício
     AlertDialog exercicio;
     private void exercicio(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
@@ -166,15 +169,16 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         exercicio.show();
     }
 
+
+
     View v;
 
-   /* private void openDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setTitle("Limites de Glicemia");
+    private void openEditHiper() {
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
+        dialog.setTitle("HiperGlicemia");
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-       LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-       v = inflater.inflate(R.layout.dialoglimites, null);
+        v = inflater.inflate(R.layout.dialoglimites, null);
 
         dialog.setView(v);
 
@@ -183,12 +187,47 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                EditText hipo = (EditText) v.findViewById(R.id.etHipo);
-                EditText gli =(EditText) v.findViewById(R.id.editText4);
-                EditText hiper = (EditText) v.findViewById(R.id.etHiper);
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
-                listaConf.set(3, new String[]{"Limites Glicemia", "Hipoglicemia: "+hipo.getText().toString()+" mg/DL \nGlicemia Desejada: "+gli.getText().toString()+" mg/dL \nHiperglicemia: "+hiper.getText().toString()+" mg/dL"});
+                listaConf.set(3, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição"+editRefeicao.getText().toString()+" mg/dl"});
+                        setListAdapter(adaptador);
+
+            }
+        });
+
+
+        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        dialog.show();
+
+    }
+
+    private void openEditGliDesejada() {
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
+        dialog.setTitle("Glicemia Desejada");
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        v = inflater.inflate(R.layout.dialoglimites, null);
+
+        dialog.setView(v);
+
+        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+
+                listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
+
             }
         });
 
@@ -201,7 +240,41 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
         dialog.show();
 
-    }*/
+    }
+    private void openEditHipo() {
+        android.app.AlertDialog.Builder dialog = new android.app.AlertDialog.Builder(getActivity());
+        dialog.setTitle("HipoGlicemia");
+        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+        v = inflater.inflate(R.layout.dialoglimites, null);
+
+        dialog.setView(v);
+
+        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+
+
+                listaConf.set(5, new String[]{"HipoGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
+                setListAdapter(adaptador);
+
+            }
+        });
+
+        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        dialog.show();
+
+    }
 
 
 }
