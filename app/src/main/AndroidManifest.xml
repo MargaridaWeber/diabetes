@@ -36,6 +36,8 @@
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
+        <activity android:name=".AlarmesActivity"/>
+        <activity android:name=".AddAlarmeActivity"/>
     </application>
 
 </manifest>
