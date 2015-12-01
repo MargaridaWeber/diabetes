@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -54,53 +55,6 @@ public class AlarmesActivity extends AppCompatActivity {
         return items;
     }
 
-    View v;
-    private void openDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Definir alarme");
-
-        LayoutInflater inflater = (LayoutInflater)this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.dialog_alarme, null);
-        dialog.setView(v);
-
-        //Spinner
-        final Spinner spinnerTipo = (Spinner) v.findViewById(R.id.spinnerTipo);
-        ArrayAdapter adapterTipo = ArrayAdapter.createFromResource(this, R.array.tipo_alarmes, android.R.layout.simple_list_item_single_choice);
-        spinnerTipo.setAdapter(adapterTipo);
-
-        //spinnerTipo.setOnItemSelectedListener(AlarmesFragment.this);
-
-        Spinner spinnerDias = (Spinner) v.findViewById(R.id.spinnerDias);
-        ArrayAdapter adapterDias = ArrayAdapter.createFromResource(this, R.array.dias_da_semana, android.R.layout.simple_list_item_multiple_choice);
-        spinnerDias.setAdapter(adapterDias);
-
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                TimePicker tp = (TimePicker) v.findViewById(R.id.timePicker);
-                int hora = tp.getCurrentHour();
-                int minuto = tp.getCurrentMinute();
-
-                String horas = String.valueOf(hora)+":"+String.valueOf(minuto);
-                String spTipo = spinnerTipo.getSelectedItem().toString();
-
-                items.add(new Item(horas,"teste",spTipo));
-                listView.setAdapter(adapter);
-            }
-        });
-
-        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        dialog.show();
-
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -114,7 +68,9 @@ public class AlarmesActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.adicionar:
-                openDialog();
+                //openDialog();
+                Intent addAlarme = new Intent(getApplicationContext(),AddAlarmeActivity.class);
+                startActivity(addAlarme);
                 return true;
             case android.R.id.home:
                 this.finish();
