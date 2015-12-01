@@ -22,10 +22,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.Calendar;
 
 public class Registo extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -49,12 +53,16 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
         final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinerAnte = (Spinner) findViewById(R.id.spinnercardiaco);
 
-        //Spinner
+        //Spinner genero
         ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_list_item_single_choice);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
+        //Spinner antecedentes
+        ArrayAdapter adapterantecedentes =  ArrayAdapter.createFromResource(this,R.array.confirmacao,android.R.layout.simple_list_item_single_choice);
+        spinerAnte.setAdapter(adapterantecedentes);
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -63,8 +71,41 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         });
 
 
+        EditText data = (EditText) findViewById(R.id.etDataNasc);
+        data.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dataPickerDialog();
+            }
+        });
+
     }
-    @Override public boolean onCreateOptionsMenu(Menu menu){
+
+
+    private void dataPickerDialog(){
+        final Calendar c = Calendar.getInstance();
+         int  mYear = c.get(Calendar.YEAR);
+         int  mMonth = c.get(Calendar.MONTH);
+         int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dpd = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        EditText data = (EditText) findViewById(R.id.etDataNasc);
+                        data.setText(Integer.toString(dayOfMonth)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(year));
+                    }
+
+                }, mYear, mMonth, mDay);
+
+        dpd.show();
+
+
+    }
+    @Override 
+    
+    public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main,menu);
         return super.onCreateOptionsMenu(menu);
     }
@@ -72,13 +113,13 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-        Toast.makeText(parent.getContext(), "OnItemSelectedListener : " + parent.getItemAtPosition(position).toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+    
 
 
 }

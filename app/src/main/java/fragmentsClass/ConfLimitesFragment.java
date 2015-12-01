@@ -101,7 +101,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
                 EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
-                listaConf.set(3, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição"+editRefeicao.getText().toString()+" mg/dl"});
+                listaConf.set(0, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+" mg/dl"});
                 setListAdapter(adaptador);
 
             }
@@ -136,7 +136,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
                 EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
-                listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
+                listaConf.set(1, new String[]{"Glicemia Desejada","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
 
             }
@@ -170,7 +170,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
 
-                listaConf.set(5, new String[]{"HipoGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\n Após refeição:"+editRefeicao.getText().toString()+"mg/dl"});
+                listaConf.set(2, new String[]{"HipoGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
 
             }

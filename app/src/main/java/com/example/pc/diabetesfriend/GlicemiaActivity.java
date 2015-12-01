@@ -1,5 +1,6 @@
 package com.example.pc.diabetesfriend;
 
+import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
@@ -8,6 +9,14 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
+import android.widget.EditText;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class GlicemiaActivity extends AppCompatActivity {
 
@@ -24,7 +33,61 @@ public class GlicemiaActivity extends AppCompatActivity {
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar Níveis Diários</font>"));
 
+        final EditText dataAtual = (EditText) findViewById(R.id.etdata);
+        final EditText horaAtual = (EditText) findViewById(R.id.etHora);
+        dataAtual.setText(getDate());
+        horaAtual.setText(getTime());
+
+        dataAtual.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                dataPickerDialog();
+            }
+        });
+
+        horaAtual.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+            }
+        });
+
+
+        }
+
+
+    public String getDate() {
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date date = new Date(); return dateFormat.format(date);
     }
+
+    public String getTime(){
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date(); return dateFormat.format(date);
+    }
+
+    private void dataPickerDialog(){
+        final Calendar c = Calendar.getInstance();
+        int  mYear = c.get(Calendar.YEAR);
+        int  mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog dpd = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        EditText data = (EditText) findViewById(R.id.etdata);
+                        data.setText(Integer.toString(dayOfMonth)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(year));
+                    }
+
+                }, mYear, mMonth, mDay);
+
+        dpd.show();
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
