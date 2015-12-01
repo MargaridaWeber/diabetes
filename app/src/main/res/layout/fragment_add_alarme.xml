@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragmentsClass.AddAlarmeFragment">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:layout_width="325dp"
+            android:layout_height="133dp"
+            android:id="@+id/android:list" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_alignParentBottom="true"
+            android:text="Hora"
+            android:paddingTop="30dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#DADADC"></View>
+
+        <TimePicker
+            android:layout_width="wrap_content"
+            android:layout_height="158dp"
+            android:id="@+id/timePicker" />
+
+        <Button
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Adicionar"
+            android:id="@+id/btnAdicionar"
+            android:layout_marginRight="20dp"
+            android:layout_below="@+id/android:list"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+</RelativeLayout>
