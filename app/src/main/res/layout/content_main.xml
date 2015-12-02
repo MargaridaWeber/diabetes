@@ -34,7 +34,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Estado glicemia"
             android:id="@+id/tvestado"
-            android:paddingLeft="80dp"
+            android:paddingLeft="50dp"
             />
 
     </LinearLayout>
