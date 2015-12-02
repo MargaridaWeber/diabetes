@@ -25,4 +25,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="normalText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
 </resources>

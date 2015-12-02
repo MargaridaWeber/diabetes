@@ -81,5 +81,11 @@
         <item>Domingo</item>
     </string-array>
 
-<string name="antecedentes_titulo">Já teve algum problema cardíaco?</string>
+    <string-array name="infadicional">
+        <item>Peso</item>
+        <item>Pressão Arterial</item>
+    </string-array>
+
+    <string name="antecedentes_titulo">Já teve algum problema cardíaco?</string>
+    <string name="refeicoes_titulo">Refeições</string>
 </resources>

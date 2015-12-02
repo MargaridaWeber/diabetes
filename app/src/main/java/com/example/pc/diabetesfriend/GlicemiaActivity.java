@@ -1,7 +1,9 @@
 package com.example.pc.diabetesfriend;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
@@ -11,13 +13,19 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -40,9 +48,10 @@ public class GlicemiaActivity extends AppCompatActivity {
         final EditText horaAtual = (EditText) findViewById(R.id.etHora);
         final TextView iconData = (TextView) findViewById(R.id.icone_data);
         final TextView iconHora = (TextView) findViewById(R.id.iconhora);
+        Button btnadd = (Button) findViewById(R.id.btnadd);
+
         dataAtual.setText(getDate());
         horaAtual.setText(getTime());
-
 
 
         dataAtual.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +77,15 @@ public class GlicemiaActivity extends AppCompatActivity {
                 timePickerDialog();
                     }
                 });
+
+        btnadd.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                criarinfAdicional();
+            }
+        });
+
+
+
 
         }
 
@@ -141,4 +159,139 @@ public class GlicemiaActivity extends AppCompatActivity {
 
     }
 
+     int mSelected = -1;
+
+    //Dias da semana
+    AlertDialog adicional;
+    private void criarinfAdicional(){
+        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+        dialog.setTitle("Acrescente mais informações");
+        final String[] strings = new String[]{"Peso", "Pressao Arterial"};
+        final DialogInterface.OnMultiChoiceClickListener onClick = new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                if (isChecked) {
+                    if ((mSelected != -1) && (mSelected != which)) {
+                       final int oldVal = mSelected;
+                        final AlertDialog alert = (AlertDialog) dialog;
+                        final ListView list = alert.getListView();
+                        list.setItemChecked(oldVal, false);
+
+                    }
+                    mSelected = which;
+                } else
+                    mSelected = -1;
+            }
+        };
+
+        dialog.setMultiChoiceItems(strings, null, onClick);
+        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override public void onClick(final DialogInterface dialog,
+                                          final int which) {
+                String message = null;
+                if (mSelected == -1){
+                    message = "You didn't select anything.";
+                Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();}
+                else{
+                    if(strings[mSelected]=="Peso"){
+                        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
+                        TextView textView1 = new TextView(GlicemiaActivity.this);
+                        textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
+                        textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        textView1.setText("Peso");
+                        textView1.setWidth(250);
+
+                        EditText edit = new EditText(GlicemiaActivity.this);
+                        edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        edit.setWidth(115);
+
+                        TextView kg = new TextView(GlicemiaActivity.this);
+                        kg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        kg.setText("Kg");
+
+                        linearLayout.addView(textView1);
+                        linearLayout.addView(edit);
+                        linearLayout.addView(kg);
+                    }
+                    else if (strings[mSelected]=="Pressao Arterial"){
+
+                        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpressao);
+                        TextView textView1 = new TextView(GlicemiaActivity.this);
+                        textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
+                        textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        textView1.setText("Pressão Arterial");
+                        textView1.setWidth(250);
+
+                        EditText edit = new EditText(GlicemiaActivity.this);
+                        edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        edit.setWidth(115);
+
+                        TextView mmHg = new TextView(GlicemiaActivity.this);
+                        mmHg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        mmHg.setText("mmHg");
+
+                        linearLayout.addView(textView1);
+                        linearLayout.addView(edit);
+                        linearLayout.addView(mmHg);
+
+
+                    }
+
+                    message = "You selected '" + strings[mSelected] + "'";
+                Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();
+            }}
+        });
+        adicional=dialog.create();
+        adicional.show();
+
+        /*
+
+            dialog.setPositiveButton("Ok",new DialogInterface.OnClickListener()
+
+            {
+
+                @Override
+                public void onClick (DialogInterface dialog,int which){
+
+                if ((which == 0).setSelected(true)) {
+
+                    LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
+                    TextView textView1 = new TextView(GlicemiaActivity.this);
+                    //textView1.setTextAppearance();
+                    textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                    textView1.setText("Peso");
+
+                    EditText edit = new EditText(GlicemiaActivity.this);
+                    edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+
+                    TextView kg = new TextView(GlicemiaActivity.this);
+                    kg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                    kg.setText("Kg");
+
+                    linearLayout.addView(textView1);
+                    linearLayout.addView(edit);
+                    linearLayout.addView(kg);
+                }
+
+            }
+            }
+
+            );
+
+            dialog.setNegativeButton("Cancelar",new DialogInterface.OnClickListener()
+
+            {
+                @Override
+                public void onClick (DialogInterface dialog,int which){
+            }
+            }
+
+            );
+
+            adicional=dialog.create();
+            adicional.show();
+        }*/
+
+
+    }
 }
