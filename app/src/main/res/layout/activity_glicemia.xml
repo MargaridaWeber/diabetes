@@ -98,7 +98,7 @@
         android:paddingBottom="20dp">
 
         <TextView
-            android:layout_width="130dp"
+            android:layout_width="152dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Refeição"
@@ -125,13 +125,17 @@
         android:hint="Notas"
         android:layout_below="@+id/textView10"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginBottom="1dp"
-        android:layout_alignParentBottom="true"
-        android:background="#DADADC" ></View>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar mais Informações"
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_mais"
+        android:id="@+id/btnadd"
+        android:layout_weight="0.12"
+        android:background="@android:color/transparent"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -155,23 +159,12 @@
 
     </LinearLayout>
 
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Guardar"
         android:id="@+id/btnguardar"
         android:layout_gravity="right" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar mais Informações"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_mais"
-        android:id="@+id/btnadd"
-        android:layout_weight="0.12"
-        android:background="@android:color/transparent"
-        android:layout_gravity="center_horizontal" />
-
 
 </LinearLayout>

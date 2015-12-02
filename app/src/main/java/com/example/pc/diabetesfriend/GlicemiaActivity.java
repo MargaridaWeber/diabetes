@@ -190,7 +190,7 @@ public class GlicemiaActivity extends AppCompatActivity {
                                           final int which) {
                 String message = null;
                 if (mSelected == -1){
-                    message = "You didn't select anything.";
+                    message = "Não selecionou nenhuma opção";
                 Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();}
                 else{
                     if(strings[mSelected]=="Peso"){
@@ -212,6 +212,7 @@ public class GlicemiaActivity extends AppCompatActivity {
                         linearLayout.addView(textView1);
                         linearLayout.addView(edit);
                         linearLayout.addView(kg);
+
                     }
                     else if (strings[mSelected]=="Pressao Arterial"){
 
@@ -237,7 +238,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
                     }
 
-                    message = "You selected '" + strings[mSelected] + "'";
+                    message = "Selecionou a opção '" + strings[mSelected] + "'";
                 Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();
             }}
         });
