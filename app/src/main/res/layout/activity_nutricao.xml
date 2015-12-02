@@ -251,6 +251,18 @@
                         android:id="@+id/btnativo" />
 
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dicas para a HipoGlicemia"
+                        android:id="@+id/bth" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dicas para a HiperGlicemia"
+                        android:id="@+id/bthiper" />
+
 
                 </LinearLayout>
 
