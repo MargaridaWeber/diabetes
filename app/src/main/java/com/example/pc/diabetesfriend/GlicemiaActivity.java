@@ -10,6 +10,8 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +26,7 @@ import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -161,7 +164,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
      int mSelected = -1;
 
-    //Dias da semana
+
     AlertDialog adicional;
     private void criarinfAdicional(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
@@ -172,12 +175,11 @@ public class GlicemiaActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                 if (isChecked) {
                     if ((mSelected != -1) && (mSelected != which)) {
-                       final int oldVal = mSelected;
+                        final int oldVal = mSelected;
                         final AlertDialog alert = (AlertDialog) dialog;
                         final ListView list = alert.getListView();
                         list.setItemChecked(oldVal, false);
-
-                    }
+                                          }
                     mSelected = which;
                 } else
                     mSelected = -1;
@@ -194,6 +196,7 @@ public class GlicemiaActivity extends AppCompatActivity {
                 Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();}
                 else{
                     if(strings[mSelected]=="Peso"){
+
                         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
                         TextView textView1 = new TextView(GlicemiaActivity.this);
                         textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
@@ -203,6 +206,8 @@ public class GlicemiaActivity extends AppCompatActivity {
 
                         EditText edit = new EditText(GlicemiaActivity.this);
                         edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        edit.setInputType(InputType.TYPE_CLASS_NUMBER);
+                        edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                         edit.setWidth(115);
 
                         TextView kg = new TextView(GlicemiaActivity.this);
@@ -225,6 +230,8 @@ public class GlicemiaActivity extends AppCompatActivity {
 
                         EditText edit = new EditText(GlicemiaActivity.this);
                         edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+                        edit.setInputType(InputType.TYPE_CLASS_NUMBER);
+                        edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
                         edit.setWidth(115);
 
                         TextView mmHg = new TextView(GlicemiaActivity.this);
@@ -244,55 +251,6 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
         adicional=dialog.create();
         adicional.show();
-
-        /*
-
-            dialog.setPositiveButton("Ok",new DialogInterface.OnClickListener()
-
-            {
-
-                @Override
-                public void onClick (DialogInterface dialog,int which){
-
-                if ((which == 0).setSelected(true)) {
-
-                    LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
-                    TextView textView1 = new TextView(GlicemiaActivity.this);
-                    //textView1.setTextAppearance();
-                    textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    textView1.setText("Peso");
-
-                    EditText edit = new EditText(GlicemiaActivity.this);
-                    edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-
-                    TextView kg = new TextView(GlicemiaActivity.this);
-                    kg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                    kg.setText("Kg");
-
-                    linearLayout.addView(textView1);
-                    linearLayout.addView(edit);
-                    linearLayout.addView(kg);
-                }
-
-            }
-            }
-
-            );
-
-            dialog.setNegativeButton("Cancelar",new DialogInterface.OnClickListener()
-
-            {
-                @Override
-                public void onClick (DialogInterface dialog,int which){
-            }
-            }
-
-            );
-
-            adicional=dialog.create();
-            adicional.show();
-        }*/
-
 
     }
 }

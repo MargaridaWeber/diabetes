@@ -82,7 +82,8 @@
         <item>Domingo</item>
     </string-array>
 
-    <string-array name="infadicional">
+    <string-array name="dadosgraficos">
+        <item>Glicemia</item>
         <item>Peso</item>
         <item>Pressão Arterial</item>
     </string-array>
