@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package alarmes;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.pc.diabetesfriend.R;
+
 import java.util.ArrayList;
+
+import alarmes.Item;
 
 /**
  * Created by Mónica Francisco on 30/11/2015.

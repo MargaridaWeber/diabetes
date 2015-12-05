@@ -1,11 +1,8 @@
-package fragmentsClass;
+package alarmes;
 
 import android.app.AlertDialog;
 import android.app.ListFragment;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,13 +10,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.TimePicker;
 
-import com.example.pc.diabetesfriend.Item;
-import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.ArrayList;
@@ -113,21 +106,46 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     }
 
     //Dias da semana
+    final ArrayList<Integer> listaIndicesSeleccionados = new ArrayList();
+    final boolean[] isSelectedArray = {false, false, false, false, false, false, false, false, false, false,false, false, false,false};
     AlertDialog dias;
     private void criarDias(){
-        final ArrayList<Integer> selectedItemsIndexList = new ArrayList();
-        boolean[] isSelectedArray = {false, false, false, false,false, false, false, false, false, false,false, false, false,false};
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+
         dialog.setTitle(R.string.dias_titulo);
         dialog.setMultiChoiceItems(R.array.dias_da_semana, isSelectedArray, new DialogInterface.OnMultiChoiceClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                if(isChecked){
-                    //adiciona a lista
-                    selectedItemsIndexList.add(which);
-                } else if(selectedItemsIndexList.contains(which)){
-                    //se ja existe remove
-                    selectedItemsIndexList.remove(Integer.valueOf(which));
+
+                final AlertDialog alert = (AlertDialog) dialog;
+                final ListView list = alert.getListView();
+
+                //Se seleccionar a primeira opção
+                if(isChecked && which==0){
+                    for (int i=0;i< isSelectedArray.length;i++ ) {
+                        list.setItemChecked(i, true);
+                        listaIndicesSeleccionados.add(i);
+                    }
+                }
+                else if(!isChecked && which==0){ //Se deseleccionar a primeira opção
+                    for (int i=0;i< isSelectedArray.length;i++ ) {
+                        list.setItemChecked(i, false);
+                        listaIndicesSeleccionados.remove(Integer.valueOf(i));
+                    }
+                }
+                
+                if(!isChecked && isSelectedArray[0]==true){ //Se desleccionar uma das opções e a primeira estiver seleccionada
+                    list.setItemChecked(0, false);
+                    isSelectedArray[0]=false;
+                    listaIndicesSeleccionados.remove(Integer.valueOf(which));
+                    listaIndicesSeleccionados.remove(Integer.valueOf(0));
+                }
+
+                if (isChecked) {
+                    listaIndicesSeleccionados.add(which); //Adiciona a lista
+                } else if (listaIndicesSeleccionados.contains(which)) {
+                    listaIndicesSeleccionados.remove(Integer.valueOf(which)); //Se já existe remove
                 }
             }
         });
@@ -136,7 +154,37 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
+                String dias = "";
+                for (int index : listaIndicesSeleccionados) {
+                    switch (index) {
+                        case 0:
+                            dias = "Todos os dias";
+                            break;
+                        case 1:
+                            dias = dias + "Seg ";
+                            break;
+                        case 2:
+                            dias = dias + "Ter ";
+                            break;
+                        case 3:
+                            dias = dias + "Qua ";
+                            break;
+                        case 4:
+                            dias = dias + "Qui ";
+                            break;
+                        case 5:
+                            dias = dias + "Sex ";
+                            break;
+                        case 6:
+                            dias = dias + "Sab ";
+                            break;
+                        case 7:
+                            dias = dias + "Dom ";
+                            break;
+                    }
+                }
+                lista.set(1, new String[]{"Dia(s) da semana", dias});
+                setListAdapter(adaptador);
             }
         });
 
@@ -145,6 +193,11 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
             public void onClick(DialogInterface dialog, int which) {
             }
         });
+
+        //Mete as checkboxs seleccionadas
+        for (int i : listaIndicesSeleccionados) {
+            isSelectedArray[i] = true;
+        }
 
         dias = dialog.create();
         dias.show();

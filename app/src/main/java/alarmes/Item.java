@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package alarmes;
 
 /**
  * Created by Mónica Francisco on 30/11/2015.

@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package alarmes;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.example.pc.diabetesfriend.R;
 
 public class AddAlarmeActivity extends AppCompatActivity {
 

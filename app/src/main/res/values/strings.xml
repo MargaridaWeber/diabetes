@@ -72,6 +72,7 @@
 
     <string name="dias_titulo">Dias da semana</string>
     <string-array name="dias_da_semana">
+        <item>Todos os dias</item>
         <item>Segunda-feira</item>
         <item>Terça-feira</item>
         <item>Quarta-feira</item>

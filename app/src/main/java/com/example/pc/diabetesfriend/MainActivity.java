@@ -17,6 +17,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 
+import alarmes.AlarmesActivity;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -50,8 +52,8 @@ public class MainActivity extends AppCompatActivity
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
 
 
-        Button btnAlame = (Button) findViewById(R.id.btnAlarmes);
-        btnAlame.setOnClickListener(new View.OnClickListener() {
+        Button btnAlarme = (Button) findViewById(R.id.btnAlarmes);
+        btnAlarme.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent principal = new Intent(getApplicationContext(), AlarmesActivity.class);
                 startActivity(principal);
@@ -103,13 +105,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_manage) {
-
             Intent conf = new Intent(getApplicationContext(), ConfiguracoesGeraisActivity.class);
             startActivity(conf);
-
         }
         else if (id == R.id.nav_send) {
-
+            Intent enviar = new Intent(getApplicationContext(), EnviarRelatorioActivity.class );
+            startActivity(enviar);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

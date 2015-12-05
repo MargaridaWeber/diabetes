@@ -87,7 +87,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
 
 
-        }
+    }
 
     public String getDate() {
 
