@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <ListView
-            android:layout_width="325dp"
+            android:layout_width="371dp"
             android:layout_height="133dp"
             android:id="@+id/android:list" />
 
@@ -40,7 +40,7 @@
             android:id="@+id/timePicker" />
 
         <Button
-            android:layout_width="104dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="Adicionar"
             android:id="@+id/btnAdicionar"

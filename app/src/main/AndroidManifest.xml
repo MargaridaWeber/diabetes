@@ -36,8 +36,9 @@
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
-        <activity android:name=".AlarmesActivity" />
-        <activity android:name=".AddAlarmeActivity" />
+        <activity android:name="alarmes.AlarmesActivity" />
+        <activity android:name="alarmes.AddAlarmeActivity" />
+        <activity android:name=".EnviarRelatorioActivity"></activity>
         <activity android:name=".GraficosActivity"></activity>
     </application>
 
