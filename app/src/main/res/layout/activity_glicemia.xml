@@ -83,7 +83,8 @@
             android:id="@+id/editText"
             android:layout_alignBottom="@+id/tvglicemia"
             android:layout_toRightOf="@+id/tvglicemia"
-            android:gravity="center_horizontal" />
+            android:gravity="center_horizontal"
+            android:maxLength="3"/>
 
         <TextView
             android:layout_width="wrap_content"

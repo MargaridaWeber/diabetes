@@ -5,7 +5,7 @@
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="titulo">
         <menu>
 
 
@@ -21,7 +21,9 @@
                 android:title="Enviar Relatório" />
 
             <item android:id="@+id/historico"
-                android:title="Histórico de Registos" />
+                android:title="Histórico de Registos"
+                android:icon="@drawable/ic_historico"/>
+
         </menu>
     </item>
 
