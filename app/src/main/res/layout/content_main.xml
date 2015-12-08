@@ -10,7 +10,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.PrincipalActivity">
+    tools:context="com.example.pc.diabetesfriend.PrincipalActivity"
+    android:weightSum="1">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -37,6 +38,7 @@
             />
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
@@ -49,13 +51,17 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Glicemia"
             android:id="@+id/btnGlicemia"
-            android:layout_alignBottom="@+id/btnGlicemia"
-            android:layout_toRightOf="@+id/btnGlicemia"
-            android:layout_toEndOf="@+id/btnGlicemia"
-
+            android:layout_gravity="center"
+            android:textSize="13dip"
+            android:drawablePadding="2dip"
+            android:paddingLeft="43dip"
+            android:paddingRight="43dip"
+            android:singleLine="true"
+            android:gravity="center"
+            android:drawableLeft="@drawable/ic_date"
             />
+
 
         <Button
             android:layout_width="100dp"

@@ -26,11 +26,6 @@ public class GraficosActivity extends AppCompatActivity {
 
         TabHost tabhost = (TabHost) findViewById(R.id.tabHost2);
 
-        tabhost.setup();
-        TabHost.TabSpec tabsec = tabhost.newTabSpec("Estatisticas");
-        tabsec.setContent(R.id.tabEstatistica);
-        tabsec.setIndicator("Estatistica");
-        tabhost.addTab(tabsec);
 
         TabHost.TabSpec tabsec1 = tabhost.newTabSpec("Tabela");
         tabsec1.setContent(R.id.tabTabela);

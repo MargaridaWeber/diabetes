@@ -40,12 +40,6 @@
                 android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:id="@+id/tabEstatistica"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
-
-                <LinearLayout
                     android:id="@+id/tabTabela"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

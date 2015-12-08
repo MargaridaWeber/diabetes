@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.tolbar);
         setSupportActionBar(toolbar);
 
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer,toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close );
@@ -46,10 +47,7 @@ public class MainActivity extends AppCompatActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-
-
-        //mudar cor do titulo da action bar
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>"));
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>")); //Cor do titulo
 
 
         Button btnAlarme = (Button) findViewById(R.id.btnAlarmes);

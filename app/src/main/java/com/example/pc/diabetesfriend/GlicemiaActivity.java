@@ -165,38 +165,41 @@ public class GlicemiaActivity extends AppCompatActivity {
      int mSelected = -1;
 
 
+
+
+    boolean check[] ={false,false};
+    final ArrayList<Integer> listaIndicesSeleccionados = new ArrayList();
+    final boolean[] isSelectedArray = {false, false, false, false};
     AlertDialog adicional;
     private void criarinfAdicional(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("Acrescente mais informações");
-        final String[] strings = new String[]{"Peso", "Pressao Arterial"};
-        final DialogInterface.OnMultiChoiceClickListener onClick = new DialogInterface.OnMultiChoiceClickListener() {
+
+        dialog.setTitle("Informações Adicionais");
+        dialog.setMultiChoiceItems(R.array.adicionais, isSelectedArray, new DialogInterface.OnMultiChoiceClickListener() {
+
             @Override
             public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+
+                final AlertDialog alert = (AlertDialog) dialog;
+                final ListView list = alert.getListView();
+
                 if (isChecked) {
-                    if ((mSelected != -1) && (mSelected != which)) {
-                        final int oldVal = mSelected;
-                        final AlertDialog alert = (AlertDialog) dialog;
-                        final ListView list = alert.getListView();
-                        list.setItemChecked(oldVal, false);
-                                          }
-                    mSelected = which;
-                } else
-                    mSelected = -1;
+                    listaIndicesSeleccionados.add(which); //Adiciona a lista
+                } else if (listaIndicesSeleccionados.contains(which)) {
+                    listaIndicesSeleccionados.remove(Integer.valueOf(which)); //Se já existe remove
+                }
             }
-        };
+        });
 
-        dialog.setMultiChoiceItems(strings, null, onClick);
+
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-            @Override public void onClick(final DialogInterface dialog,
-                                          final int which) {
-                String message = null;
-                if (mSelected == -1){
-                    message = "Não selecionou nenhuma opção";
-                Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();}
-                else{
-                    if(strings[mSelected]=="Peso"){
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                for (int index :listaIndicesSeleccionados){
+
+                    if (index==0 && check[0] ==false) {
                         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
                         TextView textView1 = new TextView(GlicemiaActivity.this);
                         textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
@@ -217,9 +220,10 @@ public class GlicemiaActivity extends AppCompatActivity {
                         linearLayout.addView(textView1);
                         linearLayout.addView(edit);
                         linearLayout.addView(kg);
+                        check[0]=true;
 
                     }
-                    else if (strings[mSelected]=="Pressao Arterial"){
+                    if (index == 1 && check[1]==false) {
 
                         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpressao);
                         TextView textView1 = new TextView(GlicemiaActivity.this);
@@ -241,16 +245,22 @@ public class GlicemiaActivity extends AppCompatActivity {
                         linearLayout.addView(textView1);
                         linearLayout.addView(edit);
                         linearLayout.addView(mmHg);
+                        check[1]=true;
 
 
                     }
+                }
 
-                    message = "Selecionou a opção '" + strings[mSelected] + "'";
-                Toast.makeText(GlicemiaActivity.this, message, Toast.LENGTH_LONG).show();
-            }}
+            }
         });
-        adicional=dialog.create();
+        //Mete as checkboxs seleccionadas
+        for (int i : listaIndicesSeleccionados) {
+            isSelectedArray[i] = true;
+        }
+        adicional = dialog.create();
         adicional.show();
-
     }
+
+
+
 }
