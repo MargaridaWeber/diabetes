@@ -26,20 +26,21 @@
         </activity>
         <!-- This meta-data tag is required to use Google Play Services. -->
 
-        <activity android:name=".Registo"  />
+        <activity android:name=".Registo" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".GlicemiaActivity"  />
+        <activity android:name=".GlicemiaActivity" />
         <activity android:name=".NutricaoActivity" />
-        <activity android:name=".ConfiguracoesIniciaisActivity"/>
+        <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
         <activity android:name="alarmes.AlarmesActivity" />
         <activity android:name="alarmes.AddAlarmeActivity" />
-        <activity android:name=".EnviarRelatorioActivity"/>
-        <activity android:name=".GraficosActivity"/>
+        <activity android:name=".EnviarRelatorioActivity" />
+        <activity android:name=".GraficosActivity" />
+        <activity android:name=".PlanoAlimentacao"></activity>
     </application>
 
 </manifest>

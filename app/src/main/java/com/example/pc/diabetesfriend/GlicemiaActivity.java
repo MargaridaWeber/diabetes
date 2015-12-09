@@ -162,11 +162,9 @@ public class GlicemiaActivity extends AppCompatActivity {
 
     }
 
+
+
      int mSelected = -1;
-
-
-
-
     boolean check[] ={false,false};
     final ArrayList<Integer> listaIndicesSeleccionados = new ArrayList();
     final boolean[] isSelectedArray = {false, false, false, false};

@@ -77,7 +77,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Pão(30gr) + Leite meio gordo/magro\n\n• Cereais integrais + café/chá sem açúcar ou com adoçante"
+                        android:text="• Pão(30gr) + Leite meio gordo/magro\n• Cereais integrais + café/chá sem açúcar ou com adoçante"
                         android:id="@+id/tvpequenoalmoco" />
 
                     <!-- title -->
@@ -105,7 +105,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Fruta média + bolachas de àgua e sal/integrais/maria \n\n• Iogurte magro + bolachas de àgua e sal/integrais/maria \n\n• 1/2 pão"
+                        android:text="• Fruta média + bolachas de àgua e sal/integrais/maria\n• Iogurte magro + bolachas de àgua e sal/integrais/maria\n• 1/2 pão"
                         android:id="@+id/tvmanha" />
 
 
@@ -133,8 +133,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Prato de sopa \n\n• Carne ou peixe (tamanho da palma da mão) \n\n• Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa
-\n\n• Fruta média \n\n• (Saladas cruas ou legumes cozidos à vontade; tempero pouco azeite; Evitar os fritos)"
+                        android:text="• Prato de sopa\n• Carne ou peixe (tamanho da palma da mão)\n• Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa
+\n• Fruta média\n• (Saladas cruas ou legumes cozidos à vontade; tempero pouco azeite; Evitar os fritos)"
                         android:id="@+id/tvalmoco" />
 
 
