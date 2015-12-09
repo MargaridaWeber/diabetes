@@ -123,13 +123,14 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
 
                 //Se seleccionar a primeira opção
                 if(isChecked && which==0){
-                    for (int i=0;i< isSelectedArray.length;i++ ) {
+                    for (int i=1;i< isSelectedArray.length;i++ ) {
                         list.setItemChecked(i, true);
                         listaIndicesSeleccionados.add(i);
                     }
                 }
-                else if(!isChecked && which==0){ //Se deseleccionar a primeira opção
-                    for (int i=0;i< isSelectedArray.length;i++ ) {
+
+                if(!isChecked && which==0){ //Se deseleccionar a primeira opção
+                    for (int i=1;i< isSelectedArray.length;i++ ) {
                         list.setItemChecked(i, false);
                         listaIndicesSeleccionados.remove(Integer.valueOf(i));
                     }
@@ -137,9 +138,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 
                 if(!isChecked && isSelectedArray[0]==true){ //Se desleccionar uma das opções e a primeira estiver seleccionada
                     list.setItemChecked(0, false);
-                    isSelectedArray[0]=false;
+                    //isSelectedArray[0]=false;
                     listaIndicesSeleccionados.remove(Integer.valueOf(which));
-                    listaIndicesSeleccionados.remove(Integer.valueOf(0));
                 }
 
                 if (isChecked) {
@@ -157,9 +157,6 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 String dias = "";
                 for (int index : listaIndicesSeleccionados) {
                     switch (index) {
-                        case 0:
-                            dias = "Todos os dias";
-                            break;
                         case 1:
                             dias = dias + "Seg ";
                             break;
