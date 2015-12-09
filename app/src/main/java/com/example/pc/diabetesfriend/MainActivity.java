@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity
         Button btnGrafico = (Button)findViewById(R.id.btnGraficos);
         btnGrafico.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent graficos = new Intent(getApplicationContext(), GraficosActivity.class);
+                Intent graficos = new Intent(getApplicationContext(), GraficosActivity.class );
                 startActivity(graficos);
             }
         });

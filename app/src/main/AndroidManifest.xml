@@ -38,8 +38,8 @@
         <activity android:name=".ConfLimitesActivity" />
         <activity android:name="alarmes.AlarmesActivity" />
         <activity android:name="alarmes.AddAlarmeActivity" />
-        <activity android:name=".EnviarRelatorioActivity"></activity>
-        <activity android:name=".GraficosActivity"></activity>
+        <activity android:name=".EnviarRelatorioActivity"/>
+        <activity android:name=".GraficosActivity"/>
     </application>
 
 </manifest>

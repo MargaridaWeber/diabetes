@@ -46,31 +46,61 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="70dp">
 
+        <TableLayout
+            android:layout_width = "201dp"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            android:stretchColumns = "*"  >
+            <TableRow  android:layout_weight = "1"  >
+                <RelativeLayout
+                    android:layout_width = "100dp"
+                    android:layout_height = "100dp"  >
+
+                    <Button
+                        android:id = "@+id/btnGlicemia"
+                        android:layout_width = "100dp"
+                        android:layout_height = "100dp"
+                        android:layout_centerInParent = "true"
+                        android:paddingTop = "70dp"
+                        android:text="Glicemia"
+                        android:textSize="12dp"
+                         />
+
+                    <ImageView
+                        android:id = "@+id/main_icon_content_image_view"
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_centerInParent = "true"
+                        android:src = "@drawable/ic_historico" />
+
+                </RelativeLayout>
+
+                <RelativeLayout  android:layout_width = "100dp"
+                    android:layout_height = "100dp" >
 
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:id="@+id/btnGlicemia"
-            android:layout_gravity="center"
-            android:textSize="13dip"
-            android:drawablePadding="2dip"
-            android:paddingLeft="43dip"
-            android:paddingRight="43dip"
-            android:singleLine="true"
-            android:gravity="center"
-            android:drawableLeft="@drawable/ic_date"
-            />
+                    <Button
+                        android:id = "@+id/btnGraficos"
+                        android:layout_width = "100dp"
+                        android:layout_height = "100dp"
+                        android:layout_centerInParent = "true"
+                        android:paddingTop = "70dp"
+                        android:text="Gráficos"
+                        android:textSize="12dp"
+                        />
+
+                    <ImageView
+                        android:layout_width = "wrap_content"
+                        android:layout_height = "wrap_content"
+                        android:layout_centerInParent = "true"
+                        android:src = "@drawable/ic_grafico" />
+
+                </RelativeLayout>
 
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Graficos"
-            android:id="@+id/btnGraficos"
-            android:layout_above="@+id/button6"
-            android:layout_toRightOf="@+id/button3"
-            android:layout_toEndOf="@+id/button3" />
+            </TableRow>
+        </TableLayout>
+
 
     </LinearLayout>
 
@@ -80,24 +110,59 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Alarmes "
-            android:id="@+id/btnAlarmes"
-            android:layout_below="@+id/button3"
-            android:layout_alignLeft="@+id/button3"
-            android:layout_alignStart="@+id/button3"
-            android:layout_gravity="center_vertical" />
+        <TableLayout
+            android:layout_width = "201dp"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            android:stretchColumns = "*"  >
+        <TableRow  android:layout_weight = "1"  >
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Ligação USB"
-            android:id="@+id/button6"
-            android:layout_alignTop="@+id/btnAlarmes"
-            android:layout_toRightOf="@+id/btnAlarmes"
-            android:layout_toEndOf="@+id/btnAlarmes" />
+            <RelativeLayout
+            android:layout_width = "100dp"
+            android:layout_height = "100dp"  >
+
+
+                <Button
+                    android:id = "@+id/btnAlarmes"
+                    android:layout_width = "100dp"
+                    android:layout_height = "100dp"
+                    android:layout_centerInParent = "true"
+                    android:paddingTop = "70dp"
+                    android:text="Alarmes"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    android:layout_centerInParent = "true"
+                    android:src = "@drawable/ic_alarm" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id = "@+id/btnUSB"
+                android:layout_width = "100dp"
+                android:layout_height = "100dp"
+                android:layout_centerInParent = "true"
+                android:paddingTop = "70dp"
+                android:text="Ligação USB"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width = "wrap_content"
+                android:layout_height = "wrap_content"
+                android:layout_centerInParent = "true"
+                android:src = "@drawable/ic_usb" />
+
+        </RelativeLayout>
+
+        </TableRow>
+        </TableLayout>
+
 
     </LinearLayout>
 
@@ -107,26 +172,50 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
-        <Button
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:text="Nutrição"
-            android:id="@+id/btnNutricao"
-            android:layout_below="@+id/button3"
-            android:layout_alignLeft="@+id/button3"
-            android:layout_alignStart="@+id/button3"
-            android:layout_gravity="center_vertical" />
+        <TableLayout
+            android:layout_width = "201dp"
+            android:layout_height = "wrap_content"
+            android:orientation = "horizontal"
+            android:stretchColumns = "*"  >
+        <TableRow  android:layout_weight = "1"  >
+        <RelativeLayout
+            android:layout_width = "100dp"
+            android:layout_height = "100dp"  >
 
+            <Button
+                android:id = "@+id/btnNutricao"
+                android:layout_width = "100dp"
+                android:layout_height = "100dp"
+                android:layout_centerInParent = "true"
+                android:paddingTop = "70dp"
+                android:text="Nutrição"
+                android:textSize="12dp" />
+
+            <ImageView
+                android:layout_width = "48dp"
+                android:layout_height = "48dp"
+                android:layout_centerInParent = "true"
+                android:src = "@drawable/ic_fruta"
+               />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="New Button"
+            android:text="Informações Úteis"
             android:id="@+id/button8"
-            android:layout_alignTop="@+id/btnAlarmes"
-            android:layout_toRightOf="@+id/btnAlarmes"
-            android:layout_toEndOf="@+id/btnAlarmes" />
 
+          />
 
+        </RelativeLayout>
+
+        </TableRow>
+        </TableLayout>
     </LinearLayout>
 
 
