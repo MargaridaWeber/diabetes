@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner2"
         android:entries="@array/dadosgraficos"
-        android:spinnerMode="dropdown" />
+        android:spinnerMode="dropdown"
+        android:layout_gravity="right" />
 
     <TabHost
         android:layout_width="match_parent"

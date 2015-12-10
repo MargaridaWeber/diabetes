@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.NutricaoActivity">
+    tools:context="nutricao.NutricaoActivity">
 
     <TabHost
         android:layout_width="match_parent"
@@ -50,19 +50,17 @@
 
 
                     <!-- title -->
-
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Pequeno-Almoço"
-                            android:textColor="#000000"/>
-
+                    <TextView
+                        android:paddingTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="16dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_alignParentBottom="true"
+                        android:text="Pequeno-Almoço"
+                        android:textColor="#000000"/>
 
                     <!--  divider -->
                     <View
@@ -72,13 +70,13 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Opção 1:\n\n • Pão(30gr) \n • Leite meio gordo/magro\n\nOpção 2:\n\n • Cereais integrais\n • Café/chá sem açúcar ou com adoçante"
-                        android:id="@+id/tvpequenoalmoco" />
+                        android:layout_height="250dp"
+                        android:id="@+id/imgPequenoAlmoco"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/pequenoalmoco"/>
 
-                    <!-- title -->
                     <TextView
                         android:paddingTop="20dp"
                         android:layout_width="wrap_content"
@@ -99,13 +97,12 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Opção 1:\n\n • Fruta média\n • Bolachas de àgua e sal/integrais/maria\n\nOpção 2:\n\n • Iogurte magro \n• Bolachas de àgua e sal/integrais/maria\n\nOpção 3:\n\n • 1/2 Pão"
-                        android:id="@+id/tvmanha" />
-
+                        android:layout_height="240dp"
+                        android:id="@+id/imgMeioManha"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/meiomanha"/>
 
                     <!-- title -->
                     <TextView
@@ -128,15 +125,12 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Prato de sopa\n• Carne ou peixe (tamanho da palma da mão)\n• Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa
-\n• Fruta média\n• (Saladas cruas ou legumes cozidos à vontade; tempero pouco azeite; Evitar os fritos)"
-                        android:id="@+id/tvalmoco" />
-
-
-
+                        android:layout_height="240dp"
+                        android:id="@+id/imgAlmoco"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/almoco"/>
 
                     <!-- title -->
                     <TextView
@@ -159,13 +153,12 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Pão + leite meio gordo/magro (café/chá sem açucar)\n\n• Iogurte magro + bolachas de àgua e sal/integrais/maria/tostadas
-                        \nFruta média + bolachas de àgua e sal/integrais/maria/tostadas"
-                        android:id="@+id/tvlanche" />
-
+                        android:layout_height="240dp"
+                        android:id="@+id/imgLanche"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/lanche"/>
 
                     <!-- title -->
                     <TextView
@@ -188,12 +181,12 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Semelhante ao almoço mas em menor quantidade"
-                        android:id="@+id/tvjantar" />
-
+                        android:layout_height="240dp"
+                        android:id="@+id/imgJantar"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/jantar"/>
 
                     <!-- title -->
                     <TextView
@@ -216,11 +209,12 @@
                         android:layout_alignParentBottom="true"
                         android:background="#DADADC" ></View>
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="• Pão + Leite meio gordo/magro (café/chá sem açucar)\n\n• Iogurte magro + bolachas de àgua e sal/integrais/maria/tostadas \n\n• Fruta média + bolachas de àgua e sal/integrais/maria/tostadas "
-                        android:id="@+id/ceia" />
+                        android:layout_height="240dp"
+                        android:id="@+id/imgCeia"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/ceia"/>
 
                 </LinearLayout>
 

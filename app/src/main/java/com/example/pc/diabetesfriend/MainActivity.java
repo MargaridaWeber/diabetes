@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 
 import alarmes.AlarmesActivity;
+import nutricao.NutricaoActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

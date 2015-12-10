@@ -31,7 +31,7 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
-        <activity android:name=".NutricaoActivity" />
+        <activity android:name="nutricao.NutricaoActivity" />
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
@@ -40,7 +40,13 @@
         <activity android:name="alarmes.AddAlarmeActivity" />
         <activity android:name=".EnviarRelatorioActivity" />
         <activity android:name=".GraficosActivity" />
-        <activity android:name=".PlanoAlimentacao"></activity>
+        <activity android:name="nutricao.PlanoAlimentacao" />
+        <activity android:name="nutricao.PequenoAlmocoActivity" />
+        <activity android:name="nutricao.MeioManhaActivity" />
+        <activity android:name="nutricao.AlmocoActivity" />
+        <activity android:name="nutricao.LancheActivity" />
+        <activity android:name="nutricao.JantarActivity" />
+        <activity android:name="nutricao.CeiaActivity"></activity>
     </application>
 
 </manifest>

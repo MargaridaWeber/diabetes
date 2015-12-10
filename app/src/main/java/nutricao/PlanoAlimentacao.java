@@ -1,45 +1,37 @@
-package com.example.pc.diabetesfriend;
+package nutricao;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TabHost;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-public class GraficosActivity extends AppCompatActivity {
+import com.example.pc.diabetesfriend.ConfiguracoesGeraisActivity;
+import com.example.pc.diabetesfriend.R;
+
+public class PlanoAlimentacao extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graficos);
+        setContentView(R.layout.activity_plano_alimentacao);
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Estatísticas </font>")); //Cor do titulo
-
-
-
-        TabHost tabhost = (TabHost) findViewById(R.id.tabHost2);
-        tabhost.setup();
-
-        TabHost.TabSpec tabsec1 = tabhost.newTabSpec("Tabela");
-        tabsec1.setContent(R.id.tabTabela);
-        tabsec1.setIndicator("Tabela");
-        tabhost.addTab(tabsec1);
-
-        TabHost.TabSpec tabsec2 = tabhost.newTabSpec("Gráficos");
-        tabsec2.setContent(R.id.tabGrafico);
-        tabsec2.setIndicator("Gráfico");
-        tabhost.addTab(tabsec2);
-
+        //mudar cor do titulo da action bar
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Plano de Alimentação</font>"));
 
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -47,7 +39,6 @@ public class GraficosActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -57,5 +48,6 @@ public class GraficosActivity extends AppCompatActivity {
                 return true; default: return super.onOptionsItemSelected(item); }
 
     }
+
 
 }
