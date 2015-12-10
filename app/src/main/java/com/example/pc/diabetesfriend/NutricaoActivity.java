@@ -10,6 +10,9 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import android.view.View;
+import android.widget.AnalogClock;
+import android.widget.Button;
 import android.widget.TabHost;
 import android.widget.Toast;
 
@@ -40,6 +43,8 @@ public class NutricaoActivity extends AppCompatActivity {
         tabsec1.setContent(R.id.tab2);
         tabsec1.setIndicator("Dicas");
         tabhost.addTab(tabsec1);
+
+
     }
 
 

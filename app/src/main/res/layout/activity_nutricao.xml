@@ -224,6 +224,11 @@
                         android:text="• Pão + Leite meio gordo/magro (café/chá sem açucar)\n\n• Iogurte magro + bolachas de àgua e sal/integrais/maria/tostadas \n\n• Fruta média + bolachas de àgua e sal/integrais/maria/tostadas "
                         android:id="@+id/ceia" />
 
+
+                    <Button
+                        android:id="@+id/teste"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
                 </LinearLayout>
 
             </ScrollView>
@@ -274,6 +279,9 @@
 
 
                 </LinearLayout>
+
+
+
 
             </FrameLayout>
         </LinearLayout>
