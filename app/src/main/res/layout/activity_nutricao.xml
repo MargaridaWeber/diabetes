@@ -41,8 +41,6 @@
                 android:layout_height="match_parent">
 
 
-
-
                 <LinearLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
@@ -77,7 +75,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Pão(30gr) + Leite meio gordo/magro\n• Cereais integrais + café/chá sem açúcar ou com adoçante"
+                        android:text="Opção 1:\n\n • Pão(30gr) \n • Leite meio gordo/magro\n\nOpção 2:\n\n • Cereais integrais\n • Café/chá sem açúcar ou com adoçante"
                         android:id="@+id/tvpequenoalmoco" />
 
                     <!-- title -->
@@ -105,7 +103,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="• Fruta média + bolachas de àgua e sal/integrais/maria\n• Iogurte magro + bolachas de àgua e sal/integrais/maria\n• 1/2 pão"
+                        android:text="Opção 1:\n\n • Fruta média\n • Bolachas de àgua e sal/integrais/maria\n\nOpção 2:\n\n • Iogurte magro \n• Bolachas de àgua e sal/integrais/maria\n\nOpção 3:\n\n • 1/2 Pão"
                         android:id="@+id/tvmanha" />
 
 

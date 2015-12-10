@@ -71,7 +71,7 @@
                         android:layout_width = "wrap_content"
                         android:layout_height = "wrap_content"
                         android:layout_centerInParent = "true"
-                        android:src = "@drawable/ic_historico" />
+                        android:src = "@drawable/ic_glicemia_blue" />
 
                 </RelativeLayout>
 
@@ -93,7 +93,7 @@
                         android:layout_width = "wrap_content"
                         android:layout_height = "wrap_content"
                         android:layout_centerInParent = "true"
-                        android:src = "@drawable/ic_grafico" />
+                        android:src = "@drawable/ic_grafico_blue" />
 
                 </RelativeLayout>
 
@@ -135,7 +135,7 @@
                     android:layout_width = "wrap_content"
                     android:layout_height = "wrap_content"
                     android:layout_centerInParent = "true"
-                    android:src = "@drawable/ic_alarm" />
+                    android:src = "@drawable/ic_alarm_orange" />
 
         </RelativeLayout>
 
@@ -156,7 +156,7 @@
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:layout_centerInParent = "true"
-                android:src = "@drawable/ic_usb" />
+                android:src = "@drawable/ic_usb_orange" />
 
         </RelativeLayout>
 
@@ -195,7 +195,7 @@
                 android:layout_width = "48dp"
                 android:layout_height = "48dp"
                 android:layout_centerInParent = "true"
-                android:src = "@drawable/ic_fruta"
+                android:src = "@drawable/ic_nutricao"
                />
 
 
@@ -207,10 +207,19 @@
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Informações Úteis"
-            android:id="@+id/button8"
+            android:layout_centerInParent = "true"
+            android:paddingTop = "70dp"
+            android:text="Info"
+            android:id="@+id/info"
+            android:textSize="12dp"
+            />
 
-          />
+        <ImageView
+            android:layout_width = "48dp"
+            android:layout_height = "48dp"
+            android:layout_centerInParent = "true"
+            android:src = "@drawable/ic_info"
+            />
 
         </RelativeLayout>
 
