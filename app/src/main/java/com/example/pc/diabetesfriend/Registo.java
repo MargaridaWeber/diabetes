@@ -31,6 +31,8 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+import modelo.Utilizador;
+
 public class Registo extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Button button;
@@ -49,30 +51,51 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>")); //Cor do titulo
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
 
-
         //Receber valores dos objectos
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        final Spinner spinerAnte = (Spinner) findViewById(R.id.spinnercardiaco);
+        final Spinner spnGenero = (Spinner) findViewById(R.id.spinner);
+        final Spinner spnAntec = (Spinner) findViewById(R.id.spinnercardiaco);
+        EditText etNome = (EditText) findViewById(R.id.etNome);
+        EditText etDataNasc = (EditText) findViewById(R.id.etDataNasc);
+        EditText etPeso = (EditText) findViewById(R.id.etPeso);
+        EditText etAltura = (EditText) findViewById(R.id.etAltura);
+        EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        EditText etPassword = (EditText) findViewById(R.id.etPassword);
+
+        final String nome = etNome.getText().toString();
+        final String dataNasc = etDataNasc.getText().toString();
+        final String peso = etPeso.getText().toString();
+        final String altura = etAltura.getText().toString();
+        final String email = etEmail.getText().toString();
+        final String password = etPassword.getText().toString();
 
         //Spinner genero
         ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_list_item_single_choice);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spnGenero.setAdapter(adapter);
+        spnGenero.setOnItemSelectedListener(this);
 
         //Spinner antecedentes
         ArrayAdapter adapterantecedentes =  ArrayAdapter.createFromResource(this,R.array.confirmacao,android.R.layout.simple_list_item_single_choice);
-        spinerAnte.setAdapter(adapterantecedentes);
+        spnAntec.setAdapter(adapterantecedentes);
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String text = spinner.getSelectedItem().toString();
+                if(nome.matches("") || dataNasc.matches("") || peso.matches("") || altura.matches("") || email.matches("") || password.matches("")){
+                    Toast.makeText(Registo.this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    String genero = spnGenero.getSelectedItem().toString();
+                    String antencedentes = spnGenero.getSelectedItem().toString();
+                    char gen = genero=="Masculino" ? 'M' : 'F';
+                    char ant = antencedentes=="Sim" ? 'S' : 'N';
+
+                    Utilizador user = new Utilizador(nome, gen, ant, Float.parseFloat(peso), Integer.parseInt(altura), email, password);
+                }
             }
         });
 
 
-        EditText data = (EditText) findViewById(R.id.etDataNasc);
-        data.setOnClickListener(new View.OnClickListener() {
+        etDataNasc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dataPickerDialog();
             }
@@ -100,8 +123,6 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 }, mYear, mMonth, mDay);
 
         dpd.show();
-
-
     }
     @Override 
     

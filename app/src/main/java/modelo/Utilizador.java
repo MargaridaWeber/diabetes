@@ -23,9 +23,9 @@ public class Utilizador {
     ArrayList<Glicemia> glicemias;
 
 
-    public Utilizador(String nome, Date dataNasc, char genero, char antedecentes, float peso, int altura, String email, String password) {
+    public Utilizador(String nome, /*Date dataNasc,*/ char genero, char antedecentes, float peso, int altura, String email, String password) {
         this.nome = nome;
-        this.dataNasc = dataNasc;
+        //this.dataNasc = dataNasc;
         this.genero = genero;
         this.antedecentes = antedecentes;
         this.peso = peso;
@@ -147,5 +147,8 @@ public class Utilizador {
         this.tipoDiabetes = tipoDiabetes;
     }
 
-    //Calcular IMC
+    public float calcularIMC(){
+        float IMC = peso/(altura*altura);
+        return IMC;
+    }
 }
