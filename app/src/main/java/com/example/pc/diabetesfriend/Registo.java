@@ -118,6 +118,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     etEmail.setError("E-mail inválido.");
                 }
+                //----NAO ESQUECER DE VERIFICAR SE O EMAIL JA ESTA REGISTADO
                 else if(password.length() < 6 ){
                     etPassword.setError("Mínimo de 6 caracteres.");
                 }
