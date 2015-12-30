@@ -8,13 +8,17 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
 import android.text.Html;
+import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,7 +33,10 @@ import android.widget.Toast;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import modelo.Utilizador;
 
@@ -55,19 +62,12 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
         final Spinner spnGenero = (Spinner) findViewById(R.id.spinner);
         final Spinner spnAntec = (Spinner) findViewById(R.id.spinnercardiaco);
-        EditText etNome = (EditText) findViewById(R.id.etNome);
-        EditText etDataNasc = (EditText) findViewById(R.id.etDataNasc);
-        EditText etPeso = (EditText) findViewById(R.id.etPeso);
-        EditText etAltura = (EditText) findViewById(R.id.etAltura);
-        EditText etEmail = (EditText) findViewById(R.id.etEmail);
-        EditText etPassword = (EditText) findViewById(R.id.etPassword);
-
-        final String nome = etNome.getText().toString();
-        final String dataNasc = etDataNasc.getText().toString();
-        final String peso = etPeso.getText().toString();
-        final String altura = etAltura.getText().toString();
-        final String email = etEmail.getText().toString();
-        final String password = etPassword.getText().toString();
+        final EditText etNome = (EditText) findViewById(R.id.etNome);
+        final EditText etDataNasc = (EditText) findViewById(R.id.etDataNasc);
+        final EditText etPeso = (EditText) findViewById(R.id.etPeso);
+        final EditText etAltura = (EditText) findViewById(R.id.etAltura);
+        final EditText etEmail = (EditText) findViewById(R.id.etEmail);
+        final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
         //Spinner genero
         ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_list_item_single_choice);
@@ -80,20 +80,61 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(nome.matches("") || dataNasc.matches("") || peso.matches("") || altura.matches("") || email.matches("") || password.matches("")){
-                    Toast.makeText(Registo.this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show();
+
+                String nome = etNome.getText().toString();
+                String dataNasc = etDataNasc.getText().toString();
+                String peso = etPeso.getText().toString();
+                String altura = etAltura.getText().toString();
+                String email = etEmail.getText().toString();
+                String password = etPassword.getText().toString();
+
+                Date dataNascimento = converterData(dataNasc);
+
+                Date dataHoje = new Date();
+                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+                formatter.format(dataHoje);
+
+                if (TextUtils.isEmpty(nome)) {
+                    etNome.setError("O campo não está preenchido.");
                 }
-                else{
+                else if (TextUtils.isEmpty(dataNasc)) {
+                    etDataNasc.setError("O campo não está preenchido.");
+                }
+                else if (TextUtils.isEmpty(peso)) {
+                    etPeso.setError("O campo não está preenchido.");
+                }
+                else if (TextUtils.isEmpty(altura)) {
+                    etAltura.setError("O campo não está preenchido.");
+                }
+                else if (TextUtils.isEmpty(email)) {
+                    etEmail.setError("O campo não está preenchido.");
+                }
+                else if (TextUtils.isEmpty(password)) {
+                    etPassword.setError("O campo não está preenchido.");
+                }
+                else if (dataNascimento.after(dataHoje)) { //Se a data de nascimento for superior a data actual
+                    etDataNasc.setError("A data é inválida.");
+                }
+                else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                    etEmail.setError("E-mail inválido.");
+                }
+                else if(password.length() < 6 ){
+                    etPassword.setError("Mínimo de 6 caracteres.");
+                }
+                else {
                     String genero = spnGenero.getSelectedItem().toString();
                     String antencedentes = spnGenero.getSelectedItem().toString();
-                    char gen = genero=="Masculino" ? 'M' : 'F';
-                    char ant = antencedentes=="Sim" ? 'S' : 'N';
+                    char gen = genero == "Masculino" ? 'M' : 'F';
+                    char ant = antencedentes == "Sim" ? 'S' : 'N';
 
-                    Utilizador user = new Utilizador(nome, gen, ant, Float.parseFloat(peso), Integer.parseInt(altura), email, password);
+                    Toast.makeText(Registo.this, "O seu registo foi efectuado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Utilizador user = new Utilizador(nome, dataNascimento, gen, ant, Float.parseFloat(peso), Integer.parseInt(altura), email, password);
+
+                    Intent login = new Intent(getApplicationContext(),LoginActivity.class);
+                    startActivity(login);
                 }
             }
         });
-
 
         etDataNasc.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -103,6 +144,20 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
 
     }
 
+    //Converter string para date
+    public Date converterData(String data){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        Date date=null;
+        try {
+            date = formatter.parse(data);
+            formatter.format(date);
+            return date;
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private void dataPickerDialog(){
         final Calendar c = Calendar.getInstance();
