@@ -34,9 +34,9 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
-        listaConf.add(new String[]{"HiperGlicemia", ""});
+        listaConf.add(new String[]{"Hiperglicemia", ""});
         listaConf.add(new String[]{"Glicemia desejada", ""});
-        listaConf.add(new String[]{"HipoGlicemia", ""});
+        listaConf.add(new String[]{"Hipoglicemia", ""});
 
 
         Button btnseguinte = (Button) view.findViewById(R.id.btnSeguinte);

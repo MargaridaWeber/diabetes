@@ -26,7 +26,6 @@ public class ConfiguracoesIniciaisActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -36,8 +35,10 @@ public class ConfiguracoesIniciaisActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
-                return true; default: return super.onOptionsItemSelected(item); }
+                return true;
+            default:
+                return super.onOptionsItemSelected(item); }
 
     }
-        }
+}
 

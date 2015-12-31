@@ -22,6 +22,7 @@ import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -38,23 +39,27 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import modelo.DiabetesFriend;
 import modelo.Utilizador;
 
 public class Registo extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private Button button;
     private TextView resultText;
+    DiabetesFriend diabetes;
 
-    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registo);
 
+        diabetes = DiabetesFriend.getInstance();
+
         //Action Bar
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true); //Setinha de andar para trás
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registo</font>")); //Cor do titulo
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
 
@@ -78,9 +83,11 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         ArrayAdapter adapterantecedentes =  ArrayAdapter.createFromResource(this,R.array.confirmacao,android.R.layout.simple_list_item_single_choice);
         spnAntec.setAdapter(adapterantecedentes);
 
+
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                boolean valido = true;
                 String nome = etNome.getText().toString();
                 String dataNasc = etDataNasc.getText().toString();
                 String peso = etPeso.getText().toString();
@@ -94,44 +101,68 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 formatter.format(dataHoje);
 
+                //Validar nome
                 if (TextUtils.isEmpty(nome)) {
                     etNome.setError("O campo não está preenchido.");
+                    valido=false;
                 }
-                else if (TextUtils.isEmpty(dataNasc)) {
+
+                //Validar data de nascimento
+                if (TextUtils.isEmpty(dataNasc)) {
                     etDataNasc.setError("O campo não está preenchido.");
-                }
-                else if (TextUtils.isEmpty(peso)) {
-                    etPeso.setError("O campo não está preenchido.");
-                }
-                else if (TextUtils.isEmpty(altura)) {
-                    etAltura.setError("O campo não está preenchido.");
-                }
-                else if (TextUtils.isEmpty(email)) {
-                    etEmail.setError("O campo não está preenchido.");
-                }
-                else if (TextUtils.isEmpty(password)) {
-                    etPassword.setError("O campo não está preenchido.");
+                    valido=false;
                 }
                 else if (dataNascimento.after(dataHoje)) { //Se a data de nascimento for superior a data actual
                     etDataNasc.setError("A data é inválida.");
+                    valido=false;
+                }
+
+                //Validar peso e altura
+                if (TextUtils.isEmpty(peso)) {
+                    etPeso.setError("O campo não está preenchido.");
+                    valido=false;
+                }
+                if (TextUtils.isEmpty(altura)) {
+                    etAltura.setError("O campo não está preenchido.");
+                    valido=false;
+                }
+
+                //Validar e-mail
+                if (TextUtils.isEmpty(email)) {
+                    etEmail.setError("O campo não está preenchido.");
+                    valido=false;
                 }
                 else if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     etEmail.setError("E-mail inválido.");
+                    valido=false;
                 }
-                //----NAO ESQUECER DE VERIFICAR SE O EMAIL JA ESTA REGISTADO
+                else if(diabetes.verificarUtilizadorExiste(email)){
+                    etEmail.setError("O e-mail já se encontra registado.");
+                    valido=false;
+                }
+
+                //Validar password
+                if (TextUtils.isEmpty(password)) {
+                    etPassword.setError("O campo não está preenchido.");
+                    valido=false;
+                }
                 else if(password.length() < 6 ){
                     etPassword.setError("Mínimo de 6 caracteres.");
+                    valido=false;
                 }
-                else {
+
+                if(valido==true) {
                     String genero = spnGenero.getSelectedItem().toString();
                     String antencedentes = spnGenero.getSelectedItem().toString();
                     char gen = genero == "Masculino" ? 'M' : 'F';
                     char ant = antencedentes == "Sim" ? 'S' : 'N';
 
                     Toast.makeText(Registo.this, "O seu registo foi efectuado com sucesso!", Toast.LENGTH_SHORT).show();
-                    Utilizador user = new Utilizador(nome, dataNascimento, gen, ant, Float.parseFloat(peso), Integer.parseInt(altura), email, password);
 
-                    Intent login = new Intent(getApplicationContext(),LoginActivity.class);
+                    Utilizador user = new Utilizador(nome, dataNascimento, gen, ant, Float.parseFloat(peso), Integer.parseInt(altura), email, password);
+                    diabetes.adicionarUtilizador(user);
+
+                    Intent login = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(login);
                 }
             }
@@ -183,8 +214,19 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
     @Override 
     
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item); }
+
     }
 
     @Override
