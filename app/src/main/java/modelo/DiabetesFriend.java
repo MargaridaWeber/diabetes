@@ -40,9 +40,13 @@ public class DiabetesFriend {
         return false;
     }
 
-    /*public Utilizador pesquisarUtilizador(){
+    public Utilizador pesquisarUtilizador(String email){
         for(Utilizador u : listaUtilizadores){
-            if()
+            if(email.equals(u.getEmail()))
+                return u;
         }
-    }*/
+        return null;
+    }
+
+
 }

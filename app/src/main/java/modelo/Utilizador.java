@@ -151,4 +151,6 @@ public class Utilizador {
         float IMC = peso/(altura*altura);
         return IMC;
     }
+
+
 }

@@ -95,11 +95,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                Date dataNascimento = converterData(dataNasc);
-
-                Date dataHoje = new Date();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-                formatter.format(dataHoje);
+                Date dataNascimento = converterDataDate(dataNasc);
 
                 //Validar nome
                 if (TextUtils.isEmpty(nome)) {
@@ -112,7 +108,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                     etDataNasc.setError("O campo não está preenchido.");
                     valido=false;
                 }
-                else if (dataNascimento.after(dataHoje)) { //Se a data de nascimento for superior a data actual
+                else if (dataNascimento.after(new Date())) { //Se a data de nascimento for superior a data actual
                     etDataNasc.setError("A data é inválida.");
                     valido=false;
                 }
@@ -177,7 +173,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
     }
 
     //Converter string para date
-    public Date converterData(String data){
+    public Date converterDataDate(String data){
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date=null;
         try {

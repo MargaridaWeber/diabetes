@@ -21,8 +21,12 @@
                 android:title="Histórico de Registos"
                 android:icon="@drawable/ic_historico"/>
 
-            <item android:id="@+id/agenda" android:title="Anotação Consultas" android:icon="@drawable/ic_date"/>
+            <item android:id="@+id/agenda"
+                android:title="Anotação Consultas"
+                android:icon="@drawable/ic_date"/>
 
-
+             <item android:id="@+id/sair"
+                android:title="Sair"
+                 android:icon="@drawable/ic_sair"/>
 
 </menu>

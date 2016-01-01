@@ -16,13 +16,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.HashMap;
 
 import alarmes.AlarmesActivity;
+import modelo.DiabetesFriend;
+import modelo.Utilizador;
 import nutricao.NutricaoActivity;
+import modelo.SessionManager;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    DiabetesFriend diabetes;
+    SessionManager session;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,9 +38,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.tolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -85,6 +95,20 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+        session.checkLogin();
+
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+
+        // email
+        String email = user.get(SessionManager.KEY_EMAIL);
+
+        /*TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
+
+        Utilizador u = diabetes.pesquisarUtilizador(email);
+        tvUtilizador.setText("Seja bem vindo(a)"+ u.getNome());*/
+
     }
 
 
@@ -118,6 +142,9 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.nav_send) {
             Intent enviar = new Intent(getApplicationContext(), EnviarRelatorioActivity.class );
             startActivity(enviar);
+        }
+        else if(id == R.id.sair){
+            session.logoutUser();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

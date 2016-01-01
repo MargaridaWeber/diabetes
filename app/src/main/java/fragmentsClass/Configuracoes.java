@@ -29,8 +29,8 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
 
 
         listaConf = new LinkedList<String[]>();
-        listaConf.add(new String[]{"Dados Pessoais", "Nome,Data de Nascimento,Género, Email,Password"});
-        listaConf.add(new String[]{"Limites da Glicemia", "Hiperglicemia ,Glicemia desejada, Hipoglicemia "});
+        listaConf.add(new String[]{"Dados Pessoais", "Nome, Data de Nascimento, Género, E-mail, Password"});
+        listaConf.add(new String[]{"Limites da Glicemia", "Hiperglicemia, Glicemia desejada, Hipoglicemia "});
 
         return view;
 
