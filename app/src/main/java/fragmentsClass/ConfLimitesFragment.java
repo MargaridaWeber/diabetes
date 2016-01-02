@@ -18,31 +18,44 @@ import android.widget.TextView;
 //import com.example.pc.diabetesfriend.ConfDadosActivity;
 import com.example.pc.diabetesfriend.R;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
+import modelo.DiabetesFriend;
+import modelo.SessionManager;
+import modelo.Utilizador;
 
 public class ConfLimitesFragment extends ListFragment implements AdapterView.OnItemClickListener {
     private List<String[]> listaConf;
     ArrayAdapter<String[]> adaptador;
+    DiabetesFriend diabetes;
+    SessionManager session;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_conf_limites, container, false);
 
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getActivity().getApplicationContext());
+
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+
+        Utilizador u = diabetes.pesquisarUtilizador(email);
 
         listaConf = new LinkedList<String[]>();
-        listaConf.add(new String[]{"HiperGlicemia", ""});
-        listaConf.add(new String[]{"Glicemia Desejada", ""});
-        listaConf.add(new String[]{"HipoGlicemia", ""});
+        listaConf.add(new String[]{"Hiperglicemia", "Jejum: "+u.getHiperglicemia()[0]+" mg/dl\nApós refeição:"+u.getHiperglicemia()[1]+" mg/dl"});
+        listaConf.add(new String[]{"Glicemia Desejada", "Jejum: "+u.getGlicemiaDesejada()[0]+" mg/dl\nApós refeição:"+u.getGlicemiaDesejada()[1]+" mg/dl"});
+        listaConf.add(new String[]{"Hipoglicemia", "Jejum: "+u.getHipoglicemia()[0]+" mg/dl\nApós refeição:"+u.getHipoglicemia()[1]+" mg/dl"});
 
         return view;
-
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
 
         adaptador = new ArrayAdapter<String[]>(getActivity(), android.R.layout.simple_list_item_2,android.R.id.text1, listaConf){
 
@@ -58,29 +71,11 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 text2.setText(entrey[1]);
                 return view;
             }
-
         };
         setListAdapter(adaptador);
 
-
         getListView().setOnItemClickListener(this);
-
     }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-        int itemPosition = position;
-        if(itemPosition==0)
-            openEditHiper();
-        if (itemPosition==1)
-            openEditGliDesejada();
-        if (itemPosition==2)
-            openEditHipo();
-
-    }
-
-
 
     View v;
 
@@ -101,9 +96,9 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
                 EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
+
                 listaConf.set(0, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+" mg/dl"});
                 setListAdapter(adaptador);
-
             }
         });
 
@@ -184,6 +179,18 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
         });
 
         dialog.show();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        int itemPosition = position;
+        if(itemPosition==0)
+            openEditHiper();
+        if (itemPosition==1)
+            openEditGliDesejada();
+        if (itemPosition==2)
+            openEditHipo();
 
     }
 }
