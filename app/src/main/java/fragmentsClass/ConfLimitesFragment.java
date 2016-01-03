@@ -31,6 +31,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
     ArrayAdapter<String[]> adaptador;
     DiabetesFriend diabetes;
     SessionManager session;
+    Utilizador u;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
         HashMap<String, String> user = session.getUserDetails();
         String email = user.get(SessionManager.KEY_EMAIL);
 
-        Utilizador u = diabetes.pesquisarUtilizador(email);
+        u = diabetes.pesquisarUtilizador(email);
 
         listaConf = new LinkedList<String[]>();
         listaConf.add(new String[]{"Hiperglicemia", "Jejum: "+u.getHiperglicemia()[0]+" mg/dl\nApós refeição:"+u.getHiperglicemia()[1]+" mg/dl"});
@@ -88,14 +89,16 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
 
         dialog.setView(v);
 
+        //Colocar valores nas editTexts
+        final EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+        final EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+        editJejum.setText(u.getHiperglicemia()[0]+"");
+        editRefeicao.setText(u.getHiperglicemia()[1]+"");
+
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
-                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
-
 
                 listaConf.set(0, new String[]{"HiperGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+" mg/dl"});
                 setListAdapter(adaptador);
@@ -123,13 +126,16 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
 
         dialog.setView(v);
 
+        //Colocar valores nas editTexts
+        final EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+        final EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+        editJejum.setText(u.getGlicemiaDesejada()[0]+"");
+        editRefeicao.setText(u.getGlicemiaDesejada()[1] + "");
+
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-
-                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
-                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
 
                 listaConf.set(1, new String[]{"Glicemia Desejada","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
@@ -156,18 +162,22 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
 
         dialog.setView(v);
 
+
+        //Colocar valores nas editTexts
+        final EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
+        final EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
+        editJejum.setText(u.getHipoglicemia()[0]+"");
+        editRefeicao.setText(u.getHipoglicemia()[1] + "");
+
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
-                EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
-
-
                 listaConf.set(2, new String[]{"HipoGlicemia","Jejum: "+editJejum.getText().toString()+" mg/dl\nApós refeição:"+editRefeicao.getText().toString()+"mg/dl"});
                 setListAdapter(adaptador);
 
+                //GUARDAR valores
             }
         });
 

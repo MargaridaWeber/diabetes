@@ -67,20 +67,20 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         btnSeguinte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                // Obtem dados da sessão
-                HashMap<String, String> user = session.getUserDetails();
-                String email = user.get(SessionManager.KEY_EMAIL);
+            // Obtem dados da sessão
+            HashMap<String, String> user = session.getUserDetails();
+            String email = user.get(SessionManager.KEY_EMAIL);
 
-                Utilizador u = diabetes.pesquisarUtilizador(email);
+            Utilizador u = diabetes.pesquisarUtilizador(email);
 
-                u.setTipoDiabetes(tipoDiabetes);
-                u.setInsulina(tomaInsulina);
-                u.setExercicio(fazExercicio);
+            u.setTipoDiabetes(tipoDiabetes);
+            u.setInsulina(tomaInsulina);
+            u.setExercicio(fazExercicio);
 
-                //Validar se estão preenchidos
-                u.setHiperglicemia(hiperglicemia);
-                u.setGlicemiaDesejada(glicemiaDesejada);
-                u.setHipoglicemia(hipoglicemia);
+            //Validar se estão preenchidos
+            u.setHiperglicemia(hiperglicemia);
+            u.setGlicemiaDesejada(glicemiaDesejada);
+            u.setHipoglicemia(hipoglicemia);
 
             Intent conf = new Intent(getActivity(), MainActivity.class);
             startActivity(conf);
