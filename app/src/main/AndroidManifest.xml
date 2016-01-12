@@ -46,7 +46,8 @@
         <activity android:name="nutricao.AlmocoActivity" />
         <activity android:name="nutricao.LancheActivity" />
         <activity android:name="nutricao.JantarActivity" />
-        <activity android:name="nutricao.CeiaActivity"></activity>
+        <activity android:name="nutricao.CeiaActivity" />
+        <activity android:name=".Informacoes"></activity>
     </application>
 
 </manifest>

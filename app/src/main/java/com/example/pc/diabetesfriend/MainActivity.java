@@ -96,6 +96,15 @@ public class MainActivity extends AppCompatActivity
         });
 
 
+        Button btnInf = (Button)findViewById(R.id.info);
+        btnInf.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent informacoes = new Intent(getApplicationContext(), Informacoes.class );
+                startActivity(informacoes);
+            }
+        });
+
+
         session.checkLogin();
 
         // Obtem dados da sessão
