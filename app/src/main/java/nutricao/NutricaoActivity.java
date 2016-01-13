@@ -41,11 +41,6 @@ public class NutricaoActivity extends AppCompatActivity {
         tabsec.setIndicator("Plano de Alimentação");
         tabhost.addTab(tabsec);
 
-        TabHost.TabSpec tabsec1 = tabhost.newTabSpec("Dicas");
-        tabsec1.setContent(R.id.tab2);
-        tabsec1.setIndicator("Dicas");
-        tabhost.addTab(tabsec1);
-
 
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
         imgPequenoAlmoco.setOnClickListener(new View.OnClickListener() {
