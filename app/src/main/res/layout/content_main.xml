@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Seja bem vindo(a)"
-        android:id="@+id/textView9"
+        android:id="@+id/tvUtilizador"
         android:layout_gravity="right"
         />
 
