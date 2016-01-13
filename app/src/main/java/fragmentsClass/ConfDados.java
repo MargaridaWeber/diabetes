@@ -155,6 +155,7 @@ public class ConfDados extends ListFragment implements AdapterView.OnItemClickLi
                         u.setDataNasc(converterDataDate(data));
                         listaConf.set(1, new String[]{"Nome", data});
                         setListAdapter(adaptador);
+
                     }
                 }, mYear, mMonth, mDay);
         dpd.show();

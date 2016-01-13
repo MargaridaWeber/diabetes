@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity
 
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getApplicationContext());
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.tolbar);
         setSupportActionBar(toolbar);
@@ -90,24 +92,24 @@ public class MainActivity extends AppCompatActivity
         Button btnGrafico = (Button)findViewById(R.id.btnGraficos);
         btnGrafico.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent graficos = new Intent(getApplicationContext(), GraficosActivity.class );
+                Intent graficos = new Intent(getApplicationContext(), GraficosActivity.class);
                 startActivity(graficos);
             }
         });
-
 
         session.checkLogin();
 
         // Obtem dados da sessão
         HashMap<String, String> user = session.getUserDetails();
-
-        // email
         String email = user.get(SessionManager.KEY_EMAIL);
 
-        /*TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
-
         Utilizador u = diabetes.pesquisarUtilizador(email);
-        tvUtilizador.setText("Seja bem vindo(a)"+ u.getNome());*/
+
+        TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
+        if(u.getGenero()=='M')
+            tvUtilizador.setText("Seja Bem-Vindo " + u.getNome());
+        else
+            tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
 
     }
 
