@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -41,7 +42,6 @@ public class MainActivity extends AppCompatActivity
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getApplicationContext());
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.tolbar);
         setSupportActionBar(toolbar);
 
@@ -60,7 +60,6 @@ public class MainActivity extends AppCompatActivity
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>")); //Cor do titulo
-
 
         Button btnAlarme = (Button) findViewById(R.id.btnAlarmes);
         btnAlarme.setOnClickListener(new View.OnClickListener() {
@@ -110,14 +109,14 @@ public class MainActivity extends AppCompatActivity
         HashMap<String, String> user = session.getUserDetails();
         String email = user.get(SessionManager.KEY_EMAIL);
 
-  /*     Utilizador u = diabetes.pesquisarUtilizador(email);
+        Utilizador u = diabetes.pesquisarUtilizador(email);
 
         TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
           if(u.getGenero()=='M')
             tvUtilizador.setText("Seja Bem-Vindo " + u.getNome());
         else
             tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
-*/
+
     }
 
 

@@ -33,15 +33,15 @@ public class LoginActivity extends AppCompatActivity{
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getApplicationContext());
 
+        //Cria um utilizador
+        Utilizador u = new Utilizador("Mónica", new Date(), 'F', 'N', Float.parseFloat("50"), Integer.parseInt("160"), "monica.francisco@hotmail.com", "monica");
+        diabetes.adicionarUtilizador(u);
+
         //Se o utilizador estiver logado quando inicia a aplicação redirectiona para o main
         if(session.isLoggedIn()){
             Intent main = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(main);
         }
-
-        //Cria um utilizador
-        Utilizador u = new Utilizador("Mónica", new Date(), 'F', 'N', Float.parseFloat("50"), Integer.parseInt("160"), "monica.francisco@hotmail.com", "monica");
-        diabetes.adicionarUtilizador(u);
 
         //Action bar
         ActionBar actionBar = getSupportActionBar();

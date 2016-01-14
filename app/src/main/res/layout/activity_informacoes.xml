@@ -78,12 +78,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HipoGlicemia"
+                        android:drawableLeft="@drawable/ic_cima"
                         android:id="@+id/bth" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HiperGlicemia"
+                        android:drawableLeft="@drawable/ic_baixo"
                         android:id="@+id/bthiper" />
 
 
@@ -95,19 +97,34 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Telefonar para a Linha 24"
-                        android:drawableLeft="@drawable/ic_telefone"
-                        android:background="@color/green"
-                        android:id="@+id/btntele"/>
-
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="30dp"
                         android:text="Aceda ao Portal dos diabetes"
                         android:id="@+id/portal"  />
+
+                    <RelativeLayout
+                        android:layout_width = "100dp"
+                        android:layout_height = "100dp"  >
+
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_centerInParent = "true"
+                            android:text="Telefonar para a Linha 24 "
+                            android:textSize="12dp"
+                            android:background="@color/green"
+                            android:id="@+id/btntele"
+                            />
+
+                        <ImageView
+                            android:id = "@+id/main_icon_content_image_view"
+                            android:src = "@drawable/ic_tele"
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_alignParentTop="true" />
+                    </RelativeLayout>
                 </LinearLayout>
 
 
