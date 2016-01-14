@@ -97,6 +97,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical" >
 
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Telefonar para a Linha 24"
+                        android:id="@+id/btntele"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Aceda ao Portal dos diabetes"
+                        android:id="@+id/portal"  />
                 </LinearLayout>
 
 

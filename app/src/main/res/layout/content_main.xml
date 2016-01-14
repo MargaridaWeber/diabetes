@@ -210,7 +210,7 @@
             android:layout_centerInParent = "true"
             android:paddingTop = "70dp"
             android:text="Info"
-            android:id="@+id/info"
+            android:id="@+id/btnInf"
             android:textSize="12dp"
             />
 

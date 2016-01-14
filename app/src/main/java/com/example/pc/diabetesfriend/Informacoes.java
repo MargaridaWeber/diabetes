@@ -1,15 +1,26 @@
 package com.example.pc.diabetesfriend;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.TextView;
+
+import alarmes.AlarmesActivity;
 
 public class Informacoes extends AppCompatActivity {
 
@@ -18,7 +29,6 @@ public class Informacoes extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacoes);
 
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
@@ -26,6 +36,9 @@ public class Informacoes extends AppCompatActivity {
 
         //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Informações</font>"));
+
+
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         TabHost tabhost = (TabHost) findViewById(R.id.tabHost);
 
@@ -42,6 +55,29 @@ public class Informacoes extends AppCompatActivity {
         tabsec1.setContent(R.id.tabDicas);
         tabsec1.setIndicator("Dicas");
         tabhost.addTab(tabsec1);
+
+
+        Button btntele = (Button) findViewById(R.id.btntele);
+        btntele.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Uri number = Uri.parse("tel:911077432");
+                Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+                startActivity(callIntent);
+            }
+        });
+
+        TextView portal = (TextView) findViewById(R.id.portal);
+        portal.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String url = "http://www.apdp.pt/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+        });
+
+
+
 
     }
 
@@ -61,4 +97,6 @@ public class Informacoes extends AppCompatActivity {
                 return true; default: return super.onOptionsItemSelected(item); }
 
     }
+
+
 }

@@ -16,7 +16,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
         btnNutricao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent nutricao = new Intent(getApplicationContext(), NutricaoActivity.class);
+               Intent nutricao = new Intent(getApplicationContext(), NutricaoActivity.class);
                 startActivity(nutricao);
             }
         });
@@ -97,20 +96,28 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        Button btnInf = (Button) findViewById(R.id.btnInf);
+        btnInf.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent inf = new Intent(getApplicationContext(), Informacoes.class);
+                startActivity(inf);
+            }
+        });
+
         session.checkLogin();
 
         // Obtem dados da sessão
         HashMap<String, String> user = session.getUserDetails();
         String email = user.get(SessionManager.KEY_EMAIL);
 
-        Utilizador u = diabetes.pesquisarUtilizador(email);
+  /*     Utilizador u = diabetes.pesquisarUtilizador(email);
 
         TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
-        if(u.getGenero()=='M')
+          if(u.getGenero()=='M')
             tvUtilizador.setText("Seja Bem-Vindo " + u.getNome());
         else
             tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
-
+*/
     }
 
 
