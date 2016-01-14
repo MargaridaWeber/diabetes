@@ -87,8 +87,6 @@
                         android:id="@+id/bthiper" />
 
 
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -101,6 +99,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Telefonar para a Linha 24"
+                        android:drawableLeft="@drawable/ic_telefone"
+                        android:background="@color/green"
                         android:id="@+id/btntele"/>
 
                     <TextView
