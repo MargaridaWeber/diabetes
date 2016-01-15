@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
@@ -66,7 +67,7 @@ public class Informacoes extends AppCompatActivity {
             }
         });
 
-        TextView portal = (TextView) findViewById(R.id.portal);
+        ImageView portal = (ImageView) findViewById(R.id.portal_diabetes);
         portal.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String url = "http://www.apdp.pt/";

@@ -78,14 +78,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HipoGlicemia"
-                        android:drawableLeft="@drawable/ic_cima"
+                        android:drawableLeft="@drawable/ic_baixo"
                         android:id="@+id/bth" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HiperGlicemia"
-                        android:drawableLeft="@drawable/ic_baixo"
+                        android:drawableLeft="@drawable/ic_cima"
                         android:id="@+id/bthiper" />
 
 
@@ -103,6 +103,14 @@
                         android:text="Aceda ao Portal dos diabetes"
                         android:id="@+id/portal"  />
 
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="190dp"
+                        android:id="@+id/portal_diabetes"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/portal_diabetes"/>
+
+
                     <RelativeLayout
                         android:layout_width = "100dp"
                         android:layout_height = "100dp"  >
@@ -113,7 +121,7 @@
                             android:layout_centerInParent = "true"
                             android:text="Telefonar para a Linha 24 "
                             android:textSize="12dp"
-                            android:background="@color/green"
+                            android:background="@color/cinzento"
                             android:id="@+id/btntele"
                             />
 
