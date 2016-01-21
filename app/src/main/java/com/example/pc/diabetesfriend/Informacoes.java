@@ -78,7 +78,13 @@ public class Informacoes extends AppCompatActivity {
         });
 
 
-
+        Button nutricao = (Button) findViewById(R.id.btnNutricao);
+        nutricao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent nutri = new Intent(getApplicationContext(), DicasNutriActivity.class);
+                startActivity(nutri);
+            }
+        });
 
     }
 

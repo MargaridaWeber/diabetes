@@ -95,4 +95,8 @@
 
     <string name="antecedentes_titulo">Já teve algum problema cardíaco?</string>
     <string name="refeicoes_titulo">Refeições</string>
+    <string name="title_activity_dicas_nutri">DicasNutriActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_teste">Teste</string>
 </resources>

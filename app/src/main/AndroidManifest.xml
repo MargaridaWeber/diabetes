@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <!-- Include required permissions for Google Mobile Ads to run. -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -48,7 +48,10 @@
         <activity android:name="nutricao.LancheActivity" />
         <activity android:name="nutricao.JantarActivity" />
         <activity android:name="nutricao.CeiaActivity" />
-        <activity android:name=".Informacoes"></activity>
+        <activity android:name=".Informacoes" />
+        <activity
+            android:name=".DicasNutriActivity"
+            android:label="@string/title_activity_dicas_nutri" />
     </application>
 
 </manifest>
