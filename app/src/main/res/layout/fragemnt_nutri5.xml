@@ -1,45 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pc.diabetesfriend.FragemntNutri5">
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Faça refeições ligeiras de 3 em 3 horas"
+        android:text="Beba cerca de 1,5 litros de àgua por dia!"
         android:textStyle="bold"
-        android:textColor="#CC6600"
+        android:textColor="#1E90FF"
         android:id="@+id/textView15"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
 
     <TextView
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Para manter um bom controlo glicémico.
-Evite estar mais de 3 horas e meia sem comer!"
+        android:text="São inúmeros os benefícios da água,ajuda o bom funcionamento do rim e do intestino é fundamental para um diabético beber àgua!"
         android:layout_gravity="center_vertical|right"
+        android:layout_marginBottom="15dp"
         android:id="@+id/textView14"
-        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
         android:layout_below="@+id/textView15"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal" />
+        android:layout_marginTop="50dp" />
+
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="260dp"
-        android:id="@+id/importancia"
+        android:layout_height="220dp"
+        android:id="@+id/acucar"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/importancia"
+        android:src="@drawable/agua"
         android:layout_marginTop="42dp"
         android:layout_below="@+id/textView14"
         android:layout_centerHorizontal="true" />
-
-
 
 
 </RelativeLayout>

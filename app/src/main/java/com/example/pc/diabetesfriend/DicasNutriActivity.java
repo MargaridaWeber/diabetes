@@ -1,14 +1,12 @@
 package com.example.pc.diabetesfriend;
 
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -19,8 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.RadioGroup;
 import android.widget.TextView;
+
 
 public class DicasNutriActivity extends AppCompatActivity {
 
@@ -48,7 +47,7 @@ public class DicasNutriActivity extends AppCompatActivity {
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
@@ -59,17 +58,44 @@ public class DicasNutriActivity extends AppCompatActivity {
 
 
 
+        final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
+
+
+        mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        radioGroup.check(R.id.radioButton);
+                        break;
+                    case 1:
+                        radioGroup.check(R.id.radioButton2);
+                        break;
+                    case 2:
+                        radioGroup.check(R.id.radioButton3);
+                        break;
+                    case 3:
+                        radioGroup.check(R.id.radioButton4);
+                        break;
+                    case 4:
+                        radioGroup.check(R.id.radioButton5);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+
+            }
+        });
+
     }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -79,7 +105,12 @@ public class DicasNutriActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
 
     /**
      * A placeholder fragment containing a simple view.
@@ -93,6 +124,8 @@ public class DicasNutriActivity extends AppCompatActivity {
 
         public PlaceholderFragment() {
         }
+
+
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -114,6 +147,7 @@ public class DicasNutriActivity extends AppCompatActivity {
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
+
     }
 
     /**
@@ -136,7 +170,12 @@ public class DicasNutriActivity extends AppCompatActivity {
 
                 case 1:
                     return new FragmenteNutri2();
-
+                case 2:
+                    return new FragementDicasNutri3();
+                case 3:
+                    return new FragmentNutri4();
+                case 4:
+                    return new FragemntNutri5();
 
 
             }
@@ -146,28 +185,11 @@ public class DicasNutriActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 3;
+            // Show 5 total pages.
+            return 5;
         }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "SECTION 1";
-                case 1:
-                    return "SECTION 2";
-
-            }
-            return null;
-        }
-
-
-
 
     }
-
-
 
 
 }

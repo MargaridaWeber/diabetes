@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pc.diabetesfriend.FragmentNutri4">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Evitar pastéis,chocolates,refrigerantes e outros"
+        android:textStyle="bold"
+        android:textColor="#CC6600"
+        android:id="@+id/textView15"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Estes são alimentos especialmente ricos em açúcar.O consumo deste tipo de alimentos deve ser feito, preferencialmente, no final das refeições, e a sua ingestão não deve ser diária mas sim reservada para consumos ocasionais e de festa!"
+        android:layout_gravity="center_vertical|right"
+        android:layout_marginBottom="15dp"
+        android:id="@+id/textView14"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="220dp"
+        android:id="@+id/acucar"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/acucares"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

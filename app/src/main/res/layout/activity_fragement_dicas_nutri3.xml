@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -6,51 +7,41 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.DicasNutriActivity$PlaceholderFragment">
-
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    tools:context="com.example.pc.diabetesfriend.FragementDicasNutri3">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Nunca ingira fruta isoladamente!"
-        android:textColor="#8C1717"
+        android:text="Prefira métodos de culinária simples, saudáveis e saborosos"
+        android:textColor="#2F4F2F"
         android:textStyle="bold"
-        android:id="@+id/textView13"
+        android:id="@+id/textView17"
         android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
-
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=" Acompanhe-a sempre com pão ou bolachas. Lembre-se: “Para terminar a refeição, a fruta é a melhor sobremesa!”. Evite as frutas com mais açúcar."
-        android:id="@+id/textView16"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/textView13"
+        android:text="como por exemplo:Cozidos, grelhados, assados com pouca gordura; estufados em frio/em cru, caldeiradas"
+        android:id="@+id/textView18"
+        android:layout_below="@+id/textView17"
+        android:layout_marginTop="52dp"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="240dp"
-        android:id="@+id/fruta"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/fruta"
-
-        android:layout_marginTop="40dp"
-        android:layout_below="@+id/textView16"
-        android:layout_toRightOf="@+id/section_label"
-        android:layout_toEndOf="@+id/section_label" />
-
-
-
-
+        android:id="@+id/imageView2"
+        android:src="@drawable/comida"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/textView18"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
