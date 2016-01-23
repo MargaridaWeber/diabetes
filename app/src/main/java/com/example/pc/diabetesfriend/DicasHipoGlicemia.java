@@ -183,13 +183,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
                     return new FragmentHipo1();
 
                 case 1:
-                    return new FragmenteNutri2();
-                case 2:
-                    return new FragementDicasNutri3();
-                case 3:
-                    return new FragmentNutri4();
-                case 4:
-                    return new FragemntNutri5();
+                    return new FragmentHipo2();
 
 
             } return PlaceholderFragment.newInstance(position + 1);
@@ -197,7 +191,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 5;
+            return 2;
         }
 
     }

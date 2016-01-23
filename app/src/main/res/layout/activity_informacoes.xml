@@ -33,8 +33,6 @@
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-
                 <LinearLayout
                     android:id="@+id/tabDicas"
                     android:layout_width="match_parent"
@@ -82,6 +80,8 @@
                 </LinearLayout>
 
 
+
+
                 <LinearLayout
                     android:id="@+id/tabInf"
                     android:layout_width="match_parent"
@@ -99,8 +99,9 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginBottom="4dp"
                         android:layout_alignParentBottom="true"
-                        android:text="Sempre que tiver alguma duvida ou precisar de ajuda:"
-                        android:textColor="#000000"/>
+                        android:text="Em caso de Dúvidas"
+                        android:textColor="#000000"
+                        android:layout_gravity="center_horizontal" />
 
 
                     <!--  divider -->
@@ -112,12 +113,14 @@
                         android:background="#DADADC" ></View>
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
-                        android:text="Aceda ao Portal dos diabetes"
+                        android:text="Aceda ao Portal dos diabetes:"
+                        android:textColor="#99C4AA"
+                        android:textStyle="bold"
                         android:id="@+id/portal"
                         android:layout_alignTop="@+id/portal_diabetes"
                         android:layout_alignParentLeft="true"
@@ -129,22 +132,48 @@
                         android:id="@+id/portal_diabetes"
                         android:layout_gravity="center_horizontal"
                         android:src="@drawable/portal_diabetes"
-                        android:layout_above="@+id/btntele"
+                        android:layout_alignParentTop="true"
                         android:layout_alignParentLeft="true"
-                        android:layout_alignParentStart="true" />
+                        android:layout_alignParentStart="true"
+                        android:layout_marginTop="20dp" />
+
+                    </RelativeLayout>
+                        <!-- title -->
+                        <TextView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:textSize="16dp"
+                            android:layout_alignParentBottom="true"
+                            android:text="Em caso de Emergências "
+                            android:textColor="#000000"
+                            android:layout_gravity="center_horizontal"
+                            android:id="@+id/textView36" />
 
 
+                        <!--  divider -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="#DADADC"
+                            android:layout_marginBottom="15dp"></View>
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Telefonar para a Linha 24 "
                         android:textSize="15dp"
                         android:id="@+id/btntele"
+                        android:background="#8D92BD"
+                        android:textColor="#fff"
+                        android:textStyle="bold"
                         android:drawableLeft="@drawable/ic_tele"
-                        android:layout_alignParentBottom="true"
-                        android:layout_centerHorizontal="true" />
+                        android:layout_alignBaseline="@+id/textView36"
+                        android:layout_alignBottom="@+id/textView36"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
 
-                    </RelativeLayout>
                 </LinearLayout>
 
 
