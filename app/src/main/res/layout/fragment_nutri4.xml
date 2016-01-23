@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.pc.diabetesfriend.FragmentNutri4">
+    tools:context="dicasNutricao.FragmentNutri4">
 
 
 
@@ -41,7 +41,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="210dp"
+        android:layout_height="240dp"
         android:id="@+id/acucar"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/acucares"

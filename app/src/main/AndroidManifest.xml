@@ -50,11 +50,8 @@
         <activity android:name="nutricao.CeiaActivity" />
         <activity android:name=".Informacoes" />
         <activity
-            android:name=".DicasNutriActivity"
+            android:name="dicasNutricao.DicasNutriActivity"
             android:label="@string/title_activity_dicas_nutri" />
-        <activity android:name=".FragementDicasNutri3" />
-        <activity android:name=".FragmentNutri4" />
-        <activity android:name=".FragemntNutri5"></activity>
     </application>
 
 </manifest>

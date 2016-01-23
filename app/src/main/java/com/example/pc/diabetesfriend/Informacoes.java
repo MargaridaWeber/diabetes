@@ -1,7 +1,5 @@
 package com.example.pc.diabetesfriend;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -11,17 +9,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TextView;
 
-import alarmes.AlarmesActivity;
+import dicasNutricao.DicasNutriActivity;
 
 public class Informacoes extends AppCompatActivity {
 
