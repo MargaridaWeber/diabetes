@@ -81,6 +81,14 @@ public class Informacoes extends AppCompatActivity {
             }
         });
 
+
+        Button hipo = (Button) findViewById(R.id.btnhipo);
+        hipo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent hipo = new Intent(getApplicationContext(), DicasHipoGlicemia.class);
+                startActivity(hipo);
+            }
+        });
     }
 
 

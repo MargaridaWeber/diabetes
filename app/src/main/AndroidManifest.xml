@@ -52,6 +52,10 @@
         <activity
             android:name="dicasNutricao.DicasNutriActivity"
             android:label="@string/title_activity_dicas_nutri" />
+        <activity
+            android:name=".DicasHipoGlicemia"
+            android:label="@string/title_activity_dicas_hipo_glicemia" />
+        <activity android:name=".FragmentHipo1"></activity>
     </application>
 
 </manifest>

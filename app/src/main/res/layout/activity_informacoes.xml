@@ -70,14 +70,14 @@
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HipoGlicemia"
                         android:drawableLeft="@drawable/ic_baixo"
-                        android:id="@+id/bth" />
+                        android:id="@+id/btnhipo" />
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Dicas para a HiperGlicemia"
                         android:drawableLeft="@drawable/ic_cima"
-                        android:id="@+id/bthiper" />
+                        android:id="@+id/btnhiper" />
 
                 </LinearLayout>
 
