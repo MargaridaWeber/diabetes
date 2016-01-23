@@ -22,7 +22,8 @@
         android:id="@+id/textView15"
         android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
 
 
     <TextView
@@ -41,11 +42,11 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="220dp"
+        android:layout_height="240dp"
         android:id="@+id/acucar"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/agua"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="38dp"
         android:layout_below="@+id/textView14"
         android:layout_centerHorizontal="true" />
 

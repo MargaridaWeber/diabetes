@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Nunca ingira fruta isoladamente!"
-        android:textColor="#8C1717"
+        android:textColor="#ff0000"
         android:textStyle="bold"
         android:id="@+id/textView13"
         android:layout_gravity="center_horizontal"
@@ -43,8 +43,7 @@
         android:layout_height="240dp"
         android:id="@+id/fruta"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/fruta"
-
+        android:src="@drawable/frutas"
         android:layout_marginTop="40dp"
         android:layout_below="@+id/textView16"
         android:layout_toRightOf="@+id/section_label"

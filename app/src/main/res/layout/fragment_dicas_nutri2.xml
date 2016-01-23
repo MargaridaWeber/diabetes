@@ -12,7 +12,7 @@
         android:textStyle="bold"
         android:textColor="#CC6600"
         android:id="@+id/textView15"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -31,11 +31,11 @@ Evite estar mais de 3 horas e meia sem comer!"
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="260dp"
+        android:layout_height="240dp"
         android:id="@+id/importancia"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/importancia"
-        android:layout_marginTop="42dp"
+        android:layout_marginTop="50dp"
         android:layout_below="@+id/textView14"
         android:layout_centerHorizontal="true" />
 

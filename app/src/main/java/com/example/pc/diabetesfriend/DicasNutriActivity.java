@@ -4,6 +4,7 @@ package com.example.pc.diabetesfriend;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -17,8 +18,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import nutricao.NutricaoActivity;
 
 
 public class DicasNutriActivity extends AppCompatActivity {
@@ -61,6 +66,7 @@ public class DicasNutriActivity extends AppCompatActivity {
         final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
 
 
+
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -96,6 +102,23 @@ public class DicasNutriActivity extends AppCompatActivity {
         });
 
     }
+
+    /*public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButton:
+                if (checked)
+                    Toast.makeText(DicasNutriActivity.this, "gg", Toast.LENGTH_SHORT).show();
+                    break;
+            case R.id.radioButton2:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
+    }*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {

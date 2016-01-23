@@ -15,16 +15,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Evitar pastéis,chocolates,refrigerantes e outros"
+        android:text="Evitar pastéis,chocolates,refrigerantes e outros doces"
         android:textStyle="bold"
-        android:textColor="#CC6600"
+        android:textColor="#FF0066"
         android:id="@+id/textView15"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="283dp"
@@ -42,7 +41,7 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="220dp"
+        android:layout_height="210dp"
         android:id="@+id/acucar"
         android:layout_gravity="center_horizontal"
         android:src="@drawable/acucares"
