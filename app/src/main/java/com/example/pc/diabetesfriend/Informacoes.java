@@ -16,6 +16,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
+import dicas.DicasHipoGlicemia;
+import dicas.DicasNutriActivity;
+
 
 public class Informacoes extends AppCompatActivity {
 

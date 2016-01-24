@@ -8,7 +8,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.pc.diabetesfriend.DicasHipoGlicemia" />
+    tools:context="dicas.DicasHipoGlicemia" />
 
 <RadioGroup
 android:layout_width="wrap_content"

@@ -1,9 +1,5 @@
-package com.example.pc.diabetesfriend;
+package dicas;
 
-
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -22,6 +18,8 @@ import android.view.ViewGroup;
 
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
+import com.example.pc.diabetesfriend.R;
 
 
 public class DicasHipoGlicemia extends AppCompatActivity {

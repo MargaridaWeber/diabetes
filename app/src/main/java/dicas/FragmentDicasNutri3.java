@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package dicas;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.pc.diabetesfriend.R;
 
-public class FragementDicasNutri3 extends Fragment {
+public class FragmentDicasNutri3 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

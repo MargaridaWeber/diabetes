@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package dicas;
 
 
 
@@ -188,13 +188,13 @@ public class DicasNutriActivity extends AppCompatActivity {
                    return new FragmentNutri1();
 
                 case 1:
-                    return new FragmenteNutri2();
+                    return new FragmentNutri2();
                 case 2:
-                    return new FragementDicasNutri3();
+                    return new FragmentDicasNutri3();
                 case 3:
                     return new FragmentNutri4();
                 case 4:
-                    return new FragemntNutri5();
+                    return new FragmentNutri5();
 
 
             }
