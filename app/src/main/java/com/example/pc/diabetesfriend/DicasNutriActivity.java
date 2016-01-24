@@ -1,9 +1,6 @@
 package com.example.pc.diabetesfriend;
 
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -19,12 +16,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.pc.diabetesfriend.R;
 
-public class DicasHipoGlicemia extends AppCompatActivity {
+
+public class DicasNutriActivity extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -44,20 +42,20 @@ public class DicasHipoGlicemia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dicas_hipo_glicemia);
+        setContentView(R.layout.activity_dicas_nutri);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas HipoGlicemia</font>")); //Cor do titulo
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Nutricionais</font>")); //Cor do titulo
 
 
 
@@ -101,27 +99,36 @@ public class DicasHipoGlicemia extends AppCompatActivity {
 
     }
 
+    /*public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
 
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButton:
+                if (checked)
+                    Toast.makeText(DicasNutriActivity.this, "gg", Toast.LENGTH_SHORT).show();
+                    break;
+            case R.id.radioButton2:
+                if (checked)
+                    // Ninjas rule
+                    break;
+        }
+    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true; default: return super.onOptionsItemSelected(item); }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -136,6 +143,8 @@ public class DicasHipoGlicemia extends AppCompatActivity {
 
         public PlaceholderFragment() {
         }
+
+
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -152,11 +161,12 @@ public class DicasHipoGlicemia extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_fragment_hipo1, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_dicas_nutri, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
+
     }
 
     /**
@@ -175,19 +185,30 @@ public class DicasHipoGlicemia extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
                 case 0:
-                    return new FragmentHipo1();
+                   return new FragmentNutri1();
 
                 case 1:
-                    return new FragmentHipo2();
+                    return new FragmenteNutri2();
+                case 2:
+                    return new FragementDicasNutri3();
+                case 3:
+                    return new FragmentNutri4();
+                case 4:
+                    return new FragemntNutri5();
 
 
-            } return PlaceholderFragment.newInstance(position + 1);
+            }
+
+            return PlaceholderFragment.newInstance(position + 1);
         }
+
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 2;
+            // Show 5 total pages.
+            return 5;
         }
 
     }
+
+
 }

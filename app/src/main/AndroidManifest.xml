@@ -50,7 +50,7 @@
         <activity android:name="nutricao.CeiaActivity" />
         <activity android:name=".Informacoes" />
         <activity
-            android:name="dicasNutricao.DicasNutriActivity"
+            android:name="DicasNutriActivity"
             android:label="@string/title_activity_dicas_nutri" />
         <activity
             android:name=".DicasHipoGlicemia"
