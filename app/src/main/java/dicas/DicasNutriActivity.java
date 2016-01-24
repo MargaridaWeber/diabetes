@@ -53,11 +53,10 @@ public class DicasNutriActivity extends AppCompatActivity {
 
 
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Nutricionais</font>")); //Cor do titulo
-
-
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true); //Setinha de andar para trás
 
         final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
 
