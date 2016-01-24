@@ -3,6 +3,7 @@ package nutricao;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,12 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TextView;
 
 import com.example.pc.diabetesfriend.R;
-
-import nutricao.PlanoAlimentacao;
 
 public class NutricaoActivity extends AppCompatActivity {
 
@@ -29,18 +31,43 @@ public class NutricaoActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Nutrição </font>")); //mudar cor do titulo da action bar
 
-        //mudar cor do titulo da action bar
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Nutrição </font>"));
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+        tabHost.setup();
 
-        TabHost tabhost = (TabHost) findViewById(R.id.tabHost);
+        TabHost.TabSpec tabPlano = tabHost.newTabSpec("Plano");
+        tabPlano.setContent(R.id.tabPlano);
+        tabPlano.setIndicator("Plano de Alimentação");
+        tabHost.addTab(tabPlano);
 
-        tabhost.setup();
-        TabHost.TabSpec tabsec = tabhost.newTabSpec("Plano");
-        tabsec.setContent(R.id.tab1);
-        tabsec.setIndicator("Plano de Alimentação");
-        tabhost.addTab(tabsec);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
 
+            //LinearLayout ly = (LinearLayout)findViewById(R.id.tabAdd);
+            //ly.setVisibility(LinearLayout.VISIBLE);
+
+            TextView tvPeqAlmoco = (TextView) findViewById(R.id.tvPeqAlmoco);
+            TextView tvMeioManha = (TextView) findViewById(R.id.tvMeioManha);
+            TextView tvAlmoco = (TextView) findViewById(R.id.tvAlmoco);
+            TextView tvLanche = (TextView) findViewById(R.id.tvLanche);
+            TextView tvJantar = (TextView) findViewById(R.id.tvJantar);
+            TextView tvCeia = (TextView) findViewById(R.id.tvCeia);
+
+            //Coloca nas textView o conteúdo recebido da activity Adicionar
+            tvPeqAlmoco.setText(extras.getString("pequenoAlmoco"));
+            tvMeioManha.setText(extras.getString("meioManha"));
+            tvAlmoco.setText(extras.getString("almoco"));
+            tvLanche.setText(extras.getString("lanche"));
+            tvJantar.setText(extras.getString("jantar"));
+            tvCeia.setText(extras.getString("ceia"));
+
+            TabHost.TabSpec tabAdd = tabHost.newTabSpec("adicionar");
+            tabAdd.setContent(R.id.tabAdd);
+            tabAdd.setIndicator("O meu plano");
+            tabHost.addTab(tabAdd);
+
+        }
 
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
         imgPequenoAlmoco.setOnClickListener(new View.OnClickListener() {
@@ -117,9 +144,9 @@ public class NutricaoActivity extends AppCompatActivity {
             case android.R.id.home:
                 this.finish();
                 return true; default: return super.onOptionsItemSelected(item);
-        case 1: //quando carrego no submenu adicionar meu plano
-            Intent plano = new Intent(getApplicationContext(), PlanoAlimentacao.class );
-            startActivity(plano);
+            case 1: //quando carrego no submenu adicionar meu plano
+                Intent plano = new Intent(getApplicationContext(), AdicionarPlano.class );
+                startActivity(plano);
             return true;
         }
     }

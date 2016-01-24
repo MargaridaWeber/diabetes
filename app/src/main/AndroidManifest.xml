@@ -41,13 +41,13 @@
         <activity android:name="alarmes.AddAlarmeActivity" />
         <activity android:name=".EnviarRelatorioActivity" />
         <activity android:name=".GraficosActivity" />
-        <activity android:name="nutricao.PlanoAlimentacao" />
         <activity android:name="nutricao.PequenoAlmocoActivity" />
         <activity android:name="nutricao.MeioManhaActivity" />
         <activity android:name="nutricao.AlmocoActivity" />
         <activity android:name="nutricao.LancheActivity" />
         <activity android:name="nutricao.JantarActivity" />
         <activity android:name="nutricao.CeiaActivity" />
+        <activity android:name="nutricao.AdicionarPlano" />
         <activity android:name=".Informacoes" />
         <activity
             android:name="dicas.DicasNutriActivity"
