@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
@@ -23,7 +24,13 @@ import com.example.pc.diabetesfriend.R;
 
 public class NutricaoActivity extends AppCompatActivity {
 
-    boolean menuAdd= false;
+    TextView tvPeqAlmoco;
+    TextView tvMeioManha;
+    TextView tvAlmoco;
+    TextView tvLanche;
+    TextView tvJantar;
+    TextView tvCeia;
+    boolean menuAdd = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,35 +50,7 @@ public class NutricaoActivity extends AppCompatActivity {
         tabPlano.setIndicator("Plano de Alimentação");
         tabHost.addTab(tabPlano);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-
-            //LinearLayout ly = (LinearLayout)findViewById(R.id.tabAdd);
-            //ly.setVisibility(LinearLayout.VISIBLE);
-
-            TextView tvPeqAlmoco = (TextView) findViewById(R.id.tvPeqAlmoco);
-            TextView tvMeioManha = (TextView) findViewById(R.id.tvMeioManha);
-            TextView tvAlmoco = (TextView) findViewById(R.id.tvAlmoco);
-            TextView tvLanche = (TextView) findViewById(R.id.tvLanche);
-            TextView tvJantar = (TextView) findViewById(R.id.tvJantar);
-            TextView tvCeia = (TextView) findViewById(R.id.tvCeia);
-
-            //Coloca nas textView o conteúdo recebido da activity Adicionar
-            tvPeqAlmoco.setText(extras.getString("pequenoAlmoco"));
-            tvMeioManha.setText(extras.getString("meioManha"));
-            tvAlmoco.setText(extras.getString("almoco"));
-            tvLanche.setText(extras.getString("lanche"));
-            tvJantar.setText(extras.getString("jantar"));
-            tvCeia.setText(extras.getString("ceia"));
-
-            TabHost.TabSpec tabAdd = tabHost.newTabSpec("adicionar");
-            tabAdd.setContent(R.id.tabAdd);
-            tabAdd.setIndicator("O meu plano");
-            tabHost.addTab(tabAdd);
-
-            menuAdd = true;
-        }
-
+        //Tab Plano alimentar
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
         imgPequenoAlmoco.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,6 +102,77 @@ public class NutricaoActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Intent ceia = new Intent(getApplicationContext(), CeiaActivity.class);
                 startActivity(ceia);
+            }
+        });
+
+
+        //Tab o meu plano
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) { //Se receber o plano
+
+            //LinearLayout ly = (LinearLayout)findViewById(R.id.tabAdd);
+            //ly.setVisibility(LinearLayout.VISIBLE);
+
+            tvPeqAlmoco = (TextView) findViewById(R.id.tvPeqAlmoco);
+            tvMeioManha = (TextView) findViewById(R.id.tvMeioManha);
+            tvAlmoco = (TextView) findViewById(R.id.tvAlmoco);
+            tvLanche = (TextView) findViewById(R.id.tvLanche);
+            tvJantar = (TextView) findViewById(R.id.tvJantar);
+            tvCeia = (TextView) findViewById(R.id.tvCeia);
+
+            //Coloca nas textView o conteúdo recebido da activity Adicionar
+            tvPeqAlmoco.setText(extras.getString("pequenoAlmoco"));
+            tvMeioManha.setText(extras.getString("meioManha"));
+            tvAlmoco.setText(extras.getString("almoco"));
+            tvLanche.setText(extras.getString("lanche"));
+            tvJantar.setText(extras.getString("jantar"));
+            tvCeia.setText(extras.getString("ceia"));
+
+            TabHost.TabSpec tabAdd = tabHost.newTabSpec("adicionar");
+            tabAdd.setContent(R.id.tabAdd);
+            tabAdd.setIndicator("O meu plano");
+            tabHost.addTab(tabAdd);
+
+            menuAdd = true;
+        }
+
+
+        Button btnEditar = (Button) findViewById(R.id.btnEditar);
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                EditText etPeqAlmoco = (EditText) findViewById(R.id.etPeqAlmoco);
+                EditText etMeioManha = (EditText) findViewById(R.id.etMeioManha);
+                EditText etAlmoco = (EditText) findViewById(R.id.etAlmoco);
+                EditText etLanche = (EditText) findViewById(R.id.etLanche);
+                EditText etJantar = (EditText) findViewById(R.id.etJantar);
+                EditText etCeia = (EditText) findViewById(R.id.etCeia);
+
+                //Esconde as textView e mostra as editText
+
+                tvPeqAlmoco.setVisibility(View.GONE);
+                etPeqAlmoco.setVisibility(View.VISIBLE);
+                etPeqAlmoco.setText(tvPeqAlmoco.getText().toString());
+
+                tvMeioManha.setVisibility(View.GONE);
+                etMeioManha.setVisibility(View.VISIBLE);
+                etMeioManha.setText(tvMeioManha.getText().toString());
+
+                tvAlmoco.setVisibility(View.GONE);
+                etAlmoco.setVisibility(View.VISIBLE);
+                etAlmoco.setText(tvAlmoco.getText().toString());
+
+                tvLanche.setVisibility(View.GONE);
+                etLanche.setVisibility(View.VISIBLE);
+                etLanche.setText(tvLanche.getText().toString());
+
+                tvJantar.setVisibility(View.GONE);
+                etJantar.setVisibility(View.VISIBLE);
+                etJantar.setText(tvJantar.getText().toString());
+
+                tvCeia.setVisibility(View.GONE);
+                etCeia.setVisibility(View.VISIBLE);
+                etCeia.setText(tvCeia.getText().toString());
             }
         });
     }
