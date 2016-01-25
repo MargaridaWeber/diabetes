@@ -43,7 +43,7 @@
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Dicas Nutrucionais"
+                        android:text="Dicas Nutricionais"
                         android:layout_marginTop="30dp"
                         android:drawableLeft="@drawable/ic_local_dining_black_18dp"
                         android:id="@+id/btnNutricao" />

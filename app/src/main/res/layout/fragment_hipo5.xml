@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.pc.diabetesfriend.FragmentHipo5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Como evitar?"
+        android:textStyle="bold"
+        android:id="@+id/textView51"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="➤Avaliar regularmente a glicemia"
+        android:id="@+id/textView52"
+        android:layout_below="@+id/textView51"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="44dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="➤Avaliar a tecnica de injeção de insulina"
+        android:id="@+id/textView53"
+        android:layout_below="@+id/textView52"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="➤Antes de fazer actividade física regular o nível de glicemia comendo hidratos de carbono se necessário"
+        android:id="@+id/textView54"
+        android:layout_below="@+id/textView53"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="➤Não saltar refeições"
+        android:id="@+id/textView55"
+        android:layout_below="@+id/textView54"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView7"
+        android:src="@drawable/maquina"
+        android:layout_alignRight="@+id/textView55"
+        android:layout_alignEnd="@+id/textView55"
+        android:layout_below="@+id/textView55" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView8"
+        android:src="@drawable/alimentacao"
+        android:layout_toRightOf="@+id/textView55"
+        android:layout_toEndOf="@+id/textView55"
+        android:layout_alignTop="@+id/imageView7" />
+
+
+</RelativeLayout>

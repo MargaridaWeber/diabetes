@@ -55,7 +55,8 @@
         <activity
             android:name="dicas.DicasHipoGlicemia"
             android:label="@string/title_activity_dicas_hipo_glicemia" />
-
+        <activity android:name="dicas.FragmentHipo4" />
+        <activity android:name=".FragmentHipo5"></activity>
     </application>
 
 </manifest>
