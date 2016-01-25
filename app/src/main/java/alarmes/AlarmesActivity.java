@@ -9,21 +9,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.pc.diabetesfriend.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import modelo.DiabetesFriend;
+import modelo.SessionManager;
+import modelo.Utilizador;
 
 public class AlarmesActivity extends AppCompatActivity {
 
-    ArrayList<Item> items;
+    DiabetesFriend diabetes;
+    SessionManager session;
     ListView listView;
     MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alarmes);
+
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
 
         //Action bar
         ActionBar actionBar = getSupportActionBar();
@@ -32,16 +43,23 @@ public class AlarmesActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4"))); //Cor da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Alarmes </font>")); //Cor do titulo
 
-        adapter = new MyAdapter(this, generateData());
+        //Ir buscar utilizador logado
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        Utilizador u = diabetes.pesquisarUtilizador(email);
+
+        adapter = new MyAdapter(this, u.getAlarmes());
         listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(adapter);
-    }
 
-    private ArrayList<Item> generateData(){
-        items = new ArrayList<Item>();
-        items.add(new Item("8:00", "S T Q Q","Glicemia"));
-        items.add(new Item("9:00","Todos os dias","Insulina"));
-        return items;
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent alterar = new Intent(getApplicationContext(), AlterarAlarme.class);
+                startActivity(alterar);
+            }
+        });
+
     }
 
     @Override

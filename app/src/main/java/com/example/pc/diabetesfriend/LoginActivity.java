@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Date;
+
+import alarmes.Alarme;
 import modelo.DiabetesFriend;
 import modelo.Utilizador;
 import modelo.SessionManager;
@@ -36,6 +38,10 @@ public class LoginActivity extends AppCompatActivity{
         //Cria um utilizador
         Utilizador u = new Utilizador("Mónica", new Date(), 'F', 'N', Float.parseFloat("50"), Integer.parseInt("160"), "monica.francisco@hotmail.com", "monica");
         diabetes.adicionarUtilizador(u);
+
+        //Cria alarmes
+        u.adicionarAlarme(new Alarme("8:00", "S T Q Q", "Glicemia"));
+        u.adicionarAlarme(new Alarme("9:00", "Todos os dias", "Insulina"));
 
         //Se o utilizador estiver logado quando inicia a aplicação redirectiona para o main
         if(session.isLoggedIn()){
