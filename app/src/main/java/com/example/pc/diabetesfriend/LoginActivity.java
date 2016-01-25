@@ -72,14 +72,14 @@ public class LoginActivity extends AppCompatActivity{
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
 
-                if(TextUtils.isEmpty(email)){
+                if(email.isEmpty()){
                     etEmail.setError("O campo não está preenchido");
                 }
-                if(TextUtils.isEmpty(password)){
+                if(password.isEmpty()){
                     etPassword.setError("O campo não está preenchido");
                 }
 
-                if(!TextUtils.isEmpty(email) && !TextUtils.isEmpty(email))
+                if(!email.isEmpty() && !password.isEmpty())
                 {
                     if (diabetes.verificarLogin(email, password)) { //Se o email e password estiverem correctos
                         session.createLoginSession(email, password);
