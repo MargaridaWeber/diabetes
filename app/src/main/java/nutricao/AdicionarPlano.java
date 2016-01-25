@@ -14,7 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
@@ -30,6 +32,7 @@ public class AdicionarPlano extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Plano de Alimentação</font>")); //mudar cor do titulo da action bar
+
 
         Button btnAdicionar = (Button) findViewById(R.id.btnAdicionar);
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
