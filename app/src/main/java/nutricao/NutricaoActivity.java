@@ -17,11 +17,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.R;
 
 public class NutricaoActivity extends AppCompatActivity {
 
+    boolean menuAdd= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,7 @@ public class NutricaoActivity extends AppCompatActivity {
             tabAdd.setIndicator("O meu plano");
             tabHost.addTab(tabAdd);
 
+            menuAdd = true;
         }
 
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
@@ -131,10 +134,12 @@ public class NutricaoActivity extends AppCompatActivity {
         SubMenu subMenu = menu.addSubMenu(0, Menu.NONE, 0, "Menu title");
         subMenu.getItem().setIcon(R.mipmap.ic_add);
         subMenu.getItem().setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        subMenu.add(0,1, Menu.NONE, "Adicionar o meu Plano");
+        subMenu.add(0, 1, Menu.NONE, "Adicionar o meu Plano");
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
+        if(menuAdd==true)
+            menu.getItem(0).setVisible(false);
         return true;
     }
 
@@ -149,6 +154,11 @@ public class NutricaoActivity extends AppCompatActivity {
                 startActivity(plano);
             return true;
         }
+    }
+
+
+    public void teste(Menu menu) {
+
     }
 
 

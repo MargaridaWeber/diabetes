@@ -98,13 +98,13 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 Date dataNascimento = converterDataDate(dataNasc);
 
                 //Validar nome
-                if (TextUtils.isEmpty(nome)) {
+                if (nome.isEmpty()) {
                     etNome.setError("O campo não está preenchido.");
                     valido=false;
                 }
 
                 //Validar data de nascimento
-                if (TextUtils.isEmpty(dataNasc)) {
+                if (dataNasc.isEmpty()) {
                     etDataNasc.setError("O campo não está preenchido.");
                     valido=false;
                 }
@@ -114,17 +114,17 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 }
 
                 //Validar peso e altura
-                if (TextUtils.isEmpty(peso)) {
+                if (peso.isEmpty()) {
                     etPeso.setError("O campo não está preenchido.");
                     valido=false;
                 }
-                if (TextUtils.isEmpty(altura)) {
+                if (altura.isEmpty()) {
                     etAltura.setError("O campo não está preenchido.");
                     valido=false;
                 }
 
                 //Validar e-mail
-                if (TextUtils.isEmpty(email)) {
+                if (email.isEmpty()) {
                     etEmail.setError("O campo não está preenchido.");
                     valido=false;
                 }
@@ -138,7 +138,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 }
 
                 //Validar password
-                if (TextUtils.isEmpty(password)) {
+                if (password.isEmpty()) {
                     etPassword.setError("O campo não está preenchido.");
                     valido=false;
                 }

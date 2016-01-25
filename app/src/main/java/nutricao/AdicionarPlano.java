@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
@@ -42,16 +43,53 @@ public class AdicionarPlano extends AppCompatActivity {
                 EditText etJantar = (EditText) findViewById(R.id.etJantar);
                 EditText etCeia = (EditText) findViewById(R.id.etCeia);
 
-                //Enviar para a activity Nutrição
-                Intent plano = new Intent(getApplicationContext(), NutricaoActivity.class);
-                plano.putExtra("pequenoAlmoco", etPeqAlmoco.getText().toString());
-                plano.putExtra("meioManha", etMeioManha.getText().toString());
-                plano.putExtra("almoco", etAlmoco.getText().toString());
-                plano.putExtra("lanche", etLanche.getText().toString());
-                plano.putExtra("jantar", etJantar.getText().toString());
-                plano.putExtra("ceia", etCeia.getText().toString());
+                String peqAlmoco = etPeqAlmoco.getText().toString();
+                String meioManha = etMeioManha.getText().toString();
+                String almoco = etAlmoco.getText().toString();
+                String lanche = etLanche.getText().toString();
+                String jantar = etJantar.getText().toString();
+                String ceia = etCeia.getText().toString();
 
-                startActivity(plano);
+                if(peqAlmoco.isEmpty()){
+                    etPeqAlmoco.setError("O campo não está preenchido.");
+                }
+
+                if(meioManha.isEmpty()){
+                    etMeioManha.setError("O campo não está preenchido.");
+                }
+
+                if(almoco.isEmpty()){
+                    etAlmoco.setError("O campo não está preenchido.");
+                }
+
+                if(lanche.isEmpty()){
+                    etLanche.setError("O campo não está preenchido.");
+                }
+
+                if(jantar.isEmpty()){
+                    etJantar.setError("O campo não está preenchido.");
+                }
+
+                if(ceia.isEmpty()){
+                    etCeia.setError("O campo não está preenchido.");
+                }
+
+                //Se todos os campos estiveres preenchidos
+                if(!peqAlmoco.isEmpty() && !meioManha.isEmpty() && !almoco.isEmpty() && !lanche.isEmpty() && !jantar.isEmpty() && !ceia.isEmpty() )
+                {
+                    //Enviar para a activity Nutrição
+                    Intent plano = new Intent(getApplicationContext(), NutricaoActivity.class);
+                    plano.putExtra("pequenoAlmoco", peqAlmoco);
+                    plano.putExtra("meioManha", meioManha);
+                    plano.putExtra("almoco", almoco);
+                    plano.putExtra("lanche", lanche);
+                    plano.putExtra("jantar", jantar);
+                    plano.putExtra("ceia", ceia);
+
+                    Toast.makeText(AdicionarPlano.this, "O seu plano foi criado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                    startActivity(plano);
+                }
             }
         });
     }
