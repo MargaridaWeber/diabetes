@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.pc.diabetesfriend.FragmentHipo5;
 import com.example.pc.diabetesfriend.R;
 
 
@@ -56,7 +57,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //Setinha de andar para trás
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas HipoGlicemia</font>")); //Cor do titulo
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Hipoglicemia</font>")); //Cor do titulo
 
 
 
@@ -172,14 +173,19 @@ public class DicasHipoGlicemia extends AppCompatActivity {
 
                 case 1:
                     return new FragmentHipo2();
+                case 2:
+                    return new FragmentHipo3();
+                case 3:
+                    return new FragmentHipo4();
+                case 4:
+                    return new FragmentHipo5();
 
 
             } return PlaceholderFragment.newInstance(position + 1);
         }
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 2;
+            return 5;
         }
 
     }
