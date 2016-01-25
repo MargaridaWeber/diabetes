@@ -21,6 +21,7 @@ public class Utilizador {
     int[] glicemiaDesejada;
     int[] hipoglicemia;
     ArrayList<Glicemia> glicemias;
+    Plano plano;
 
 
     public Utilizador(String nome, Date dataNasc, char genero, char antedecentes, float peso, int altura, String email, String password) {
@@ -145,6 +146,14 @@ public class Utilizador {
 
     public void setTipoDiabetes(String tipoDiabetes) {
         this.tipoDiabetes = tipoDiabetes;
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
     }
 
     public float calcularIMC(){

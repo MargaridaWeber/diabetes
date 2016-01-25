@@ -22,8 +22,17 @@ import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.R;
 
+import java.util.HashMap;
+
+import modelo.DiabetesFriend;
+import modelo.Plano;
+import modelo.SessionManager;
+import modelo.Utilizador;
+
 public class NutricaoActivity extends AppCompatActivity {
 
+    DiabetesFriend diabetes;
+    SessionManager session;
     TextView tvPeqAlmoco;
     TextView tvMeioManha;
     TextView tvAlmoco;
@@ -36,6 +45,9 @@ public class NutricaoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nutricao);
 
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
+
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
@@ -45,12 +57,12 @@ public class NutricaoActivity extends AppCompatActivity {
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
-        TabHost.TabSpec tabPlano = tabHost.newTabSpec("test");
+        TabHost.TabSpec tabPlano = tabHost.newTabSpec("Plano");
         tabPlano.setContent(R.id.tabPlano);
-        tabPlano.setIndicator("test de Alimentação");
+        tabPlano.setIndicator("Plano de Alimentação");
         tabHost.addTab(tabPlano);
 
-        //Tab test alimentar
+        //Tab Plano alimentar
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
         imgPequenoAlmoco.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,10 +117,13 @@ public class NutricaoActivity extends AppCompatActivity {
             }
         });
 
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        final Utilizador u = diabetes.pesquisarUtilizador(email);
 
         //Tab o meu plano
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) { //Se receber o plano
+        if (u.getPlano() != null) { //Se receber o plano
 
             //LinearLayout ly = (LinearLayout)findViewById(R.id.tabAdd);
             //ly.setVisibility(LinearLayout.VISIBLE);
@@ -120,13 +135,13 @@ public class NutricaoActivity extends AppCompatActivity {
             tvJantar = (TextView) findViewById(R.id.tvJantar);
             tvCeia = (TextView) findViewById(R.id.tvCeia);
 
-            //Coloca nas textView o conteúdo recebido da activity Adicionar
-            tvPeqAlmoco.setText(extras.getString("pequenoAlmoco"));
-            tvMeioManha.setText(extras.getString("meioManha"));
-            tvAlmoco.setText(extras.getString("almoco"));
-            tvLanche.setText(extras.getString("lanche"));
-            tvJantar.setText(extras.getString("jantar"));
-            tvCeia.setText(extras.getString("ceia"));
+            //Coloca nas textView o plano
+            tvPeqAlmoco.setText(u.getPlano().getPeqAlmoco());
+            tvMeioManha.setText(u.getPlano().getMeioManha());
+            tvAlmoco.setText(u.getPlano().getAlmoco());
+            tvLanche.setText(u.getPlano().getLanche());
+            tvJantar.setText(u.getPlano().getJantar());
+            tvCeia.setText(u.getPlano().getCeia());
 
             TabHost.TabSpec tabAdd = tabHost.newTabSpec("adicionar");
             tabAdd.setContent(R.id.tabAdd);
@@ -231,7 +246,10 @@ public class NutricaoActivity extends AppCompatActivity {
                         tvJantar.setVisibility(View.VISIBLE);
                         tvCeia.setVisibility(View.VISIBLE);
 
-                        //Altera as textviews
+                        //Altera
+                        Plano p = new Plano(peqAlmoco, meioManha, almoco, lanche, jantar, ceia);
+                        u.setPlano(p);
+
                         tvPeqAlmoco.setText(peqAlmoco);
                         tvMeioManha.setText(meioManha);
                         tvAlmoco.setText(almoco);
@@ -256,7 +274,7 @@ public class NutricaoActivity extends AppCompatActivity {
         SubMenu subMenu = menu.addSubMenu(0, Menu.NONE, 0, "Menu title");
         subMenu.getItem().setIcon(R.mipmap.ic_add);
         subMenu.getItem().setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        subMenu.add(0, 1, Menu.NONE, "Adicionar o meu test");
+        subMenu.add(0, 1, Menu.NONE, "Adicionar o meu Plano");
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
