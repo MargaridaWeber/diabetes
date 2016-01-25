@@ -45,12 +45,12 @@ public class NutricaoActivity extends AppCompatActivity {
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
-        TabHost.TabSpec tabPlano = tabHost.newTabSpec("Plano");
+        TabHost.TabSpec tabPlano = tabHost.newTabSpec("test");
         tabPlano.setContent(R.id.tabPlano);
-        tabPlano.setIndicator("Plano de Alimentação");
+        tabPlano.setIndicator("test de Alimentação");
         tabHost.addTab(tabPlano);
 
-        //Tab Plano alimentar
+        //Tab test alimentar
         ImageView imgPequenoAlmoco = (ImageView) findViewById(R.id.imgPequenoAlmoco);
         imgPequenoAlmoco.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,10 +137,11 @@ public class NutricaoActivity extends AppCompatActivity {
         }
 
 
-        Button btnEditar = (Button) findViewById(R.id.btnEditar);
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+        final Button btnEditarGuardar = (Button) findViewById(R.id.btnEditarGuardar);
+        btnEditarGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
+
                 EditText etPeqAlmoco = (EditText) findViewById(R.id.etPeqAlmoco);
                 EditText etMeioManha = (EditText) findViewById(R.id.etMeioManha);
                 EditText etAlmoco = (EditText) findViewById(R.id.etAlmoco);
@@ -148,31 +149,102 @@ public class NutricaoActivity extends AppCompatActivity {
                 EditText etJantar = (EditText) findViewById(R.id.etJantar);
                 EditText etCeia = (EditText) findViewById(R.id.etCeia);
 
-                //Esconde as textView e mostra as editText
+                if(btnEditarGuardar.getText().toString().equals("Editar")){
 
-                tvPeqAlmoco.setVisibility(View.GONE);
-                etPeqAlmoco.setVisibility(View.VISIBLE);
-                etPeqAlmoco.setText(tvPeqAlmoco.getText().toString());
+                    //Esconde as textView
+                    tvPeqAlmoco.setVisibility(View.GONE);
+                    tvMeioManha.setVisibility(View.GONE);
+                    tvAlmoco.setVisibility(View.GONE);
+                    tvLanche.setVisibility(View.GONE);
+                    tvJantar.setVisibility(View.GONE);
+                    tvCeia.setVisibility(View.GONE);
 
-                tvMeioManha.setVisibility(View.GONE);
-                etMeioManha.setVisibility(View.VISIBLE);
-                etMeioManha.setText(tvMeioManha.getText().toString());
+                    //Mostra as editText
+                    etPeqAlmoco.setVisibility(View.VISIBLE);
+                    etMeioManha.setVisibility(View.VISIBLE);
+                    etAlmoco.setVisibility(View.VISIBLE);
+                    etLanche.setVisibility(View.VISIBLE);
+                    etJantar.setVisibility(View.VISIBLE);
+                    etCeia.setVisibility(View.VISIBLE);
 
-                tvAlmoco.setVisibility(View.GONE);
-                etAlmoco.setVisibility(View.VISIBLE);
-                etAlmoco.setText(tvAlmoco.getText().toString());
+                    //Coloca nas editText o conteúdo das textView
+                    etPeqAlmoco.setText(tvPeqAlmoco.getText().toString());
+                    etMeioManha.setText(tvMeioManha.getText().toString());
+                    etAlmoco.setText(tvAlmoco.getText().toString());
+                    etLanche.setText(tvLanche.getText().toString());
+                    etJantar.setText(tvJantar.getText().toString());
+                    etCeia.setText(tvCeia.getText().toString());
 
-                tvLanche.setVisibility(View.GONE);
-                etLanche.setVisibility(View.VISIBLE);
-                etLanche.setText(tvLanche.getText().toString());
+                    //Mudar o botão para Guardar
+                    btnEditarGuardar.setText("Guardar");
+                }
+                else
+                {
+                    String peqAlmoco = etPeqAlmoco.getText().toString();
+                    String meioManha = etMeioManha.getText().toString();
+                    String almoco = etAlmoco.getText().toString();
+                    String lanche = etLanche.getText().toString();
+                    String jantar = etJantar.getText().toString();
+                    String ceia = etCeia.getText().toString();
 
-                tvJantar.setVisibility(View.GONE);
-                etJantar.setVisibility(View.VISIBLE);
-                etJantar.setText(tvJantar.getText().toString());
+                    //Validar se os campos estão preenchidos
+                    if(peqAlmoco.isEmpty()){
+                        etPeqAlmoco.setError("O campo não está preenchido.");
+                    }
 
-                tvCeia.setVisibility(View.GONE);
-                etCeia.setVisibility(View.VISIBLE);
-                etCeia.setText(tvCeia.getText().toString());
+                    if(meioManha.isEmpty()){
+                        etMeioManha.setError("O campo não está preenchido.");
+                    }
+
+                    if(almoco.isEmpty()){
+                        etAlmoco.setError("O campo não está preenchido.");
+                    }
+
+                    if(lanche.isEmpty()){
+                        etLanche.setError("O campo não está preenchido.");
+                    }
+
+                    if(jantar.isEmpty()){
+                        etJantar.setError("O campo não está preenchido.");
+                    }
+
+                    if(ceia.isEmpty()){
+                        etCeia.setError("O campo não está preenchido.");
+                    }
+
+                    //Se todos os campos estiveres preenchidos
+                    if(!peqAlmoco.isEmpty() && !meioManha.isEmpty() && !almoco.isEmpty() && !lanche.isEmpty() && !jantar.isEmpty() && !ceia.isEmpty() )
+                    {
+                        //Esconde as editText
+                        etPeqAlmoco.setVisibility(View.GONE);
+                        etMeioManha.setVisibility(View.GONE);
+                        etAlmoco.setVisibility(View.GONE);
+                        etLanche.setVisibility(View.GONE);
+                        etJantar.setVisibility(View.GONE);
+                        etCeia.setVisibility(View.GONE);
+
+                        //Mostra as textView
+                        tvPeqAlmoco.setVisibility(View.VISIBLE);
+                        tvMeioManha.setVisibility(View.VISIBLE);
+                        tvAlmoco.setVisibility(View.VISIBLE);
+                        tvLanche.setVisibility(View.VISIBLE);
+                        tvJantar.setVisibility(View.VISIBLE);
+                        tvCeia.setVisibility(View.VISIBLE);
+
+                        //Altera as textviews
+                        tvPeqAlmoco.setText(peqAlmoco);
+                        tvMeioManha.setText(meioManha);
+                        tvAlmoco.setText(almoco);
+                        tvLanche.setText(lanche);
+                        tvJantar.setText(jantar);
+                        tvCeia.setText(ceia);
+
+                        Toast.makeText(NutricaoActivity.this, "O seu plano foi alterado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                        btnEditarGuardar.setText("Editar");
+                    }
+                }
+
             }
         });
     }
@@ -184,7 +256,7 @@ public class NutricaoActivity extends AppCompatActivity {
         SubMenu subMenu = menu.addSubMenu(0, Menu.NONE, 0, "Menu title");
         subMenu.getItem().setIcon(R.mipmap.ic_add);
         subMenu.getItem().setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
-        subMenu.add(0, 1, Menu.NONE, "Adicionar o meu Plano");
+        subMenu.add(0, 1, Menu.NONE, "Adicionar o meu test");
 
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
@@ -205,11 +277,5 @@ public class NutricaoActivity extends AppCompatActivity {
             return true;
         }
     }
-
-
-    public void teste(Menu menu) {
-
-    }
-
 
 }
