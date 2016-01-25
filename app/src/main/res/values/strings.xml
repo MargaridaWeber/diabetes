@@ -100,5 +100,6 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_teste">Teste</string>
     <string name="title_activity_dicas_hipo_glicemia">DicasHipoGlicemia</string>
+    <string name="title_activity_dicas_hiper_glicemia">DicasHiperGlicemia</string>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package dicas;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -7,11 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class FragmentHipo5 extends Fragment {
+import com.example.pc.diabetesfriend.R;
+
+public class FragmentHiper3 extends Fragment{
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_hipo5, container, false);
+        return inflater.inflate(R.layout.fragment_hiper3, container, false);
 
     }
 }

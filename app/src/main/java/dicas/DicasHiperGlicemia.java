@@ -21,8 +21,7 @@ import android.widget.TextView;
 
 import com.example.pc.diabetesfriend.R;
 
-
-public class DicasHipoGlicemia extends AppCompatActivity {
+public class DicasHiperGlicemia extends AppCompatActivity {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -42,7 +41,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dicas_hipo_glicemia);
+        setContentView(R.layout.activity_dicas_hiper_glicemia);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
@@ -51,14 +50,11 @@ public class DicasHipoGlicemia extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
-
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //Setinha de andar para trás
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Hipoglicemia</font>")); //Cor do titulo
-
-
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Hiperglicemia</font>")); //Cor do titulo
 
         final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
 
@@ -82,12 +78,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
                     case 2:
                         radioGroup.check(R.id.radioButton3);
                         break;
-                    case 3:
-                        radioGroup.check(R.id.radioButton4);
-                        break;
-                    case 4:
-                        radioGroup.check(R.id.radioButton5);
-                        break;
+
                 }
             }
 
@@ -97,7 +88,6 @@ public class DicasHipoGlicemia extends AppCompatActivity {
 
             }
         });
-
     }
 
 
@@ -145,7 +135,7 @@ public class DicasHipoGlicemia extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.activity_fragment_hipo1, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_dicas_hiper_glicemia, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
             textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
@@ -157,7 +147,6 @@ public class DicasHipoGlicemia extends AppCompatActivity {
      * one of the sections/tabs/pages.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
         }
@@ -168,24 +157,20 @@ public class DicasHipoGlicemia extends AppCompatActivity {
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
                 case 0:
-                    return new FragmentHipo1();
-
+                    return new FragmentHiper1();
                 case 1:
-                    return new FragmentHipo2();
+                    return new FragmentHiper2();
                 case 2:
-                    return new FragmentHipo3();
-                case 3:
-                    return new FragmentHipo4();
-                case 4:
-                    return new FragmentHipo5();
+                    return new FragmentHiper3();
+
 
 
             } return PlaceholderFragment.newInstance(position + 1);
         }
+
         @Override
         public int getCount() {
-            return 5;
+            return 3;
         }
-
     }
 }

@@ -7,15 +7,15 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="dicas.FragmentHipo5">
+    tools:context="dicas.FragmentHiper3">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Como evitar?"
+        android:text="Como agir ?"
         android:textStyle="bold"
-        android:id="@+id/textView51"
+        android:id="@+id/textView73"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -23,20 +23,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Avaliar regularmente a glicemia"
-        android:id="@+id/textView52"
-        android:layout_below="@+id/textView51"
+        android:text="➤Tentar identificar a causa e corrigir logo de seguida"
+        android:id="@+id/textView74"
+        android:layout_below="@+id/textView73"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
+        android:layout_marginTop="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Avaliar a tecnica de injeção de insulina"
-        android:id="@+id/textView53"
-        android:layout_below="@+id/textView52"
+        android:text="➤Realizar controlos glicemicos com frequência"
+        android:id="@+id/textView75"
+        android:layout_below="@+id/textView74"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -44,9 +44,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Antes de fazer actividade física regular o nível de glicemia comendo hidratos de carbono se necessário"
-        android:id="@+id/textView54"
-        android:layout_below="@+id/textView53"
+        android:text="➤Beber muita água"
+        android:id="@+id/textView76"
+        android:layout_below="@+id/textView75"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -54,29 +54,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Não saltar refeições"
-        android:id="@+id/textView55"
-        android:layout_below="@+id/textView54"
+        android:text="➤Se persistir, contatar o médico"
+        android:id="@+id/textView77"
+        android:layout_below="@+id/textView76"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView7"
-        android:src="@drawable/maquina"
-        android:layout_alignRight="@+id/textView55"
-        android:layout_alignEnd="@+id/textView55"
-        android:layout_below="@+id/textView55" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView8"
-        android:src="@drawable/alimentacao"
-        android:layout_toRightOf="@+id/textView55"
-        android:layout_toEndOf="@+id/textView55"
-        android:layout_alignTop="@+id/imageView7" />
-
-
+        android:id="@+id/imageView10"
+        android:layout_below="@+id/textView77"
+        android:src="@drawable/hiperglicemia"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
