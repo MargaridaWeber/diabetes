@@ -55,7 +55,7 @@ public class DicasExFisico extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //Setinha de andar para trás
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas Hiperglicemia</font>")); //Cor do titulo
+        actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Dicas exercício físico</font>")); //Cor do titulo
 
         final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
 
