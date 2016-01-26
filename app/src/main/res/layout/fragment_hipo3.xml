@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Como agir?"
+        android:layout_marginBottom="20dp"
         android:textStyle="bold"
         android:id="@+id/textView37"
         android:layout_alignParentTop="true"
@@ -26,7 +27,6 @@
         android:text="Ingerir 15 a 20 gramas de açucar (1,2 pacotes de açucar) ou 150ml refrigerante com 1 pacote e meio de açucar adicionado"
         android:id="@+id/textView38"
         android:gravity="center_horizontal"
-        android:layout_marginTop="42dp"
         android:layout_below="@+id/textView37"
         android:layout_centerHorizontal="true" />
 

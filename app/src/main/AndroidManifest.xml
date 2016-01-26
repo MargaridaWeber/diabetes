@@ -58,7 +58,9 @@
         <activity
             android:name="dicas.DicasHiperGlicemia"
             android:label="@string/title_activity_dicas_hiper_glicemia" />
-
+        <activity
+            android:name="dicas.DicasExFisico"
+            android:label="@string/title_activity_dicas_ex_fisico" />
     </application>
 
 </manifest>

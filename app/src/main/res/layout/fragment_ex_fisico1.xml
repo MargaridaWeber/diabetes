@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dicas.FragmentExFisico1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Importância"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/textView78"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="É comum pensar-se que pessoas com diabetes não devem realizar execício físico devido ao risco de hipoglicemia, porém este pode trazer inúmeros benefícios tem é de se for realizado com alguns cuidados e acompanhamento. Vamos lhe mostrar alguns benefícios e as melhores atividades fisicas que pode realizar"
+        android:id="@+id/textView79"
+        android:gravity="center_horizontal"
+        android:layout_below="@+id/textView78"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+
+    <!-- title -->
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:text="Alguns benefícios"
+        android:textColor="#000000"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/textView79"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView91" />
+
+
+    <!--  divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DADADC"
+        android:layout_below="@+id/textView91"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/view"></View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="➤Diminui os níveis de glicose no sangue"
+        android:id="@+id/textView87"
+        android:layout_below="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="➤Estimula a produção de insulina"
+        android:id="@+id/textView88"
+        android:layout_below="@+id/textView87"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="➤Aumenta a capacidade de captação de glicose pelos músculos"
+        android:id="@+id/textView89"
+        android:layout_below="@+id/textView88"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="➤Diminui a gordura corporal"
+        android:id="@+id/textView90"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/textView89"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</RelativeLayout>

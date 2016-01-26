@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Como evitar?"
+        android:layout_marginBottom="20dp"
         android:textStyle="bold"
         android:id="@+id/textView51"
         android:layout_alignParentTop="true"
@@ -28,7 +29,7 @@
         android:layout_below="@+id/textView51"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,24 +60,6 @@
         android:layout_below="@+id/textView54"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView7"
-        android:src="@drawable/maquina"
-        android:layout_alignRight="@+id/textView55"
-        android:layout_alignEnd="@+id/textView55"
-        android:layout_below="@+id/textView55" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView8"
-        android:src="@drawable/alimentacao"
-        android:layout_toRightOf="@+id/textView55"
-        android:layout_toEndOf="@+id/textView55"
-        android:layout_alignTop="@+id/imageView7" />
 
 
 </RelativeLayout>
