@@ -108,7 +108,6 @@ public class MainActivity extends AppCompatActivity
         // Obtem dados da sessão
         HashMap<String, String> user = session.getUserDetails();
         String email = user.get(SessionManager.KEY_EMAIL);
-
         Utilizador u = diabetes.pesquisarUtilizador(email);
 
         TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);

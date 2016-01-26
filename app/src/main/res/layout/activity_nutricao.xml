@@ -29,391 +29,391 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></TabWidget>
 
-            <FrameLayout
-                android:id="@android:id/tabcontent"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-
-                <ScrollView
-                    android:id="@+id/sr"
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
 
-                    <LinearLayout
-                        android:id="@+id/tabPlano"
+                    <ScrollView
+                        android:id="@+id/sr"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:weightSum="1">
+                        android:layout_height="match_parent">
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Pequeno-Almoço"
-                            android:textColor="#000000"/>
 
-                        <View
+                        <LinearLayout
+                            android:id="@+id/tabPlano"
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:weightSum="1">
+
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Pequeno-Almoço"
+                                android:textColor="#000000"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="250dp"
-                            android:id="@+id/imgPequenoAlmoco"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/pequenoalmoco"/>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="250dp"
+                                android:id="@+id/imgPequenoAlmoco"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/pequenoalmoco"/>
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Meio da manhã"
-                            android:textColor="#000000"/>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Meio da manhã"
+                                android:textColor="#000000"/>
 
-                        <View
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="240dp"
+                                android:id="@+id/imgMeioManha"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/meiomanha"/>
+
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Almoço"
+                                android:textColor="#000000"/>
+
+                            <!--  divider -->
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="240dp"
+                                android:id="@+id/imgAlmoco"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/almoco"/>
+
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Lanche (2 vezes)"
+                                android:textColor="#000000"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="240dp"
+                                android:id="@+id/imgLanche"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/lanche"/>
+
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Jantar"
+                                android:textColor="#000000"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="240dp"
+                                android:id="@+id/imgJantar"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/jantar"/>
+
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Ceia"
+                                android:textColor="#000000"/>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="240dp"
+                                android:id="@+id/imgCeia"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/ceia"/>
+
+                        </LinearLayout>
+
+                    </ScrollView>
+                </FrameLayout>
+
+                    <ScrollView
+                        android:id="@+id/sr1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/tabAdd"
                             android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:weightSum="1"
+                            android:visibility="gone">
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="240dp"
-                            android:id="@+id/imgMeioManha"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/meiomanha"/>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Pequeno-Almoço"
+                                android:textColor="#000000"/>
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Almoço"
-                            android:textColor="#000000"/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                        <!--  divider -->
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvPeqAlmoco" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="240dp"
-                            android:id="@+id/imgAlmoco"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/almoco"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etPeqAlmoco"
+                                android:visibility="gone"/>
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Lanche (2 vezes)"
-                            android:textColor="#000000"/>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Meio da manhã"
+                                android:textColor="#000000"/>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="240dp"
-                            android:id="@+id/imgLanche"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/lanche"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvMeioManha" />
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Jantar"
-                            android:textColor="#000000"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etMeioManha"
+                                android:visibility="gone"/>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Almoço"
+                                android:textColor="#000000"/>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="240dp"
-                            android:id="@+id/imgJantar"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jantar"/>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                        <TextView
-                            android:paddingTop="20dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center_vertical"
-                            android:textSize="16dp"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginBottom="4dp"
-                            android:layout_alignParentBottom="true"
-                            android:text="Ceia"
-                            android:textColor="#000000"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvAlmoco" />
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:layout_marginBottom="1dp"
-                            android:layout_alignParentBottom="true"
-                            android:background="#DADADC" ></View>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etAlmoco"
+                                android:visibility="gone"/>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="240dp"
-                            android:id="@+id/imgCeia"
-                            android:layout_gravity="center_horizontal"
-                            android:src="@drawable/ceia"/>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Lanche (2 vezes)"
+                                android:textColor="#000000"/>
 
-                    </LinearLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                </ScrollView>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvLanche" />
 
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etLanche"
+                                android:visibility="gone"/>
 
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Jantar"
+                                android:textColor="#000000"/>
 
-                <LinearLayout
-                    android:id="@+id/tabAdd"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="1"
-                    android:visibility="gone">
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Editar"
-                        android:id="@+id/btnEditar"
-                        android:layout_gravity="right" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvJantar" />
 
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Pequeno-Almoço"
-                        android:textColor="#000000"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etJantar"
+                                android:visibility="gone"/>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
+                            <TextView
+                                android:paddingTop="20dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical"
+                                android:textSize="16dp"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginBottom="4dp"
+                                android:layout_alignParentBottom="true"
+                                android:text="Ceia"
+                                android:textColor="#000000"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvPeqAlmoco" />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_marginBottom="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:background="#DADADC" ></View>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etPeqAlmoco"
-                        android:visibility="gone"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/tvCeia" />
 
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Meio da manhã"
-                        android:textColor="#000000"/>
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/etCeia"
+                                android:visibility="gone"/>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Editar"
+                                android:id="@+id/btnEditarGuardar"
+                                android:layout_gravity="center" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvMeioManha" />
+                        </LinearLayout>
+                    </ScrollView>
 
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etMeioManha"
-                        android:visibility="gone"/>
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Almoço"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvAlmoco" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etAlmoco"
-                        android:visibility="gone"/>
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Lanche (2 vezes)"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvLanche" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etLanche"
-                        android:visibility="gone"/>
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Jantar"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvJantar" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etJantar"
-                        android:visibility="gone"/>
-
-                    <TextView
-                        android:paddingTop="20dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="16dp"
-                        android:layout_marginLeft="12dp"
-                        android:layout_marginBottom="4dp"
-                        android:layout_alignParentBottom="true"
-                        android:text="Ceia"
-                        android:textColor="#000000"/>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginBottom="1dp"
-                        android:layout_alignParentBottom="true"
-                        android:background="#DADADC" ></View>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/tvCeia" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/etCeia"
-                        android:visibility="gone"/>
-
-
-                </LinearLayout>
-
-
-
-
-            </FrameLayout>
         </LinearLayout>
     </TabHost>
 

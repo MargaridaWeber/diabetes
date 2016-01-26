@@ -16,16 +16,29 @@ import android.widget.EditText;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewSwitcher;
 
 import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
+
+import java.util.HashMap;
+
+import modelo.DiabetesFriend;
+import modelo.Plano;
+import modelo.SessionManager;
+import modelo.Utilizador;
+
 public class AdicionarPlano extends AppCompatActivity {
+
+    DiabetesFriend diabetes;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_plano);
+
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -80,18 +93,19 @@ public class AdicionarPlano extends AppCompatActivity {
                 //Se todos os campos estiveres preenchidos
                 if(!peqAlmoco.isEmpty() && !meioManha.isEmpty() && !almoco.isEmpty() && !lanche.isEmpty() && !jantar.isEmpty() && !ceia.isEmpty() )
                 {
-                    //Enviar para a activity Nutrição
+                    Plano p = new Plano(peqAlmoco, meioManha, almoco, lanche, jantar, ceia);
+
+                    // Obtem dados da sessão
+                    HashMap<String, String> user = session.getUserDetails();
+                    String email = user.get(SessionManager.KEY_EMAIL);
+                    Utilizador u = diabetes.pesquisarUtilizador(email);
+
+                    u.setPlano(p);
+
                     Intent plano = new Intent(getApplicationContext(), NutricaoActivity.class);
-                    plano.putExtra("pequenoAlmoco", peqAlmoco);
-                    plano.putExtra("meioManha", meioManha);
-                    plano.putExtra("almoco", almoco);
-                    plano.putExtra("lanche", lanche);
-                    plano.putExtra("jantar", jantar);
-                    plano.putExtra("ceia", ceia);
+                    startActivity(plano);
 
                     Toast.makeText(AdicionarPlano.this, "O seu plano foi criado com sucesso!", Toast.LENGTH_SHORT).show();
-
-                    startActivity(plano);
                 }
             }
         });

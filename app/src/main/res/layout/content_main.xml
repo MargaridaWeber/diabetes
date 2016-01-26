@@ -14,10 +14,12 @@
     android:weightSum="1">
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp">
+
+    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,26 +27,26 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Seja bem vindo(a)"
         android:id="@+id/tvUtilizador"
-        android:layout_gravity="right"
-        />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Estado glicemia"
-            android:id="@+id/tvestado"
-            android:paddingLeft="50dp"
-            />
-
-    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Estado"
+        android:id="@+id/tvestado"
+        android:paddingLeft="50dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp">
+        android:layout_marginTop="50dp">
 
         <TableLayout
             android:layout_width = "201dp"

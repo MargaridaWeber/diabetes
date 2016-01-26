@@ -3,25 +3,28 @@ package alarmes;
 /**
  * Created by Mónica Francisco on 30/11/2015.
  */
-public class Item {
+public class Alarme {
 
-    private String horas;
+    private String hora;
     private String dias;
     private String tipo;
+    private Boolean modo;
 
-    public Item(String horas, String dias, String tipo) {
+    public Alarme(String hora, String dias, String tipo) {
         super();
-        this.horas = horas;
+        this.hora = hora;
         this.dias = dias;
         this.tipo = tipo;
+        this.modo = true;
     }
 
-    public String getHoras() {
-        return horas;
+    public String getHora() {
+        return hora;
     }
 
-    public void setHoras(String horas) {
-        this.horas = horas;
+    public void setHora(String hora
+    ) {
+        this.hora = hora;
     }
 
     public String getDias() {
@@ -38,5 +41,13 @@ public class Item {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Boolean getModo() {
+        return modo;
+    }
+
+    public void setModo(Boolean modo) {
+        this.modo = modo;
     }
 }

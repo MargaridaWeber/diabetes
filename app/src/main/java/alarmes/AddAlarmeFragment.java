@@ -3,6 +3,7 @@ package alarmes;
 import android.app.AlertDialog;
 import android.app.ListFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,23 +11,40 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import modelo.DiabetesFriend;
+import modelo.SessionManager;
+import modelo.Utilizador;
+import nutricao.NutricaoActivity;
+
 public class AddAlarmeFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
+    DiabetesFriend diabetes;
+    SessionManager session;
     List<String[]> lista;
     ArrayAdapter<String[]> adaptador;
+    String dias="Todos os dias";
+    String tipo="Glicemia";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_alarme, container, false);
+
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getActivity().getApplicationContext());
 
         lista = new LinkedList<String[]>();
 
@@ -34,10 +52,26 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         lista.add(new String[]{"Dia(s) da semana", "Todos os dias"});
 
         Button btnAdicionar = (Button) view.findViewById(R.id.btnAdicionar);
+        final TimePicker tpHora = (TimePicker) view.findViewById(R.id.tpHora);
 
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                int hora = tpHora.getCurrentHour();
+                int minutos = tpHora.getCurrentMinute();
+
+                Alarme alarme = new Alarme(hora+":"+minutos,dias,tipo);
+
+                //Ir buscar utilizador logado
+                HashMap<String, String> user = session.getUserDetails();
+                String email = user.get(SessionManager.KEY_EMAIL);
+                Utilizador u = diabetes.pesquisarUtilizador(email);
+
+                u.adicionarAlarme(alarme);
+                Toast.makeText(getActivity(), "O alarme foi adicionado com sucesso!", Toast.LENGTH_SHORT).show();
+
+                Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
+                startActivity(alarmes);
             }
         });
 
@@ -93,9 +127,11 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 if (selectedPosition == 0) {
                     lista.set(0, new String[]{"Tipo de alarme", "Glicemia"});
                     setListAdapter(adaptador);
+                    tipo = "Glicemia";
                 } else {
                     lista.set(0, new String[]{"Tipo de alarme", "Insulina"});
                     setListAdapter(adaptador);
+                    tipo = "Insulina";
                 }
                 tipos.dismiss(); //Para sair logo
             }
@@ -108,7 +144,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     //Dias da semana
     final ArrayList<Integer> listaIndicesSeleccionados = new ArrayList();
     final boolean[] isSelectedArray = {false, false, false, false, false, false, false, false, false, false,false, false, false,false};
-    AlertDialog dias;
+    AlertDialog diass;
     private void criarDias(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
 
@@ -154,7 +190,6 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                String dias = "";
                 for (int index : listaIndicesSeleccionados) {
                     switch (index) {
                         case 1:
@@ -196,8 +231,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
             isSelectedArray[i] = true;
         }
 
-        dias = dialog.create();
-        dias.show();
+        diass = dialog.create();
+        diass.show();
     }
 
 

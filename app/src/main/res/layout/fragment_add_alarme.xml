@@ -37,7 +37,8 @@
         <TimePicker
             android:layout_width="wrap_content"
             android:layout_height="158dp"
-            android:id="@+id/timePicker" />
+            android:id="@+id/tpHora"
+            android:layout_gravity="center_horizontal" />
 
         <Button
             android:layout_width="match_parent"

@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import alarmes.Alarme;
+
 /**
  * Created by Mónica Francisco on 14/12/2015.
  */
@@ -20,7 +23,9 @@ public class Utilizador {
     int[] hiperglicemia;
     int[] glicemiaDesejada;
     int[] hipoglicemia;
-    ArrayList<Glicemia> glicemias;
+    ArrayList<Glicemia> listaGlicemias;
+    ArrayList<Alarme> listaAlarmes;
+    Plano plano;
 
 
     public Utilizador(String nome, Date dataNasc, char genero, char antedecentes, float peso, int altura, String email, String password) {
@@ -32,7 +37,8 @@ public class Utilizador {
         this.altura = altura;
         this.email = email;
         this.password = password;
-        glicemias = new ArrayList<Glicemia>();
+        listaGlicemias = new ArrayList<Glicemia>();
+        listaAlarmes = new ArrayList<Alarme>();
     }
 
     public int getAltura() {
@@ -145,6 +151,39 @@ public class Utilizador {
 
     public void setTipoDiabetes(String tipoDiabetes) {
         this.tipoDiabetes = tipoDiabetes;
+    }
+
+
+    public ArrayList<Glicemia> getGlicemias() {
+        return listaGlicemias;
+    }
+
+    public void setGlicemias(ArrayList<Glicemia> glicemias) {
+        this.listaGlicemias = glicemias;
+    }
+
+    public ArrayList<Alarme> getAlarmes() {
+        return listaAlarmes;
+    }
+
+    public void setAlarmes(ArrayList<Alarme> alarmes) {
+        this.listaAlarmes = alarmes;
+    }
+
+    public void adicionarAlarme(Alarme alarme){
+        listaAlarmes.add(alarme);
+    }
+
+    public void removerAlarme(Alarme alarme){
+        listaAlarmes.remove(alarme);
+    }
+
+    public Plano getPlano() {
+        return plano;
+    }
+
+    public void setPlano(Plano plano) {
+        this.plano = plano;
     }
 
     public float calcularIMC(){
