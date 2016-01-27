@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 
+import dicas.DicasExFisico;
 import dicas.DicasHiperGlicemia;
 import dicas.DicasHipoGlicemia;
 import dicas.DicasNutriActivity;
@@ -98,6 +99,14 @@ public class Informacoes extends AppCompatActivity {
             public void onClick(View v) {
                 Intent hiper = new Intent(getApplicationContext(), DicasHiperGlicemia.class);
                 startActivity(hiper);
+            }
+        });
+
+        Button ex = (Button) findViewById(R.id.btnFisico);
+        ex.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent ex = new Intent(getApplicationContext(), DicasExFisico.class);
+                startActivity(ex);
             }
         });
     }

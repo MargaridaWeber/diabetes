@@ -101,10 +101,6 @@
     <string name="title_activity_teste">Teste</string>
     <string name="title_activity_dicas_hipo_glicemia">DicasHipoGlicemia</string>
     <string name="title_activity_dicas_hiper_glicemia">DicasHiperGlicemia</string>
-    <string name="title_activity_estatistica">EstatisticaActivity</string>
-    <string name="title_activity_estatisticas">EstatisticasActivity</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dicas_ex_fisico">DicasExFisico</string>
 
 </resources>

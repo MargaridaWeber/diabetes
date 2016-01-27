@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,6 +19,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Como evitar?"
+        android:layout_marginBottom="20dp"
         android:textStyle="bold"
         android:id="@+id/textView51"
         android:layout_alignParentTop="true"
@@ -28,7 +34,7 @@
         android:layout_below="@+id/textView51"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="44dp" />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,7 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Antes de fazer actividade física regular o nível de glicemia comendo hidratos de carbono se necessário"
+        android:text="➤Antes de fazer atividade física regular o nível de glicemia comendo hidratos de carbono se necessário"
         android:id="@+id/textView54"
         android:layout_below="@+id/textView53"
         android:layout_alignParentLeft="true"
@@ -61,22 +67,14 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/imageView7"
-        android:src="@drawable/maquina"
-        android:layout_alignRight="@+id/textView55"
-        android:layout_alignEnd="@+id/textView55"
-        android:layout_below="@+id/textView55" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView8"
-        android:src="@drawable/alimentacao"
-        android:layout_toRightOf="@+id/textView55"
-        android:layout_toEndOf="@+id/textView55"
-        android:layout_alignTop="@+id/imageView7" />
+        android:src="@drawable/refeicao"
+        android:layout_below="@+id/textView54"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
+</ScrollView>

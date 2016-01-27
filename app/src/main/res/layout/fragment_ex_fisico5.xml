@@ -12,66 +12,69 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="dicas.FragmentHiper3">
+    tools:context="dicas.FragmentExFisico5">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Como agir ?"
-        android:layout_marginBottom="20dp"
+       android:textColor="#000000"
+        android:text="O que nunca se pode esquecer antes de fazer exercício físico"
         android:textStyle="bold"
-        android:id="@+id/textView73"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/textView80"
+        android:textSize="20dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Tentar identificar a causa e corrigir logo de seguida"
-        android:id="@+id/textView74"
-        android:layout_below="@+id/textView73"
+        android:textSize="16dp"
+        android:text="✓Levar sempre consigo pacotes de açucar ou algo similar recomendado pela sua equipa de cuidados de saúde"
+        android:id="@+id/textView92"
+        android:layout_below="@+id/textView80"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Realizar controlos glicemicos com frequência"
-        android:id="@+id/textView75"
-        android:layout_below="@+id/textView74"
+        android:textSize="16dp"
+        android:text="✓Levar sempre o medidor e tiras-teste"
+        android:id="@+id/textView93"
+        android:layout_below="@+id/textView92"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Beber muita água"
-        android:id="@+id/textView76"
-        android:layout_below="@+id/textView75"
+        android:textSize="16dp"
+        android:text="✓Ter um frasco de glucagon"
+        android:id="@+id/textView94"
+        android:layout_below="@+id/textView93"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Se persistir, contatar o médico"
-        android:id="@+id/textView77"
-        android:layout_below="@+id/textView76"
-        android:layout_marginBottom="10dp"
+        android:textSize="16dp"
+        android:text="✓Antes de começar a atividade física medir o nível de glicemia para ter a certeza que está tudo bem"
+        android:id="@+id/textView95"
+        android:layout_below="@+id/textView94"
+        android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="220dp"
-        android:id="@+id/imageView10"
-        android:src="@drawable/hiperglicemia"
-        android:layout_below="@+id/textView77"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="190dp"
+        android:id="@+id/imageView13"
+        android:src="@drawable/beneficios"
+        android:layout_below="@+id/textView95"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>
 </ScrollView>

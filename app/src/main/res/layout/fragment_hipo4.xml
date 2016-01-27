@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -59,7 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="➤Chamar as urgências ou tirar duvidas com a linha 24 "
+        android:text="➤Chamar as urgências ou tirar dúvidas com a linha 24 "
         android:id="@+id/textView50"
         android:layout_below="@+id/textView49"
         android:layout_alignParentLeft="true"
@@ -77,3 +82,4 @@
 
 
 </RelativeLayout>
+</ScrollView>
