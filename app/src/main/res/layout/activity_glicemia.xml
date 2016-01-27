@@ -80,7 +80,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/etValor"
             android:layout_alignBottom="@+id/tvglicemia"
             android:layout_toRightOf="@+id/tvglicemia"
             android:gravity="center_horizontal"

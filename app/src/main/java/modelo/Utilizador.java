@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import alarmes.Alarme;
@@ -21,7 +22,7 @@ public class Utilizador {
     private char insulina;
     private char exercicio;
     int[] hiperglicemia;
-    int[] glicemiaDesejada;
+    String[] glicemiaDesejada;
     int[] hipoglicemia;
     ArrayList<Glicemia> listaGlicemias;
     ArrayList<Alarme> listaAlarmes;
@@ -89,11 +90,11 @@ public class Utilizador {
         this.genero = genero;
     }
 
-    public int[] getGlicemiaDesejada() {
+    public String[] getGlicemiaDesejada() {
         return glicemiaDesejada;
     }
 
-    public void setGlicemiaDesejada(int[] glicemiaDesejada) {
+    public void setGlicemiaDesejada(String[] glicemiaDesejada) {
         this.glicemiaDesejada = glicemiaDesejada;
     }
 
@@ -191,5 +192,12 @@ public class Utilizador {
         return IMC;
     }
 
+    public int getIdade(){
+        Calendar calendar = Calendar.getInstance();
+        int ano = calendar.get(Calendar.YEAR);
+
+        int idade = (ano - dataNasc.getYear());
+        return idade;
+    }
 
 }

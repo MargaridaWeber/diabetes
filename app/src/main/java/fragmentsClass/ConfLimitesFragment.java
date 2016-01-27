@@ -145,7 +145,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 listaConf.set(1, new String[]{"Glicemia Desejada","Jejum: "+jejum+" mg/dl\nApós refeição:"+refeicao+"mg/dl"});
                 setListAdapter(adaptador);
 
-                int[] glicemiaDesejada = {Integer.parseInt(jejum),Integer.parseInt(refeicao)};
+                String[] glicemiaDesejada = {(jejum),refeicao};
                 u.setGlicemiaDesejada(glicemiaDesejada);
             }
         });

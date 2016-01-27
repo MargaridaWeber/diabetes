@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,6 +12,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="dicas.FragmentHipo1">
 
     <TextView
@@ -17,7 +23,8 @@
         android:textStyle="bold"
         android:id="@+id/textView19"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -104,13 +111,13 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:layout_width="238dp"
         android:layout_height="240dp"
         android:id="@+id/hipo"
-        android:layout_gravity="center_horizontal"
         android:src="@drawable/hipoglicemia"
         android:layout_below="@+id/textView27"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"/>
 
-</RelativeLayout>
+</LinearLayout>
+</ScrollView>

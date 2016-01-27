@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
@@ -25,20 +26,31 @@ import android.widget.TimePicker;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.Toast;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+
+import modelo.DiabetesFriend;
+import modelo.SessionManager;
+import modelo.Utilizador;
 
 public class GlicemiaActivity extends AppCompatActivity {
+
+    DiabetesFriend diabetes;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glicemia);
 
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -51,7 +63,9 @@ public class GlicemiaActivity extends AppCompatActivity {
         final EditText horaAtual = (EditText) findViewById(R.id.etHora);
         final TextView iconData = (TextView) findViewById(R.id.icone_data);
         final TextView iconHora = (TextView) findViewById(R.id.iconhora);
+        final EditText valorGli = (EditText) findViewById(R.id.etValor);
         Button btnadd = (Button) findViewById(R.id.btnadd);
+        Button btnGuardar = (Button) findViewById(R.id.btnguardar);
 
         dataAtual.setText(getDate());
         horaAtual.setText(getTime());
@@ -88,8 +102,35 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
 
 
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String valorGlicemia = valorGli.getText().toString();
+                String hora = horaAtual.getText().toString();
+                String data = dataAtual.getText().toString();
+
+                // Obtem dados da sessão
+                HashMap<String, String> user = session.getUserDetails();
+                String email = user.get(SessionManager.KEY_EMAIL);
+                Utilizador u = diabetes.pesquisarUtilizador(email);
+                int idade = u.getIdade();
 
 
+                //Validar valor
+                if (valorGli.getText().toString().isEmpty()) {
+                    valorGli.setError("O campo não está preenchido.");
+                }
+
+                if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)>100 )
+
+
+
+                if(Integer.parseInt(valorGlicemia)>100){
+                    Toast.makeText(GlicemiaActivity.this, "valor alto", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
     }
 
     public String getDate() {
