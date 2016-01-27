@@ -7,15 +7,15 @@ import java.util.Date;
  * Created by Mónica Francisco on 14/12/2015.
  */
 public class Glicemia {
-    private Date data;
-    private Time hora;
+    private String data;
+    private String hora;
     private String valor;
     private String refeicao;
     private String notas;
     private float peso;
     private float pressaoArterial;
 
-    public Glicemia(Date data, Time hora, String notas, String refeicao, String valor) {
+    public Glicemia(String data, String hora, String notas, String refeicao, String valor) {
         this.data = data;
         this.hora = hora;
         this.notas = notas;
@@ -23,11 +23,11 @@ public class Glicemia {
         this.valor = valor;
     }
 
-    public Date getData() {
+    public String getData() {
         return data;
     }
 
-    public Time getHora() {
+    public String getHora() {
         return hora;
     }
 

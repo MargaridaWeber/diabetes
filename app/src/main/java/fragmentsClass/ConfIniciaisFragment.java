@@ -39,7 +39,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
     char tomaInsulina;
     char fazExercicio;
     int[] hiperglicemia = {0,0};
-    int[] glicemiaDesejada = {0,0};
+    String[] glicemiaDesejada = {""};
     int[] hipoglicemia = {0,0};
 
     DiabetesFriend diabetes;
@@ -52,6 +52,12 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getActivity().getApplicationContext());
 
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        final Utilizador u = diabetes.pesquisarUtilizador(email);
+        int idade = u.getIdade();
+
         listaConf = new LinkedList<String[]>();
 
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
@@ -62,16 +68,18 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         listaConf.add(new String[]{"Hipoglicemia", "Jejum: "+hipoglicemia[0]+" mg/dl\nApós refeição: "+hipoglicemia[1]+" mg/dl"});
 
 
+
+        //verificar os valores do utilizador
+        if(idade<18 && u.getAntedecentes()=='N'){
+
+            glicemiaDesejada[0]="70-110";
+            glicemiaDesejada[1]="110-145 ";
+        }
+
         Button btnSeguinte = (Button) view.findViewById(R.id.btnSeguinte);
 
         btnSeguinte.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-            // Obtem dados da sessão
-            HashMap<String, String> user = session.getUserDetails();
-            String email = user.get(SessionManager.KEY_EMAIL);
-
-            Utilizador u = diabetes.pesquisarUtilizador(email);
 
             u.setTipoDiabetes(tipoDiabetes);
             u.setInsulina(tomaInsulina);
@@ -254,8 +262,8 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                glicemiaDesejada[0] = Integer.parseInt(editJejum.getText().toString());
-                glicemiaDesejada[1] = Integer.parseInt(editRefeicao.getText().toString());
+                glicemiaDesejada[0] = editJejum.getText().toString();
+                glicemiaDesejada[1] = editRefeicao.getText().toString();
 
                 listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+glicemiaDesejada[0]+" mg/dl\nApós refeição: "+glicemiaDesejada[1]+"mg/dl"});
                 setListAdapter(adaptador);

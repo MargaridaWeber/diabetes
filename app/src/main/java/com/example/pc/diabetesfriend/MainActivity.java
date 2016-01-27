@@ -17,11 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 
 import alarmes.AlarmesActivity;
+import dicas.TabsInformacoes;
 import modelo.DiabetesFriend;
 import modelo.Utilizador;
 import nutricao.NutricaoActivity;
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         Button btnInf = (Button) findViewById(R.id.btnInf);
         btnInf.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent inf = new Intent(getApplicationContext(), Informacoes.class);
+                Intent inf = new Intent(getApplicationContext(), TabsInformacoes.class);
                 startActivity(inf);
             }
         });
