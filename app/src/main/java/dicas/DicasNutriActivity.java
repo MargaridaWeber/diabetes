@@ -185,7 +185,6 @@ public class DicasNutriActivity extends AppCompatActivity {
             switch (position){
                 case 0:
                    return new FragmentNutri1();
-
                 case 1:
                     return new FragmentNutri2();
                 case 2:

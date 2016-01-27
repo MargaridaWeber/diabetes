@@ -1,7 +1,10 @@
 package alarmes;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.ListFragment;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -19,8 +21,8 @@ import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.R;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -28,7 +30,6 @@ import java.util.List;
 import modelo.DiabetesFriend;
 import modelo.SessionManager;
 import modelo.Utilizador;
-import nutricao.NutricaoActivity;
 
 public class AddAlarmeFragment extends ListFragment implements AdapterView.OnItemClickListener {
 
@@ -38,6 +39,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     ArrayAdapter<String[]> adaptador;
     String dias="Todos os dias";
     String tipo="Glicemia";
+
+    private PendingIntent pendingIntent;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,7 +63,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 int hora = tpHora.getCurrentHour();
                 int minutos = tpHora.getCurrentMinute();
 
-                Alarme alarme = new Alarme(hora+":"+minutos,dias,tipo);
+                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo);
 
                 //Ir buscar utilizador logado
                 HashMap<String, String> user = session.getUserDetails();
@@ -72,10 +75,47 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
 
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
+
+
+                /* Retrieve a PendingIntent that will perform a broadcast */
+                Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
+                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
+
+                startAt10();
             }
         });
 
         return view;
+    }
+
+
+    public void start() {
+        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        int interval = 8000;
+
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
+    }
+
+    public void cancel() {
+        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        manager.cancel(pendingIntent);
+        Toast.makeText(getActivity(), "Alarm Canceled", Toast.LENGTH_SHORT).show();
+    }
+
+    public void startAt10() {
+        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+        int interval = 1000 * 60 * 20;
+
+        /* Set the alarm to start at 10:30 AM */
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 15);
+        calendar.set(Calendar.MINUTE, 06);
+
+        /* Repeating on every 20 minutes interval */
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                1000 * 60 * 20, pendingIntent);
     }
 
     @Override
@@ -236,30 +276,6 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     }
 
 
-    /*View v;
-    private void openDialog() {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-        dialog.setTitle("Dias da semana");
 
-        LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        v = inflater.inflate(R.layout.dialog_alarme, null);
-        dialog.setView(v);
 
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-            }
-        });
-
-        dialog.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-
-        dialog.show();
-
-    }*/
 }

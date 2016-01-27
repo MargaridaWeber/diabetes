@@ -17,11 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 
 import alarmes.AlarmesActivity;
+import estatisticas.EstatisticasActivity;
 import modelo.DiabetesFriend;
 import modelo.Utilizador;
 import nutricao.NutricaoActivity;
@@ -90,8 +90,8 @@ public class MainActivity extends AppCompatActivity
         Button btnGrafico = (Button)findViewById(R.id.btnGraficos);
         btnGrafico.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent graficos = new Intent(getApplicationContext(), GraficosActivity.class);
-                startActivity(graficos);
+                Intent estatisticas = new Intent(getApplicationContext(), EstatisticasActivity.class);
+                startActivity(estatisticas);
             }
         });
 
