@@ -40,7 +40,7 @@
         <activity android:name="alarmes.AlarmesActivity" />
         <activity android:name="alarmes.AddAlarmeActivity" />
         <activity android:name=".EnviarRelatorioActivity" />
-        <activity android:name=".GraficosActivity" />
+        <activity android:name="estatisticas.EstatisticasActivity" />
         <activity android:name="nutricao.PequenoAlmocoActivity" />
         <activity android:name="nutricao.MeioManhaActivity" />
         <activity android:name="nutricao.AlmocoActivity" />
@@ -63,8 +63,6 @@
         <activity
             android:name="dicas.TabsInformacoes"
             android:label="@string/title_activity_tabs_informacoes" />
-        <activity android:name="dicas.FragmentInfUteis" />
-        <activity android:name="dicas.FragmentDicas"></activity>
     </application>
 
 </manifest>
