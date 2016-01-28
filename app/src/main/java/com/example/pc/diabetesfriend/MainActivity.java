@@ -155,10 +155,6 @@ public class MainActivity extends AppCompatActivity
             Intent conf = new Intent(getApplicationContext(), ConfiguracoesGeraisActivity.class);
             startActivity(conf);
         }
-        else if (id == R.id.nav_send) {
-            Intent enviar = new Intent(getApplicationContext(), EnviarRelatorioActivity.class );
-            startActivity(enviar);
-        }
         else if(id == R.id.sair){
             session.logoutUser();
         }
