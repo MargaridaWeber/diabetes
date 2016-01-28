@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="É comum pensar-se que pessoas com diabetes não devem realizar execício físico devido ao risco de hipoglicemia, porém este pode trazer inúmeros benefícios tem é de se for realizado com alguns cuidados e acompanhamento. Vamos lhe mostrar alguns benefícios e as melhores atividades fisicas que pode realizar"
+        android:text="É comum pensar-se que pessoas com diabetes não devem realizar execício físico devido ao risco de hipoglicemia, porém este pode trazer inúmeros benefícios tem é de ser realizado com alguns cuidados e acompanhamento. Vamos lhe mostrar alguns benefícios e as melhores atividades físicas que pode realizar"
         android:id="@+id/textView79"
         android:gravity="center_horizontal"
         android:layout_below="@+id/textView78"

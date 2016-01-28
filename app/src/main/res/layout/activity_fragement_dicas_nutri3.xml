@@ -33,7 +33,7 @@
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="como por exemplo:Cozidos, grelhados, assados com pouca gordura; estufados em frio/em cru, caldeiradas"
+        android:text="Como por exemplo:Cozidos, grelhados, assados com pouca gordura; estufados em frio/em cru, caldeiradas"
         android:id="@+id/textView18"
         android:layout_below="@+id/textView17"
         android:layout_marginTop="52dp"

@@ -36,7 +36,7 @@
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="São inúmeros os benefícios da água,ajuda o bom funcionamento do rim e do intestino é fundamental para um diabético beber àgua!"
+        android:text="São inúmeros os benefícios da água, ajuda o bom funcionamento do rim e do intestino é fundamental para um diabético beber àgua!"
         android:layout_gravity="center_vertical|right"
         android:layout_marginBottom="15dp"
         android:id="@+id/textView14"
