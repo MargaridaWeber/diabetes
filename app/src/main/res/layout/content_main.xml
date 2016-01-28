@@ -146,19 +146,19 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id = "@+id/btnUSB"
+                android:id = "@+id/btnRelatorio"
                 android:layout_width = "100dp"
                 android:layout_height = "100dp"
                 android:layout_centerInParent = "true"
                 android:paddingTop = "70dp"
-                android:text="Ligação USB"
+                android:text="Relatório"
                 android:textSize="12dp" />
 
             <ImageView
                 android:layout_width = "wrap_content"
                 android:layout_height = "wrap_content"
                 android:layout_centerInParent = "true"
-                android:src = "@drawable/ic_usb_orange" />
+                android:src = "@drawable/ic_email_orange" />
 
         </RelativeLayout>
 

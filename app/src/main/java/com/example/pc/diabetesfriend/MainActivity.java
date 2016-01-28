@@ -80,19 +80,27 @@ public class MainActivity extends AppCompatActivity
         });
 
 
-        Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
-        btnNutricao.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-               Intent nutricao = new Intent(getApplicationContext(), NutriActivity.class);
-                startActivity(nutricao);
-            }
-        });
-
         Button btnGrafico = (Button)findViewById(R.id.btnGraficos);
         btnGrafico.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent estatisticas = new Intent(getApplicationContext(), EstatisticasActivity.class);
                 startActivity(estatisticas);
+            }
+        });
+
+        Button btnEnviar = (Button) findViewById(R.id.btnRelatorio);
+        btnEnviar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent enviar = new Intent(getApplicationContext(), EnviarRelatorioActivity.class);
+                startActivity(enviar);
+            }
+        });
+
+        Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
+        btnNutricao.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent nutricao = new Intent(getApplicationContext(), NutriActivity.class);
+                startActivity(nutricao);
             }
         });
 
