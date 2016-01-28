@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- Include required permissions for Google Mobile Ads to run. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -32,12 +32,14 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
+        <activity android:name="nutricao.NutricaoActivity" />
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
         <activity android:name="alarmes.AlarmesActivity" />
-        <activity android:name="alarmes.AddAlarmeActivity" />
+        <activity android:name="alarmes.AddAlarmeActivity">
+        </activity>
         <activity android:name=".EnviarRelatorioActivity" />
         <activity android:name="estatisticas.EstatisticasActivity" />
         <activity android:name="nutricao.PequenoAlmocoActivity" />
@@ -62,11 +64,10 @@
         <activity
             android:name="dicas.TabsInformacoes"
             android:label="@string/title_activity_tabs_informacoes" />
-        <activity
-            android:name="nutricao.NutriActivity"
-            android:label="@string/title_activity_nutri" />
-        <activity android:name="nutricao.PlanoFragment" />
-        <activity android:name="nutricao.MeuPlanoFragment"></activity>
+
+
+
+
     </application>
 
 </manifest>

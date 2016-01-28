@@ -1,5 +1,10 @@
 package modelo;
 
+import android.provider.Settings;
+import android.util.Log;
+import android.widget.Toast;
+
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -196,7 +201,11 @@ public class Utilizador {
         Calendar calendar = Calendar.getInstance();
         int ano = calendar.get(Calendar.YEAR);
 
-        int idade = (ano - dataNasc.getYear());
+
+        calendar.setTime(dataNasc);
+        int anoNascim = calendar.get(Calendar.YEAR);
+        int idade = (ano -anoNascim);
+        System.out.println("ano" + ano + "anonascim"+anoNascim+"idade"+idade );
         return idade;
     }
 

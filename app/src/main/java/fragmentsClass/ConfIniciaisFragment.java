@@ -39,9 +39,10 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
     char tomaInsulina;
     char fazExercicio;
     int[] hiperglicemia = {0,0};
-    String[] glicemiaDesejada = {"",""};
+    String[] glicemiaDesejada = {"0-0","0-0"};
     int[] hipoglicemia = {0,0};
-
+    String[] gdJejum;
+    String[] gdRefeicao;
     DiabetesFriend diabetes;
     SessionManager session;
 
@@ -58,23 +59,58 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         final Utilizador u = diabetes.pesquisarUtilizador(email);
         int idade = u.getIdade();
 
+        //verificar os valores do utilizador
+        if(idade<18 && u.getAntedecentes()=='N'){
+            glicemiaDesejada[0]="70-200";
+            glicemiaDesejada[1]="110-145 ";
+            hipoglicemia[0]=70;
+            hipoglicemia[1]=110;
+            hiperglicemia[0]=110;
+            hiperglicemia[1]=145;
+        }
+
+        if(idade<18 && u.getAntedecentes()=='S'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="130-160 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=130;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=160;
+        }
+
+        if(idade>40 && u.getAntedecentes()=='N'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="130-160 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=130;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=160;
+        }
+        if(idade>40 && u.getAntedecentes()=='S'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="120-180 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=120;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=180;
+        }
+        gdJejum = glicemiaDesejada[0].split("-");
+        gdRefeicao = glicemiaDesejada[1].split("-");
+
+
         listaConf = new LinkedList<String[]>();
 
         listaConf.add(new String[]{"Tipo de Diabetes", "Tipo 1"});
         listaConf.add(new String[]{"Toma Insulina", "Sim"});
         listaConf.add(new String[]{"Faz exercício", "Sim"});
+        //mete as string em baixo
         listaConf.add(new String[]{"Hiperglicemia", "Jejum: "+hiperglicemia[0]+" mg/dl\nApós refeição: "+hiperglicemia[1]+" mg/dl"});
-        listaConf.add(new String[]{"Glicemia desejada", "Jejum: "+glicemiaDesejada[0]+" mg/dl\nApós refeição: "+glicemiaDesejada[1]+" mg/dl"});
+        listaConf.add(new String[]{"Glicemia desejada", "Jejum: "+gdJejum[0]+"-"+gdJejum[1]+" mg/dl\nApós refeição: "+glicemiaDesejada[1]+" mg/dl"});
         listaConf.add(new String[]{"Hipoglicemia", "Jejum: "+hipoglicemia[0]+" mg/dl\nApós refeição: "+hipoglicemia[1]+" mg/dl"});
 
 
 
-        //verificar os valores do utilizador
-        if(idade<18 && u.getAntedecentes()=='N'){
 
-            glicemiaDesejada[0]="70-110";
-            glicemiaDesejada[1]="110-145 ";
-        }
 
         Button btnSeguinte = (Button) view.findViewById(R.id.btnSeguinte);
 
@@ -247,25 +283,30 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         dialog.setTitle("Glicemia Desejada");
         LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v = inflater.inflate(R.layout.dialoglimites, null);
+        v = inflater.inflate(R.layout.dialoglimitesdesejada, null);
 
         dialog.setView(v);
 
         //Colocar valores nas editTexts
         final EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
         final EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
-        editJejum.setText(glicemiaDesejada[0]+"");
-        editRefeicao.setText(glicemiaDesejada[1]+"");
-
+        final EditText editJejum2 = (EditText) v.findViewById(R.id.etjejum2);
+        final EditText editRefeicao2 = (EditText) v.findViewById(R.id.etrefeicao2);
+        editJejum.setText(gdJejum[0]+"");
+        editJejum2.setText(gdJejum[1]+"" );
+        editRefeicao.setText(gdRefeicao[0]+"");
+        editRefeicao2.setText(gdRefeicao[1]+"");
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                glicemiaDesejada[0] = editJejum.getText().toString();
-                glicemiaDesejada[1] = editRefeicao.getText().toString();
+                gdJejum[0] = editJejum.getText().toString();
+                gdJejum[1] = editJejum2.getText().toString();
+                gdRefeicao[0] = editRefeicao.getText().toString();
+                gdRefeicao[1] = editRefeicao2.getText().toString();
 
-                listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+glicemiaDesejada[0]+" mg/dl\nApós refeição: "+glicemiaDesejada[1]+"mg/dl"});
+                listaConf.set(4, new String[]{"Glicemia Desejada","Jejum: "+gdJejum[0]+"-"+gdJejum[1]+" mg/dl\nApós refeição: "+gdRefeicao[0]+"-"+gdRefeicao[1]+"mg/dl"});
                 setListAdapter(adaptador);
 
             }
