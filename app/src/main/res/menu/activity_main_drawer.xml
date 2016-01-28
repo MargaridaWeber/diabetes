@@ -11,12 +11,6 @@
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Configurações" />
 
-
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_mail"
-                android:title="Enviar Relatório" />
-
             <item android:id="@+id/historico"
                 android:title="Histórico de Registos"
                 android:icon="@drawable/ic_historico"/>
