@@ -123,8 +123,8 @@ public class GlicemiaActivity extends AppCompatActivity {
                   DialogHipo();
                 }
 
-
-
+                if(Integer.parseInt(valorGlicemia)>200)
+                    DialogCuidado();
                 }
 
 
@@ -137,6 +137,18 @@ public class GlicemiaActivity extends AppCompatActivity {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Risco de Hipoglicemia!");
         builder.setMessage("Cuidado!pode estar em risco de hipoglicemia\n\n• Deverá ingerir 1 a 2 pacotes de açúcar \n• Depois de 15 minutos voltar a medir\n• Veja as nossas Dicas Hipoglicemia");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
+    }
+    private void DialogCuidado() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Cuidado!");
+        builder.setMessage("Não pode realizar exercício físico nestas condições\n\n• Deverá beber muita água \n• Se não baixar fale com o seu médico");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
             }
