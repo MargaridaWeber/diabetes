@@ -49,6 +49,7 @@
         <activity android:name="nutricao.JantarActivity" />
         <activity android:name="nutricao.CeiaActivity" />
         <activity android:name="nutricao.AdicionarPlano" />
+        <activity android:name="nutricao.NutriActivity" />
         <activity
             android:name="dicas.DicasNutriActivity"
             android:label="@string/title_activity_dicas_nutri" />
