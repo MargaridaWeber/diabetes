@@ -79,18 +79,25 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 startActivity(alarmes);
 
 
-                /* Retrieve a PendingIntent that will perform a broadcast */
-                Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
-                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
 
-                startAt10();
+
+               // startAt10();
+                start();
+
             }
         });
 
         return view;
     }
 
+    private void SetAlarm(Calendar targetCal){
+           /* Retrieve a PendingIntent that will perform a broadcast */
+        Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
+        AlarmManager alarmManager=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
 
+    }
     public void start() {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         int interval = 8000;
@@ -98,6 +105,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
         Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
     }
+
 
     public void cancel() {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
@@ -112,8 +120,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         /* Set the alarm to start at 10:30 AM */
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 21);
-        calendar.set(Calendar.MINUTE, 55);
+        calendar.set(Calendar.HOUR_OF_DAY, 1);
+        calendar.set(Calendar.MINUTE, 25);
 
         /* Repeating on every 20 minutes interval */
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),

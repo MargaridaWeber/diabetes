@@ -38,7 +38,8 @@
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
         <activity android:name="alarmes.AlarmesActivity" />
-        <activity android:name="alarmes.AddAlarmeActivity" />
+        <activity android:name="alarmes.AddAlarmeActivity">
+        </activity>
         <activity android:name=".EnviarRelatorioActivity" />
         <activity android:name="estatisticas.EstatisticasActivity" />
         <activity android:name="nutricao.PequenoAlmocoActivity" />
@@ -63,6 +64,10 @@
         <activity
             android:name="dicas.TabsInformacoes"
             android:label="@string/title_activity_tabs_informacoes" />
+
+
+
+
     </application>
 
 </manifest>

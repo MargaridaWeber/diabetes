@@ -119,10 +119,17 @@ public class GlicemiaActivity extends AppCompatActivity {
                     valorGli.setError("O campo não está preenchido.");
                 }
                 else {
-              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)<130 ){
+              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)<110 ){
                   DialogHipo();
                 }
 
+              if(idade<18 && u.getAntedecentes()=='S' && Integer.parseInt(valorGlicemia)<130 ){
+                        DialogHipo();
+                    }
+              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)>145 )
+                    DialogHiper();
+              if(idade<18 && u.getAntedecentes()=='S' && Integer.parseInt(valorGlicemia)>160 )
+                        DialogHiper();
                 if(Integer.parseInt(valorGlicemia)>200)
                     DialogCuidado();
                 }
@@ -144,6 +151,20 @@ public class GlicemiaActivity extends AppCompatActivity {
         alerta = builder.create();
         alerta.show();
     }
+
+    private void DialogHiper() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Risco de Hiperglicemia!");
+        builder.setMessage("Cuidado!pode estar em risco de hiperglicemia\n\n• Deverá beber muita água \n• Depois de 15 minutos voltar a medir\n• Se não baixar fale com um médico");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
+    }
+
     private void DialogCuidado() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
