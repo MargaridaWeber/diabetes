@@ -205,8 +205,7 @@ public class Utilizador {
         calendar.setTime(dataNasc);
         int anoNascim = calendar.get(Calendar.YEAR);
         int idade = (ano -anoNascim);
-
-        System.out.println("anooooooooooooooooooooo" + ano + "anonascim"+anoNascim+"idade"+idade );
+        System.out.println("ano" + ano + "anonascim"+anoNascim+"idade"+idade );
         return idade;
     }
 

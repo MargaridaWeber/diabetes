@@ -105,8 +105,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String valorGlicemia = valorGli.getText().toString();
-                String hora = horaAtual.getText().toString();
-                String data = dataAtual.getText().toString();
+
 
                 // Obtem dados da sessão
                 HashMap<String, String> user = session.getUserDetails();
@@ -119,18 +118,31 @@ public class GlicemiaActivity extends AppCompatActivity {
                 if (valorGli.getText().toString().isEmpty()) {
                     valorGli.setError("O campo não está preenchido.");
                 }
+                else {
+              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)<130 ){
+                  DialogHipo();
+                }
 
-                if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)>100 )
 
 
-
-                if(Integer.parseInt(valorGlicemia)>100){
-                    Toast.makeText(GlicemiaActivity.this, "valor alto", Toast.LENGTH_SHORT).show();
                 }
 
 
             }
         });
+    }
+    private AlertDialog alerta;
+    private void DialogHipo() {
+
+    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Risco de Hipoglicemia!");
+        builder.setMessage("Cuidado!pode estar em risco de hipoglicemia\n\n• Deverá ingerir 1 a 2 pacotes de açúcar\n• Depois de 15 minutos voltar a medir\n• Veja as nossas Dicas Hipoglicemia");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
     }
 
     public String getDate() {

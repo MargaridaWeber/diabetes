@@ -58,9 +58,6 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         String email = user.get(SessionManager.KEY_EMAIL);
         final Utilizador u = diabetes.pesquisarUtilizador(email);
         int idade = u.getIdade();
-        Toast.makeText(getActivity(), ""+idade, Toast.LENGTH_SHORT).show();
-
-
 
         //verificar os valores do utilizador
         if(idade<18 && u.getAntedecentes()=='N'){
@@ -70,6 +67,32 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             hipoglicemia[1]=110;
             hiperglicemia[0]=110;
             hiperglicemia[1]=145;
+        }
+
+        if(idade<18 && u.getAntedecentes()=='S'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="130-160 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=130;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=160;
+        }
+
+        if(idade>40 && u.getAntedecentes()=='N'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="130-160 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=130;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=160;
+        }
+        if(idade>40 && u.getAntedecentes()=='S'){
+            glicemiaDesejada[0]="90-130";
+            glicemiaDesejada[1]="120-180 ";
+            hipoglicemia[0]=90;
+            hipoglicemia[1]=120;
+            hiperglicemia[0]=130;
+            hiperglicemia[1]=180;
         }
         gdJejum = glicemiaDesejada[0].split("-");
         gdRefeicao = glicemiaDesejada[1].split("-");
