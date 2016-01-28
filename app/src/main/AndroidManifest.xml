@@ -32,7 +32,6 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
-        <activity android:name="nutricao.NutricaoActivity" />
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
@@ -63,6 +62,11 @@
         <activity
             android:name="dicas.TabsInformacoes"
             android:label="@string/title_activity_tabs_informacoes" />
+        <activity
+            android:name="nutricao.NutriActivity"
+            android:label="@string/title_activity_nutri" />
+        <activity android:name="nutricao.PlanoFragment" />
+        <activity android:name="nutricao.MeuPlanoFragment"></activity>
     </application>
 
 </manifest>

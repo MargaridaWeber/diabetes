@@ -102,7 +102,7 @@ public class AdicionarPlano extends AppCompatActivity {
 
                     u.setPlano(p);
 
-                    Intent plano = new Intent(getApplicationContext(), NutricaoActivity.class);
+                    Intent plano = new Intent(getApplicationContext(), NutriActivity.class);
                     startActivity(plano);
 
                     Toast.makeText(AdicionarPlano.this, "O seu plano foi criado com sucesso!", Toast.LENGTH_SHORT).show();

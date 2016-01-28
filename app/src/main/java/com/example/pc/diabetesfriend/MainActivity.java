@@ -25,7 +25,7 @@ import dicas.TabsInformacoes;
 import estatisticas.EstatisticasActivity;
 import modelo.DiabetesFriend;
 import modelo.Utilizador;
-import nutricao.NutricaoActivity;
+import nutricao.NutriActivity;
 import modelo.SessionManager;
 
 public class MainActivity extends AppCompatActivity
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         Button btnNutricao = (Button) findViewById(R.id.btnNutricao);
         btnNutricao.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               Intent nutricao = new Intent(getApplicationContext(), NutricaoActivity.class);
+               Intent nutricao = new Intent(getApplicationContext(), NutriActivity.class);
                 startActivity(nutricao);
             }
         });

@@ -39,7 +39,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
     char tomaInsulina;
     char fazExercicio;
     int[] hiperglicemia = {0,0};
-    String[] glicemiaDesejada = {""};
+    String[] glicemiaDesejada = {"",""};
     int[] hipoglicemia = {0,0};
 
     DiabetesFriend diabetes;
