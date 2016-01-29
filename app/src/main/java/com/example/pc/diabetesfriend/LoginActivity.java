@@ -40,8 +40,8 @@ public class LoginActivity extends AppCompatActivity{
         diabetes.adicionarUtilizador(u);
 
         //Cria alarmes
-        u.adicionarAlarme(new Alarme("8:00", "S T Q Q", "Glicemia"));
-        u.adicionarAlarme(new Alarme("9:00", "Todos os dias", "Insulina"));
+        u.adicionarAlarme(new Alarme("8:00", "S T Q Q", "Glicemia",getApplicationContext()));
+        u.adicionarAlarme(new Alarme("9:00", "Todos os dias", "Insulina",getApplicationContext()));
 
         //Se o utilizador estiver logado quando inicia a aplicação redirectiona para o main
         if(session.isLoggedIn()){

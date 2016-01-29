@@ -41,7 +41,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     ArrayAdapter<String[]> adaptador;
     String dias="Todos os dias";
     String tipo="Glicemia";
-
+    int hora;
+    int minutos;
     private PendingIntent pendingIntent;
 
     @Override
@@ -62,10 +63,10 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                int hora = tpHora.getCurrentHour();
-                int minutos = tpHora.getCurrentMinute();
+                hora = tpHora.getCurrentHour();
+                minutos = tpHora.getCurrentMinute();
 
-                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo);
+                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo,getActivity());
 
                 //Ir buscar utilizador logado
                 HashMap<String, String> user = session.getUserDetails();
@@ -78,11 +79,10 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
 
+                alarme.repetir(hora,minutos);
 
+                //start(hora,minutos);
 
-
-               // startAt10();
-                start();
 
             }
         });
@@ -90,35 +90,48 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         return view;
     }
 
-    public void start() {
+    public void start(int hora , int minutos) {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 8000;
+        int interval = 1000 * 60;
 
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+
+       // manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
 
-    public void cancel() {
+   /* public void cancel() {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);
         Toast.makeText(getActivity(), "Alarm Canceled", Toast.LENGTH_SHORT).show();
     }
 
-    public void startAt10() {
+    public void repetir(int hora , int minutos) {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 20;
+        int interval = 1000 * 60 ;
 
-        /* Set the alarm to start at 10:30 AM */
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 1);
-        calendar.set(Calendar.MINUTE, 25);
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
 
-        /* Repeating on every 20 minutes interval */
+
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                1000 * 60 * 20, pendingIntent);
-    }
+                interval, pendingIntent);
+
+
+    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -156,8 +169,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
             criarDias();
     }
 
-
-    //Tipos
+        //Tipos
     AlertDialog tipos;
     private void criarTipo(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
