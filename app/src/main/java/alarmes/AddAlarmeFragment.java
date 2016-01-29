@@ -41,7 +41,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     ArrayAdapter<String[]> adaptador;
     String dias="Todos os dias";
     String tipo="Glicemia";
-
+    int hora;
+    int minutos;
     private PendingIntent pendingIntent;
 
     @Override
@@ -62,8 +63,8 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                int hora = tpHora.getCurrentHour();
-                int minutos = tpHora.getCurrentMinute();
+                hora = tpHora.getCurrentHour();
+                minutos = tpHora.getCurrentMinute();
 
                 Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo);
 
@@ -78,11 +79,15 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
 
+                 /* Retrieve a PendingIntent that will perform a broadcast */
+               Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
+                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
+
+                repetir(hora, minutos);
 
 
+                //start(hora,minutos);
 
-               // startAt10();
-                start();
 
             }
         });
@@ -90,19 +95,20 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         return view;
     }
 
-    private void SetAlarm(Calendar targetCal){
-           /* Retrieve a PendingIntent that will perform a broadcast */
-        Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
-        AlarmManager alarmManager=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
-
-    }
-    public void start() {
+    public void start(int hora , int minutos) {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 8000;
+        int interval = 1000 * 60;
 
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+
+       // manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
         Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
@@ -113,19 +119,24 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         Toast.makeText(getActivity(), "Alarm Canceled", Toast.LENGTH_SHORT).show();
     }
 
-    public void startAt10() {
+    public void repetir(int hora , int minutos) {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 20;
+        int interval = 1000 * 60 ;
 
         /* Set the alarm to start at 10:30 AM */
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, 1);
-        calendar.set(Calendar.MINUTE, 25);
+        calendar.set(Calendar.HOUR_OF_DAY, hora);
+        calendar.set(Calendar.MINUTE, minutos);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
 
-        /* Repeating on every 20 minutes interval */
+        DialogAlarme();
+        /* repete de 1 em 1 minuto consoante a hora metida*/
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                1000 * 60 * 20, pendingIntent);
+                interval, pendingIntent);
+
+
     }
 
     @Override
@@ -163,6 +174,29 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         else if(itemPosition==1)
             criarDias();
     }
+
+
+   AlertDialog alerta;
+    public void DialogAlarme() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Despertador");
+        builder.setMessage("Esta na hora");
+        builder.setPositiveButton("Adiar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                repetir(hora, minutos);
+            }
+        });
+        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                cancel();
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
+    }
+
 
 
     //Tipos

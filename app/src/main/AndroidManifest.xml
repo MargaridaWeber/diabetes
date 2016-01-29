@@ -11,7 +11,7 @@
     <!-- Include required permissions for Google Mobile Ads to run. -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/icon"
@@ -32,7 +32,6 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
-        <activity android:name="nutricao.NutricaoActivity" />
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />
@@ -66,6 +65,18 @@
             android:name="dicas.TabsInformacoes"
             android:label="@string/title_activity_tabs_informacoes" />
 
+        <receiver  android:name = "alarmes.AlarmReceiver" >
+            <intent-filter>
+                <action  android:name = "android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver  android:name = "alarmes.DeviceBootReceiver"
+            android:enabled = "false" >
+            <intent-filter>
+                <action  android:name = "android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
 
 
