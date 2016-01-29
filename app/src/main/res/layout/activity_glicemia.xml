@@ -5,7 +5,8 @@
     android:id="@+id/sr"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:contextClickable="false">
 
     <LinearLayout
         android:orientation="vertical"
@@ -65,15 +66,19 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:background="#E8E8E8"
+        android:layout_marginTop="20dp">
 
 
         <TextView
-            android:layout_width="162dp"
+            android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Glicemia"
-            android:id="@+id/textView12" />
+            android:textSize="16dp"
+            android:id="@+id/textView12"
+            android:layout_marginLeft="10dp" />
 
         <EditText
             android:layout_width="70dp"
@@ -103,77 +108,147 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="20dp">
+        android:paddingBottom="20dp"
+        android:background="#E8E8E8"
+        android:layout_marginTop="-10dp">
 
         <TextView
-            android:layout_width="152dp"
+            android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Refeição"
             android:id="@+id/textView10"
+            android:textSize="16dp"
             android:layout_below="@+id/tvglicemia"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="10dp" />
 
         <Spinner
             android:layout_width="175dp"
             android:layout_height="wrap_content"
-            android:id="@+id/sprefeicao"
+            android:id="@+id/spRefeicao"
             android:spinnerMode="dialog"
             android:prompt="@string/refeicoes_titulo"
             android:entries="@array/refeicoes" />
 
 
+
     </LinearLayout>
+
+
+    <TextView
+        android:paddingTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:textSize="16dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
+        android:layout_alignParentBottom="true"
+        android:text="Informações adicionais" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#DADADC" ></View>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso"
+            android:id="@+id/chkPeso" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/linearPeso"
+                android:visibility="gone"
+                android:layout_marginTop="-10dp">
+
+                <EditText
+                    android:layout_width="63dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:ems="10"
+                    android:textSize="15dp"
+                    android:id="@+id/etPeso"
+                    android:layout_marginLeft="20dp" />
+
+                <TextView
+                        android:layout_width="169dp"
+                        android:layout_height="wrap_content"
+                        android:text="kg" />
+                </LinearLayout>
+
+    </LinearLayout>
+
+
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pressão Arterial"
+                android:id="@+id/chkPressaoArterial" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:orientation="horizontal"
+             android:id="@+id/linearPressao"
+             android:visibility="gone"
+             android:layout_marginTop="-10dp">
+
+
+           <EditText
+                android:layout_width="63dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/etPressaoArterial"
+                android:textSize="15dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="58dp"
+                android:layout_height="wrap_content"
+                android:text="mmHg" />
+
+           </LinearLayout>
+
+     </LinearLayout>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_notas"
         android:hint="Notas"
-        android:layout_below="@+id/textView10"/>
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Adicionar mais Informações"
-        android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_mais"
-        android:id="@+id/btnadd"
-        android:layout_weight="0.12"
-        android:background="@android:color/transparent"
-        android:layout_gravity="center_horizontal" />
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.12"
-        android:id="@+id/llpeso">
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.12"
-        android:weightSum="1"
-        android:id="@+id/llpressao">
-
-
-    </LinearLayout>
-
+        android:textSize="15dp"
+        android:layout_below="@+id/textView10"
+        android:text="Notas"
+        android:id="@+id/etNotas" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar"
-        android:id="@+id/btnguardar"
+        android:text="Registar"
+        android:id="@+id/btnRegistar"
         android:layout_gravity="right" />
 
-</LinearLayout>
+
+    </LinearLayout>
+
     </ScrollView>

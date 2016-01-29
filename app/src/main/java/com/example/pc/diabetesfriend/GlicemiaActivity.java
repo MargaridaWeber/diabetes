@@ -17,10 +17,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.LinearLayout.LayoutParams;
@@ -36,6 +39,7 @@ import java.util.Date;
 import java.util.HashMap;
 
 import modelo.DiabetesFriend;
+import modelo.Glicemia;
 import modelo.SessionManager;
 import modelo.Utilizador;
 
@@ -55,8 +59,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true); //setinha
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
-        //mudar cor do titulo da action bar
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));  //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar Níveis Diários</font>"));
 
         final EditText dataAtual = (EditText) findViewById(R.id.etdata);
@@ -64,8 +67,14 @@ public class GlicemiaActivity extends AppCompatActivity {
         final TextView iconData = (TextView) findViewById(R.id.icone_data);
         final TextView iconHora = (TextView) findViewById(R.id.iconhora);
         final EditText valorGli = (EditText) findViewById(R.id.etValor);
-        Button btnadd = (Button) findViewById(R.id.btnadd);
-        Button btnGuardar = (Button) findViewById(R.id.btnguardar);
+        final Spinner spRefeicao = (Spinner) findViewById(R.id.spRefeicao);
+        final CheckBox chkPeso = (CheckBox) findViewById(R.id.chkPeso);
+        final LinearLayout linearPeso = (LinearLayout) findViewById(R.id.linearPeso);
+        final CheckBox chkPressao = (CheckBox) findViewById(R.id.chkPressaoArterial);
+        final LinearLayout linearPressao = (LinearLayout) findViewById(R.id.linearPressao);
+        final EditText etNotas = (EditText) findViewById(R.id.etNotas);
+
+        Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
 
         dataAtual.setText(getDate());
         horaAtual.setText(getTime());
@@ -92,20 +101,41 @@ public class GlicemiaActivity extends AppCompatActivity {
         horaAtual.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timePickerDialog();
-                    }
-                });
-
-        btnadd.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                criarinfAdicional();
             }
         });
 
 
-        btnGuardar.setOnClickListener(new View.OnClickListener() {
+        chkPeso.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+               @Override
+               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                   if (isChecked == true)
+                       linearPeso.setVisibility(View.VISIBLE);
+                   else
+                       linearPeso.setVisibility(View.GONE);
+               }
+           }
+        );
+
+
+        chkPressao.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+              @Override
+              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                  if (isChecked == true)
+                      linearPressao.setVisibility(View.VISIBLE);
+                  else
+                      linearPressao.setVisibility(View.GONE);
+              }
+          }
+        );
+
+
+        btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String valorGlicemia = valorGli.getText().toString();
-
+                String notas = etNotas.getText().toString();
+                String refeicao = spRefeicao.getSelectedItem().toString();
 
                 // Obtem dados da sessão
                 HashMap<String, String> user = session.getUserDetails();
@@ -117,31 +147,37 @@ public class GlicemiaActivity extends AppCompatActivity {
                 //Validar valor
                 if (valorGli.getText().toString().isEmpty()) {
                     valorGli.setError("O campo não está preenchido.");
-                }
-                else {
-              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)<110 ){
-                  DialogHipo();
-                }
+                } else {
 
-              if(idade<18 && u.getAntedecentes()=='S' && Integer.parseInt(valorGlicemia)<130 ){
+                    Glicemia gli = new Glicemia(getDate(), getTime(), refeicao, valorGlicemia, notas);
+                    u.adicionarGlicemia(gli);
+
+                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) < 110)
                         DialogHipo();
-                    }
-              if(idade<18 && u.getAntedecentes()=='N' && Integer.parseInt(valorGlicemia)>145 )
-                    DialogHiper();
-              if(idade<18 && u.getAntedecentes()=='S' && Integer.parseInt(valorGlicemia)>160 )
+
+                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) < 130)
+                        DialogHipo();
+
+                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) > 145)
                         DialogHiper();
-                if(Integer.parseInt(valorGlicemia)>200)
-                    DialogCuidado();
+
+                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) > 160)
+                        DialogHiper();
+
+                    if (Integer.parseInt(valorGlicemia) > 200)
+                        DialogCuidado();
                 }
 
 
             }
         });
     }
+
     private AlertDialog alerta;
+
     private void DialogHipo() {
 
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Risco de Hipoglicemia!");
         builder.setMessage("Cuidado!pode estar em risco de hipoglicemia\n\n• Deverá ingerir 1 a 2 pacotes de açúcar \n• Depois de 15 minutos voltar a medir\n• Veja as nossas Dicas Hipoglicemia");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -181,17 +217,19 @@ public class GlicemiaActivity extends AppCompatActivity {
     public String getDate() {
 
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-        Date date = new Date(); return dateFormat.format(date);
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
-    public String getTime(){
+    public String getTime() {
 
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        Date date = new Date(); return dateFormat.format(date);
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 
 
-    private void timePickerDialog(){
+    private void timePickerDialog() {
 
         Calendar mcurrentTime = Calendar.getInstance();
         int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
@@ -200,7 +238,7 @@ public class GlicemiaActivity extends AppCompatActivity {
             @Override
             public void onTimeSet(TimePicker view, int selectedHour, int selectedMinute) {
                 EditText horaatual = (EditText) findViewById(R.id.etHora);
-                horaatual.setText(selectedHour+":"+ selectedMinute);
+                horaatual.setText(selectedHour + ":" + selectedMinute);
             }
         }, hour, minute, true);//Yes 24 hour time
         mTimePicker.setTitle("Selecione a hora");
@@ -209,10 +247,10 @@ public class GlicemiaActivity extends AppCompatActivity {
     }
 
 
-    private void dataPickerDialog(){
+    private void dataPickerDialog() {
         final Calendar c = Calendar.getInstance();
-        int  mYear = c.get(Calendar.YEAR);
-        int  mMonth = c.get(Calendar.MONTH);
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog dpd = new DatePickerDialog(this,
@@ -222,14 +260,13 @@ public class GlicemiaActivity extends AppCompatActivity {
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
                         EditText data = (EditText) findViewById(R.id.etdata);
-                        data.setText(Integer.toString(dayOfMonth)+"/"+Integer.toString(monthOfYear+1)+"/"+Integer.toString(year));
+                        data.setText(Integer.toString(dayOfMonth) + "/" + Integer.toString(monthOfYear + 1) + "/" + Integer.toString(year));
                     }
 
                 }, mYear, mMonth, mDay);
 
         dpd.show();
     }
-
 
 
     @Override
@@ -244,107 +281,10 @@ public class GlicemiaActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 this.finish();
-                return true; default: return super.onOptionsItemSelected(item); }
-
-    }
-
-
-
-     int mSelected = -1;
-    boolean check[] ={false,false};
-    final ArrayList<Integer> listaIndicesSeleccionados = new ArrayList();
-    final boolean[] isSelectedArray = {false, false, false, false};
-    AlertDialog adicional;
-    private void criarinfAdicional(){
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-
-        dialog.setTitle("Informações Adicionais");
-        dialog.setMultiChoiceItems(R.array.adicionais, isSelectedArray, new DialogInterface.OnMultiChoiceClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-
-                final AlertDialog alert = (AlertDialog) dialog;
-                final ListView list = alert.getListView();
-
-                if (isChecked) {
-                    listaIndicesSeleccionados.add(which); //Adiciona a lista
-                } else if (listaIndicesSeleccionados.contains(which)) {
-                    listaIndicesSeleccionados.remove(Integer.valueOf(which)); //Se já existe remove
-                }
-            }
-        });
-
-
-        dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-
-                for (int index :listaIndicesSeleccionados){
-
-                    if (index==0 && check[0] ==false) {
-                        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpeso);
-                        TextView textView1 = new TextView(GlicemiaActivity.this);
-                        textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
-                        textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        textView1.setText("Peso");
-                        textView1.setWidth(250);
-
-                        EditText edit = new EditText(GlicemiaActivity.this);
-                        edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        edit.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
-                        edit.setWidth(115);
-
-                        TextView kg = new TextView(GlicemiaActivity.this);
-                        kg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        kg.setText("Kg");
-
-                        linearLayout.addView(textView1);
-                        linearLayout.addView(edit);
-                        linearLayout.addView(kg);
-                        check[0]=true;
-
-                    }
-                    if (index == 1 && check[1]==false) {
-
-                        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.llpressao);
-                        TextView textView1 = new TextView(GlicemiaActivity.this);
-                        textView1.setTextAppearance(getApplicationContext(), R.style.normalText);
-                        textView1.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        textView1.setText("Pressão Arterial");
-                        textView1.setWidth(250);
-
-                        EditText edit = new EditText(GlicemiaActivity.this);
-                        edit.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        edit.setInputType(InputType.TYPE_CLASS_NUMBER);
-                        edit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(3)});
-                        edit.setWidth(115);
-
-                        TextView mmHg = new TextView(GlicemiaActivity.this);
-                        mmHg.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-                        mmHg.setText("mmHg");
-
-                        linearLayout.addView(textView1);
-                        linearLayout.addView(edit);
-                        linearLayout.addView(mmHg);
-                        check[1]=true;
-
-
-                    }
-                }
-
-            }
-        });
-        //Mete as checkboxs seleccionadas
-        for (int i : listaIndicesSeleccionados) {
-            isSelectedArray[i] = true;
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        adicional = dialog.create();
-        adicional.show();
+
     }
-
-
-
 }

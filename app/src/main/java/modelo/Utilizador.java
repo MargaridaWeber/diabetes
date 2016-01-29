@@ -184,6 +184,10 @@ public class Utilizador {
         listaAlarmes.remove(alarme);
     }
 
+    public void adicionarGlicemia(Glicemia glicemia){
+        listaGlicemias.add(glicemia);
+    }
+
     public Plano getPlano() {
         return plano;
     }
