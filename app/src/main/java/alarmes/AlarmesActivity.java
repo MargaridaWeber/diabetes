@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.ArrayList;
@@ -80,7 +81,9 @@ public class AlarmesActivity extends AppCompatActivity {
                 startActivity(addAlarme);
                 return true;
             case android.R.id.home:
-                this.finish();
+                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main);
+
             default:
                 return super.onOptionsItemSelected(item);
         }

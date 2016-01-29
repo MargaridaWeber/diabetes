@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="green">#00FF7F</color>
     <color name="cinzento">#A9A9A9</color>
+    <color name="black">#FF000000</color>
+    <color name="whitegrey">#FFF2F2F2</color>
+
+
 </resources>
