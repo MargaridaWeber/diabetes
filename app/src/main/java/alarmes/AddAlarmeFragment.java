@@ -66,7 +66,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 hora = tpHora.getCurrentHour();
                 minutos = tpHora.getCurrentMinute();
 
-                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo);
+                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo,getActivity());
 
                 //Ir buscar utilizador logado
                 HashMap<String, String> user = session.getUserDetails();
@@ -79,12 +79,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
 
-                 /* Retrieve a PendingIntent that will perform a broadcast */
-               Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
-                pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
-
-                repetir(hora, minutos);
-
+                alarme.repetir(hora,minutos);
 
                 //start(hora,minutos);
 
@@ -113,7 +108,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
     }
 
 
-    public void cancel() {
+   /* public void cancel() {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);
         Toast.makeText(getActivity(), "Alarm Canceled", Toast.LENGTH_SHORT).show();
@@ -123,7 +118,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         int interval = 1000 * 60 ;
 
-        /* Set the alarm to start at 10:30 AM */
+
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(System.currentTimeMillis());
         calendar.set(Calendar.HOUR_OF_DAY, hora);
@@ -131,13 +126,12 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
 
-        DialogAlarme();
-        /* repete de 1 em 1 minuto consoante a hora metida*/
+
         manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
                 interval, pendingIntent);
 
 
-    }
+    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -175,31 +169,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
             criarDias();
     }
 
-
-   AlertDialog alerta;
-    public void DialogAlarme() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Despertador");
-        builder.setMessage("Esta na hora");
-        builder.setPositiveButton("Adiar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface arg0, int arg1) {
-                repetir(hora, minutos);
-            }
-        });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                cancel();
-            }
-        });
-        alerta = builder.create();
-        alerta.show();
-    }
-
-
-
-    //Tipos
+        //Tipos
     AlertDialog tipos;
     private void criarTipo(){
         AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
