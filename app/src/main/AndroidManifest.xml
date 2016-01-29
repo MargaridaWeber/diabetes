@@ -32,7 +32,6 @@
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".GlicemiaActivity" />
-        <activity android:name="nutricao.NutricaoActivity" />
         <activity android:name=".ConfiguracoesIniciaisActivity" />
         <activity android:name=".ConfiguracoesGeraisActivity" />
         <activity android:name=".ConfDadosActivity" />

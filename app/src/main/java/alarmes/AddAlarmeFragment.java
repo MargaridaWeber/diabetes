@@ -90,14 +90,6 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         return view;
     }
 
-    private void SetAlarm(Calendar targetCal){
-           /* Retrieve a PendingIntent that will perform a broadcast */
-        Intent alarmIntent = new Intent(getActivity(), AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(getActivity(), 0, alarmIntent, 0);
-        AlarmManager alarmManager=(AlarmManager)getActivity().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, targetCal.getTimeInMillis(), pendingIntent);
-
-    }
     public void start() {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
         int interval = 8000;

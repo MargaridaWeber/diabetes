@@ -15,12 +15,12 @@ public class Glicemia {
     private float peso;
     private float pressaoArterial;
 
-    public Glicemia(String data, String hora, String notas, String refeicao, String valor) {
+    public Glicemia(String data, String hora, String valor, String notas, String refeicao) {
         this.data = data;
         this.hora = hora;
-        this.notas = notas;
-        this.refeicao = refeicao;
         this.valor = valor;
+        this.refeicao = refeicao;
+        this.notas = notas;
     }
 
     public String getData() {
