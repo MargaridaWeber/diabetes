@@ -33,7 +33,9 @@ public class AlarmReceiver extends BroadcastReceiver {
                 new NotificationCompat.Builder(context)
                         .setSmallIcon(R.drawable.iconn)
                         .setContentTitle("Alarme")
-                        .setContentText("Não se esqueça de controlar os seus níveis!");
+                        .setContentText("Não se esqueça de controlar os seus níveis!")
+                        .setAutoCancel(true); //para ela desaparecer quando se clica
+
         Intent resultIntent = new Intent(context, GlicemiaActivity.class);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
         stackBuilder.addParentStack(GlicemiaActivity.class);
