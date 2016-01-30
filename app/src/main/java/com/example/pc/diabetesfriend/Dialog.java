@@ -21,10 +21,16 @@ public class Dialog extends Activity {
         requestWindowFeature(Window.FEATURE_LEFT_ICON);
         setContentView(R.layout.activity_dialog);
         getWindow().setFeatureDrawableResource(Window.FEATURE_LEFT_ICON, R.mipmap.icon);
+
         final Alarme alarme  = new Alarme();
         Button btnAdiar = (Button) findViewById(R.id.btnAdiar);
         Button btnCancelar = (Button) findViewById(R.id.btnCancelar);
 
+        btnAdiar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Toast.makeText(Dialog.this, "Lembraremos novemanete daqui a 20 minutos", Toast.LENGTH_SHORT).show();
+            }});
         btnCancelar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //  alarme.cancel();

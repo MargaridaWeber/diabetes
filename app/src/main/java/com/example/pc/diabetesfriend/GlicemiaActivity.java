@@ -285,7 +285,8 @@ public class GlicemiaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

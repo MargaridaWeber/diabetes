@@ -81,7 +81,12 @@ public class NutriActivity extends AppCompatActivity implements ActionBar.TabLis
         }
 
     }
-
+    //botao andar para tras android
+    @Override
+    public void onBackPressed()
+    {   Intent main = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(main);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -191,5 +196,6 @@ public class NutriActivity extends AppCompatActivity implements ActionBar.TabLis
             }
             return null;
         }
+
     }
 }
