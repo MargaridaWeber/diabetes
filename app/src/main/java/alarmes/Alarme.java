@@ -25,7 +25,7 @@ public class Alarme {
         this.dias = dias;
         this.tipo = tipo;
         this.modo = true;
-        this.context =context;
+        this.context = context;
 
           /* Retrieve a PendingIntent that will perform a broadcast */
         Intent alarmIntent = new Intent(context, AlarmReceiver.class);

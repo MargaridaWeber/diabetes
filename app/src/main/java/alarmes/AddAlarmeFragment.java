@@ -52,6 +52,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getActivity().getApplicationContext());
 
+
         lista = new LinkedList<String[]>();
 
         lista.add(new String[]{"Tipo de alarme", "Glicemia"});

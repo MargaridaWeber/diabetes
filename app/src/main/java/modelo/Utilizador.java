@@ -188,6 +188,14 @@ public class Utilizador {
         listaGlicemias.add(glicemia);
     }
 
+    public ArrayList<Glicemia> getListaGlicemias() {
+        return listaGlicemias;
+    }
+
+    public void setListaGlicemias(ArrayList<Glicemia> listaGlicemias) {
+        this.listaGlicemias = listaGlicemias;
+    }
+
     public Plano getPlano() {
         return plano;
     }

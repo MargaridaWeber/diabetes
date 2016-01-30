@@ -238,7 +238,6 @@
         android:hint="Notas"
         android:textSize="15dp"
         android:layout_below="@+id/textView10"
-        android:text="Notas"
         android:id="@+id/etNotas" />
 
     <Button

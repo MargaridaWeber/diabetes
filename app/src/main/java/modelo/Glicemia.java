@@ -15,7 +15,7 @@ public class Glicemia {
     private float peso;
     private float pressaoArterial;
 
-    public Glicemia(String data, String hora, String valor, String notas, String refeicao) {
+    public Glicemia(String data, String hora, String valor,  String refeicao, String notas) {
         this.data = data;
         this.hora = hora;
         this.valor = valor;

@@ -13,6 +13,7 @@ import com.example.pc.diabetesfriend.R;
 
 public class AlarmReceiver extends BroadcastReceiver {
 
+    private android.app.AlertDialog alerta;
     @Override
     public void onReceive(Context context, Intent intent) {
         MediaPlayer player;
