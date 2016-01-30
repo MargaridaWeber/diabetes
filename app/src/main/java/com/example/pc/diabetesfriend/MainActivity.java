@@ -158,6 +158,10 @@ public class MainActivity extends AppCompatActivity
         else if(id == R.id.sair){
             session.logoutUser();
         }
+        else if(id==R.id.agenda) {
+            Intent anotacoes = new Intent(getApplicationContext(), CaledarioActivity.class);
+            startActivity(anotacoes);
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

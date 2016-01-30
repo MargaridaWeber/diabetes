@@ -105,5 +105,6 @@
     <string name="title_activity_dicas_ex_fisico">DicasExFisico</string>
     <string name="title_activity_tabs_informacoes">TabsInformacoes</string>
     <string name="title_activity_nutri">NutriActivity</string>
+    <string name="title_activity_dialog">Alarme</string>
 
 </resources>

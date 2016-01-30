@@ -15,13 +15,16 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.HashMap;
@@ -99,7 +102,8 @@ public class NutriActivity extends AppCompatActivity implements ActionBar.TabLis
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main);
                 return true; default: return super.onOptionsItemSelected(item);
             case 1: //quando carrego no submenu adicionar meu plano
                 Intent plano = new Intent(getApplicationContext(), AdicionarPlano.class );
@@ -151,7 +155,7 @@ public class NutriActivity extends AppCompatActivity implements ActionBar.TabLis
 
         @Override
         public Fragment getItem(int position) {
-            switch (position){
+            switch (position) {
                 case 0:
                     return new PlanoFragment();
                 case 1:
@@ -169,8 +173,8 @@ public class NutriActivity extends AppCompatActivity implements ActionBar.TabLis
             final Utilizador u = diabetes.pesquisarUtilizador(email);
 
             //Se receber o plano
-            if (u.getPlano() != null){
-                menuAdd=true;
+            if (u.getPlano() != null) {
+                menuAdd = true;
                 return 2;
             }
 

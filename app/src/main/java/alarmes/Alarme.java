@@ -71,6 +71,7 @@ public class Alarme {
 
 
     public void cancel() {
+        Toast.makeText(context, "Alarm", Toast.LENGTH_SHORT).show();
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);
         Toast.makeText(context, "Alarm Canceled", Toast.LENGTH_SHORT).show();

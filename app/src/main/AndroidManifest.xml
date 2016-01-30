@@ -38,7 +38,7 @@
         <activity android:name=".ConfDadosActivity" />
         <activity android:name=".ConfLimitesActivity" />
         <activity android:name="alarmes.AlarmesActivity" />
-        <activity android:name="alarmes.AddAlarmeActivity"></activity>
+        <activity android:name="alarmes.AddAlarmeActivity" />
         <activity android:name=".EnviarRelatorioActivity" />
         <activity android:name="estatisticas.EstatisticasActivity" />
         <activity android:name="nutricao.PequenoAlmocoActivity" />
@@ -78,8 +78,13 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".Dialog" android:theme="@android:style/Theme.Dialog" ></activity>
+        <activity
+            android:name=".Dialog"
+            android:theme="@style/dialog_light"
+            android:label="@string/title_activity_dialog"
 
+            />
+        <activity android:name=".CaledarioActivity"></activity>
     </application>
 
 </manifest>
