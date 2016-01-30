@@ -118,7 +118,7 @@ public class TabelaFragment extends Fragment {
             tvHora.setTextColor(Color.BLACK);
 
             TextView tvValor = new TextView(getActivity());
-            tvValor.setText(gli.getValor()+ "mg/dl");
+            tvValor.setText(gli.getValor());
             tvValor.setWidth(100);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.BLACK);
