@@ -2,9 +2,14 @@ package alarmes;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.view.View;
 import android.widget.Toast;
+
+import com.example.pc.diabetesfriend.MainActivity;
 
 import java.util.Calendar;
 
@@ -79,7 +84,7 @@ public class Alarme {
 
     public void repetir(int hora , int minutos) {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 ;
+        int interval = 1000 * 60 * 20 ;
 
         /* Set the alarm to start at 10:30 AM */
         Calendar calendar = Calendar.getInstance();
@@ -95,4 +100,6 @@ public class Alarme {
 
 
     }
+
+
 }

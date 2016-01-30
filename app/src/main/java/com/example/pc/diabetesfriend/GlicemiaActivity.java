@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -280,7 +281,8 @@ public class GlicemiaActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
