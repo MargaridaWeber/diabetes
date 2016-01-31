@@ -88,6 +88,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
 
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
+                alarme.programarAlarme(calendar);
 
 
             }

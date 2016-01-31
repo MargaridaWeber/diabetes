@@ -48,15 +48,7 @@ public class Alarme {
         pendingIntent = PendingIntent.getBroadcast(context, id, alarmIntent, 0);
         player = MediaPlayer.create(context, R.raw.tone);
 
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 20 ;
 
-        /* repete de 1 em 1 minuto consoante a hora metida*/
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                interval, pendingIntent);
-        id++;
-
-        System.out.println(id);
     }
 
 
@@ -105,6 +97,19 @@ public class Alarme {
         Toast.makeText(context, "Alarm Canceled", Toast.LENGTH_SHORT).show();
         this.setModo(false);
         player.stop();
+    }
+
+    public void programarAlarme(Calendar calendar){
+
+        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        int interval = 1000 * 60 * 20 ;
+
+        /* repete de 1 em 1 minuto consoante a hora metida*/
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                interval, pendingIntent);
+        id++;
+
+        System.out.println(id);
     }
 
 
