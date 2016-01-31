@@ -17,22 +17,38 @@ import com.example.pc.diabetesfriend.GlicemiaActivity;
 import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
-public class AlarmReceiver extends BroadcastReceiver {
+import java.util.HashMap;
 
+import modelo.DiabetesFriend;
+import modelo.SessionManager;
+import modelo.Utilizador;
+
+public class AlarmReceiver extends BroadcastReceiver {
+    DiabetesFriend diabetes;
+    SessionManager session;
     private android.app.AlertDialog alerta;
+
     @Override
     public void onReceive(Context context, Intent intent) {
-        MediaPlayer player;
-        Toast.makeText(context, "I'm running", Toast.LENGTH_SHORT).show();
-        player = MediaPlayer.create( context, R.raw.tone);
-        player.start();
+
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(context);
+
         Intent i = new Intent(context, Dialog.class);
         i .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); context.startActivity(i);
 
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        Utilizador u = diabetes.pesquisarUtilizador(email);
 
+        final Alarme alarme  = u.getAlarme();
+
+        alarme.StartMediaplayer();
+
+        //notificaocao
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        //.setSmallIcon(R.drawable.iconn)
+                        .setSmallIcon(R.drawable.iconn)
                         .setContentTitle("Alarme")
                         .setContentText("Não se esqueça de controlar os seus níveis!")
                         .setAutoCancel(true); //para ela desaparecer quando se clica

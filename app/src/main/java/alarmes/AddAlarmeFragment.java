@@ -61,13 +61,22 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         Button btnAdicionar = (Button) view.findViewById(R.id.btnAdicionar);
         final TimePicker tpHora = (TimePicker) view.findViewById(R.id.tpHora);
 
+
         btnAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 hora = tpHora.getCurrentHour();
                 minutos = tpHora.getCurrentMinute();
+                String timeAsString = String.format("%02d:%02d", hora, minutos);
 
-                Alarme alarme = new Alarme(hora + ":" + minutos, dias, tipo,getActivity());
+                Calendar calendar = Calendar.getInstance();
+                calendar.setTimeInMillis(System.currentTimeMillis());
+                calendar.set(Calendar.HOUR_OF_DAY, hora);
+                calendar.set(Calendar.MINUTE, minutos);
+                calendar.set(Calendar.SECOND, 0);
+                calendar.set(Calendar.MILLISECOND, 0);
+
+                Alarme alarme = new Alarme(timeAsString, dias, tipo,getActivity());
 
                 //Ir buscar utilizador logado
                 HashMap<String, String> user = session.getUserDetails();
@@ -80,13 +89,10 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
 
-                alarme.repetir(hora,minutos);
-
-                //start(hora,minutos);
-
 
             }
         });
+
 
         return view;
     }
@@ -108,31 +114,6 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
     }
 
-
-   /* public void cancel() {
-        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        manager.cancel(pendingIntent);
-        Toast.makeText(getActivity(), "Alarm Canceled", Toast.LENGTH_SHORT).show();
-    }
-
-    public void repetir(int hora , int minutos) {
-        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 ;
-
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hora);
-        calendar.set(Calendar.MINUTE, minutos);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-
-
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                interval, pendingIntent);
-
-
-    }*/
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {

@@ -1,6 +1,7 @@
 package modelo;
 
 import android.provider.Settings;
+import android.text.format.Time;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,9 +12,6 @@ import java.util.Date;
 
 import alarmes.Alarme;
 
-/**
- * Created by Mónica Francisco on 14/12/2015.
- */
 public class Utilizador {
     private String nome;
     private Date dataNasc;
@@ -220,5 +218,25 @@ public class Utilizador {
         System.out.println("ano" + ano + "anonascim"+anoNascim+"idade"+idade );
         return idade;
     }
+
+    public Alarme getAlarme(){
+
+        Calendar c = Calendar .getInstance();
+        String[] dataHora = c.getTime().toString().split(" ");
+       String[] hora =  dataHora[3].toString().split(":");
+       String h =  hora[0] + ":"+ hora[1];
+
+        for (Alarme alarme : listaAlarmes){
+
+             if(alarme.getHora().equals(h)){
+
+                return alarme;
+            }
+            System.out.println("nossa hora"+alarme.getHora()+"hora de agora"+h);
+
+        }
+        return null;
+    }
+
 
 }
