@@ -30,8 +30,6 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "jjj", Toast.LENGTH_SHORT).show();
-
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(context);
 
