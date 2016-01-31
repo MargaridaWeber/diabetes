@@ -47,7 +47,7 @@ public class TabelaFragment extends Fragment {
             TableLayout head = (TableLayout) v.findViewById(R.id.head);
 
             TableRow row = new TableRow(getActivity());
-            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
             row.setLayoutParams(lp);
 
             TextView tvData = new TextView(getActivity());
@@ -101,7 +101,7 @@ public class TabelaFragment extends Fragment {
             TableLayout tabela = (TableLayout) v.findViewById(R.id.tabela);
 
             TableRow row = new TableRow(getActivity());
-            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
             row.setLayoutParams(lp);
 
             TextView tvData = new TextView(getActivity());

@@ -77,6 +77,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
 
+
         dataAtual.setText(getDate());
         horaAtual.setText(getTime());
 
