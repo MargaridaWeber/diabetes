@@ -83,7 +83,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvRefeicao = new TextView(getActivity());
             tvRefeicao.setText("Refeicao");
             tvRefeicao.setBackgroundResource(R.drawable.row_head);
-            tvRefeicao.setWidth(250);
+            tvRefeicao.setWidth(210);
             tvRefeicao.setPadding(10, 10, 10, 10);
             tvRefeicao.setTextColor(Color.WHITE);
             tvRefeicao.setTypeface(null, Typeface.BOLD);
@@ -125,7 +125,7 @@ public class GlicemiaFragment extends Fragment {
 
             TextView tvRefeicao = new TextView(getActivity());
             tvRefeicao.setText(gli.getRefeicao());
-            tvRefeicao.setWidth(250);
+            tvRefeicao.setWidth(210);
             tvRefeicao.setPadding(10, 10, 10, 10);
             tvRefeicao.setTextColor(Color.BLACK);
 
