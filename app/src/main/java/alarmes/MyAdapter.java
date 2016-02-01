@@ -13,6 +13,10 @@ import android.widget.Toast;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import modelo.SessionManager;
+import modelo.Utilizador;
 
 /**
  * Created by Mónica Francisco on 30/11/2015.
@@ -36,23 +40,28 @@ public class MyAdapter extends ArrayAdapter<Alarme> {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.row, parent, false);
 
-        TextView tvHoras = (TextView) rowView.findViewById(R.id.tvHoras);
+        final TextView tvHoras = (TextView) rowView.findViewById(R.id.tvHoras);
         TextView tvDias = (TextView) rowView.findViewById(R.id.tvDias);
-        TextView tvTipo = (TextView) rowView.findViewById(R.id.tvTipo);
-        Switch switchModo = (Switch) rowView.findViewById(R.id.switchModo);
+        final TextView tvTipo = (TextView) rowView.findViewById(R.id.tvTipo);
+        final Switch switchModo = (Switch) rowView.findViewById(R.id.switchModo);
 
         tvHoras.setText(itemsArrayList.get(position).getHora());
         tvDias.setText(itemsArrayList.get(position).getDias());
         tvTipo.setText(itemsArrayList.get(position).getTipo());
 
+        final String[] horasMin  = tvHoras.getText().toString().split(":");
 
-        /*switchModo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        switchModo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                Toast.makeText(getContext(), "The Switch is " + (isChecked ? "on" : "off"), Toast.LENGTH_SHORT).show();
                 if (isChecked) {
+                } else {
 
                 }
             }
-        });*/
+
+        });
 
         return rowView;
     }

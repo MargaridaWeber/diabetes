@@ -194,7 +194,12 @@ public class GlicemiaActivity extends AppCompatActivity {
             }
         });
     }
-
+    //botao andar para tras android
+    @Override
+    public void onBackPressed()
+    {   Intent main = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(main);
+    }
     private AlertDialog alerta;
 
     private void DialogHipo() {

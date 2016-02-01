@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/dialog_light"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="alarmes.Dialog">
+    tools:context="alarmes.DialogInsulina">
 
     <!--  divider -->
     <View
@@ -19,16 +20,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="5dp"></View>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Está na hora !"
+        android:layout_below="@+id/view"
         android:id="@+id/textView96"
         android:textColor="#F37A07"
         android:textStyle="bold"
-        android:layout_below="@+id/view"
         android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
@@ -37,36 +37,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Não se esqueça de controlar os seus níveis glicemicos, é muito importante!"
+        android:text="Não se esqueça de aplicar insulina, de forma cuidadosa!"
         android:id="@+id/textView97"
         android:layout_below="@+id/textView96"
         android:layout_marginBottom="30dp"
         android:gravity="center_horizontal" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:weightSum="1"
-    android:layout_below="@+id/textView97"
-    android:id="@+id/linearLayout">
-
-
-    <Button
-        android:layout_width="155dp"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adiar"
-        android:id="@+id/btnAdiar"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_below="@+id/textView97"
+        android:id="@+id/linearLayout2">
 
-        android:layout_weight="0.54" />
 
-    <Button
-        android:layout_width="155dp"
-        android:layout_height="wrap_content"
-        android:text="Ok"
-        android:id="@+id/btnCancelar"
-         />
-</LinearLayout>
+        <Button
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="Adiar"
+            android:id="@+id/btnAdiar"
+
+            android:layout_weight="0.54" />
+
+        <Button
+            android:layout_width="155dp"
+            android:layout_height="wrap_content"
+            android:text="Ok"
+            android:id="@+id/btnCancelar"
+            />
+    </LinearLayout>
 
 
 </RelativeLayout>

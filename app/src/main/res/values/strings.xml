@@ -71,6 +71,13 @@
         <item>Insulina</item>
     </string-array>
 
+    <string-array name="adiar_alarmes">
+        <item>10 min</item>
+        <item>30 min</item>
+        <item>1 hora</item>
+        <item>2 horas</item>
+    </string-array>
+
     <string name="dias_titulo">Dias da semana</string>
     <string-array name="dias_da_semana">
         <item>Todos os dias</item>

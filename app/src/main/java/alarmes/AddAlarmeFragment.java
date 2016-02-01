@@ -3,13 +3,13 @@ package alarmes;
 
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.util.ArrayList;
@@ -89,6 +90,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
                 Intent alarmes = new Intent(getActivity().getApplicationContext(), AlarmesActivity.class);
                 startActivity(alarmes);
 
+
             }
         });
 
@@ -96,25 +98,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         return view;
     }
 
-    public void start(int hora , int minutos) {
-        AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60;
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        calendar.set(Calendar.HOUR_OF_DAY, hora);
-        calendar.set(Calendar.MINUTE, minutos);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-
-
-       // manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
-        manager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
-        Toast.makeText(getActivity(), "Alarm Set", Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
+   @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
@@ -149,6 +133,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         else if(itemPosition==1)
             criarDias();
     }
+
 
         //Tipos
     AlertDialog tipos;

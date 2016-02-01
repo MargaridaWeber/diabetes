@@ -46,7 +46,7 @@ public class Alarme {
 
         Intent alarmIntent = new Intent(context, AlarmReceiver.class);
         pendingIntent = PendingIntent.getBroadcast(context, id, alarmIntent, 0);
-        player = MediaPlayer.create(context, R.raw.tone);
+
 
 
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -100,18 +100,16 @@ public class Alarme {
 
 
     public void cancel() {
-        Toast.makeText(context, "Alarm", Toast.LENGTH_SHORT).show();
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);
-        Toast.makeText(context, "Alarm Canceled", Toast.LENGTH_SHORT).show();
         this.setModo(false);
         player.stop();
     }
 
 
-    public void adiarAlarme(Calendar calendar) {
+    public void adiarAlarme(Calendar calendar,int intervalo) {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 1 ;
+        int interval = 1000 * 60 * intervalo ;
 
         /* repete 20 min depois da hora que adiamos , reptindo sempre esse intervalo*/
         manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis(),
@@ -119,7 +117,15 @@ public class Alarme {
         player.stop();
 
     }
-    public void StartMediaplayer(){
+    public void StartMediaplayerGli(){
+
+        player = MediaPlayer.create(context, R.raw.som);
+        player.start();
+    }
+
+    public void StartMediaplayerInsulina(){
+
+        player = MediaPlayer.create(context, R.raw.tone);
         player.start();
     }
 

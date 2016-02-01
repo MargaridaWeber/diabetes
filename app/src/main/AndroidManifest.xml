@@ -79,12 +79,13 @@
         </receiver>
 
         <activity
-            android:name=".Dialog"
+            android:name="alarmes.Dialog"
             android:label="@string/title_activity_dialog"
             android:theme="@style/dialog_light" />
         <activity android:name=".CaledarioActivity" />
-        <activity android:name="estatisticas.PesoFragment" />
-        <activity android:name="estatisticas.PressaoFragment"></activity>
+        <activity android:name="alarmes.DialogInsulina"
+            android:label="@string/title_activity_dialog"
+            android:theme="@style/dialog_light" />
     </application>
 
 </manifest>
