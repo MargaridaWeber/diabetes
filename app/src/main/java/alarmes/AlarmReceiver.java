@@ -47,7 +47,7 @@ public class AlarmReceiver extends BroadcastReceiver {
         //notificaocao
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(context)
-                        .setSmallIcon(R.drawable.iconn)
+                        .setSmallIcon(R.mipmap.icon)
                         .setContentTitle("Alarme")
                         .setContentText("Não se esqueça de controlar os seus níveis!")
                         .setAutoCancel(true); //para ela desaparecer quando se clica

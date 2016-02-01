@@ -41,6 +41,8 @@ import java.util.HashMap;
 
 import modelo.DiabetesFriend;
 import modelo.Glicemia;
+import modelo.Peso;
+import modelo.PressaoArterial;
 import modelo.SessionManager;
 import modelo.Utilizador;
 
@@ -48,6 +50,9 @@ public class GlicemiaActivity extends AppCompatActivity {
 
     DiabetesFriend diabetes;
     SessionManager session;
+
+    EditText data;
+    EditText hora;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +68,8 @@ public class GlicemiaActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));  //mudar cor do titulo da action bar
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Registar Níveis Diários</font>"));
 
-        final EditText dataAtual = (EditText) findViewById(R.id.etdata);
-        final EditText horaAtual = (EditText) findViewById(R.id.etHora);
+        data= (EditText) findViewById(R.id.etdata);
+        hora = (EditText) findViewById(R.id.etHora);
         final TextView iconData = (TextView) findViewById(R.id.icone_data);
         final TextView iconHora = (TextView) findViewById(R.id.iconhora);
         final EditText valorGli = (EditText) findViewById(R.id.etValor);
@@ -73,16 +78,16 @@ public class GlicemiaActivity extends AppCompatActivity {
         final LinearLayout linearPeso = (LinearLayout) findViewById(R.id.linearPeso);
         final CheckBox chkPressao = (CheckBox) findViewById(R.id.chkPressaoArterial);
         final LinearLayout linearPressao = (LinearLayout) findViewById(R.id.linearPressao);
+        final EditText etPeso = (EditText) findViewById(R.id.etPeso);
+        final EditText etPressao = (EditText) findViewById(R.id.etPressaoArterial);
         final EditText etNotas = (EditText) findViewById(R.id.etNotas);
-
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
 
 
-        dataAtual.setText(getDate());
-        horaAtual.setText(getTime());
+        data.setText(getDate());
+        hora.setText(getTime());
 
-
-        dataAtual.setOnClickListener(new View.OnClickListener() {
+        data.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dataPickerDialog();
             }
@@ -100,7 +105,7 @@ public class GlicemiaActivity extends AppCompatActivity {
             }
         });
 
-        horaAtual.setOnClickListener(new View.OnClickListener() {
+        hora.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 timePickerDialog();
             }
@@ -135,9 +140,13 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String date = data.getText().toString();
+                String hour = hora.getText().toString();
                 String valorGlicemia = valorGli.getText().toString();
-                String notas = etNotas.getText().toString();
                 String refeicao = spRefeicao.getSelectedItem().toString();
+                String peso = etPeso.getText().toString();
+                String pressao =  etPressao.getText().toString();
+                String notas = etNotas.getText().toString();
 
                 // Obtem dados da sessão
                 HashMap<String, String> user = session.getUserDetails();
@@ -147,23 +156,36 @@ public class GlicemiaActivity extends AppCompatActivity {
 
 
                 //Validar valor
-                if (valorGli.getText().toString().isEmpty()) {
+                if (valorGlicemia.isEmpty()) {
                     valorGli.setError("O campo não está preenchido.");
                 } else {
 
-                    Glicemia gli = new Glicemia(getDate(), getTime(), valorGlicemia, refeicao, notas);
+                    Glicemia gli = new Glicemia(date, hour, valorGlicemia, refeicao, notas);
                     u.adicionarGlicemia(gli);
 
-                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) < 110)
+                    //Se o utilizador inserir o peso ou a pressão
+                    if(!peso.equals("")){
+                        float pesoFloat = Float.parseFloat(peso);
+                        Peso p = new Peso(date, hour, pesoFloat);
+                        u.adicionarPeso(p);
+                    }
+                    if(!pressao.equals("")){
+                        float pressaoFloat = Float.parseFloat(pressao);
+                        PressaoArterial pa = new PressaoArterial(date,hour, pressaoFloat);
+                        u.adicionarPressaoArterial(pa);
+                    }
+
+
+                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) < 70)
                         DialogHipo();
 
-                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) < 130)
+                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) < 70)
                         DialogHipo();
 
                     if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) > 145)
                         DialogHiper();
 
-                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) > 160)
+                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) > 145)
                         DialogHiper();
 
                     if (Integer.parseInt(valorGlicemia) > 200)
@@ -265,7 +287,6 @@ public class GlicemiaActivity extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year,
                                           int monthOfYear, int dayOfMonth) {
-                        EditText data = (EditText) findViewById(R.id.etdata);
                         data.setText(Integer.toString(dayOfMonth) + "/" + Integer.toString(monthOfYear + 1) + "/" + Integer.toString(year));
                     }
 

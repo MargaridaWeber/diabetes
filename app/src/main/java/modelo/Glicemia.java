@@ -12,8 +12,6 @@ public class Glicemia {
     private String valor;
     private String refeicao;
     private String notas;
-    private float peso;
-    private float pressaoArterial;
 
     public Glicemia(String data, String hora, String valor,  String refeicao, String notas) {
         this.data = data;
@@ -35,13 +33,6 @@ public class Glicemia {
         return notas;
     }
 
-    public float getPeso() {
-        return peso;
-    }
-
-    public float getPressaoArterial() {
-        return pressaoArterial;
-    }
 
     public String getRefeicao() {
         return refeicao;
@@ -50,4 +41,5 @@ public class Glicemia {
     public String getValor() {
         return valor;
     }
+
 }

@@ -154,9 +154,14 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
             // Return a PlaceholderFragment (defined as a static inner class below).
             switch (position){
                 case 0:
-                    return new TabelaFragment();
+                    return new GlicemiaFragment();
                 case 1:
+                    return new PesoFragment();
+                case 2:
+                    return new PressaoFragment();
+                case 3:
                     return new GraficosFragment();
+
 
             }
             return PlaceholderFragment.newInstance(position + 1);
@@ -164,16 +169,19 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
 
         @Override
         public int getCount() {
-            // Show 3 total pages.
-            return 2;
+            return 4;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Tabela";
+                    return "Glicemia";
                 case 1:
+                    return "Peso";
+                case 2:
+                    return "Pressão";
+                case 3:
                     return "Gráficos";
             }
             return null;

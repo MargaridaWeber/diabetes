@@ -25,7 +25,7 @@ import modelo.Glicemia;
 import modelo.SessionManager;
 import modelo.Utilizador;
 
-public class TabelaFragment extends Fragment {
+public class GlicemiaFragment extends Fragment {
 
     DiabetesFriend diabetes;
     SessionManager session;

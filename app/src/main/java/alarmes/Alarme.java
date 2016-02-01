@@ -111,7 +111,7 @@ public class Alarme {
 
     public void adiarAlarme(Calendar calendar) {
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        int interval = 1000 * 60 * 20 ;
+        int interval = 1000 * 60 * 1 ;
 
         /* repete 20 min depois da hora que adiamos , reptindo sempre esse intervalo*/
         manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis(),

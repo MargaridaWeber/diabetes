@@ -80,11 +80,11 @@
 
         <activity
             android:name=".Dialog"
-            android:theme="@style/dialog_light"
             android:label="@string/title_activity_dialog"
-
-            />
-        <activity android:name=".CaledarioActivity"></activity>
+            android:theme="@style/dialog_light" />
+        <activity android:name=".CaledarioActivity" />
+        <activity android:name="estatisticas.PesoFragment" />
+        <activity android:name="estatisticas.PressaoFragment"></activity>
     </application>
 
 </manifest>

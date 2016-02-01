@@ -29,6 +29,8 @@ public class Utilizador {
     int[] hipoglicemia;
     ArrayList<Glicemia> listaGlicemias;
     ArrayList<Alarme> listaAlarmes;
+    ArrayList<Peso> listaPesos;
+    ArrayList<PressaoArterial> listaPressoesArteriais;
     Plano plano;
 
 
@@ -42,7 +44,10 @@ public class Utilizador {
         this.email = email;
         this.password = password;
         listaGlicemias = new ArrayList<Glicemia>();
+        listaPesos = new ArrayList<Peso>();
+        listaPressoesArteriais = new ArrayList<PressaoArterial>();
         listaAlarmes = new ArrayList<Alarme>();
+
     }
 
     public int getAltura() {
@@ -194,6 +199,24 @@ public class Utilizador {
         this.listaGlicemias = listaGlicemias;
     }
 
+    public void adicionarPeso(Peso peso){
+        listaPesos.add(peso);
+    }
+
+    public ArrayList<Peso> getPesos() {
+        return listaPesos;
+    }
+
+    public void adicionarPressaoArterial(PressaoArterial pressao){
+        listaPressoesArteriais.add(pressao);
+    }
+
+    public ArrayList<PressaoArterial> getPressoesArteriais() {
+        return listaPressoesArteriais;
+    }
+
+
+
     public Plano getPlano() {
         return plano;
     }
@@ -223,8 +246,8 @@ public class Utilizador {
 
         Calendar c = Calendar .getInstance();
         String[] dataHora = c.getTime().toString().split(" ");
-       String[] hora =  dataHora[3].toString().split(":");
-       String h =  hora[0] + ":"+ hora[1];
+        String[] hora =  dataHora[3].toString().split(":");
+        String h =  hora[0] + ":"+ hora[1];
 
         for (Alarme alarme : listaAlarmes){
 
