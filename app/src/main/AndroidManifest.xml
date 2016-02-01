@@ -90,7 +90,10 @@
         <activity
             android:name="dicas.DicasInsulina"
             android:label="@string/title_activity_dicas_insulina" />
-        <activity android:name="dicas.FragmentInsulina1"></activity>
+        <activity android:name="dicas.FragmentInsulina1" />
+        <activity android:name="dicas.FragmentInsulina2" />
+        <activity android:name="dicas.FragmentInsulina3" />
+        <activity android:name="dicas.FragmentInsulina4"></activity>
     </application>
 
 </manifest>

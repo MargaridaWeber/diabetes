@@ -1,10 +1,6 @@
 package dicas;
 
 
-import android.app.Activity;
-import android.app.ActionBar;
-import android.app.FragmentTransaction;
-
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.graphics.Color;
@@ -24,12 +20,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.pc.diabetesfriend.R;
-
-import dicas.FragmentExFisico1;
-import dicas.FragmentExFisico2;
-import dicas.FragmentExFisico3;
-import dicas.FragmentExFisico4;
-import dicas.FragmentExFisico5;
 
 public class DicasInsulina extends AppCompatActivity {
 
@@ -173,13 +163,11 @@ public class DicasInsulina extends AppCompatActivity {
                     case 0:
                         return new FragmentInsulina1();
                     case 1:
-                        return new FragmentExFisico2();
+                        return new FragmentInsulina4();
                     case 2:
-                        return new FragmentExFisico3();
+                        return new FragmentInsulina2();
                     case 3:
-                        return new FragmentExFisico4();
-                    case 4:
-                        return new FragmentExFisico5();
+                        return new FragmentInsulina3();
 
 
 
@@ -188,7 +176,7 @@ public class DicasInsulina extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 5;
+                return 4;
             }
         }
 

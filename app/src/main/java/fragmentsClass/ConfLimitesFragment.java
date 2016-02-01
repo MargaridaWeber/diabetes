@@ -124,15 +124,23 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
         dialog.setTitle("Glicemia Desejada");
         LayoutInflater inflater = (LayoutInflater)getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        v = inflater.inflate(R.layout.dialoglimites, null);
+        v = inflater.inflate(R.layout.dialoglimitesdesejada, null);
 
         dialog.setView(v);
+       final String[] gdJejum = u.getGlicemiaDesejada()[0].split("-");
+       final String[] gdRefeicao = u.getGlicemiaDesejada()[1].split("-");
 
         //Colocar valores nas editTexts
         final EditText editJejum = (EditText) v.findViewById(R.id.etjejum);
         final EditText editRefeicao = (EditText) v.findViewById(R.id.etrefeicao);
-        editJejum.setText(u.getGlicemiaDesejada()[0]+"");
-        editRefeicao.setText(u.getGlicemiaDesejada()[1] + "");
+        final EditText editJejum2 = (EditText) v.findViewById(R.id.etjejum2);
+        final EditText editRefeicao2 = (EditText) v.findViewById(R.id.etrefeicao2);
+        editJejum.setText(gdJejum[0] + "");
+        editJejum2.setText(gdJejum[1]+"");
+        editRefeicao.setText(gdRefeicao[0] + "");
+        editRefeicao2.setText(gdRefeicao[1] + "");
+
+
 
         dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
 
@@ -142,7 +150,7 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
                 String refeicao = editRefeicao.getText().toString();
 
                 //Altera
-                listaConf.set(1, new String[]{"Glicemia Desejada","Jejum: "+jejum+" mg/dl\nApós refeição:"+refeicao+"mg/dl"});
+                listaConf.set(1, new String[]{"Glicemia Desejada","Jejum: "+gdJejum[0]+"-"+gdJejum[1]+" mg/dl\nApós refeição: "+gdRefeicao[0]+"-"+gdRefeicao[1]+"mg/dl"});
                 setListAdapter(adaptador);
 
                 String[] glicemiaDesejada = {(jejum),refeicao};
