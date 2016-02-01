@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView6"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.example.pc.diabetesfriend.FragmentInsulina6">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Insulina Mista"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/textView110"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="A insulina de ação intermédia, conhecida por insulina NPH, como Insulatard ou Monotard por exemplo, tem ação mais lenta que a insulina regular, pois possui uma substância chamada de protamina que atrasa a liberação da insulina para a corrente sanguínea."
+        android:id="@+id/textView111"
+        android:layout_below="@+id/textView110"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+   />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:text="Importante: Pacientes que apliquem insulina rápida ou mista têm de fazer uma refeição intermedia 2 horas após a aplicação da insulina"
+        android:id="@+id/textView112"
+        android:textColor="#FF0000"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+</LinearLayout>
+</ScrollView>
