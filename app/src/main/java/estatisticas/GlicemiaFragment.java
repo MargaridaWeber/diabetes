@@ -53,7 +53,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvData = new TextView(getActivity());
             tvData.setText("Data");
             tvData.setBackgroundResource(R.drawable.row_head);
-            tvData.setWidth(200);
+            tvData.setWidth(180);
             tvData.setPadding(10, 10, 10, 10);
             tvData.setTextColor(Color.WHITE);
             tvData.setTypeface(null, Typeface.BOLD);
@@ -73,7 +73,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvValor = new TextView(getActivity());
             tvValor.setText("Valor");
             tvValor.setBackgroundResource(R.drawable.row_head);
-            tvValor.setWidth(100);
+            tvValor.setWidth(90);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.WHITE);
             tvValor.setTypeface(null, Typeface.BOLD);
@@ -106,7 +106,7 @@ public class GlicemiaFragment extends Fragment {
 
             TextView tvData = new TextView(getActivity());
             tvData.setText(gli.getData());
-            tvData.setWidth(200);
+            tvData.setWidth(180);
             tvData.setPadding(10, 10, 10, 10);
             tvData.setTextColor(Color.BLACK);
 
@@ -119,7 +119,7 @@ public class GlicemiaFragment extends Fragment {
 
             TextView tvValor = new TextView(getActivity());
             tvValor.setText(gli.getValor());
-            tvValor.setWidth(100);
+            tvValor.setWidth(90);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.BLACK);
 

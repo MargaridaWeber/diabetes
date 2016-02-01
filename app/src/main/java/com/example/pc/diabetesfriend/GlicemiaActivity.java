@@ -190,6 +190,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
                     if (Integer.parseInt(valorGlicemia) > 200)
                         DialogCuidado();
+
                 }
             }
         });
