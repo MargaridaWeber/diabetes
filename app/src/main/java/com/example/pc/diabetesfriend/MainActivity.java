@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -125,15 +126,16 @@ public class MainActivity extends AppCompatActivity
         else
             tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
 
-        /*Toast.makeText(MainActivity.this, ""+u.getMediaGlicemia(), Toast.LENGTH_SHORT).show();
-        if(u.getMediaGlicemia()>0){
+        //Toast.makeText(MainActivity.this, ""+u.getMediaGlicemia(), Toast.LENGTH_SHORT).show();
+
+        if (!u.getGlicemias().isEmpty()) {
             //Mostra a média
+            LinearLayout linearMedia = (LinearLayout) findViewById(R.id.linearMedia);
             TextView tvMedia = (TextView) findViewById(R.id.tvMedia);
-            tvMedia.setVisibility(View.VISIBLE);
-            tvMedia.setText(u.getMediaGlicemia());
+            tvMedia.setText(String.valueOf(u.getMediaGlicemia()));
 
-        }*/
-
+            linearMedia.setVisibility(View.VISIBLE);
+        }
 
     }
 

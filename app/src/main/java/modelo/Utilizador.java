@@ -248,7 +248,8 @@ public class Utilizador {
         for (Glicemia gli: listaGlicemias) {
             soma = soma + Integer.parseInt(gli.getValor());
         }
-        media=soma/listaGlicemias.size();
+        if(listaGlicemias.size()!=0)
+            media=soma/listaGlicemias.size();
         return media;
     }
 

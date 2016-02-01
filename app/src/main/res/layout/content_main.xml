@@ -30,22 +30,38 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100"
-        android:id="@+id/tvMedia"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="100dp"
+        android:layout_height="62dp"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="0.36"
-        android:textSize="30dp"
-        android:visibility="invisible" />
+        android:id="@+id/linearMedia"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvMedia"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="mg/dl"
+            android:id="@+id/tvUnidades"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp">
+        android:layout_gravity="center_horizontal">
 
         <TableLayout
             android:layout_width = "201dp"
