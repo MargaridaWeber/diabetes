@@ -60,6 +60,14 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
             }
         });
 
+        final int[] ICONS = new int[] {
+                R.drawable.ic_glicemia_black,
+                R.drawable.ic_pressao_black,
+                R.drawable.ic_peso_black,
+                R.drawable.ic_grafico_black,
+        };
+
+
         // For each of the sections in the app, add a tab to the action bar.
         for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
             // Create a tab with text corresponding to the page title defined by
@@ -69,6 +77,7 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
             actionBar.addTab(
                     actionBar.newTab()
                             .setText(mSectionsPagerAdapter.getPageTitle(i))
+                            .setIcon(EstatisticasActivity.this.getResources().getDrawable(ICONS[i]))
                             .setTabListener(this));
         }
 
@@ -176,13 +185,13 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
         public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "Glicemia";
+                    //return "Glicemia";
                 case 1:
-                    return "Peso";
+                    //return "Peso";
                 case 2:
-                    return "Pressão";
+                    //return "Pressão";
                 case 3:
-                    return "Gráficos";
+                    //return "Gráficos";
             }
             return null;
         }
