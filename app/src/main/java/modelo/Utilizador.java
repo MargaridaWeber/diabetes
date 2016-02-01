@@ -242,6 +242,16 @@ public class Utilizador {
         return idade;
     }
 
+    public int getMediaGlicemia(){
+        int soma=0;
+        int media=0;
+        for (Glicemia gli: listaGlicemias) {
+            soma = soma + Integer.parseInt(gli.getValor());
+        }
+        media=soma/listaGlicemias.size();
+        return media;
+    }
+
     public Alarme getAlarme(){
 
         Calendar c = Calendar .getInstance();
@@ -251,10 +261,8 @@ public class Utilizador {
 
         for (Alarme alarme : listaAlarmes){
 
-             if(alarme.getHora().equals(h)){
-
+             if(alarme.getHora().equals(h))
                 return alarme;
-            }
             System.out.println("nossa hora"+alarme.getHora()+"hora de agora"+h);
 
         }

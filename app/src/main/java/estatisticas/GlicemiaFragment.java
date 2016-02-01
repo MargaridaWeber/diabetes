@@ -45,6 +45,7 @@ public class GlicemiaFragment extends Fragment {
         if(!u.getGlicemias().isEmpty()){
             //Cabeçalho da tabela
             TableLayout head = (TableLayout) v.findViewById(R.id.head);
+            head.setStretchAllColumns(true);
 
             TableRow row = new TableRow(getActivity());
             TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
@@ -99,6 +100,7 @@ public class GlicemiaFragment extends Fragment {
         for (Glicemia gli : u.getGlicemias()) {
 
             TableLayout tabela = (TableLayout) v.findViewById(R.id.tabela);
+            tabela.setStretchAllColumns(true);
 
             TableRow row = new TableRow(getActivity());
             TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);

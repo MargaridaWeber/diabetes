@@ -33,13 +33,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Estado"
-        android:id="@+id/tvestado"
-        android:paddingLeft="50dp"
-        android:gravity="center_horizontal"
+        android:text="100"
+        android:id="@+id/tvMedia"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp" />
+        android:layout_weight="0.36"
+        android:textSize="30dp"
+        android:visibility="invisible" />
 
     <LinearLayout
         android:orientation="horizontal"

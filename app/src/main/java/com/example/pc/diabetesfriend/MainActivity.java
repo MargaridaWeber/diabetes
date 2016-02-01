@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -123,6 +124,16 @@ public class MainActivity extends AppCompatActivity
             tvUtilizador.setText("Seja Bem-Vindo " + u.getNome());
         else
             tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
+
+        /*Toast.makeText(MainActivity.this, ""+u.getMediaGlicemia(), Toast.LENGTH_SHORT).show();
+        if(u.getMediaGlicemia()>0){
+            //Mostra a média
+            TextView tvMedia = (TextView) findViewById(R.id.tvMedia);
+            tvMedia.setVisibility(View.VISIBLE);
+            tvMedia.setText(u.getMediaGlicemia());
+
+        }*/
+
 
     }
 
