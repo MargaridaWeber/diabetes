@@ -53,7 +53,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvData = new TextView(getActivity());
             tvData.setText("Data");
             tvData.setBackgroundResource(R.drawable.row_head);
-            tvData.setWidth(180);
+            tvData.setWidth(135);
             tvData.setPadding(10, 10, 10, 10);
             tvData.setTextColor(Color.WHITE);
             tvData.setTypeface(null, Typeface.BOLD);
@@ -63,7 +63,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvHora = new TextView(getActivity());
             tvHora.setText("Hora");
             tvHora.setBackgroundResource(R.drawable.row_head);
-            tvHora.setWidth(100);
+            tvHora.setWidth(80);
             tvHora.setPadding(10, 10, 10, 10);
             tvHora.setTextColor(Color.WHITE);
             tvHora.setTypeface(null, Typeface.BOLD);
@@ -73,7 +73,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvValor = new TextView(getActivity());
             tvValor.setText("Valor");
             tvValor.setBackgroundResource(R.drawable.row_head);
-            tvValor.setWidth(90);
+            tvValor.setWidth(80);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.WHITE);
             tvValor.setTypeface(null, Typeface.BOLD);
@@ -83,7 +83,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvRefeicao = new TextView(getActivity());
             tvRefeicao.setText("Refeicao");
             tvRefeicao.setBackgroundResource(R.drawable.row_head);
-            tvRefeicao.setWidth(210);
+            tvRefeicao.setWidth(150);
             tvRefeicao.setPadding(10, 10, 10, 10);
             tvRefeicao.setTextColor(Color.WHITE);
             tvRefeicao.setTypeface(null, Typeface.BOLD);
@@ -106,26 +106,26 @@ public class GlicemiaFragment extends Fragment {
 
             TextView tvData = new TextView(getActivity());
             tvData.setText(gli.getData());
-            tvData.setWidth(180);
+            tvData.setWidth(135);
             tvData.setPadding(10, 10, 10, 10);
             tvData.setTextColor(Color.BLACK);
 
             String[] hora = gli.getHora().split(":");
             TextView tvHora = new TextView(getActivity());
             tvHora.setText(hora[0] + ":" + hora[1]);
-            tvHora.setWidth(100);
+            tvHora.setWidth(80);
             tvHora.setPadding(10, 10, 10, 10);
             tvHora.setTextColor(Color.BLACK);
 
             TextView tvValor = new TextView(getActivity());
             tvValor.setText(gli.getValor());
-            tvValor.setWidth(90);
+            tvValor.setWidth(80);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.BLACK);
 
             TextView tvRefeicao = new TextView(getActivity());
             tvRefeicao.setText(gli.getRefeicao());
-            tvRefeicao.setWidth(210);
+            tvRefeicao.setWidth(150);
             tvRefeicao.setPadding(10, 10, 10, 10);
             tvRefeicao.setTextColor(Color.BLACK);
 
