@@ -17,6 +17,7 @@ import com.example.pc.diabetesfriend.R;
 import java.util.Calendar;
 import java.util.HashMap;
 
+import dicas.DicasInsulina;
 import modelo.DiabetesFriend;
 import modelo.SessionManager;
 import modelo.Utilizador;
@@ -64,8 +65,9 @@ public class DialogInsulina extends Activity {
                 });
                 btnCancelar.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        Intent gli = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent gli = new Intent(getApplicationContext(), DicasInsulina.class);
                         startActivity(gli);
+                        Toast.makeText(DialogInsulina.this, "Veja algumas dicas para o auxiliar", Toast.LENGTH_SHORT).show();
                         alarme.cancel();
                         finish();
                     }

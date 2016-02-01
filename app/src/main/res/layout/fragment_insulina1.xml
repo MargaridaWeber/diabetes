@@ -19,4 +19,23 @@
         android:layout_marginBottom="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       android:textSize="15dp"
+        android:text="Insulina é uma hormona produzida pelo pâncreas, que permite a entrada de glicose nas células para ser transformada em energia. Pessoas com diabetes podem precisar de injeções de insulina   por diferentes motivos: não produzirem insulina suficiente, não conseguirem usá-la adequadamente ou ambos os casos."
+        android:id="@+id/textView99"
+        android:layout_below="@+id/textView98"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/imageView7"
+        android:src="@drawable/insulina"
+        android:layout_below="@+id/textView99"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
