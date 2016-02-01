@@ -83,9 +83,14 @@
             android:label="@string/title_activity_dialog"
             android:theme="@style/dialog_light" />
         <activity android:name=".CaledarioActivity" />
-        <activity android:name="alarmes.DialogInsulina"
+        <activity
+            android:name="alarmes.DialogInsulina"
             android:label="@string/title_activity_dialog"
             android:theme="@style/dialog_light" />
+        <activity
+            android:name="dicas.DicasInsulina"
+            android:label="@string/title_activity_dicas_insulina" />
+        <activity android:name="dicas.FragmentInsulina1"></activity>
     </application>
 
 </manifest>

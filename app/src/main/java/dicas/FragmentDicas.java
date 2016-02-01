@@ -58,6 +58,14 @@ public class FragmentDicas extends Fragment {
                 startActivity(ex);
             }
         });
+
+        Button in = (Button) view.findViewById(R.id.btninsulina);
+        in.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent insulina = new Intent(getActivity(), DicasInsulina.class);
+                startActivity(insulina);
+            }
+        });
         return view;
     }
 

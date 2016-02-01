@@ -60,6 +60,14 @@
             android:drawableLeft="@drawable/ic_cima"
             android:id="@+id/btnhiper" />
 
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/ic_insulina"
+            android:text="Dicas para a aplicar Insulina"
+            android:id="@+id/btninsulina" />
+
     </LinearLayout>
 
 
