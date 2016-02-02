@@ -19,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.pc.diabetesfriend.FragmentInsulina6;
 import com.example.pc.diabetesfriend.R;
 
 public class DicasInsulina extends AppCompatActivity {
@@ -83,6 +84,9 @@ public class DicasInsulina extends AppCompatActivity {
                         break;
                     case 4:
                         radioGroup.check(R.id.radioButton5);
+                        break;
+                    case 5:
+                        radioGroup.check(R.id.radioButton6);
                         break;
 
                 }
@@ -165,9 +169,18 @@ public class DicasInsulina extends AppCompatActivity {
                     case 1:
                         return new FragmentInsulina4();
                     case 2:
-                        return new FragmentInsulina2();
-                    case 3:
                         return new FragmentInsulina3();
+                    case 3:
+                        return new FragmentInsulina5();
+
+                    case 4:
+
+                        return new FragmentInsulina6();
+
+                    case 5:
+                        return new FragmentInsulina2();
+
+
 
 
 
@@ -176,7 +189,7 @@ public class DicasInsulina extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 4;
+                return 7;
             }
         }
 

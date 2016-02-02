@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView6"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,13 +16,25 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="dicas.FragmentInsulina3">
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Mitos e verdades"
+        android:text="Insulina Lenta"
         android:textStyle="bold"
         android:id="@+id/textView101"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="A insulina lenta ou prolongada, também conhecida como insulina Lantus, Levemir ou Insulatard, é um medicamento que ajuda a permanecer os níveis de açúcar estáveis durante o dia, pois a sua ação é continua e dura 24 horas. Desta forma, na maioria das vezes basta aplicar 1 vez ao dia, de manhã ou à noite, por exemplo."
+        android:id="@+id/textView108"
+        android:layout_below="@+id/textView101"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
 </RelativeLayout>
+</ScrollView>

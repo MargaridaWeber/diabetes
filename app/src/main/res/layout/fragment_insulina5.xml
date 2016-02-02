@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/scrollView6"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="dicas.FragmentInsulina5">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Insulina Rápida"
+        android:textStyle="bold"
+        android:id="@+id/textView101"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="A insulina rápida, também conhecida por insulina de ação curta ou regular, como Humolog ou Novorapid , por exemplo, é uma insulina que deve ser aplicada antes das refeições ou em alguns casos, logo após comer e que ajuda a manter os níveis de glicose estáveis após a ingestão de alimentos ricos em carboidratos, como arroz ou pão."
+        android:id="@+id/textView108"
+        android:layout_below="@+id/textView101"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="46dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:text="Além disso, também existe insulina ultra rápida que é semelhante à rápida, porém, o seu efeito começa 5 minutos após a aplicação."
+        android:id="@+id/textView109"
+        android:layout_below="@+id/textView108"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:text="Importante: Pacientes que apliquem insulina rápida ou mista têm de fazer uma refeição intermedia 2 horas após a aplicação da insulina"
+        android:id="@+id/textView112"
+        android:textColor="#FF0000"
+        android:layout_below="@+id/textView109"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp" />
+
+</RelativeLayout>
+</ScrollView>
