@@ -39,6 +39,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 
+import dicas.TabsInformacoes;
 import modelo.DiabetesFriend;
 import modelo.Glicemia;
 import modelo.Peso;
@@ -175,21 +176,30 @@ public class GlicemiaActivity extends AppCompatActivity {
                         u.adicionarPressaoArterial(pa);
                     }
 
+                    boolean validar = true;
 
-                    if (idade < 18 && u.getAntedecentes() == 'N' && valorGlicemia < 70)
+                    if ( valorGlicemia < 70) {
                         DialogHipo();
-
-                    if (idade < 18 && u.getAntedecentes() == 'S' && valorGlicemia < 70)
-                        DialogHipo();
-
-                    if (idade < 18 && u.getAntedecentes() == 'N' && valorGlicemia > 145)
+                        validar = false;
+                    }
+                     if (valorGlicemia > 180){
                         DialogHiper();
+                         validar = false;}
 
-                    if (idade < 18 && u.getAntedecentes() == 'S' && valorGlicemia > 145)
-                        DialogHiper();
-
-                    if (valorGlicemia > 200)
+                    if (idade > 30 && valorGlicemia < 90) {
+                        DialogAviso();
+                        validar = false;
+                    }
+                    if (valorGlicemia > 200){
                         DialogCuidado();
+                        validar = false;}
+
+                    if(validar==true){
+
+                        Intent main = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(main);
+                    }
+
 
                 }
             }
@@ -218,6 +228,23 @@ public class GlicemiaActivity extends AppCompatActivity {
         alerta.show();
     }
 
+
+    private void DialogAviso() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Cuidado valor baixo");
+        builder.setMessage("Cuidado!Está abaixo do recomendado , pode estar em risco de hipoglicemia\n\n• Deverá comer alguma coisa e medir novamente os seus níveis");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(principal);
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
+    }
+
+
     private void DialogHiper() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -240,8 +267,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         builder.setMessage("Não pode realizar exercício físico nestas condições\n\n• Deverá beber muita água \n• Se não baixar fale com o seu médico");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
-                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(principal);
+
             }
         });
         alerta = builder.create();

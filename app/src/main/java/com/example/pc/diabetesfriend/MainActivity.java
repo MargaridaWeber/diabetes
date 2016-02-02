@@ -121,8 +121,10 @@ public class MainActivity extends AppCompatActivity
         Utilizador u = diabetes.pesquisarUtilizador(email);
 
         TextView tvUtilizador = (TextView) findViewById(R.id.tvUtilizador);
-        if(u.getGenero()=='M')
+        if(u.getGenero()=='M') {
+
             tvUtilizador.setText("Seja Bem-Vindo " + u.getNome());
+        }
         else
             tvUtilizador.setText("Seja Bem-Vinda " + u.getNome());
 

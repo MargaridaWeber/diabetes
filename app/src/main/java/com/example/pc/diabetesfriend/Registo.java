@@ -146,12 +146,19 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                     etPassword.setError("Mínimo de 6 caracteres.");
                     valido=false;
                 }
-
+                char gen;
+                char ant;
                 if(valido==true) {
                     String genero = spnGenero.getSelectedItem().toString();
                     String antencedentes = spnGenero.getSelectedItem().toString();
-                    char gen = genero == "Masculino" ? 'M' : 'F';
-                    char ant = antencedentes == "Sim" ? 'S' : 'N';
+                    if(genero.equals("Masculino"))
+                             gen = 'M';
+                    else
+                        gen = 'F';
+                    if(antencedentes.equals("Sim"))
+                        ant= 'S';
+                    else
+                        ant='N';
 
                     Toast.makeText(Registo.this, "O seu registo foi efectuado com sucesso!", Toast.LENGTH_SHORT).show();
 
