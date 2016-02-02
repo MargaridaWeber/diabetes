@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -32,10 +33,13 @@ public class GlicemiaFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_tabela, container, false);
+        View v = inflater.inflate(R.layout.fragment_glicemia, container, false);
 
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getActivity());
+
+        Spinner spTempo = (Spinner) v.findViewById(R.id.spTempo);
+        String refeicao = spTempo.getSelectedItem().toString();
 
         // Obtem dados da sessão
         HashMap<String, String> user = session.getUserDetails();
@@ -120,7 +124,7 @@ public class GlicemiaFragment extends Fragment {
             tvHora.setTextColor(Color.BLACK);
 
             TextView tvValor = new TextView(getActivity());
-            tvValor.setText(gli.getValor());
+            tvValor.setText(String.valueOf(gli.getValor()));
             tvValor.setWidth(80);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.BLACK);

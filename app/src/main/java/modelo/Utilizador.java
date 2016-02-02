@@ -9,6 +9,7 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import alarmes.Alarme;
 
@@ -256,7 +257,6 @@ public class Utilizador {
     public int getHipos(){
         int nrHipo = 0;
         for (Glicemia gli : listaGlicemias){
-
             if(gli.getValor()<70)
                 nrHipo++;
         }
@@ -266,7 +266,6 @@ public class Utilizador {
     public int getHiper(){
         int nrHiper = 0;
         for (Glicemia gli : listaGlicemias){
-
             if(gli.getValor()>180)
                 nrHiper++;
         }
@@ -290,6 +289,15 @@ public class Utilizador {
         }
         return null;
     }
+
+    /*public ArrayList<Glicemia> getGlicemias7dias(){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -7);
+        Date dias = cal.getTime();
+
+
+    }*/
 
 
 

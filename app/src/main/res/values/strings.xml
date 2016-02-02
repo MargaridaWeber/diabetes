@@ -101,6 +101,12 @@
         <item>Pressao Arterial</item>
     </string-array>
 
+    <string-array name="tempo">
+        <item>7 dias</item>
+        <item>14 dias</item>
+        <item>30 dias</item>
+    </string-array>
+
     <string name="antecedentes_titulo">Já teve algum problema cardíaco?</string>
     <string name="refeicoes_titulo">Refeições</string>
     <string name="title_activity_dicas_nutri">DicasNutriActivity</string>
