@@ -34,9 +34,10 @@ public class LoginActivity extends AppCompatActivity{
 
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getApplicationContext());
-        int[] hiperglicemia = {145,145};
+
+        int hiperglicemia = 145;
+        int hipoglicemia = 70;
         String[] glicemiaDesejada = {"70-110","110-145"};
-        int[] hipoglicemia = {70,70};
 
         //Cria um utilizador
         Utilizador u = new Utilizador("Mónica", new Date(), 'F', 'N', Float.parseFloat("50"), Integer.parseInt("160"), "monica.francisco@hotmail.com", "monica");

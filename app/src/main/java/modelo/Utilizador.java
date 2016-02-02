@@ -24,9 +24,9 @@ public class Utilizador {
     private String tipoDiabetes;
     private char insulina;
     private char exercicio;
-    int[] hiperglicemia;
+    private int hiperglicemia;
+    private int hipoglicemia;
     String[] glicemiaDesejada;
-    int[] hipoglicemia;
     ArrayList<Glicemia> listaGlicemias;
     ArrayList<Alarme> listaAlarmes;
     ArrayList<Peso> listaPesos;
@@ -106,19 +106,19 @@ public class Utilizador {
         this.glicemiaDesejada = glicemiaDesejada;
     }
 
-    public int[] getHiperglicemia() {
+    public int getHiperglicemia() {
         return hiperglicemia;
     }
 
-    public void setHiperglicemia(int[] hiperglicemia) {
+    public void setHiperglicemia(int hiperglicemia) {
         this.hiperglicemia = hiperglicemia;
     }
 
-    public int[] getHipoglicemia() {
+    public int getHipoglicemia() {
         return hipoglicemia;
     }
 
-    public void setHipoglicemia(int[] hipoglicemia) {
+    public void setHipoglicemia(int hipoglicemia) {
         this.hipoglicemia = hipoglicemia;
     }
 

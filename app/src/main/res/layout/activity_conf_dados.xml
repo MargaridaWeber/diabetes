@@ -13,7 +13,7 @@
     <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:name="fragmentsClass.ConfDados"
+        android:name="com.example.pc.diabetesfriend.ConfDados"
         android:id="@+id/fragment3"
         android:layout_alignParentTop="true"
         tools:layout="@layout/fragment_conf_dados"

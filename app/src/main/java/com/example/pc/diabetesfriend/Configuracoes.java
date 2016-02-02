@@ -1,4 +1,4 @@
-package fragmentsClass;
+package com.example.pc.diabetesfriend;
 
 import android.content.Intent;
 import android.support.v4.app.ListFragment;

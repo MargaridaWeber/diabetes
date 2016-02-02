@@ -1,4 +1,4 @@
-package fragmentsClass;
+package com.example.pc.diabetesfriend;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
