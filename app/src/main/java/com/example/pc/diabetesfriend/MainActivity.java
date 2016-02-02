@@ -130,11 +130,17 @@ public class MainActivity extends AppCompatActivity
 
         if (!u.getGlicemias().isEmpty()) {
             //Mostra a média
-            LinearLayout linearMedia = (LinearLayout) findViewById(R.id.linearMedia);
+            LinearLayout linearInfo = (LinearLayout) findViewById(R.id.linearInfo);
             TextView tvMedia = (TextView) findViewById(R.id.tvMedia);
             tvMedia.setText(String.valueOf(u.getMediaGlicemia()));
+            //Mostra o nr de hipos
+            TextView tvHipo = (TextView) findViewById(R.id.tvHipo);
+            tvHipo.setText(String.valueOf(u.getHipos()));
 
-            linearMedia.setVisibility(View.VISIBLE);
+            //Mostra o nr de hipers
+            TextView tvHiper = (TextView) findViewById(R.id.tvHiper);
+            tvHiper.setText(String.valueOf(u.getHiper()));
+            linearInfo.setVisibility(View.VISIBLE);
         }
 
     }

@@ -246,12 +246,33 @@ public class Utilizador {
         int soma=0;
         int media=0;
         for (Glicemia gli: listaGlicemias) {
-            soma = soma + Integer.parseInt(gli.getValor());
+            soma = soma + gli.getValor();
         }
         if(listaGlicemias.size()!=0)
             media=soma/listaGlicemias.size();
         return media;
     }
+
+    public int getHipos(){
+        int nrHipo = 0;
+        for (Glicemia gli : listaGlicemias){
+
+            if(gli.getValor()<70)
+                nrHipo++;
+        }
+        return nrHipo;
+    }
+
+    public int getHiper(){
+        int nrHiper = 0;
+        for (Glicemia gli : listaGlicemias){
+
+            if(gli.getValor()>180)
+                nrHiper++;
+        }
+        return nrHiper;
+    }
+
 
     public Alarme getAlarme(){
 
@@ -269,6 +290,7 @@ public class Utilizador {
         }
         return null;
     }
+
 
 
 }

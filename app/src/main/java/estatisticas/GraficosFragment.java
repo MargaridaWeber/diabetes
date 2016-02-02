@@ -51,7 +51,7 @@ public class GraficosFragment extends Fragment {
         int i=0;
         for(Glicemia gli : u.getGlicemias()){
             String[] data = gli.getData().split("/");
-            dpGlicemia[i]= new DataPoint(Integer.parseInt(data[0]),Integer.parseInt(gli.getValor()));
+            dpGlicemia[i]= new DataPoint(Integer.parseInt(data[0]),gli.getValor());
             i++;
         }
 

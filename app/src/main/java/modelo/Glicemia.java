@@ -9,11 +9,11 @@ import java.util.Date;
 public class Glicemia {
     private String data;
     private String hora;
-    private String valor;
+    private int valor;
     private String refeicao;
     private String notas;
 
-    public Glicemia(String data, String hora, String valor,  String refeicao, String notas) {
+    public Glicemia(String data, String hora, int valor,  String refeicao, String notas) {
         this.data = data;
         this.hora = hora;
         this.valor = valor;
@@ -38,7 +38,7 @@ public class Glicemia {
         return refeicao;
     }
 
-    public String getValor() {
+    public int getValor() {
         return valor;
     }
 

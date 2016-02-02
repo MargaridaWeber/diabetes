@@ -28,7 +28,58 @@
         android:text="Seja bem vindo(a)"
         android:id="@+id/tvUtilizador"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal" />
+        android:gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="8dp"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    android:id="@+id/linearInfo"
+    android:visibility="invisible">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="80dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/linearHipo"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHipo"
+                android:text="55"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30dp" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="Hipo"
+            android:gravity="center_horizontal"
+            android:visibility="visible" />
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:orientation="vertical"
+        android:id="@+id/linhaa"
+        android:background="#ccc"
+        android:layout_marginTop="10dp"></LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -37,26 +88,84 @@
         android:layout_gravity="center_horizontal"
         android:id="@+id/linearMedia"
         android:layout_marginTop="20dp"
-        android:visibility="invisible">
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvMedia"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10dp"
+                android:text="mg/dl"
+                android:id="@+id/tvUnidades"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="12dp"
+                android:paddingLeft="2dp"/>
+
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvMedia"
-            android:layout_gravity="center_horizontal"
-            android:textSize="30dp" />
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="Média"
+            android:gravity="center_horizontal"
+            android:visibility="visible" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="1dp"
+        android:layout_height="40dp"
+        android:orientation="vertical"
+        android:id="@+id/linha"
+        android:background="#ccc"
+        android:layout_marginTop="10dp"></LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="80dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/linearHiper"
+        android:layout_marginTop="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="mg/dl"
-            android:id="@+id/tvUnidades"
-            android:layout_gravity="center_horizontal" />
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvHiper"
+                android:text="5"
+                android:layout_gravity="center_horizontal"
+                android:textSize="30dp" />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="Hiper"
+            android:gravity="center_horizontal"
+            android:visibility="visible" />
+
 
     </LinearLayout>
 
-
+</LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"

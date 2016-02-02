@@ -142,7 +142,7 @@ public class GlicemiaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String date = data.getText().toString();
                 String hour = hora.getText().toString();
-                String valorGlicemia = valorGli.getText().toString();
+                int valorGlicemia = Integer.parseInt(valorGli.getText().toString());
                 String refeicao = spRefeicao.getSelectedItem().toString();
                 String peso = etPeso.getText().toString();
                 String pressao =  etPressao.getText().toString();
@@ -156,7 +156,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
 
                 //Validar valor
-                if (valorGlicemia.isEmpty()) {
+                if (valorGlicemia==0) {
                     valorGli.setError("O campo não está preenchido.");
                 } else {
 
@@ -176,19 +176,19 @@ public class GlicemiaActivity extends AppCompatActivity {
                     }
 
 
-                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) < 70)
+                    if (idade < 18 && u.getAntedecentes() == 'N' && valorGlicemia < 70)
                         DialogHipo();
 
-                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) < 70)
+                    if (idade < 18 && u.getAntedecentes() == 'S' && valorGlicemia < 70)
                         DialogHipo();
 
-                    if (idade < 18 && u.getAntedecentes() == 'N' && Integer.parseInt(valorGlicemia) > 145)
+                    if (idade < 18 && u.getAntedecentes() == 'N' && valorGlicemia > 145)
                         DialogHiper();
 
-                    if (idade < 18 && u.getAntedecentes() == 'S' && Integer.parseInt(valorGlicemia) > 145)
+                    if (idade < 18 && u.getAntedecentes() == 'S' && valorGlicemia > 145)
                         DialogHiper();
 
-                    if (Integer.parseInt(valorGlicemia) > 200)
+                    if (valorGlicemia > 200)
                         DialogCuidado();
 
                 }
