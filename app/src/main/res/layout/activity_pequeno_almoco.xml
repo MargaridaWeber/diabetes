@@ -47,8 +47,29 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opção 1:\n\n • Pão (30gr) \n • Leite meio gordo/magro\n\nOpção 2:\n\n • Cereais integrais\n • Café/chá sem açúcar ou com adoçante"
+            android:textStyle="bold"
+            android:text="Opção 1:"
+            android:id="@+id/textView129" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n • Pão (30gr) \n • Leite meio gordo/magro"
             android:id="@+id/tvpequenoalmoco" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="\nOpção 2:"
+            android:id="@+id/textView130" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n • Cereais integrais\n • Café/chá sem açúcar ou com adoçante"
+            android:id="@+id/tvpequenoalmoco1" />
 
     </LinearLayout>
 </ScrollView>

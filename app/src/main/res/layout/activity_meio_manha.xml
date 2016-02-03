@@ -47,7 +47,41 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opção 1:\n\n • Fruta média\n • Bolachas de água e sal/integrais/maria\n\nOpção 2:\n\n • Iogurte magro \n • Bolachas de água e sal/integrais/maria\n\nOpção 3:\n\n • 1/2 Pão"
+            android:textStyle="bold"
+            android:text="Opção 1:"
+            android:id="@+id/textView126" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n • Fruta média\n • Bolachas de água e sal/integrais/maria"
             android:id="@+id/tvmanha" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="\nOpção 2:"
+            android:id="@+id/textView127" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n • Iogurte magro \n • Bolachas de água e sal/integrais/maria"
+            android:id="@+id/tvmanha2" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="\nOpção 3:"
+            android:id="@+id/textView128" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n • 1/2 Pão"
+            android:id="@+id/tvmanha3" />
     </LinearLayout>
 </ScrollView>

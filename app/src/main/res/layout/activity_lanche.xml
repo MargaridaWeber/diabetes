@@ -46,10 +46,41 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Opção 1:\n\n• Pão \n• Leite meio gordo/magro (café/chá sem açucar)\n\nOpção 2:\n\n• Iogurte magro \n• Bolachas de água e sal/integrais/maria/tostadas
-\n\nOpção 3:\n\n • Fruta média \n • Bolachas de água e sal/integrais/maria/tostadas"
+            android:textStyle="bold"
+            android:text="Opção 1:"
+            android:id="@+id/textView123" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n• Pão \n• Leite meio gordo/magro (café/chá sem açucar)"
             android:id="@+id/tvlanche" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="\nOpção 2:"
+            android:id="@+id/textView124" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n• Iogurte magro \n• Bolachas de água e sal/integrais/maria/tostadas"
+            android:id="@+id/tvlanche1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="\nOpção 3:"
+            android:id="@+id/textView125" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\n• Fruta média \n• Bolachas de água e sal/integrais/maria/tostadas"
+            android:id="@+id/tvlanche2" />
     </LinearLayout>
 </ScrollView>
 
