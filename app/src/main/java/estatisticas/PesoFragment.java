@@ -130,7 +130,7 @@ public class PesoFragment extends Fragment {
             row.addView(tvHora);
 
             TextView tvValor = new TextView(getActivity());
-            tvValor.setText("Valor");
+            tvValor.setText("Peso");
             tvValor.setBackgroundResource(R.drawable.row_head);
             tvValor.setWidth(80);
             tvValor.setPadding(10, 10, 10, 10);
@@ -165,7 +165,7 @@ public class PesoFragment extends Fragment {
         tvHora.setTextColor(Color.BLACK);
 
         TextView tvValor = new TextView(getActivity());
-        tvValor.setText(Float.toString(valor));
+        tvValor.setText(Float.toString(valor)+" kg");
         tvValor.setWidth(80);
         tvValor.setPadding(10, 10, 10, 10);
         tvValor.setTextColor(Color.BLACK);

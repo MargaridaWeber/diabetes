@@ -54,7 +54,7 @@
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Pacientes que apliquem insulina rápida ou mista têm de fazer uma refeição intermedia 2 horas após a aplicação da insulina"
+        android:text="Pacientes que apliquem insulina rápida ou mista têm de fazer uma refeição intermédia 2 horas após a aplicação da insulina"
         android:id="@+id/textView119"
         android:layout_below="@+id/textView112"
         android:layout_alignParentLeft="true"

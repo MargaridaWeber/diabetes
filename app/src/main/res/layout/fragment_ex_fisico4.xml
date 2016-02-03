@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:text="
-Andar de bicicleta pode ser uma ótima escolha. As vantagens são inúmeras. A atividade fortalece os músculos das pernas,costas, peitos e abdômen. Como qualquer exercício aeróbico, aumenta a oxigenação, o que apressa a queima de gorduras e melhora o fluxo sanguíneo nos órgãos. Facilita, também, a absorção de nutrientes, beneficiando o sistema cardiorrespiratório."
+Andar de bicicleta pode ser uma ótima escolha. As vantagens são inúmeras. A atividade fortalece os músculos das pernas, costas, peitos e abdômen. Como qualquer exercício aeróbico, aumenta a oxigenação, o que apressa a queima de gorduras e melhora o fluxo sanguíneo nos órgãos. Facilita também a absorção de nutrientes, beneficiando o sistema cardiorrespiratório."
         android:id="@+id/textView86"
         android:layout_below="@+id/textView85"
         android:layout_centerHorizontal="true"

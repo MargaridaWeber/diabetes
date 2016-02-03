@@ -30,7 +30,7 @@
         android:layout_width="283dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Evite estar mais de 3 horas e meia sem comer!Para conseguir manter um bom controlo glicémico."
+        android:text="Evite estar mais de 3 horas e meia sem comer para conseguir manter um bom controlo glicémico!"
         android:layout_gravity="center_vertical|right"
         android:id="@+id/textView14"
         android:layout_marginTop="52dp"

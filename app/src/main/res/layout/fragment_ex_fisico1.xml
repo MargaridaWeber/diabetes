@@ -111,7 +111,7 @@
         android:textStyle="bold"
         android:gravity="center_horizontal"
         android:layout_below="@+id/textView90"
-        android:text="É aconselhável tem um nivel de glicemia de pelo menos 120mg/dl antes de começar o exercício físico "
+        android:text="É aconselhável ter um nível de glicemia de pelo menos 120mg/dl antes de começar o exercício físico. "
          />
 
 
