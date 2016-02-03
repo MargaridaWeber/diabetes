@@ -166,7 +166,7 @@ public class PressaoFragment extends Fragment {
         tvHora.setTextColor(Color.BLACK);
 
         TextView tvValor = new TextView(getActivity());
-        tvValor.setText(Float.toString(valor)+ " mmHg");
+        tvValor.setText(Float.toString(valor)+ "mmHg");
         tvValor.setWidth(80);
         tvValor.setPadding(10, 10, 10, 10);
         tvValor.setTextColor(Color.BLACK);

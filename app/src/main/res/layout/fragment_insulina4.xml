@@ -32,7 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="Existem vários tipos de insulina, com início de efeito, período de concentração máxima e duração do efeito que variam conforme o seu tipo. A seleção da mais apropriada ou combinação de diversos tipos dependem da resposta individual ao fármaco, das condições do diabete e dos hábitos do paciente."
+        android:text="Existem vários tipos de insulina, com período de concentração máxima e duração do efeito que variam conforme o seu tipo. A seleção da mais apropriada ou combinação de diversos tipos dependem da resposta individual ao fármaco, das condições do diabete e dos hábitos do paciente."
         android:id="@+id/textView103"
         android:layout_below="@+id/textView102"
         android:layout_centerHorizontal="true"
