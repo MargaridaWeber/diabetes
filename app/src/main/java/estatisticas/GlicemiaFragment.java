@@ -120,7 +120,7 @@ public class GlicemiaFragment extends Fragment {
             tvHora.setTextColor(Color.BLACK);
 
             TextView tvValor = new TextView(getActivity());
-            tvValor.setText(gli.getValor());
+            tvValor.setText(String.valueOf(gli.getValor()));
             tvValor.setWidth(80);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.BLACK);

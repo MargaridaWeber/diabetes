@@ -63,7 +63,7 @@ public class AddAlarmeFragment extends ListFragment implements AdapterView.OnIte
         final TimePicker tpHora = (TimePicker) view.findViewById(R.id.tpHora);
 
 
-        btnAdicionar.setOnClickListener(new View.OnClickListener() {
+                btnAdicionar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 hora = tpHora.getCurrentHour();

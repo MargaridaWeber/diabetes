@@ -56,12 +56,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string-array name="refeicoes">
-        <item>Jejum</item>
-        <item>Pequeno-Almoço</item>
-        <item>Almoço</item>
-        <item>Lanche</item>
-        <item>Jantar</item>
-        <item>Ceia</item>
+        <item>Antes peq-Almoço</item>
+        <item>Depois peq-Almoço</item>
+        <item>Antes almoço</item>
+        <item>Depois almoço</item>
+        <item>Antes lanche</item>
+        <item>Depois lanche</item>
+        <item>Antes jantar</item>
+        <item>Depois jantar</item>
+        <item>Antes ceia</item>
+        <item>Depois ceia</item>
     </string-array>
 
     <!--Alarmes-->

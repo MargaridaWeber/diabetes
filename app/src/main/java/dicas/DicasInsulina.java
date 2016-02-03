@@ -189,7 +189,7 @@ public class DicasInsulina extends AppCompatActivity {
 
             @Override
             public int getCount() {
-                return 7;
+                return 6;
             }
         }
 
