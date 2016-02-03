@@ -142,7 +142,7 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_tabela, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_glicemia, container, false);
             return rootView;
         }
     }
