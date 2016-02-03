@@ -10,14 +10,19 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -30,20 +35,75 @@ public class GlicemiaFragment extends Fragment {
 
     DiabetesFriend diabetes;
     SessionManager session;
+    Utilizador u;
+    List<Glicemia> listaSeteDias;
+    TableLayout tabela;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_glicemia, container, false);
+        final View v = inflater.inflate(R.layout.fragment_glicemia, container, false);
 
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getActivity());
 
         Spinner spTempo = (Spinner) v.findViewById(R.id.spTempo);
-        String refeicao = spTempo.getSelectedItem().toString();
+        String tempo = spTempo.getSelectedItem().toString();
 
         // Obtem dados da sessão
         HashMap<String, String> user = session.getUserDetails();
-        Utilizador u = diabetes.pesquisarUtilizador(user.get(SessionManager.KEY_EMAIL));
+        u = diabetes.pesquisarUtilizador(user.get(SessionManager.KEY_EMAIL));
+
+        tabela = (TableLayout) v.findViewById(R.id.tabela);
+        tabela.setStretchAllColumns(true);
+
+        if (tempo.equals("7 dias")){
+            int i=0;
+            for (Glicemia gli : u.getGlicemias7dias()) {
+                TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                tabela.addView(row,i);
+
+                i++;
+            }
+        }
+
+        spTempo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                if(position==0){
+                    tabela.removeAllViews();
+                    int i=0;
+                    for (Glicemia gli : u.getGlicemias7dias()) {
+                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        tabela.addView(row,i);
+                        i++;
+                    }
+                }
+                else if(position==1){
+                    tabela.removeAllViews();
+                    int i=0;
+                    for (Glicemia gli : u.getGlicemias14dias()) {
+                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        tabela.addView(row,i);
+                        i++;
+                    }
+                }
+                else if(position==2){
+                    tabela.removeAllViews();
+                    int i=0;
+                    for (Glicemia gli : u.getGlicemias30dias()) {
+                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        tabela.addView(row,i);
+                        i++;
+                    }
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+
+            }
+
+        });
 
 
         if(!u.getGlicemias().isEmpty()){
@@ -98,66 +158,58 @@ public class GlicemiaFragment extends Fragment {
             head.addView(row);
         }
 
+        return v;
+    }
 
-        //Tabela da glicemia
-        int i=0;
-        for (Glicemia gli : u.getGlicemias()) {
+    public TableRow addRow(String data, String hora, int valor, String refeicao, int i){
 
-            TableLayout tabela = (TableLayout) v.findViewById(R.id.tabela);
-            tabela.setStretchAllColumns(true);
+        TableRow row = new TableRow(getActivity());
+        TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
+        row.setLayoutParams(lp);
 
-            TableRow row = new TableRow(getActivity());
-            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
-            row.setLayoutParams(lp);
+        TextView tvData = new TextView(getActivity());
+        tvData.setText(data);
+        tvData.setWidth(135);
+        tvData.setPadding(10, 10, 10, 10);
+        tvData.setTextColor(Color.BLACK);
 
-            TextView tvData = new TextView(getActivity());
-            tvData.setText(gli.getData());
-            tvData.setWidth(135);
-            tvData.setPadding(10, 10, 10, 10);
-            tvData.setTextColor(Color.BLACK);
+        String[] horas = hora.split(":");
+        TextView tvHora = new TextView(getActivity());
+        tvHora.setText(horas[0] + ":" + horas[1]);
+        tvHora.setWidth(80);
+        tvHora.setPadding(10, 10, 10, 10);
+        tvHora.setTextColor(Color.BLACK);
 
-            String[] hora = gli.getHora().split(":");
-            TextView tvHora = new TextView(getActivity());
-            tvHora.setText(hora[0] + ":" + hora[1]);
-            tvHora.setWidth(80);
-            tvHora.setPadding(10, 10, 10, 10);
-            tvHora.setTextColor(Color.BLACK);
+        TextView tvValor = new TextView(getActivity());
+        tvValor.setText(String.valueOf(valor));
+        tvValor.setWidth(80);
+        tvValor.setPadding(10, 10, 10, 10);
+        tvValor.setTextColor(Color.BLACK);
 
-            TextView tvValor = new TextView(getActivity());
-            tvValor.setText(String.valueOf(gli.getValor()));
-            tvValor.setWidth(80);
-            tvValor.setPadding(10, 10, 10, 10);
-            tvValor.setTextColor(Color.BLACK);
+        TextView tvRefeicao = new TextView(getActivity());
+        tvRefeicao.setText(refeicao);
+        tvRefeicao.setWidth(150);
+        tvRefeicao.setPadding(10, 10, 10, 10);
+        tvRefeicao.setTextColor(Color.BLACK);
 
-            TextView tvRefeicao = new TextView(getActivity());
-            tvRefeicao.setText(gli.getRefeicao());
-            tvRefeicao.setWidth(150);
-            tvRefeicao.setPadding(10, 10, 10, 10);
-            tvRefeicao.setTextColor(Color.BLACK);
-
-            if(i%2==0){
-                tvData.setBackgroundResource(R.drawable.row_border);
-                tvHora.setBackgroundResource(R.drawable.row_border);
-                tvValor.setBackgroundResource(R.drawable.row_border);
-                tvRefeicao.setBackgroundResource(R.drawable.row_border);
-            }
-            else{
-                tvData.setBackgroundResource(R.drawable.row_border2);
-                tvHora.setBackgroundResource(R.drawable.row_border2);
-                tvValor.setBackgroundResource(R.drawable.row_border2);
-                tvRefeicao.setBackgroundResource(R.drawable.row_border2);
-            }
-
-            row.addView(tvData);
-            row.addView(tvHora);
-            row.addView(tvValor);
-            row.addView(tvRefeicao);
-
-            tabela.addView(row,i);
-            i++;
+        if(i%2==0){
+            tvData.setBackgroundResource(R.drawable.row_border);
+            tvHora.setBackgroundResource(R.drawable.row_border);
+            tvValor.setBackgroundResource(R.drawable.row_border);
+            tvRefeicao.setBackgroundResource(R.drawable.row_border);
+        }
+        else{
+            tvData.setBackgroundResource(R.drawable.row_border2);
+            tvHora.setBackgroundResource(R.drawable.row_border2);
+            tvValor.setBackgroundResource(R.drawable.row_border2);
+            tvRefeicao.setBackgroundResource(R.drawable.row_border2);
         }
 
+        row.addView(tvData);
+        row.addView(tvHora);
+        row.addView(tvValor);
+        row.addView(tvRefeicao);
 
-        return v;
+        return row;
     }
 }

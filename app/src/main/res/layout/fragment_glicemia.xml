@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spTempo"
         android:entries="@array/tempo"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:layout_marginBottom="10dp" />
 
     <TableLayout
         android:layout_width="match_parent"

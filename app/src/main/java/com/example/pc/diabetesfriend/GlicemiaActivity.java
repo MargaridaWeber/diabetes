@@ -160,7 +160,6 @@ public class GlicemiaActivity extends AppCompatActivity {
                 if (valorGlicemia==0) {
                     valorGli.setError("O campo não está preenchido.");
                 } else {
-
                     Glicemia gli = new Glicemia(date, hour, valorGlicemia, refeicao, notas);
                     u.adicionarGlicemia(gli);
 

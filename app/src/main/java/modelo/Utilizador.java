@@ -6,10 +6,14 @@ import android.util.Log;
 import android.widget.Toast;
 
 import java.io.Console;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.List;
 
 import alarmes.Alarme;
 
@@ -290,15 +294,202 @@ public class Utilizador {
         return null;
     }
 
-    /*public ArrayList<Glicemia> getGlicemias7dias(){
+    public List<Glicemia> getGlicemias7dias(){
+        List<Glicemia> listaSeteDias = new ArrayList<Glicemia>();
+
         Calendar cal = GregorianCalendar.getInstance();
         cal.setTime(new Date());
-        cal.add(Calendar.DAY_OF_YEAR, -7);
-        Date dias = cal.getTime();
+        cal.add(Calendar.DAY_OF_YEAR, -8);
+        Date dia = cal.getTime();
 
+        for(Glicemia gli: listaGlicemias)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataGlicemia = dateFormat.parse(gli.getData());
+                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
+                    listaSeteDias.add(gli);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaSeteDias;
+    }
 
-    }*/
+    public List<Glicemia> getGlicemias14dias(){
+        List<Glicemia> listaCatorzeDias = new ArrayList<Glicemia>();
 
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -15);
+        Date dia = cal.getTime();
 
+        for(Glicemia gli: listaGlicemias)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataGlicemia = dateFormat.parse(gli.getData());
+                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
+                    listaCatorzeDias.add(gli);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaCatorzeDias;
+    }
+
+    public List<Glicemia> getGlicemias30dias(){
+        List<Glicemia> listaTrintaDias = new ArrayList<Glicemia>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -31);
+        Date dia = cal.getTime();
+
+        for(Glicemia gli: listaGlicemias)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataGlicemia = dateFormat.parse(gli.getData());
+                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
+                    listaTrintaDias.add(gli);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaTrintaDias;
+    }
+
+    public List<Peso> getPesos7dias(){
+        List<Peso> listaSeteDias = new ArrayList<Peso>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -8);
+        Date dia = cal.getTime();
+
+        for(Peso p: listaPesos)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPeso = dateFormat.parse(p.getData());
+                if(dataPeso.after(dia) && dataPeso.before(new Date()))
+                    listaSeteDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaSeteDias;
+    }
+
+    public List<Peso> getPesos14dias(){
+        List<Peso> listaCatorzeDias = new ArrayList<Peso>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -15);
+        Date dia = cal.getTime();
+
+        for(Peso p: listaPesos)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPesos = dateFormat.parse(p.getData());
+                if(dataPesos.after(dia) && dataPesos.before(new Date()))
+                    listaCatorzeDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaCatorzeDias;
+    }
+
+    public List<Peso> getPesos30dias(){
+        List<Peso> listaTrintaDias = new ArrayList<Peso>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -31);
+        Date dia = cal.getTime();
+
+        for(Peso p: listaPesos)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPesos = dateFormat.parse(p.getData());
+                if(dataPesos.after(dia) && dataPesos.before(new Date()))
+                    listaTrintaDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaTrintaDias;
+    }
+
+    public List<PressaoArterial> getPressoes7dias(){
+        List<PressaoArterial> listaSeteDias = new ArrayList<PressaoArterial>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -8);
+        Date dia = cal.getTime();
+
+        for(PressaoArterial p: listaPressoesArteriais)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPressao = dateFormat.parse(p.getData());
+                if(dataPressao.after(dia) && dataPressao.before(new Date()))
+                    listaSeteDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaSeteDias;
+    }
+
+    public List<PressaoArterial> getPressoes14dias(){
+        List<PressaoArterial> listaCatorzeDias = new ArrayList<PressaoArterial>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -15);
+        Date dia = cal.getTime();
+
+        for(PressaoArterial p: listaPressoesArteriais)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPressao = dateFormat.parse(p.getData());
+                if(dataPressao.after(dia) && dataPressao.before(new Date()))
+                    listaCatorzeDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaCatorzeDias;
+    }
+
+    public List<PressaoArterial> getPressoes30dias(){
+        List<PressaoArterial> listaTrintaDias = new ArrayList<PressaoArterial>();
+
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -31);
+        Date dia = cal.getTime();
+
+        for(PressaoArterial p: listaPressoesArteriais)
+        {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            try {
+                Date dataPressao = dateFormat.parse(p.getData());
+                if(dataPressao.after(dia) && dataPressao.before(new Date()))
+                    listaTrintaDias.add(p);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        return listaTrintaDias;
+    }
 
 }

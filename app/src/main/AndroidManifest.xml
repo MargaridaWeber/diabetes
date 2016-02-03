@@ -82,7 +82,6 @@
             android:name="alarmes.Dialog"
             android:label="@string/title_activity_dialog"
             android:theme="@style/dialog_light" />
-        <activity android:name=".CaledarioActivity" />
         <activity
             android:name="alarmes.DialogInsulina"
             android:label="@string/title_activity_dialog"
