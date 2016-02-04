@@ -33,11 +33,13 @@ import android.widget.Toast;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 
 import dicas.TabsInformacoes;
 import modelo.DiabetesFriend;
@@ -141,7 +143,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         btnRegistar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String date = data.getText().toString();
+                String dateString = data.getText().toString();
                 String hour = hora.getText().toString();
                 int valorGlicemia = Integer.parseInt(valorGli.getText().toString());
                 String refeicao = spRefeicao.getSelectedItem().toString();
@@ -160,6 +162,14 @@ public class GlicemiaActivity extends AppCompatActivity {
                 if (valorGlicemia==0) {
                     valorGli.setError("O campo não está preenchido.");
                 } else {
+                    DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    Date date = null;
+                    try {
+                        date = format.parse(dateString);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+
                     Glicemia gli = new Glicemia(date, hour, valorGlicemia, refeicao, notas);
                     u.adicionarGlicemia(gli);
 
@@ -274,7 +284,6 @@ public class GlicemiaActivity extends AppCompatActivity {
     }
 
     public String getDate() {
-
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         return dateFormat.format(date);

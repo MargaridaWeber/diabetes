@@ -1,19 +1,21 @@
 package modelo;
 
 import java.sql.Time;
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
  * Created by Mónica Francisco on 14/12/2015.
  */
 public class Glicemia {
-    private String data;
+    private Date data;
     private String hora;
     private int valor;
     private String refeicao;
     private String notas;
 
-    public Glicemia(String data, String hora, int valor,  String refeicao, String notas) {
+    public Glicemia(Date data, String hora, int valor,  String refeicao, String notas) {
         this.data = data;
         this.hora = hora;
         this.valor = valor;
@@ -21,7 +23,7 @@ public class Glicemia {
         this.notas = notas;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
@@ -33,13 +35,17 @@ public class Glicemia {
         return notas;
     }
 
-
     public String getRefeicao() {
         return refeicao;
     }
 
     public int getValor() {
         return valor;
+    }
+
+    public String getDataString(){
+        Format formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.format(data);
     }
 
 }

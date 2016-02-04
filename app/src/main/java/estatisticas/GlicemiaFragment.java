@@ -21,6 +21,7 @@ import com.example.pc.diabetesfriend.MainActivity;
 import com.example.pc.diabetesfriend.R;
 
 import java.text.DateFormat;
+import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -59,7 +60,7 @@ public class GlicemiaFragment extends Fragment {
         if (tempo.equals("7 dias")){
             int i=0;
             for (Glicemia gli : u.getGlicemias7dias()) {
-                TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
                 tabela.addView(row,i);
 
                 i++;
@@ -73,7 +74,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias7dias()) {
-                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -82,7 +83,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias14dias()) {
-                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -91,7 +92,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias30dias()) {
-                        TableRow row = addRow(gli.getData(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -212,4 +213,6 @@ public class GlicemiaFragment extends Fragment {
 
         return row;
     }
+
+
 }

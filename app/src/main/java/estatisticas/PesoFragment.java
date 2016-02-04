@@ -54,7 +54,7 @@ public class PesoFragment extends Fragment {
         if (tempo.equals("7 dias")){
             int i=0;
             for (Peso p: u.getPesos7dias()) {
-                TableRow row = addRow(p.getData(), p.getHora(), p.getValor(), i);
+                TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
                 tabela.addView(row,i);
                 i++;
             }
@@ -67,7 +67,7 @@ public class PesoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Peso p : u.getPesos7dias()) {
-                        TableRow row = addRow(p.getData(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -76,7 +76,7 @@ public class PesoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Peso p : u.getPesos14dias()) {
-                        TableRow row = addRow(p.getData(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -85,7 +85,7 @@ public class PesoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Peso p : u.getPesos30dias()) {
-                        TableRow row = addRow(p.getData(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
                         tabela.addView(row,i);
                         i++;
                     }

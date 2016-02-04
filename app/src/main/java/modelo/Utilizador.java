@@ -303,16 +303,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Glicemia gli: listaGlicemias)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataGlicemia = dateFormat.parse(gli.getData());
-                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
-                    listaSeteDias.add(gli);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(gli.getData().after(dia) && gli.getData().before(new Date()))
+                listaSeteDias.add(gli);
+
         return listaSeteDias;
     }
 
@@ -325,16 +318,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Glicemia gli: listaGlicemias)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataGlicemia = dateFormat.parse(gli.getData());
-                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
-                    listaCatorzeDias.add(gli);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(gli.getData().after(dia) && gli.getData().before(new Date()))
+                listaCatorzeDias.add(gli);
+
         return listaCatorzeDias;
     }
 
@@ -347,16 +333,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Glicemia gli: listaGlicemias)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataGlicemia = dateFormat.parse(gli.getData());
-                if(dataGlicemia.after(dia) && dataGlicemia.before(new Date()))
-                    listaTrintaDias.add(gli);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(gli.getData().after(dia) && gli.getData().before(new Date()))
+                listaTrintaDias.add(gli);
+
         return listaTrintaDias;
     }
 
@@ -369,16 +348,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Peso p: listaPesos)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPeso = dateFormat.parse(p.getData());
-                if(dataPeso.after(dia) && dataPeso.before(new Date()))
-                    listaSeteDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaSeteDias.add(p);
+
         return listaSeteDias;
     }
 
@@ -391,16 +363,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Peso p: listaPesos)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPesos = dateFormat.parse(p.getData());
-                if(dataPesos.after(dia) && dataPesos.before(new Date()))
-                    listaCatorzeDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaCatorzeDias.add(p);
+
         return listaCatorzeDias;
     }
 
@@ -413,16 +378,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(Peso p: listaPesos)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPesos = dateFormat.parse(p.getData());
-                if(dataPesos.after(dia) && dataPesos.before(new Date()))
-                    listaTrintaDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaTrintaDias.add(p);
+
         return listaTrintaDias;
     }
 
@@ -435,16 +393,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(PressaoArterial p: listaPressoesArteriais)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPressao = dateFormat.parse(p.getData());
-                if(dataPressao.after(dia) && dataPressao.before(new Date()))
-                    listaSeteDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaSeteDias.add(p);
+
         return listaSeteDias;
     }
 
@@ -457,16 +408,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(PressaoArterial p: listaPressoesArteriais)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPressao = dateFormat.parse(p.getData());
-                if(dataPressao.after(dia) && dataPressao.before(new Date()))
-                    listaCatorzeDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaCatorzeDias.add(p);
+
         return listaCatorzeDias;
     }
 
@@ -479,16 +423,9 @@ public class Utilizador {
         Date dia = cal.getTime();
 
         for(PressaoArterial p: listaPressoesArteriais)
-        {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            try {
-                Date dataPressao = dateFormat.parse(p.getData());
-                if(dataPressao.after(dia) && dataPressao.before(new Date()))
-                    listaTrintaDias.add(p);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
+            if(p.getData().after(dia) && p.getData().before(new Date()))
+                listaTrintaDias.add(p);
+
         return listaTrintaDias;
     }
 
