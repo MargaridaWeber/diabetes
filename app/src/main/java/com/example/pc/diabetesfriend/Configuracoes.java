@@ -31,6 +31,7 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
         listaConf = new LinkedList<String[]>();
         listaConf.add(new String[]{"Dados Pessoais", "Nome, Data de Nascimento, Género, E-mail, Password"});
         listaConf.add(new String[]{"Limites da Glicemia", "Hiperglicemia, Glicemia desejada, Hipoglicemia "});
+        listaConf.add(new String[]{"Dados adicionais", "Tipo diabetes, Toma insulina, Fazer exercicio "});
 
         return view;
 
@@ -82,10 +83,16 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
             startActivity(configuracoes);
         }
 
-
-
-
+        if(itemPosition==2){
+            Intent configuracoes = new Intent(getActivity(),ConfAddActivity.class);
+            startActivity(configuracoes);
     }
+
+
+
+
+
+}
 
 
 
