@@ -89,7 +89,8 @@
         <activity
             android:name="dicas.DicasInsulina"
             android:label="@string/title_activity_dicas_insulina" />
-
+        <activity android:name=".ConfAddActivity" />
+        <activity android:name=".ConfAddFragment"></activity>
     </application>
 
 </manifest>

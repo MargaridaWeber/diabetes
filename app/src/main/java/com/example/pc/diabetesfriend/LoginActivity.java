@@ -38,6 +38,7 @@ public class LoginActivity extends AppCompatActivity{
         int hiperglicemia = 145;
         int hipoglicemia = 70;
         String[] glicemiaDesejada = {"70-110","110-145"};
+        String tipo = "Tipo 2";
 
         //Cria um utilizador
         Utilizador u = new Utilizador("Mónica", new Date(), 'F', 'N', Float.parseFloat("50"), Integer.parseInt("160"), "monica.francisco@hotmail.com", "monica");
@@ -45,6 +46,7 @@ public class LoginActivity extends AppCompatActivity{
         u.setHiperglicemia(hiperglicemia);
         u.setHipoglicemia(hipoglicemia);
         u.setGlicemiaDesejada(glicemiaDesejada);
+        u.setTipoDiabetes(tipo);
 
         //Se o utilizador estiver logado quando inicia a aplicação redirectiona para o main
         if(session.isLoggedIn()){
