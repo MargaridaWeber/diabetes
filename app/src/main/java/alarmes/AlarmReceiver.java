@@ -24,6 +24,7 @@ public class AlarmReceiver extends BroadcastReceiver {
     DiabetesFriend diabetes;
     SessionManager session;
 
+
     @Override
     public void onReceive(Context context, Intent intent) {
         diabetes = DiabetesFriend.getInstance();

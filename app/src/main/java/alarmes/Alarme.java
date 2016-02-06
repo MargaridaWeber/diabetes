@@ -112,8 +112,8 @@ public class Alarme {
         int interval = 1000 * 60 * intervalo ;
 
         /* repete 20 min depois da hora que adiamos , reptindo sempre esse intervalo*/
-        manager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis(),
-                interval, pendingIntent);
+        manager.setRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, calendar.getTimeInMillis()+
+                interval,interval, pendingIntent);
         player.stop();
 
     }

@@ -22,7 +22,7 @@
 
     <com.jjoe64.graphview.GraphView
         android:layout_width="match_parent"
-        android:layout_height="400dip"
+        android:layout_height="385dip"
         app:seriesData="0=5;2=5;3=0;4=2"
         android:id="@+id/graph"
         android:layout_alignParentBottom="true"

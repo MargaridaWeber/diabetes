@@ -79,7 +79,7 @@ public class Dialog extends Activity {
             public void onClick(DialogInterface dialog, int which) {
                 int selectedPosition = ((AlertDialog) dialog).getListView().getCheckedItemPosition();
                 if (selectedPosition == 0) {
-                    intervalo = 10;
+                    intervalo = 1;
                     alarme.adiarAlarme(calendar,intervalo);
                     Toast.makeText(Dialog.this, "Lembraremos novamente daqui a 10 minutos", Toast.LENGTH_SHORT).show();
                     finish();
