@@ -71,15 +71,16 @@
             android:autoText="false" />
 
         <EditText android:id="@+id/etPassword" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="@string/prompt_password"
+            android:layout_height="wrap_content" android:hint="Palavra-passe"
             android:imeActionId="@+id/login"
             android:imeActionLabel="@string/action_sign_in_short"
-            android:imeOptions="actionUnspecified" android:inputType="textPassword"
-            android:maxLines="1" android:singleLine="true" />
+            android:imeOptions="actionUnspecified"
+            android:maxLines="1" android:singleLine="true"
+            android:inputType="textPassword" />
 
-        <Button android:id="@+id/btnLogin" style="?android:textAppearanceSmall"
+        <Button android:id="@+id/btnEntrar" style="?android:textAppearanceSmall"
             android:layout_width="fill_parent" android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" android:text="@string/action_sign_in"
+            android:layout_marginTop="16dp" android:text="Entrar"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal" />
 

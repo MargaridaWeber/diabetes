@@ -94,11 +94,16 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
 
                 String valor = etValor.getText().toString();
 
-                //Altera
-                listaConf.set(0, new String[]{"Hiperglicemia","Superior a "+valor+" mg/dl"});
-                setListAdapter(adaptador);
+                if(valor.isEmpty()){
+                    etValor.setError("O campo não está preenchido.");
+                }
+                else{
+                    //Altera
+                    listaConf.set(0, new String[]{"Hiperglicemia","Superior a "+valor+" mg/dl"});
+                    setListAdapter(adaptador);
+                    u.setHiperglicemia(Integer.parseInt(valor));
+                }
 
-                u.setHiperglicemia(Integer.parseInt(valor));
             }
         });
 
@@ -184,10 +189,14 @@ public class ConfLimitesFragment extends ListFragment implements AdapterView.OnI
             public void onClick(DialogInterface dialog, int which) {
                 String valor = etValor.getText().toString();
 
-                listaConf.set(2, new String[]{"Hipoglicemia","Inferior a "+valor+" mg/dl"});
-                setListAdapter(adaptador);
-
-                u.setHiperglicemia(Integer.parseInt(valor));
+                if(valor.isEmpty()){
+                    etValor.setError("O campo não está preenchido.");
+                }
+                else {
+                    listaConf.set(2, new String[]{"Hipoglicemia", "Inferior a " + valor + " mg/dl"});
+                    setListAdapter(adaptador);
+                    u.setHiperglicemia(Integer.parseInt(valor));
+                }
             }
         });
 

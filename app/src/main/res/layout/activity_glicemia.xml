@@ -173,7 +173,8 @@
                 android:orientation="horizontal"
                 android:id="@+id/linearPeso"
                 android:visibility="gone"
-                android:layout_marginTop="-10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="-5dp">
 
                 <EditText
                     android:layout_width="63dp"
@@ -181,11 +182,10 @@
                     android:inputType="numberDecimal"
                     android:ems="10"
                     android:textSize="15dp"
-                    android:id="@+id/etPeso"
-                    android:layout_marginLeft="20dp" />
+                    android:id="@+id/etPeso" />
 
                 <TextView
-                        android:layout_width="169dp"
+                        android:layout_width="39dp"
                         android:layout_height="wrap_content"
                         android:text="kg" />
                 </LinearLayout>
@@ -210,24 +210,42 @@
              android:orientation="horizontal"
              android:id="@+id/linearPressao"
              android:visibility="gone"
-             android:layout_marginTop="-10dp">
+             android:layout_marginTop="-5dp"
+             android:weightSum="1"
+             android:layout_marginLeft="10dp">
 
 
-           <EditText
-                android:layout_width="63dp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:ems="10"
-                android:id="@+id/etPressaoArterial"
-                android:textSize="15dp"
-                android:layout_marginLeft="20dp" />
+             <EditText
+                 android:layout_width="50dp"
+                 android:layout_height="wrap_content"
+                 android:inputType="number"
+                 android:ems="10"
+                 android:id="@+id/etSistolica"
+                 android:maxLength="3"
+                 android:textSize="15dp" />
 
-            <TextView
-                android:layout_width="58dp"
-                android:layout_height="wrap_content"
-                android:text="mmHg" />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:textAppearance="?android:attr/textAppearanceSmall"
+                 android:text="/"
+                 android:id="@+id/textView131" />
 
-           </LinearLayout>
+             <EditText
+                 android:layout_width="50dp"
+                 android:layout_height="wrap_content"
+                 android:inputType="number"
+                 android:ems="10"
+                 android:id="@+id/etDiastolica"
+                 android:maxLength="3"
+                 android:textSize="15dp" />
+
+             <TextView
+                 android:layout_width="58dp"
+                 android:layout_height="wrap_content"
+                 android:text="mmHg" />
+
+         </LinearLayout>
 
      </LinearLayout>
 

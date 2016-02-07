@@ -55,7 +55,7 @@ public class PressaoFragment extends Fragment {
         if (tempo.equals("7 dias")){
             int i=0;
             for (PressaoArterial p: u.getPressoes7dias()) {
-                TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
+                TableRow row = addRow(p.getDataString(), p.getHora(), p.getSistolica()+"/"+p.getDiastolica(), i);
                 tabela.addView(row,i);
                 i++;
             }
@@ -68,7 +68,7 @@ public class PressaoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (PressaoArterial p : u.getPressoes7dias()) {
-                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(),  p.getSistolica()+"/"+p.getDiastolica(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -77,7 +77,7 @@ public class PressaoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (PressaoArterial p : u.getPressoes14dias()) {
-                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(),  p.getSistolica()+"/"+p.getDiastolica(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -86,7 +86,7 @@ public class PressaoFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (PressaoArterial p : u.getPressoes30dias()) {
-                        TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
+                        TableRow row = addRow(p.getDataString(), p.getHora(),  p.getSistolica()+"/"+p.getDiastolica(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -146,7 +146,7 @@ public class PressaoFragment extends Fragment {
         return v;
     }
 
-    public TableRow addRow(String data, String hora, float valor, int i){
+    public TableRow addRow(String data, String hora, String valor, int i){
 
         TableRow row = new TableRow(getActivity());
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
@@ -166,7 +166,7 @@ public class PressaoFragment extends Fragment {
         tvHora.setTextColor(Color.BLACK);
 
         TextView tvValor = new TextView(getActivity());
-        tvValor.setText(Float.toString(valor)+ "mmHg");
+        tvValor.setText(valor);
         tvValor.setWidth(80);
         tvValor.setPadding(10, 10, 10, 10);
         tvValor.setTextColor(Color.BLACK);

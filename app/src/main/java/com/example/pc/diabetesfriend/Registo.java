@@ -73,6 +73,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
         final EditText etAltura = (EditText) findViewById(R.id.etAltura);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
+        final EditText etConfirmarPass= (EditText) findViewById(R.id.etConfirmarPass);
 
         //Spinner genero
         ArrayAdapter adapter =  ArrayAdapter.createFromResource(this,R.array.genero,android.R.layout.simple_list_item_single_choice);
@@ -94,6 +95,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                 String altura = etAltura.getText().toString();
                 String email = etEmail.getText().toString();
                 String password = etPassword.getText().toString();
+                String confirmarPass = etConfirmarPass.getText().toString();
 
                 Date dataNascimento = converterDataDate(dataNasc);
 
@@ -146,17 +148,27 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
                     etPassword.setError("Mínimo de 6 caracteres.");
                     valido=false;
                 }
-                char gen;
-                char ant;
+
+                if(confirmarPass.isEmpty()){
+                    etConfirmarPass.setError("O campo não está preenchido.");
+                }
+                else if(!confirmarPass.equals(password)){
+                    etConfirmarPass.setError("A palavra-passe não coincide com a anterior.");
+                    valido=false;
+                }
+
+
                 if(valido==true) {
                     String genero = spnGenero.getSelectedItem().toString();
                     String antencedentes = spnGenero.getSelectedItem().toString();
+                    char gen;
+                    char ant;
                     if(genero.equals("Masculino"))
-                             gen = 'M';
+                        gen='M';
                     else
-                        gen = 'F';
+                        gen='F';
                     if(antencedentes.equals("Sim"))
-                        ant= 'S';
+                        ant='S';
                     else
                         ant='N';
 

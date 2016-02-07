@@ -19,7 +19,6 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.example.pc.diabetesfriend.FragmentInsulina6;
 import com.example.pc.diabetesfriend.R;
 
 public class DicasInsulina extends AppCompatActivity {

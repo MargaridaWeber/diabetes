@@ -18,11 +18,10 @@ public class FragmentInfUteis extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tabs_informacoes, container, false);
 
-
         Button btntele = (Button) view.findViewById(R.id.btntele);
         btntele.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Uri number = Uri.parse("tel:911077432");
+                Uri number = Uri.parse("tel:808242424");
                 Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
                 startActivity(callIntent);
             }
@@ -38,6 +37,6 @@ public class FragmentInfUteis extends Fragment {
             }
         });
 
-return view;
+        return view;
     }
 }

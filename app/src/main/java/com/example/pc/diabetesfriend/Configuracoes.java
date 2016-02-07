@@ -27,14 +27,12 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_configuracoesgerais, container, false);
 
-
         listaConf = new LinkedList<String[]>();
         listaConf.add(new String[]{"Dados Pessoais", "Nome, Data de Nascimento, Género, E-mail, Password"});
         listaConf.add(new String[]{"Limites da Glicemia", "Hiperglicemia, Glicemia desejada, Hipoglicemia "});
-        listaConf.add(new String[]{"Dados adicionais", "Tipo diabetes, Toma insulina, Fazer exercicio "});
+        listaConf.add(new String[]{"Dados adicionais", "Tipo de diabetes, insulina, exercício físico "});
 
         return view;
-
     }
 
     @Override
@@ -75,10 +73,8 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
         if(itemPosition==0){
             Intent conf = new Intent(getActivity(),ConfDadosActivity.class);
             startActivity(conf);
-
         }
         if (itemPosition==1){
-
             Intent configuracoes = new Intent(getActivity(),ConfLimitesActivity.class);
             startActivity(configuracoes);
         }
@@ -86,12 +82,7 @@ public class Configuracoes extends ListFragment implements AdapterView.OnItemCli
         if(itemPosition==2){
             Intent configuracoes = new Intent(getActivity(),ConfAddActivity.class);
             startActivity(configuracoes);
-    }
-
-
-
-
-
+        }
 }
 
 

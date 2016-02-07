@@ -19,6 +19,7 @@ import com.jjoe64.graphview.helper.DateAsXAxisLabelFormatter;
 import com.jjoe64.graphview.helper.StaticLabelsFormatter;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
+import com.jjoe64.graphview.series.PointsGraphSeries;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,15 +40,7 @@ public class GraficosFragment extends Fragment {
 
     DiabetesFriend diabetes;
     SessionManager session;
-    DataPoint[] dpGlicemia7dias;
-    DataPoint[] dpPeso7dias;
-    DataPoint[] dpPressao7dias;
-    DataPoint[] dpGlicemia14dias;
-    DataPoint[] dpPeso14dias;
-    DataPoint[] dpPressao14dias;
-
     Utilizador u;
-    int periodoTempo=8;
     GraphView graph;
 
     @Override
@@ -57,70 +50,24 @@ public class GraficosFragment extends Fragment {
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getActivity());
 
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        u = diabetes.pesquisarUtilizador(user.get(SessionManager.KEY_EMAIL));
+
         Spinner spTempo = (Spinner) v.findViewById(R.id.spTempo);
         String tempo = spTempo.getSelectedItem().toString();
 
         graph = (GraphView) v.findViewById(R.id.graph);
         graph.setTitle("Evolução");
 
-        // Obtem dados da sessão
-        HashMap<String, String> user = session.getUserDetails();
-        u = diabetes.pesquisarUtilizador(user.get(SessionManager.KEY_EMAIL));
-
-        dpGlicemia7dias = new DataPoint[u.getGlicemias7dias().size()];
-        dpPeso7dias = new DataPoint[u.getPesos7dias().size()];
-        dpPressao7dias = new DataPoint[u.getPesos7dias().size()];
 
         if(tempo.equals("7 dias")){
-
-            int i=0;
-            for(Glicemia gli : u.getGlicemias7dias()){
-                dpGlicemia7dias[i]= new DataPoint(gli.getData(),gli.getValor());
-                i++;
-            }
-
-            i=0;
-            for(Peso peso : u.getPesos7dias()){
-                dpPeso7dias[i] = new DataPoint(peso.getData(),peso.getValor());
-                i++;
-            }
-
-            i=0;
-            for(PressaoArterial pa : u.getPressoes7dias()){
-                dpPressao7dias[i] = new DataPoint(pa.getData(),pa.getValor());
-                i++;
-            }
-
-            LineGraphSeries<DataPoint> seriesGlicemia = new LineGraphSeries<DataPoint>(dpGlicemia7dias);
-            LineGraphSeries<DataPoint> seriesPeso = new LineGraphSeries<DataPoint>(dpPeso7dias);
-            LineGraphSeries<DataPoint> seriesPressao = new LineGraphSeries<DataPoint>(dpPressao7dias);
-
-            graph.addSeries(seriesGlicemia);
-            graph.addSeries(seriesPeso);
-            graph.addSeries(seriesPressao);
-
-            //Muda a cor das linhas
-            seriesGlicemia.setColor(Color.rgb(243, 122, 7)); //Laranja
-            seriesPeso.setColor(Color.rgb(18, 111, 189)); //Azul
-            seriesPressao.setColor(Color.rgb(138, 140, 129)); //Cinzento
-
-            //Legenda
-            seriesGlicemia.setTitle("Glicemia");
-            seriesPeso.setTitle("Peso");
-            seriesPressao.setTitle("Pressão Arterial");
+            criarGrafico7dias();
+            definirDiasEscala(8);
         }
 
-        Calendar cal = GregorianCalendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.DAY_OF_YEAR, -periodoTempo);
-        Date dia = cal.getTime();
 
-        // set manual x bounds to have nice steps
-        graph.getViewport().setMinX(dia.getTime());
-        graph.getViewport().setMaxX(new Date().getTime());
-        graph.getViewport().setXAxisBoundsManual(true);
-
-        //Mudar o formatao da label da data
+        //Mudar o formato da label da data
         graph.getGridLabelRenderer().setLabelFormatter(new
             DateAsXAxisLabelFormatter(getActivity()) {
 
@@ -139,7 +86,6 @@ public class GraficosFragment extends Fragment {
 
                        return mDay + " " + (month_name);
                    } else {
-                       // show currency for y values
                        return super.formatLabel(value, isValueX);
                    }
                }
@@ -158,86 +104,19 @@ public class GraficosFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (position == 0) {
-                    periodoTempo = 8;
-
-                    int i=0;
-                    for(Glicemia gli : u.getGlicemias7dias()){
-                        dpGlicemia7dias[i]= new DataPoint(gli.getData(),gli.getValor());
-                        i++;
-                    }
-
-                    i=0;
-                    for(Peso peso : u.getPesos7dias()){
-                        dpPeso7dias[i] = new DataPoint(peso.getData(),peso.getValor());
-                        i++;
-                    }
-
-                    i=0;
-                    for(PressaoArterial pa : u.getPressoes7dias()){
-                        dpPressao7dias[i] = new DataPoint(pa.getData(),pa.getValor());
-                        i++;
-                    }
-
+                    graph.removeAllSeries();
+                    criarGrafico7dias();
+                    definirDiasEscala(8);
 
                 } else if (position == 1) {
                     graph.removeAllSeries();
-
-                    periodoTempo = 15;
-
-                    Calendar cal = GregorianCalendar.getInstance();
-                    cal.setTime(new Date());
-                    cal.add(Calendar.DAY_OF_YEAR, -periodoTempo);
-                    Date dia = cal.getTime();
-
-                    // set manual x bounds to have nice steps
-                    graph.getViewport().setMinX(dia.getTime());
-                    graph.getViewport().setMaxX(new Date().getTime());
-                    graph.getViewport().setXAxisBoundsManual(true);
-
-                    dpGlicemia14dias = new DataPoint[u.getGlicemias14dias().size()];
-                    dpPeso14dias = new DataPoint[u.getPesos14dias().size()];
-                    dpPressao14dias = new DataPoint[u.getPesos14dias().size()];
-
-                    int i=0;
-                    for(Glicemia gli : u.getGlicemias14dias()){
-                        dpGlicemia14dias[i]= new DataPoint(gli.getData(),gli.getValor());
-                        i++;
-                    }
-
-                    i=0;
-                    for(Peso peso : u.getPesos14dias()){
-                        dpPeso14dias[i] = new DataPoint(peso.getData(),peso.getValor());
-                        i++;
-                    }
-
-                    i=0;
-                    for(PressaoArterial pa :u.getPressoes14dias()){
-                        dpPressao14dias[i] = new DataPoint(pa.getData(),pa.getValor());
-                        i++;
-                    }
-
-                    LineGraphSeries<DataPoint> seriesGlicemia14Dias = new LineGraphSeries<DataPoint>(dpGlicemia14dias);
-                    LineGraphSeries<DataPoint> seriesPeso14Dias = new LineGraphSeries<DataPoint>(dpPeso14dias);
-                    LineGraphSeries<DataPoint> seriesPressao14Dias = new LineGraphSeries<DataPoint>(dpPressao14dias);
-
-                    graph.addSeries(seriesGlicemia14Dias);
-                    graph.addSeries(seriesPeso14Dias);
-                    graph.addSeries(seriesPressao14Dias);
-
-                    //Muda a cor das linhas
-                    seriesGlicemia14Dias.setColor(Color.rgb(243, 122, 7)); //Laranja
-                    seriesPeso14Dias.setColor(Color.rgb(18, 111, 189)); //Azul
-                    seriesPressao14Dias.setColor(Color.rgb(138, 140, 129)); //Cinzento
-
-                    //Legenda
-                    seriesGlicemia14Dias.setTitle("Glicemia");
-                    seriesPeso14Dias.setTitle("Peso");
-                    seriesPressao14Dias.setTitle("Pressão Arterial");
-
+                    criarGrafico14dias();
+                    definirDiasEscala(15);
 
                 } else if (position == 2) {
-                    periodoTempo = 31;
-
+                    graph.removeAllSeries();
+                    criarGrafico30dias();
+                    definirDiasEscala(31);
                 }
             }
 
@@ -252,6 +131,194 @@ public class GraficosFragment extends Fragment {
         return v;
     }
 
+    public void criarGrafico7dias(){
+
+        //Cria vectores com as coordenadas
+        DataPoint[] dpGlicemia7dias = new DataPoint[u.getGlicemias7dias().size()];
+        DataPoint[] dpPeso7dias = new DataPoint[u.getPesos7dias().size()];
+        DataPoint[] dpSistolica7dias = new DataPoint[u.getPressoes7dias().size()];
+        DataPoint[] dpDiastolica7dias = new DataPoint[u.getPressoes7dias().size()];
+
+        int i=0;
+        for(Glicemia gli : u.getGlicemias7dias()){
+            dpGlicemia7dias[i]= new DataPoint(gli.getData(),gli.getValor());
+            i++;
+        }
+
+        i=0;
+        for(Peso peso : u.getPesos7dias()){
+            dpPeso7dias[i] = new DataPoint(peso.getData(),peso.getValor());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes7dias()){
+            dpSistolica7dias[i] = new DataPoint(p.getData(),p.getSistolica());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes7dias()){
+            dpDiastolica7dias[i] = new DataPoint(p.getData(),p.getDiastolica());
+            i++;
+        }
+
+        //Cria as linhas consoante as coordenadas do vector
+        LineGraphSeries<DataPoint> seriesGlicemia = new LineGraphSeries<DataPoint>(dpGlicemia7dias);
+        //PointsGraphSeries<DataPoint> series = new PointsGraphSeries<DataPoint>(dpGlicemia7dias);
+        //graph.addSeries(series);
+        //series.setShape(PointsGraphSeries.Shape.POINT);
+
+        LineGraphSeries<DataPoint> seriesPeso = new LineGraphSeries<DataPoint>(dpPeso7dias);
+        LineGraphSeries<DataPoint> seriesDiastolica = new LineGraphSeries<DataPoint>(dpSistolica7dias);
+        LineGraphSeries<DataPoint> seriesSistolica = new LineGraphSeries<DataPoint>(dpDiastolica7dias);
+
+        //Adiciona as linhas aos gráficos
+        graph.addSeries(seriesGlicemia);
+        graph.addSeries(seriesPeso);
+        graph.addSeries(seriesSistolica);
+        graph.addSeries(seriesDiastolica);
+
+        //Muda a cor das linhas
+        seriesGlicemia.setColor(Color.rgb(243, 122, 7)); //Laranja
+        seriesPeso.setColor(Color.rgb(18, 111, 189)); //Azul
+        seriesSistolica.setColor(Color.rgb(138, 140, 129)); //Cinzento
+        seriesDiastolica.setColor(Color.rgb(138, 140, 129)); //Cinzento
+
+        //Legenda
+        seriesGlicemia.setTitle("Glicemia");
+        seriesPeso.setTitle("Peso");
+        seriesSistolica.setTitle("Sistólica");
+        seriesDiastolica.setTitle("Diastólica");
+
+    }
+
+    public void criarGrafico14dias(){
+
+        //Cria vectores com as coordenadas
+        DataPoint[] dpGlicemia14dias = new DataPoint[u.getGlicemias14dias().size()];
+        DataPoint[] dpPeso14dias = new DataPoint[u.getPesos14dias().size()];
+        DataPoint[] dpSistolica14dias = new DataPoint[u.getPressoes14dias().size()];
+        DataPoint[] dpDiastolica14dias = new DataPoint[u.getPressoes14dias().size()];
+
+        //Cria as linhas consoante as coordenadas do vector
+        int i=0;
+        for(Glicemia gli : u.getGlicemias14dias()){
+            dpGlicemia14dias[i]= new DataPoint(gli.getData(),gli.getValor());
+            i++;
+        }
+
+        i =0;
+        for(Peso peso : u.getPesos14dias()){
+            dpPeso14dias[i] = new DataPoint(peso.getData(),peso.getValor());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes14dias()){
+            dpSistolica14dias[i] = new DataPoint(p.getData(),p.getSistolica());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes14dias()){
+            dpDiastolica14dias[i] = new DataPoint(p.getData(),p.getDiastolica());
+            i++;
+        }
 
 
+        //Adiciona as linhas aos gráficos
+        LineGraphSeries<DataPoint> seriesGlicemia14 = new LineGraphSeries<DataPoint>(dpGlicemia14dias);
+        LineGraphSeries<DataPoint> seriesPeso14 = new LineGraphSeries<DataPoint>(dpPeso14dias);
+        LineGraphSeries<DataPoint> seriesDiastolica14 = new LineGraphSeries<DataPoint>(dpSistolica14dias);
+        LineGraphSeries<DataPoint> seriesSistolica14 = new LineGraphSeries<DataPoint>(dpDiastolica14dias);
+
+        graph.addSeries(seriesGlicemia14);
+        graph.addSeries(seriesPeso14);
+        graph.addSeries(seriesSistolica14);
+        graph.addSeries(seriesDiastolica14);
+
+        //Muda a cor das linhas
+        seriesGlicemia14.setColor(Color.rgb(243, 122, 7)); //Laranja
+        seriesPeso14.setColor(Color.rgb(18, 111, 189)); //Azul
+        seriesSistolica14.setColor(Color.rgb(138, 140, 129)); //Cinzento
+        seriesDiastolica14.setColor(Color.rgb(138, 140, 129)); //Cinzento
+
+        //Legenda
+        seriesGlicemia14.setTitle("Glicemia");
+        seriesPeso14.setTitle("Peso");
+        seriesSistolica14.setTitle("Sistólica");
+        seriesDiastolica14.setTitle("Diastólica");
+
+    }
+
+    public void criarGrafico30dias(){
+
+        //Cria vectores com as coordenadas
+        DataPoint[] dpGlicemia30dias = new DataPoint[u.getGlicemias30dias().size()];
+        DataPoint[] dpPeso30dias = new DataPoint[u.getPesos30dias().size()];
+        DataPoint[] dpSistolica30dias = new DataPoint[u.getPressoes30dias().size()];
+        DataPoint[] dpDiastolica30dias = new DataPoint[u.getPressoes30dias().size()];
+
+        //Cria as linhas consoante as coordenadas do vector
+        int i=0;
+        for(Glicemia gli : u.getGlicemias30dias()){
+            dpGlicemia30dias[i]= new DataPoint(gli.getData(),gli.getValor());
+            i++;
+        }
+
+        i=0;
+        for(Peso peso : u.getPesos30dias()){
+            dpPeso30dias[i] = new DataPoint(peso.getData(),peso.getValor());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes30dias()){
+            dpSistolica30dias[i] = new DataPoint(p.getData(),p.getSistolica());
+            i++;
+        }
+
+        i=0;
+        for(PressaoArterial p : u.getPressoes30dias()){
+            dpDiastolica30dias[i] = new DataPoint(p.getData(),p.getDiastolica());
+            i++;
+        }
+
+
+        //Adiciona as linhas aos gráficos
+        LineGraphSeries<DataPoint> seriesGlicemia30 = new LineGraphSeries<DataPoint>(dpGlicemia30dias);
+        LineGraphSeries<DataPoint> seriesPeso30 = new LineGraphSeries<DataPoint>(dpPeso30dias);
+        LineGraphSeries<DataPoint> seriesDiastolica30 = new LineGraphSeries<DataPoint>(dpSistolica30dias);
+        LineGraphSeries<DataPoint> seriesSistolica30 = new LineGraphSeries<DataPoint>(dpDiastolica30dias);
+
+        graph.addSeries(seriesGlicemia30);
+        graph.addSeries(seriesPeso30);
+        graph.addSeries(seriesSistolica30);
+        graph.addSeries(seriesDiastolica30);
+
+        //Muda a cor das linhas
+        seriesGlicemia30.setColor(Color.rgb(243, 122, 7)); //Laranja
+        seriesPeso30.setColor(Color.rgb(18, 111, 189)); //Azul
+        seriesSistolica30.setColor(Color.rgb(138, 140, 129)); //Cinzento
+        seriesDiastolica30.setColor(Color.rgb(138, 140, 129)); //Cinzento
+
+        //Legenda
+        seriesGlicemia30.setTitle("Glicemia");
+        seriesPeso30.setTitle("Peso");
+        seriesSistolica30.setTitle("Sistólica");
+        seriesDiastolica30.setTitle("Diastólica");
+
+    }
+
+    public void definirDiasEscala(int periodoTempo){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.setTime(new Date());
+        cal.add(Calendar.DAY_OF_YEAR, -periodoTempo);
+        Date dia = cal.getTime();
+
+        graph.getViewport().setMinX(dia.getTime());
+        graph.getViewport().setMaxX(new Date().getTime());
+        graph.getViewport().setXAxisBoundsManual(true);
+    }
 }

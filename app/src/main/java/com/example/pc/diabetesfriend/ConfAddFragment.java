@@ -48,8 +48,8 @@ public class ConfAddFragment extends ListFragment implements AdapterView.OnItemC
 
         listaConf = new LinkedList<String[]>();
         listaConf.add(new String[]{"Tipo de Diabetes", u.getTipoDiabetes()});
-        listaConf.add(new String[]{"Toma insulina", u.getGenero() == 'S' ? "Sim" : "Nao"});
-        listaConf.add(new String[]{"Faz exercício", u.getGenero() == 'S' ? "Sim" : "Nao"});
+        listaConf.add(new String[]{"Toma insulina", u.getGenero() == 'S' ? "Sim" : "Não"});
+        listaConf.add(new String[]{"Faz exercício", u.getGenero() == 'S' ? "Sim" : "Não"});
 
         return view;
     }
@@ -90,10 +90,12 @@ public class ConfAddFragment extends ListFragment implements AdapterView.OnItemC
                     listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 1"});
                     setListAdapter(adaptador);
                     tipoDiabetes = "Tipo 1";
+                    u.setTipoDiabetes(tipoDiabetes);
                 } else {
                     listaConf.set(0, new String[]{"Tipo de Diabetes", "Tipo 2"});
                     setListAdapter(adaptador);
                     tipoDiabetes = "Tipo 2";
+                    u.setTipoDiabetes(tipoDiabetes);
                 }
                 tipos.dismiss(); //Para sair logo
             }
@@ -115,10 +117,12 @@ public class ConfAddFragment extends ListFragment implements AdapterView.OnItemC
                     listaConf.set(1, new String[]{"Toma Insulina", "Sim"});
                     setListAdapter(adaptador);
                     tomaInsulina = 'S';
+                    u.setInsulina(tomaInsulina);
                 } else {
                     listaConf.set(1, new String[]{"Toma Insulina", "Não"});
                     setListAdapter(adaptador);
                     tomaInsulina = 'N';
+                    u.setInsulina(tomaInsulina);
                 }
                 insulina.dismiss(); //Para sair logo
             }
@@ -141,10 +145,12 @@ public class ConfAddFragment extends ListFragment implements AdapterView.OnItemC
                             listaConf.set(2, new String[]{"Faz exercício", "Sim"});
                             setListAdapter(adaptador);
                             fazExercicio = 'S';
+                            u.setExercicio(fazExercicio);
                         } else {
                             listaConf.set(2, new String[]{"Faz exercício", "Não"});
                             setListAdapter(adaptador);
                             fazExercicio = 'N';
+                            u.setExercicio(fazExercicio);
                         }
                         exercicio.dismiss(); //Para sair logo
                     }

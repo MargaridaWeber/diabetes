@@ -54,7 +54,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="203dp"
                 android:layout_height="30dp"
                 android:text="Aceda ao Portal dos diabetes:"
                 android:textColor="#99C4AA"
@@ -62,7 +62,8 @@
                 android:id="@+id/portal"
                 android:layout_alignTop="@+id/portal_diabetes"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentStart="true"
+                android:layout_gravity="center_horizontal" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -101,7 +102,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Telefonar para a Linha 24 "
+            android:text="Telefonar para a Linha Saúde 24 "
             android:textSize="15dp"
             android:id="@+id/btntele"
             android:background="#8D92BD"

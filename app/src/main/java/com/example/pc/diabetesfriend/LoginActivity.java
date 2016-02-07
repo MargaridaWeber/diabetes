@@ -61,7 +61,7 @@ public class LoginActivity extends AppCompatActivity{
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.hide();
 
-        Button btnLogin = (Button) findViewById(R.id.btnLogin);
+        Button btnEntrar = (Button) findViewById(R.id.btnEntrar);
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
 
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity{
             }
         });
 
-        btnLogin.setOnClickListener(new OnClickListener() {
+        btnEntrar.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = etEmail.getText().toString();

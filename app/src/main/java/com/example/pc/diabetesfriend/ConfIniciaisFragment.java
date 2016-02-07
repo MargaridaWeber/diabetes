@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.app.AlertDialog;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +53,11 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         final Utilizador u = diabetes.pesquisarUtilizador(email);
         int idade = u.getIdade();
 
-        //verificar os valores do utilizador
+        //Atribuir os valores ao utilizador consoante a sua idade e se tem ou não antecendentes
         if(idade<30&& u.getAntedecentes()=='N'){
             glicemiaDesejada[0]="70-110";
             glicemiaDesejada[1]="110-145 ";
         }
-
         if(idade<30 && u.getAntedecentes()=='S'){
             glicemiaDesejada[0]="80-120";
             glicemiaDesejada[1]="120-160 ";
@@ -71,6 +71,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             glicemiaDesejada[0]="90-130";
             glicemiaDesejada[1]="130-180 ";
         }
+
         gdJejum = glicemiaDesejada[0].split("-");
         gdRefeicao = glicemiaDesejada[1].split("-");
 
@@ -95,7 +96,6 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             u.setInsulina(tomaInsulina);
             u.setExercicio(fazExercicio);
 
-            //Validar se estão preenchidos
             u.setHiperglicemia(hiperglicemia);
             glicemiaDesejada[0] =  gdJejum[0]+"-"+gdJejum[1];
             glicemiaDesejada[1] =  gdRefeicao[0]+"-"+gdRefeicao[1];
@@ -232,10 +232,14 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
             @Override
             public void onClick(DialogInterface dialog, int which) {
 
-                hiperglicemia = Integer.parseInt(etValor.getText().toString());
-
-                listaConf.set(3, new String[]{"Hiperglicemia","Superior a "+hiperglicemia+" mg/dl"});
-                setListAdapter(adaptador);
+                if(etValor.getText().toString().isEmpty()){
+                    etValor.setError("O campo não está preenchido.");
+                }
+                else{
+                    hiperglicemia = Integer.parseInt(etValor.getText().toString());
+                    listaConf.set(3, new String[]{"Hiperglicemia","Superior a "+hiperglicemia+" mg/dl"});
+                    setListAdapter(adaptador);
+                }
             }
         });
 
@@ -316,10 +320,15 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                hipoglicemia = Integer.parseInt(etValor.getText().toString());
 
-                listaConf.set(5, new String[]{"Hipoglicemia","Inferior a "+hipoglicemia+" mg/dl"});
-                setListAdapter(adaptador);
+                if(etValor.getText().toString().isEmpty()){
+                    etValor.setError("O campo não está preenchido.");
+                }
+                else {
+                    hipoglicemia = Integer.parseInt(etValor.getText().toString());
+                    listaConf.set(5, new String[]{"Hipoglicemia", "Inferior a " + hipoglicemia + " mg/dl"});
+                    setListAdapter(adaptador);
+                }
             }
         });
 

@@ -53,9 +53,10 @@ public class GlicemiaActivity extends AppCompatActivity {
 
     DiabetesFriend diabetes;
     SessionManager session;
-
+    Utilizador u;
     EditText data;
     EditText hora;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,11 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         diabetes = DiabetesFriend.getInstance();
         session = new SessionManager(getApplicationContext());
+
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        u = diabetes.pesquisarUtilizador(email);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -82,13 +88,15 @@ public class GlicemiaActivity extends AppCompatActivity {
         final CheckBox chkPressao = (CheckBox) findViewById(R.id.chkPressaoArterial);
         final LinearLayout linearPressao = (LinearLayout) findViewById(R.id.linearPressao);
         final EditText etPeso = (EditText) findViewById(R.id.etPeso);
-        final EditText etPressao = (EditText) findViewById(R.id.etPressaoArterial);
+        final EditText etSistolica = (EditText) findViewById(R.id.etSistolica);
+        final EditText etDiastolica = (EditText) findViewById(R.id.etDiastolica);
         final EditText etNotas = (EditText) findViewById(R.id.etNotas);
         Button btnRegistar = (Button) findViewById(R.id.btnRegistar);
 
 
         data.setText(getDate());
         hora.setText(getTime());
+        etPeso.setText(Float.toString(u.getPeso()));
 
         data.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -145,23 +153,22 @@ public class GlicemiaActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String dateString = data.getText().toString();
                 String hour = hora.getText().toString();
-                int valorGlicemia = Integer.parseInt(valorGli.getText().toString());
+                String glicemia = valorGli.getText().toString();
                 String refeicao = spRefeicao.getSelectedItem().toString();
                 String peso = etPeso.getText().toString();
-                String pressao =  etPressao.getText().toString();
+                String sistolica =  etSistolica.getText().toString();
+                String diastolica =  etDiastolica.getText().toString();
                 String notas = etNotas.getText().toString();
 
-                // Obtem dados da sessão
-                HashMap<String, String> user = session.getUserDetails();
-                String email = user.get(SessionManager.KEY_EMAIL);
-                Utilizador u = diabetes.pesquisarUtilizador(email);
                 int idade = u.getIdade();
 
 
                 //Validar valor
-                if (valorGlicemia==0) {
+                if (glicemia.isEmpty()) {
                     valorGli.setError("O campo não está preenchido.");
                 } else {
+                    int valorGlicemia = Integer.parseInt(glicemia);
+
                     DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = null;
                     try {
@@ -175,23 +182,21 @@ public class GlicemiaActivity extends AppCompatActivity {
 
                     //Se o utilizador inserir o peso ou a pressão
                     if(!peso.equals("")){
-                        float pesoFloat = Float.parseFloat(peso);
-                        Peso p = new Peso(date, hour, pesoFloat);
+                        Peso p = new Peso(date, hour, Float.parseFloat(peso));
                         u.adicionarPeso(p);
                     }
-                    if(!pressao.equals("")){
-                        float pressaoFloat = Float.parseFloat(pressao);
-                        PressaoArterial pa = new PressaoArterial(date,hour, pressaoFloat);
+                    if(!sistolica.equals("") && !diastolica.equals("")){
+                        PressaoArterial pa = new PressaoArterial(date,hour, Integer.parseInt(sistolica), Integer.parseInt(diastolica));
                         u.adicionarPressaoArterial(pa);
                     }
 
                     boolean validar = true;
 
-                    if ( valorGlicemia < 70) {
+                    if (valorGlicemia < 70) {
                         DialogHipo();
                         validar = false;
                     }
-                     if (valorGlicemia > 180){
+                    if (valorGlicemia > 180){
                         DialogHiper();
                          validar = false;}
 
@@ -226,7 +231,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Risco de Hipoglicemia!");
-        builder.setMessage("Cuidado!pode estar em risco de hipoglicemia\n\n• Deverá ingerir 1 a 2 pacotes de açúcar \n• Depois de 15 minutos voltar a medir\n• Veja as nossas Dicas Hipoglicemia");
+        builder.setMessage("Cuidado! Pode estar em risco de hipoglicemia\n\n• Deverá ingerir 1 a 2 pacotes de açúcar \n• Depois de 15 minutos voltar a medir\n• Consulte as nossas Dicas Hipoglicemia");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 Intent principal = new Intent(getApplicationContext(), MainActivity.class);
@@ -235,14 +240,25 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
         alerta = builder.create();
         alerta.show();
+
+        //Mudar cor do titulo
+        int textViewId = alerta.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+        TextView tv = (TextView) alerta.findViewById(textViewId);
+        tv.setTextColor(getResources().getColor(R.color.red));
+
+        //Mudar cor do divisor
+        int dividerId = alerta.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+        View divider = alerta.findViewById(dividerId);
+        divider.setBackgroundColor(getResources().getColor(R.color.red));
+
     }
 
 
     private void DialogAviso() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Cuidado valor baixo");
-        builder.setMessage("Cuidado!Está abaixo do recomendado , pode estar em risco de hipoglicemia\n\n• Deverá comer alguma coisa e medir novamente os seus níveis");
+        builder.setTitle("Valor de glicemia baixo!");
+        builder.setMessage("Cuidado! Está abaixo do recomendado, pode estar em risco de hipoglicemia\n\n• Deverá comer alguma coisa e medir novamente os seus níveis");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 Intent principal = new Intent(getApplicationContext(), MainActivity.class);
@@ -251,6 +267,16 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
         alerta = builder.create();
         alerta.show();
+
+        //Mudar cor do titulo
+        int textViewId = alerta.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+        TextView tv = (TextView) alerta.findViewById(textViewId);
+        tv.setTextColor(getResources().getColor(R.color.orange));
+
+        //Mudar cor do divisor
+        int dividerId = alerta.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+        View divider = alerta.findViewById(dividerId);
+        divider.setBackgroundColor(getResources().getColor(R.color.orange));
     }
 
 
@@ -258,7 +284,7 @@ public class GlicemiaActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Risco de Hiperglicemia!");
-        builder.setMessage("Cuidado!pode estar em risco de hiperglicemia\n\n• Deverá beber muita água \n• Depois de 15 minutos voltar a medir\n• Se não baixar fale com um médico");
+        builder.setMessage("Cuidado! Pode estar em risco de hiperglicemia\n\n• Deverá beber muita água \n• Depois de 15 minutos voltar a medir\n• Se não baixar fale com um médico");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 Intent principal = new Intent(getApplicationContext(), MainActivity.class);
@@ -267,6 +293,16 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
         alerta = builder.create();
         alerta.show();
+
+        //Mudar cor do titulo
+        int textViewId = alerta.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+        TextView tv = (TextView) alerta.findViewById(textViewId);
+        tv.setTextColor(getResources().getColor(R.color.red));
+
+        //Mudar cor do divisor
+        int dividerId = alerta.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+        View divider = alerta.findViewById(dividerId);
+        divider.setBackgroundColor(getResources().getColor(R.color.red));
     }
 
     private void DialogCuidado() {
@@ -281,6 +317,16 @@ public class GlicemiaActivity extends AppCompatActivity {
         });
         alerta = builder.create();
         alerta.show();
+
+        //Mudar cor do titulo
+        int textViewId = alerta.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+        TextView tv = (TextView) alerta.findViewById(textViewId);
+        tv.setTextColor(getResources().getColor(R.color.red));
+
+        //Mudar cor do divisor
+        int dividerId = alerta.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+        View divider = alerta.findViewById(dividerId);
+        divider.setBackgroundColor(getResources().getColor(R.color.red));
     }
 
     public String getDate() {

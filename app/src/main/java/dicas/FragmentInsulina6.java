@@ -1,4 +1,4 @@
-package com.example.pc.diabetesfriend;
+package dicas;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.pc.diabetesfriend.R;
 
 public class FragmentInsulina6 extends Fragment {
 

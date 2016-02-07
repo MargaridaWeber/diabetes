@@ -8,14 +8,16 @@ import java.util.Date;
  * Created by Mónica Francisco on 01/02/2016.
  */
 public class PressaoArterial {
-    private float valor;
+    private int sistolica;
+    private int diastolica;
     private Date data;
     private String hora;
 
-    public PressaoArterial(Date data, String hora, float valor) {
+    public PressaoArterial(Date data, String hora, int sistolica, int diastolica) {
         this.data = data;
         this.hora = hora;
-        this.valor = valor;
+        this.sistolica = sistolica;
+        this.diastolica = diastolica;
     }
 
     public Date getData() {
@@ -26,8 +28,12 @@ public class PressaoArterial {
         return hora;
     }
 
-    public float getValor() {
-        return valor;
+    public int getDiastolica() {
+        return diastolica;
+    }
+
+    public int getSistolica() {
+        return sistolica;
     }
 
     public String getDataString(){

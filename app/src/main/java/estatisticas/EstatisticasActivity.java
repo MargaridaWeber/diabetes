@@ -165,9 +165,9 @@ public class EstatisticasActivity extends AppCompatActivity implements ActionBar
                 case 0:
                     return new GlicemiaFragment();
                 case 1:
-                    return new PesoFragment();
-                case 2:
                     return new PressaoFragment();
+                case 2:
+                    return new PesoFragment();
                 case 3:
                     return new GraficosFragment();
 
