@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Pão \n• Leite meio gordo/magro (café/chá sem açucar)\n"
+            android:text="\n• Pão (30gr) \n• 1 cop de leite meio gordo/magro (café/chá sem açucar)\n"
             android:id="@+id/ceia" />
 
 
@@ -62,26 +62,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Opção 2:"
+            android:text="\nOpção 2:"
             android:id="@+id/textView121" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Iogurte magro\n• Bolachas de água e sal/integrais/maria/tostadas\n "
+            android:text="\n• Iogurte magro sem pedaços\n• Bolachas de água e sal/integrais/maria/tostadas(2/3 no máximo) "
             android:id="@+id/ceia1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:text="Opção 3:"
+            android:text="\nOpção 3:"
             android:id="@+id/textView122" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="• Fruta média \n• Bolachas de água e sal/integrais/maria/tostadas\n "
+            android:text="\n• Fruta média \n• Bolachas de água e sal/integrais/maria/tostadas(2/3 no máximo) "
             android:id="@+id/ceia2" />
 
 

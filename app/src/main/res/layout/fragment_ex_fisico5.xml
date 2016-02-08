@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
        android:textColor="#000000"
-        android:text="O que nunca se pode esquecer antes de fazer exercício físico"
+        android:text="O que nunca deve esquecer antes de fazer exercício físico"
         android:textStyle="bold"
         android:layout_marginBottom="20dp"
         android:id="@+id/textView80"
@@ -61,20 +61,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="16dp"
-        android:text="➤ Antes de começar a atividade física dee medir o nível de glicemia para ter a certeza que está tudo bem"
+        android:text="➤ Antes de começar a atividade física deve medir o nível de glicemia para ter a certeza que está tudo bem"
         android:id="@+id/textView95"
         android:layout_below="@+id/textView94"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:text="➤ Levar uma merenda "
+        android:id="@+id/textView133"
+        android:layout_below="@+id/textView95"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="5dp"/>
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="190dp"
         android:id="@+id/imageView13"
         android:src="@drawable/beneficios"
-        android:layout_below="@+id/textView95"
+        android:layout_below="@+id/textView133"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+
 </RelativeLayout>
 </ScrollView>

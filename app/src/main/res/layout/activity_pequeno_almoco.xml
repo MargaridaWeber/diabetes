@@ -54,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\n • Pão (30gr) \n • Leite meio gordo/magro"
+            android:text="\n • Pão (30gr) \n • 1 copo de leite meio gordo/magro"
             android:id="@+id/tvpequenoalmoco" />
 
         <TextView
@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\n • Cereais integrais\n • Café/chá sem açúcar ou com adoçante"
+            android:text="\n • Cereais integrais(3 colheres de sopa)\n • Café/chá sem açúcar ou com adoçante"
             android:id="@+id/tvpequenoalmoco1" />
 
     </LinearLayout>

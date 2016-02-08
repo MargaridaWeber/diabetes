@@ -46,7 +46,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="\n• Prato de sopa\n• Carne ou peixe (tamanho da palma da mão)\n• Batata (tamanho de um ovo) ou colheres de sopa de arroz ou massa
+            android:text="\n• Prato de sopa\n• Carne ou peixe (tamanho da palma da mão)\n•  1 batata (tamanho de um ovo) ou 3 colheres de sopa de arroz ou massa
     \n• Fruta média\n\nPode comer saladas cruas ou legumes cozidos à vontade, tempere com pouco azeite. Evite os fritos."
             android:id="@+id/tvalmoco" />
 

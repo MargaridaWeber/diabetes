@@ -28,21 +28,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="A insulina rápida, também conhecida por insulina de ação curta ou regular, como Humolog ou Novorapid, por exemplo, é uma insulina que deve ser aplicada antes das refeições ou em alguns casos, logo após comer e que ajuda a manter os níveis de glicose estáveis após a ingestão de alimentos ricos em carboidratos, como arroz ou pão."
+        android:text="A insulina rápida, também conhecida por insulina de ação curta é uma insulina que deve ser aplicada antes das refeições , esta ajuda a manter os níveis de glicose estáveis, após a ingestão de alimentos ricos em hidratos de carbono, como arroz ou pão o inicio da sua ação e imediato."
         android:id="@+id/textView108"
         android:layout_below="@+id/textView101"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="46dp" />
+        android:layout_marginTop="46dp"
+        android:gravity="center_horizontal" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15dp"
-        android:text="Além disso, também existe insulina ultra rápida que é semelhante à rápida, porém, o seu efeito começa 5 minutos após a aplicação."
-        android:id="@+id/textView109"
-        android:layout_below="@+id/textView108"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -52,7 +44,7 @@
         android:id="@+id/textView112"
         android:textStyle="bold"
         android:textColor="#FF0000"
-        android:layout_below="@+id/textView109"
+        android:layout_below="@+id/textView108"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginTop="46dp" />

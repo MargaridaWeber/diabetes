@@ -31,11 +31,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="A insulina de ação intermédia, conhecida por insulina NPH, como Insulatard ou Monotard por exemplo, tem ação mais lenta que a insulina regular, pois possui uma substância chamada de protamina que atrasa a liberação da insulina para a corrente sanguínea."
+        android:text="A insulina de ação intermédia ou mista, tem ação mais lenta que a insulina regular, pois possui uma substância chamada de protamina que atrasa a liberação da insulina para a corrente sanguínea."
         android:id="@+id/textView111"
         android:layout_below="@+id/textView110"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
    />
 
     <TextView

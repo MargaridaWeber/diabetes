@@ -32,7 +32,7 @@
         android:textSize="16dp"
         android:textStyle="bold"
         android:layout_marginBottom="10dp"
-        android:text="Para que qualquer tipo de tipo de insulina faça efeito é fundamental aplicá-la corretamente e, para isso é necessário:"
+        android:text="Para que a administração de insulina seja eficaz é necessário:"
         android:id="@+id/textView113"
         android:layout_below="@+id/textView100"
         android:layout_alignParentLeft="true"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="➤Administrá-la por baixo da pele, porque a sua absorção é subcutânea"
+        android:text="➤Administrá-la por via de injeçao subcutânea"
         android:id="@+id/textView114"
         android:layout_below="@+id/textView113"
         android:layout_alignParentLeft="true"
@@ -53,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="➤Fazer uma pequena prega na pele, antes de aplicar a injeção"
+        android:text="➤Fazer uma pequena prega na pele, antes de aplicar a injeção (é opcional)"
         android:id="@+id/textView115"
         android:layout_below="@+id/textView114"
         android:layout_alignParentLeft="true"
@@ -62,10 +62,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="➤Escolher a agulha adequada juntamente com os profissionais de saúde"
+        android:textSize="15dp"
+        android:id="@+id/textView132"
+        android:layout_below="@+id/textView115" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:textSize="15dp"
         android:text="➤Introduzir a agulha perpendicularmente à pele"
         android:id="@+id/textView116"
-        android:layout_below="@+id/textView115"
+        android:layout_below="@+id/textView132"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -73,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="➤Esperar 10 a 15 segundos após aplicá-la e só depois retirar a agulha da pele, para que entre no organismo a quantidade total de medicamento"
+        android:text="➤Esperar 10 a 15 segundos após aplicá-la e só depois retirar a agulha da pele"
         android:id="@+id/textView117"
         android:layout_below="@+id/textView116"
         android:layout_alignParentLeft="true"
@@ -83,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15dp"
-        android:text="➤Variar os locais das injeções, entre braço, coxa e barriga e mesmo nesses locais é importante rodar, para evitar hematomas e lipohipertrofia."
+        android:text="➤Variar os locais das injeções, entre braço, coxa e barriga e mesmo nesses locais é importante rodar, para evitar hematomas e lipodistrofias."
         android:id="@+id/textView118"
         android:layout_below="@+id/textView117"
         android:layout_alignParentLeft="true"
@@ -96,6 +104,7 @@
         android:src="@drawable/aplicar"
         android:layout_below="@+id/textView118"
        />
+
 
 
 
