@@ -83,6 +83,7 @@ public class GlicemiaActivity extends AppCompatActivity {
         final TextView iconHora = (TextView) findViewById(R.id.iconhora);
         final EditText valorGli = (EditText) findViewById(R.id.etValor);
         final Spinner spRefeicao = (Spinner) findViewById(R.id.spRefeicao);
+        final Spinner spMomento = (Spinner) findViewById(R.id.spmomento);
         final CheckBox chkPeso = (CheckBox) findViewById(R.id.chkPeso);
         final LinearLayout linearPeso = (LinearLayout) findViewById(R.id.linearPeso);
         final CheckBox chkPressao = (CheckBox) findViewById(R.id.chkPressaoArterial);
@@ -159,6 +160,8 @@ public class GlicemiaActivity extends AppCompatActivity {
                 String sistolica =  etSistolica.getText().toString();
                 String diastolica =  etDiastolica.getText().toString();
                 String notas = etNotas.getText().toString();
+                String[] vJejum = u.getGlicemiaDesejada()[0].split("-");
+                String[] vRef = u.getGlicemiaDesejada()[1].split("-");
 
                 int idade = u.getIdade();
 
@@ -196,25 +199,42 @@ public class GlicemiaActivity extends AppCompatActivity {
                         DialogHipo();
                         validar = false;
                     }
-                    if (valorGlicemia > 180){
+                    else if (valorGlicemia > 180){
                         DialogHiper();
-                         validar = false;}
-
-                    if (idade > 30 && valorGlicemia < 90) {
-                        DialogAviso();
                         validar = false;
                     }
+                    //valor da glicemia em jejum abaixo dos objetivos
+                    else if(valorGlicemia < Integer.parseInt(vJejum[0]) && spMomento.getSelectedItem().toString().equals("Antes")) {
+                        DialogAvisoBaixo();
+                        validar = false;
+                    }
+                    //valor da glicemia dps da refeicao maior que nos objetivos
+                    else if(valorGlicemia > Integer.parseInt(vRef[1]) && spMomento.getSelectedItem().toString().equals("Depois")){
+                        DialogAvisoAlto();
+                        validar = false;
+                    }
+                    //valor da glicemia em jejum acima dos objetivos
+                    else if(valorGlicemia >Integer.parseInt(vJejum[1]) && spMomento.getSelectedItem().toString().equals("Antes")){
+                        DialogAvisoAlto();
+                        validar = false;
+                    }
+                    //valor da glicemia dps da refeicao abaixo dos objetivos
+                   else if(valorGlicemia < Integer.parseInt(vRef[0]) && spMomento.getSelectedItem().toString().equals("Depois")){
+                        DialogAvisoBaixo();
+                        validar = false;
+                    }
+
+
                     if (valorGlicemia > 200){
                         DialogCuidado();
                         validar = false;}
+
 
                     if(validar==true){
 
                         Intent main = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(main);
                     }
-
-
                 }
             }
         });
@@ -254,11 +274,39 @@ public class GlicemiaActivity extends AppCompatActivity {
     }
 
 
-    private void DialogAviso() {
+
+    private void DialogAvisoBaixo() {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Valor de glicemia baixo!");
-        builder.setMessage("Cuidado! Está abaixo do recomendado, pode estar em risco de hipoglicemia\n\n• Deverá comer alguma coisa e medir novamente os seus níveis");
+        builder.setMessage("Cuidado! Está abaixo dos seus objetivos glicemicos\n\n• Deverá comer algo e medir novamente os seus níveis");
+        builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                Intent principal = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(principal);
+            }
+        });
+        alerta = builder.create();
+        alerta.show();
+
+        //Mudar cor do titulo
+        int textViewId = alerta.getContext().getResources().getIdentifier("android:id/alertTitle", null, null);
+        TextView tv = (TextView) alerta.findViewById(textViewId);
+        tv.setTextColor(getResources().getColor(R.color.orange));
+
+        //Mudar cor do divisor
+        int dividerId = alerta.getContext().getResources().getIdentifier("android:id/titleDivider", null, null);
+        View divider = alerta.findViewById(dividerId);
+        divider.setBackgroundColor(getResources().getColor(R.color.orange));
+    }
+
+
+
+    private void DialogAvisoAlto() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Valor de glicemia alto!");
+        builder.setMessage("Cuidado! Está acima dos seus objetivos glicemicos\n\n• Deverá beber água e medir novamente os seus níveis");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
                 Intent principal = new Intent(getApplicationContext(), MainActivity.class);

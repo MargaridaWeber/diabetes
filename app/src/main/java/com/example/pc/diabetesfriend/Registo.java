@@ -160,7 +160,7 @@ public class Registo extends AppCompatActivity implements AdapterView.OnItemSele
 
                 if(valido==true) {
                     String genero = spnGenero.getSelectedItem().toString();
-                    String antencedentes = spnGenero.getSelectedItem().toString();
+                    String antencedentes = spnAntec.getSelectedItem().toString();
                     char gen;
                     char ant;
                     if(genero.equals("Masculino"))

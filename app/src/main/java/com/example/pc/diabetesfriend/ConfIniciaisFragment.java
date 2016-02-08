@@ -56,11 +56,11 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         //Atribuir os valores ao utilizador consoante a sua idade e se tem ou não antecendentes
         if(idade<30&& u.getAntedecentes()=='N'){
             glicemiaDesejada[0]="70-110";
-            glicemiaDesejada[1]="110-145 ";
+            glicemiaDesejada[1]="110-145";
         }
         if(idade<30 && u.getAntedecentes()=='S'){
             glicemiaDesejada[0]="80-120";
-            glicemiaDesejada[1]="120-160 ";
+            glicemiaDesejada[1]="120-160";
         }
 
         if(idade>30 && u.getAntedecentes()=='N'){
@@ -69,7 +69,7 @@ public class ConfIniciaisFragment extends ListFragment implements AdapterView.On
         }
         if(idade>30 && u.getAntedecentes()=='S'){
             glicemiaDesejada[0]="90-130";
-            glicemiaDesejada[1]="130-180 ";
+            glicemiaDesejada[1]="130-180";
         }
 
         gdJejum = glicemiaDesejada[0].split("-");

@@ -110,10 +110,11 @@
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
         android:background="#E8E8E8"
-        android:layout_marginTop="-10dp">
+        android:layout_marginTop="-10dp"
+        android:weightSum="1">
 
         <TextView
-            android:layout_width="121dp"
+            android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Refeição"
@@ -125,8 +126,16 @@
             android:layout_marginLeft="10dp" />
 
         <Spinner
-            android:layout_width="175dp"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="53dp"
+            android:id="@+id/spmomento"
+            android:spinnerMode="dialog"
+            android:prompt="@string/refeicoes_titulo"
+            android:entries="@array/momento"/>
+
+        <Spinner
+            android:layout_width="120dp"
+            android:layout_height="61dp"
             android:id="@+id/spRefeicao"
             android:spinnerMode="dialog"
             android:prompt="@string/refeicoes_titulo"
