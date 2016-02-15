@@ -1,6 +1,8 @@
 package com.example.pc.diabetesfriend;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -14,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.io.FileOutputStream;
 
 public class EnviarRelatorioActivity extends AppCompatActivity {
 
@@ -54,7 +58,6 @@ public class EnviarRelatorioActivity extends AppCompatActivity {
                                 .toString())
                 );
                 startActivity(Intent.createChooser(emailIntent, "Send email..."));
-
             }
         });
     }
