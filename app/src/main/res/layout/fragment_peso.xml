@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:id="@+id/scrollView8"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,6 +15,36 @@
     tools:context="estatisticas.PesoFragment"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="IMC:"
+        android:id="@+id/textView109"
+        android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:id="@+id/tvImc"
+            android:layout_marginRight="25dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="17dp"
+            android:id="@+id/tvEstadoImc"
+            android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
     <Spinner
         android:layout_width="149dp"
         android:layout_height="wrap_content"
@@ -35,5 +65,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/head"
         android:id="@+id/tabela"></TableLayout>
+
 </LinearLayout>
 </ScrollView>

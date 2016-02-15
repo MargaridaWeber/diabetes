@@ -230,8 +230,8 @@ public class Utilizador {
         this.plano = plano;
     }
 
-    public float calcularIMC(){
-        float IMC = peso/(altura*altura);
+    public double calcularIMC(float peso,double altura){
+        double IMC = peso/(altura*altura);
         return IMC;
     }
 

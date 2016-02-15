@@ -51,6 +51,9 @@ public class PesoFragment extends Fragment {
         tabela = (TableLayout) v.findViewById(R.id.tabela);
         tabela.setStretchAllColumns(true);
 
+
+
+
         if (tempo.equals("7 dias")){
             int i=0;
             for (Peso p: u.getPesos7dias()) {
@@ -63,30 +66,28 @@ public class PesoFragment extends Fragment {
         spTempo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if(position==0){
+                if (position == 0) {
                     tabela.removeAllViews();
-                    int i=0;
+                    int i = 0;
                     for (Peso p : u.getPesos7dias()) {
                         TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
-                        tabela.addView(row,i);
+                        tabela.addView(row, i);
                         i++;
                     }
-                }
-                else if(position==1){
+                } else if (position == 1) {
                     tabela.removeAllViews();
-                    int i=0;
+                    int i = 0;
                     for (Peso p : u.getPesos14dias()) {
                         TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
-                        tabela.addView(row,i);
+                        tabela.addView(row, i);
                         i++;
                     }
-                }
-                else if(position==2){
+                } else if (position == 2) {
                     tabela.removeAllViews();
-                    int i=0;
+                    int i = 0;
                     for (Peso p : u.getPesos30dias()) {
                         TableRow row = addRow(p.getDataString(), p.getHora(), p.getValor(), i);
-                        tabela.addView(row,i);
+                        tabela.addView(row, i);
                         i++;
                     }
                 }
@@ -98,6 +99,48 @@ public class PesoFragment extends Fragment {
             }
 
         });
+
+        TextView tvImc = (TextView) v.findViewById(R.id.tvImc);
+        TextView estado = (TextView)v.findViewById(R.id.tvEstadoImc);
+        double imc = u.calcularIMC(u.getPeso(), (u.getAltura() * 0.01));
+        tvImc.setText(String.format("%.2f", imc));
+
+        if(u.getGenero()=='F' && imc  <  19.1) {
+            estado.setText("Abaixo do peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.orange));
+        }
+        else if(u.getGenero()=='F' && imc  >  19.5  && imc < 25.8) {
+            estado.setText("Peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.green));
+        }
+        else if(u.getGenero()=='F' && imc  >  27.3  && imc < 32.3){
+            estado.setText("Acima do peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.orange));
+        }
+        else if(u.getGenero()=='F' && imc  > 32.3){
+            estado.setText("Obeso");
+            estado.setTextColor(getResources().getColor(R.color.red));
+        }
+
+
+
+        if(u.getGenero()=='M' && imc  <  20.7) {
+            estado.setText("Abaixo do peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.orange));
+        }
+        else if(u.getGenero()=='M' && imc  >  20.7  && imc < 26.4) {
+            estado.setText("Peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.green));
+        }
+        else if(u.getGenero()=='M' && imc  >  27.8 && imc < 31.1){
+            estado.setText("Acima do peso ideal");
+            estado.setTextColor(getResources().getColor(R.color.orange));
+        }
+        else if(u.getGenero()=='M' && imc  > 31.1){
+            estado.setText("Obeso");
+            estado.setTextColor(getResources().getColor(R.color.red));
+
+        }
 
 
         if(!u.getPesos().isEmpty()){
@@ -145,6 +188,7 @@ public class PesoFragment extends Fragment {
         return v;
     }
 
+
     public TableRow addRow(String data, String hora, float valor, int i){
 
         TableRow row = new TableRow(getActivity());
@@ -186,5 +230,9 @@ public class PesoFragment extends Fragment {
         row.addView(tvValor);
 
         return row;
+
+
     }
+
+
 }
