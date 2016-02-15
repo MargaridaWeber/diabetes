@@ -63,12 +63,71 @@
         android:id="@+id/checkBox"
         android:checked="false" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7 dias"
+            android:id="@+id/radioButton7"
+            android:checked="false"
+            android:layout_marginLeft="20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 dias"
+            android:id="@+id/radioButton8"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 dias"
+            android:id="@+id/radioButton9"
+            android:checked="false" />
+    </LinearLayout>
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Gráficos"
         android:id="@+id/checkBox2"
         android:checked="false" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7 dias"
+            android:id="@+id/radioButton10"
+            android:checked="false"
+            android:layout_marginLeft="20dp" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14 dias"
+            android:id="@+id/radioButton11"
+            android:layout_gravity="center_horizontal"
+            android:checked="false" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30 dias"
+            android:id="@+id/radioButton12"
+            android:checked="false" />
+    </LinearLayout>
 
     <Button
         android:layout_width="fill_parent"

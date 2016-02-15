@@ -155,6 +155,7 @@ public class GlicemiaActivity extends AppCompatActivity {
                 String dateString = data.getText().toString();
                 String hour = hora.getText().toString();
                 String glicemia = valorGli.getText().toString();
+                String momento = spMomento.getSelectedItem().toString();
                 String refeicao = spRefeicao.getSelectedItem().toString();
                 String peso = etPeso.getText().toString();
                 String sistolica =  etSistolica.getText().toString();
@@ -180,7 +181,7 @@ public class GlicemiaActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
 
-                    Glicemia gli = new Glicemia(date, hour, valorGlicemia, refeicao, notas);
+                    Glicemia gli = new Glicemia(date, hour, valorGlicemia, momento, refeicao, notas);
                     u.adicionarGlicemia(gli);
 
                     //Se o utilizador inserir o peso ou a pressão
@@ -204,22 +205,22 @@ public class GlicemiaActivity extends AppCompatActivity {
                         validar = false;
                     }
                     //valor da glicemia em jejum abaixo dos objetivos
-                    else if(valorGlicemia < Integer.parseInt(vJejum[0]) && spMomento.getSelectedItem().toString().equals("Antes")) {
+                    else if(valorGlicemia < Integer.parseInt(vJejum[0]) && momento.equals("Antes")) {
                         DialogAvisoBaixo();
                         validar = false;
                     }
                     //valor da glicemia dps da refeicao maior que nos objetivos
-                    else if(valorGlicemia > Integer.parseInt(vRef[1]) && spMomento.getSelectedItem().toString().equals("Depois")){
+                    else if(valorGlicemia > Integer.parseInt(vRef[1]) && momento.equals("Depois")){
                         DialogAvisoAlto();
                         validar = false;
                     }
                     //valor da glicemia em jejum acima dos objetivos
-                    else if(valorGlicemia >Integer.parseInt(vJejum[1]) && spMomento.getSelectedItem().toString().equals("Antes")){
+                    else if(valorGlicemia >Integer.parseInt(vJejum[1]) && momento.equals("Antes")){
                         DialogAvisoAlto();
                         validar = false;
                     }
                     //valor da glicemia dps da refeicao abaixo dos objetivos
-                   else if(valorGlicemia < Integer.parseInt(vRef[0]) && spMomento.getSelectedItem().toString().equals("Depois")){
+                   else if(valorGlicemia < Integer.parseInt(vRef[0]) && momento.equals("Depois")){
                         DialogAvisoBaixo();
                         validar = false;
                     }

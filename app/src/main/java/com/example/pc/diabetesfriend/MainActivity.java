@@ -1,5 +1,6 @@
 package com.example.pc.diabetesfriend;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.OutputStreamWriter;
 import java.util.HashMap;
 
 import alarmes.AlarmesActivity;
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Diabetes Friend </font>")); //Cor do titulo
+
 
         Button btnAlarme = (Button) findViewById(R.id.btnAlarmes);
         btnAlarme.setOnClickListener(new View.OnClickListener() {

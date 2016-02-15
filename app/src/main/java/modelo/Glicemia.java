@@ -12,13 +12,15 @@ public class Glicemia {
     private Date data;
     private String hora;
     private int valor;
+    private String momento;
     private String refeicao;
     private String notas;
 
-    public Glicemia(Date data, String hora, int valor,  String refeicao, String notas) {
+    public Glicemia(Date data, String hora, int valor,  String momento, String refeicao, String notas) {
         this.data = data;
         this.hora = hora;
         this.valor = valor;
+        this.momento = momento;
         this.refeicao = refeicao;
         this.notas = notas;
     }
@@ -33,6 +35,10 @@ public class Glicemia {
 
     public String getNotas() {
         return notas;
+    }
+
+    public String getMomento() {
+        return momento;
     }
 
     public String getRefeicao() {

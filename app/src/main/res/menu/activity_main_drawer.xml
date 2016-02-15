@@ -11,14 +11,6 @@
                 android:icon="@drawable/ic_menu_manage"
                 android:title="Configurações" />
 
-            <item android:id="@+id/historico"
-                android:title="Histórico de Registos"
-                android:icon="@drawable/ic_historico"/>
-
-            <item android:id="@+id/agenda"
-                android:title="Anotação Consultas"
-                android:icon="@drawable/ic_date"/>
-
              <item android:id="@+id/sair"
                 android:title="Sair"
                  android:icon="@drawable/ic_sair"/>

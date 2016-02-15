@@ -60,7 +60,7 @@ public class GlicemiaFragment extends Fragment {
         if (tempo.equals("7 dias")){
             int i=0;
             for (Glicemia gli : u.getGlicemias7dias()) {
-                TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getMomento(), gli.getRefeicao(), i);
                 tabela.addView(row,i);
 
                 i++;
@@ -74,7 +74,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias7dias()) {
-                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getMomento(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -83,7 +83,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias14dias()) {
-                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getMomento(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -92,7 +92,7 @@ public class GlicemiaFragment extends Fragment {
                     tabela.removeAllViews();
                     int i=0;
                     for (Glicemia gli : u.getGlicemias30dias()) {
-                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getRefeicao(), i);
+                        TableRow row = addRow(gli.getDataString(), gli.getHora(), gli.getValor(), gli.getMomento(), gli.getRefeicao(), i);
                         tabela.addView(row,i);
                         i++;
                     }
@@ -119,7 +119,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvData = new TextView(getActivity());
             tvData.setText("Data");
             tvData.setBackgroundResource(R.drawable.row_head);
-            tvData.setWidth(135);
+            tvData.setWidth(50);
             tvData.setPadding(10, 10, 10, 10);
             tvData.setTextColor(Color.WHITE);
             tvData.setTypeface(null, Typeface.BOLD);
@@ -129,7 +129,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvHora = new TextView(getActivity());
             tvHora.setText("Hora");
             tvHora.setBackgroundResource(R.drawable.row_head);
-            tvHora.setWidth(80);
+            tvHora.setWidth(50);
             tvHora.setPadding(10, 10, 10, 10);
             tvHora.setTextColor(Color.WHITE);
             tvHora.setTypeface(null, Typeface.BOLD);
@@ -139,7 +139,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvValor = new TextView(getActivity());
             tvValor.setText("Valor");
             tvValor.setBackgroundResource(R.drawable.row_head);
-            tvValor.setWidth(80);
+            tvValor.setWidth(50);
             tvValor.setPadding(10, 10, 10, 10);
             tvValor.setTextColor(Color.WHITE);
             tvValor.setTypeface(null, Typeface.BOLD);
@@ -149,7 +149,7 @@ public class GlicemiaFragment extends Fragment {
             TextView tvRefeicao = new TextView(getActivity());
             tvRefeicao.setText("Refeicao");
             tvRefeicao.setBackgroundResource(R.drawable.row_head);
-            tvRefeicao.setWidth(150);
+            tvRefeicao.setWidth(200);
             tvRefeicao.setPadding(10, 10, 10, 10);
             tvRefeicao.setTextColor(Color.WHITE);
             tvRefeicao.setTypeface(null, Typeface.BOLD);
@@ -162,34 +162,35 @@ public class GlicemiaFragment extends Fragment {
         return v;
     }
 
-    public TableRow addRow(String data, String hora, int valor, String refeicao, int i){
+    public TableRow addRow(String data, String hora, int valor,String momento, String refeicao, int i){
 
         TableRow row = new TableRow(getActivity());
         TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT);
         row.setLayoutParams(lp);
 
+        String[] date = data.split("/");
         TextView tvData = new TextView(getActivity());
-        tvData.setText(data);
-        tvData.setWidth(135);
+        tvData.setText(date[0]+"/"+date[1]);
+        tvData.setWidth(50);
         tvData.setPadding(10, 10, 10, 10);
         tvData.setTextColor(Color.BLACK);
 
         String[] horas = hora.split(":");
         TextView tvHora = new TextView(getActivity());
         tvHora.setText(horas[0] + ":" + horas[1]);
-        tvHora.setWidth(80);
+        tvHora.setWidth(50);
         tvHora.setPadding(10, 10, 10, 10);
         tvHora.setTextColor(Color.BLACK);
 
         TextView tvValor = new TextView(getActivity());
         tvValor.setText(String.valueOf(valor));
-        tvValor.setWidth(80);
+        tvValor.setWidth(50);
         tvValor.setPadding(10, 10, 10, 10);
         tvValor.setTextColor(Color.BLACK);
 
         TextView tvRefeicao = new TextView(getActivity());
-        tvRefeicao.setText(refeicao);
-        tvRefeicao.setWidth(150);
+        tvRefeicao.setText(momento+" "+refeicao);
+        tvRefeicao.setWidth(200);
         tvRefeicao.setPadding(10, 10, 10, 10);
         tvRefeicao.setTextColor(Color.BLACK);
 

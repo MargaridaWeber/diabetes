@@ -1,5 +1,10 @@
 package modelo;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 /**
@@ -47,6 +52,5 @@ public class DiabetesFriend {
         }
         return null;
     }
-
 
 }
