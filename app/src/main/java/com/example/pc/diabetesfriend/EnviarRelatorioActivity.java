@@ -50,13 +50,16 @@ public class EnviarRelatorioActivity extends AppCompatActivity {
                 Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                         "mailto", etDestinatario.getText().toString(), null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-                emailIntent.putExtra(
-                        Intent.EXTRA_TEXT,
-                        Html.fromHtml(new StringBuilder()
-                                .append("<table><tr><td>data</td><td>hora</td><td>valor</td><td>refeição</td></tr></table>")
-                              // .append("<tr><td>data</td><td>hora</td><td>valor</td><td>refeição</td></tr>")
-                                .toString())
-                );
+
+                StringBuilder sb = new StringBuilder();
+                sb.append("<table><tr><td>data</td><td>hora</td><td>valor</td><td>refeição</td></tr></table>");
+                sb.append("teste");
+                emailIntent.putExtra( Intent.EXTRA_TEXT, Html.fromHtml(sb.toString()));
+ ;
+
+                //emailIntent.putExtra(Intent.EXTRA_STREAM, filelocation);
+
+
                 startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         });
