@@ -18,13 +18,31 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.io.FileOutputStream;
+import java.util.HashMap;
+
+import modelo.DiabetesFriend;
+import modelo.Glicemia;
+import modelo.SessionManager;
+import modelo.Utilizador;
 
 public class EnviarRelatorioActivity extends AppCompatActivity {
+
+
+    DiabetesFriend diabetes;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enviar_relatorio);
+
+        diabetes = DiabetesFriend.getInstance();
+        session = new SessionManager(getApplicationContext());
+
+        // Obtem dados da sessão
+        HashMap<String, String> user = session.getUserDetails();
+        String email = user.get(SessionManager.KEY_EMAIL);
+        final Utilizador u = diabetes.pesquisarUtilizador(email);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowHomeEnabled(true);
@@ -52,13 +70,13 @@ public class EnviarRelatorioActivity extends AppCompatActivity {
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
 
                 StringBuilder sb = new StringBuilder();
-                sb.append("<table><tr><td>data</td><td>hora</td><td>valor</td><td>refeição</td></tr></table>");
-                sb.append("teste");
+                for(Glicemia gli: u.getGlicemias()){
+                    sb.append(gli.getDataString() + " " + gli.getHora() + " " + gli.getValor() + " " + gli.getRefeicao());
+                }
+
                 emailIntent.putExtra( Intent.EXTRA_TEXT, Html.fromHtml(sb.toString()));
- ;
 
                 //emailIntent.putExtra(Intent.EXTRA_STREAM, filelocation);
-
 
                 startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
