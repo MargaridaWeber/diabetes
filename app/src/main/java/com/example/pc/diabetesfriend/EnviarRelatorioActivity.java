@@ -71,10 +71,10 @@ public class EnviarRelatorioActivity extends AppCompatActivity {
 
                 StringBuilder sb = new StringBuilder();
                 for(Glicemia gli: u.getGlicemias()){
-                    sb.append(gli.getDataString() + " " + gli.getHora() + " " + gli.getValor() + " " + gli.getRefeicao());
+                    sb.append("<p>"+gli.getDataString() + " " + gli.getHora() + " " + gli.getValor() + " " + gli.getRefeicao()+"</p>");
                 }
 
-                emailIntent.putExtra( Intent.EXTRA_TEXT, Html.fromHtml(sb.toString()));
+                emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(sb.toString()));
 
                 //emailIntent.putExtra(Intent.EXTRA_STREAM, filelocation);
 
