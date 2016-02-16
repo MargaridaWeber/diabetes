@@ -109,8 +109,6 @@ public class GraficosFragment extends Fragment {
                     criarGrafico7dias();
                     definirDiasEscala(8);
 
-                    graph.setDrawingCacheEnabled(true);
-                    Bitmap bm = graph.getDrawingCache();
 
                 } else if (position == 1) {
                     graph.removeAllSeries();
