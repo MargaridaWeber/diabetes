@@ -60,13 +60,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tabela"
-        android:id="@+id/checkBox"
+        android:id="@+id/chkTabela"
         android:checked="false" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+ <RadioGroup
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:orientation="horizontal"
+     android:id="@+id/rgTabela"
+     android:visibility="gone">
 
         <RadioButton
             android:layout_width="wrap_content"
@@ -90,21 +92,21 @@
             android:text="30 dias"
             android:id="@+id/radioButton9"
             android:checked="false" />
-    </LinearLayout>
-
+ </RadioGroup>
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gráficos"
-        android:id="@+id/checkBox2"
+        android:text="Gráfico"
+        android:id="@+id/chkGrafico"
         android:checked="false" />
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
 
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="53dp"
+            android:orientation="horizontal"
+            android:id="@+id/rgGrafico"
+            android:visibility="gone">
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -127,7 +129,7 @@
             android:text="30 dias"
             android:id="@+id/radioButton12"
             android:checked="false" />
-    </LinearLayout>
+</RadioGroup>
 
     <Button
         android:layout_width="fill_parent"

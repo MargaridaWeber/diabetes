@@ -15,7 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import java.io.FileOutputStream;
 import java.util.HashMap;
@@ -50,35 +54,58 @@ public class EnviarRelatorioActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#e4e4e4")));
         actionBar.setTitle(Html.fromHtml("<font color='#0060a2'>Enviar Relatório </font>")); //Titulo da action bar
 
+        CheckBox chkTabela = (CheckBox) findViewById(R.id.chkTabela);
+        CheckBox chkGrafico = (CheckBox) findViewById(R.id.chkGrafico);
+        final RadioGroup rgTabela = (RadioGroup) findViewById(R.id.rgTabela);
+        final RadioGroup rgGrafico = (RadioGroup) findViewById(R.id.rgGrafico);
+
+
+        chkTabela.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+               @Override
+               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                   if (isChecked == true)
+                       rgTabela.setVisibility(View.VISIBLE);
+                   else
+                       rgTabela.setVisibility(View.GONE);
+               }
+           }
+        );
+
+        chkGrafico.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                 @Override
+                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                     if (isChecked == true)
+                         rgGrafico.setVisibility(View.VISIBLE);
+                     else
+                         rgGrafico.setVisibility(View.GONE);
+                 }
+             }
+        );
+
         Button btnEnviar = (Button) findViewById(R.id.btnEnviar);
         btnEnviar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText etDestinatario = (EditText) findViewById(R.id.etDestinatario);
+                EditText etCC = (EditText) findViewById(R.id.etCC);
                 EditText etAssunto= (EditText) findViewById(R.id.etAssunto);
                 EditText etMensagem= (EditText) findViewById(R.id.etMensagem);
 
-                /*Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("image/jpeg");
-                emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[] {etDestinatario.getText().toString()});
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, etAssunto.getText().toString());
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, etMensagem.getText().toString());*/
                 //Log.v(getClass().getSimpleName(), "sPhotoUri=" + Uri.parse("file:/" + sPhotoFileName));
                 // emailIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse("file:/" + sPhotoFileName));
 
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                        "mailto", etDestinatario.getText().toString(), null));
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", etDestinatario.getText().toString(), null));
                 emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
 
                 StringBuilder sb = new StringBuilder();
-                for(Glicemia gli: u.getGlicemias()){
-                    sb.append("<p>"+gli.getDataString() + " " + gli.getHora() + " " + gli.getValor() + " " + gli.getRefeicao()+"</p>");
+                for(Glicemia gli: u.getGlicemias7dias()){
+                    sb.append(etMensagem.getText().toString()+"<p>Data: "+gli.getDataString() + " Hora: " + gli.getHora() + " Valor: " + gli.getValor() + " Refeição: " + gli.getMomento() + " " + gli.getRefeicao()+"</p><hr>");
                 }
 
                 emailIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(sb.toString()));
-
-                //emailIntent.putExtra(Intent.EXTRA_STREAM, filelocation);
-
-                startActivity(Intent.createChooser(emailIntent, "Send email..."));
+                startActivity(Intent.createChooser(emailIntent, "A enviar e-mail..."));
+                finish();
             }
         });
     }
